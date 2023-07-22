@@ -311,6 +311,7 @@ const styleSheet = StyleSheet.create({
     width: "80%",
     height: 50,
     backgroundColor: "white",
+    color:"black"
   },
 
   button: {

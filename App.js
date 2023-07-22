@@ -100,10 +100,10 @@ export default function App() {
     storeData();
     var CheckisLoggedIn = isLoggedIn
     if (CheckisLoggedIn == "true") {
-      <View><Text>TEST IF</Text></View>
-      // return (
-      //   <Provider store={store}><NavigationScreen></NavigationScreen></Provider>
-      // );
+      return (
+        // <NavigationScreen></NavigationScreen>
+        <NavigationScreen_login></NavigationScreen_login>
+      );
     } else {
       return (
         <NavigationScreen_login></NavigationScreen_login>

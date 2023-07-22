@@ -1,0 +1,22 @@
+import React from "react";
+import {View,Text,StyleSheet} from 'react-native'
+
+const FirstBottomPage = props => {
+  return(
+    <View style={styles.container}>
+        <Text>FirstBottomPage</Text>
+    </View>
+  );
+}
+
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+  });
+
+export default FirstBottomPage;

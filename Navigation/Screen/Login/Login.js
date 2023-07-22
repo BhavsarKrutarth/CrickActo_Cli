@@ -197,6 +197,8 @@ const styleSheet = StyleSheet.create({
     terms1:{
         
         textAlign:'center',
+        color:Color.PrimaryColor,
+        fontWeight:"700"
        
     },
     terms2:{

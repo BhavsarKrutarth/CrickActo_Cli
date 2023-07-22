@@ -354,11 +354,12 @@ Container:{
 heading:{
     fontSize: 30,
     fontWeight:"bold",
-    
+    color:"black"
 },
 subheading:{
     fontSize: 23,
     fontWeight:"bold",
+    color:"black"
 },
 otptext:{
     backgroundColor:'#f5f4f2',
@@ -374,7 +375,8 @@ otptext:{
     borderColor:Color.sliverColor,
     justifyContent:"center",
     alignItems:"center",
-    textAlign:"center"
+    textAlign:"center",
+    color:"black"
 },
 otpContainer:{
     display:"flex",
@@ -398,13 +400,15 @@ btnContinueText:{
     fontSize: 20,
     textAlign: 'center',
     color: 'white',
+    fontWeight:"600"
 },
 TimerContinuer:
 {
     paddingTop:20
 },
 TimerText:{
-    fontSize:16
+    fontSize:16,
+    color:"black",
 },
 btnsms:{
     justifyContent: 'center',
@@ -427,7 +431,8 @@ errorcontainer:{
 },
 errorText:{
     fontSize:15,
-    color:Color.ErrorColor
+    color:Color.ErrorColor,
+    color:"black"
 }
 });
 export default OTP_Verify;
