@@ -4,6 +4,7 @@ import PhoneInput from 'react-native-phone-number-input';
 import Color from '../../../Color/Color';
 import { useNavigation } from '@react-navigation/native';
 import InertNetCheck from '../InertNetCheck.js';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Login = props => {
    
@@ -98,8 +99,8 @@ const Login = props => {
         
       }
     }
-    function btnclicklogin(){
-        CHECK_USER_OR_NOT_API(phoneNumber,CountryCode,CountryCode_state);
+    const btnclicklogin = async () => {
+      CHECK_USER_OR_NOT_API(phoneNumber,CountryCode,CountryCode_state);
       // props.navigation.navigate
       // (
       // 'OTP_Verify',
@@ -107,6 +108,7 @@ const Login = props => {
       //     params: { phoneNumber : phoneNumber },
       // },
       // )
+      
     }
 
     return (
