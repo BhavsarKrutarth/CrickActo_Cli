@@ -101,7 +101,6 @@ export default function App() {
     storeData();
     var CheckisLoggedIn = isLoggedIn
     if (CheckisLoggedIn == "true") {
-      console.log("Enter the In")
       return (
         // <NavigationScreen></NavigationScreen>
         <NavigationScreen></NavigationScreen>

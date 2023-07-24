@@ -138,7 +138,9 @@ const UserProfile = (props) => {
                 Oper: "Add",
               })
             }
-            style={{ color: "green", fontSize: 26, fontWeight: "bold" }}
+            style={{ color: "green", fontSize: 26, 
+             fontWeight: "bold"
+           }}
           >
             Edit
           </Text>
@@ -255,13 +257,13 @@ const styles = StyleSheet.create({
   },
   title: {
     color: Color.Texttitle,
-    Weight: "bold",
+    fontWeight: "bold",
     fontSize: 16,
     margin: 5,
   },
   title1: {
     color: "black",
-    Weight: "bold",
+    fontWeight: "bold",
     fontSize: 20,
     marginLeft: 5,
   },

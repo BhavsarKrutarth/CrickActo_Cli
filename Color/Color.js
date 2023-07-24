@@ -23,5 +23,6 @@ export default
     Black:"black",
     White:"white",
     TextTitle1:"#959c9f",
-    TextTitle2:"#2c363d"
+    TextTitle2:"#2c363d",
+    FontColor:"black"
 }

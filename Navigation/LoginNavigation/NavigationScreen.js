@@ -27,11 +27,15 @@ import Tournament from "../Screen/Tournament/Tournament";
 import MyTeam from "../Screen/MyTeams/MyTeam";
 import MyTeamFollowing from "../Screen/MyTeams/MyTeamFollowing";
 import CustomeDrawer from "./CustomeDrawer";
+import UserProfile from "../Screen/UserProfile/UserProfile";
+import UserProfileEdit from "../Screen/UserProfile/UserProfileEdit";
+import UserProfileCity from "../Screen/UserProfile/UserProfileDropDown/UserProfileCity";
+import PayingRole from "../Screen/UserProfile/UserProfileDropDown/PayingRole";
 
 
 
 const Stack = createNativeStackNavigator();
-const Tab = createMaterialTopTabNavigator(); 
+const Tab = createMaterialTopTabNavigator();
 const Drawer = createDrawerNavigator();
 const BottomTab = createBottomTabNavigator();
 
@@ -81,28 +85,6 @@ const BottomTabStack = () => {
           ),
         }}
       />
-      {/* ChatTest */}
-      {/* <BottomTab.Screen
-        name="TournamentGroundNewList"
-        component={TournamentGroundNewList}
-        options={{
-          title: "Test Page",
-          headerShown: false,
-          headerTransparent: false,
-          tabBarIcon: ({ color, size }) => (
-            // <Ionicons name="list" color={color} size={size} />
-            <Image
-              source={{
-                uri:
-                  "" +
-                  global.domainName +
-                  `/CricbuddyAdmin/Content/assets/tournament/tournament.png`,
-              }}
-              style={{ width: 25, height: 25 }}
-            />
-          ),
-        }}
-      /> */}
     </BottomTab.Navigator>
   );
 };
@@ -113,8 +95,8 @@ function TopTabNavigation_Tournament({ route }) {
         route.params === undefined
           ? "MyMatch"
           : route.params.PageName != ""
-          ? route.params.PageName
-          : "MyMatch"
+            ? route.params.PageName
+            : "MyMatch"
       }
       screenOptions={{
         tabBarActiveTintColor: Color.WhiteBGColor,
@@ -180,7 +162,7 @@ const HomeScreenStack = () => {
   return (
     <Stack.Navigator
       initialRouteName="HomeScreen"
-      screenOptions={{headerShown: false}}>
+      screenOptions={{ headerShown: false }}>
       <Stack.Screen name="BottomTabStack" component={BottomTabStack} />
     </Stack.Navigator>
   );
@@ -205,16 +187,53 @@ function DrawerNavigator() {
         }
       }
     >
-      
+
       <Drawer.Screen
-          name="HomeScreenStack"
-          options={{
-            drawerLabel: 'Home Screen Option',
-            title: '',
-          }}
-          component={HomeScreenStack}
-        />
-        <Drawer.Screen name="MainPage" component={MainPage} />
+        name="HomeScreenStack"
+        options={{
+          drawerLabel: '',
+          title: '',
+          drawerIcon: () => (
+            <Image
+              source={{
+                uri:
+                  "" +
+                  global.domainName +
+                  "/CricbuddyAdmin/Content/assets/home.png",
+              }}
+              style={{ width: 25, height: 25 }}
+            />
+          ),
+        }}
+        component={HomeScreenStack}
+      />
+      <Drawer.Screen
+        name="TopTabNavigation_Tournament"
+        component={TopTabNavigation_Tournament}
+        initialParams={{ PageName: "Tournament" }}
+        options={{
+          title: "Tournamanet",
+          // headerTitle: () => (
+          //   <Image
+          //     source={{
+          //       uri: ""+global.domainName+"/CricbuddyAdmin/Content/assets/tournament/Cricheroes_logo.png",
+          //     }}
+          //     style={{ width: 170, height: 30}}
+          //   />
+          // ),
+          drawerIcon: () => (
+            <Image
+              source={{
+                uri:
+                  "" +
+                  global.domainName +
+                  "/CricbuddyAdmin/Content/assets/tournament/tournament.png",
+              }}
+              style={{ width: 25, height: 25 }}
+            />
+          ),
+        }}
+      />
     </Drawer.Navigator>
   );
 }
@@ -244,22 +263,52 @@ const NavigationScreen = (props) => {
               headerShown: false,
             }}
           />
-          {/* <Stack.Screen
-            name="MyProfile"
-            component={MyProfile}
+          <Stack.Screen
+            name="UserProfile"
+            component={UserProfile}
             options={{
-              
+
             }}
-          /> */}
-          {/* <Stack.Screen
-            name="MainPage"
-            component={MainPage}
+          />
+          <Stack.Screen
+            name="UserProfileEdit"
+            component={UserProfileEdit}
             options={{
-              
+              title: "User Profile",
+              headerTitleAlign: "center",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
             }}
-          /> */}
-
-
+          />
+          <Stack.Screen
+            name="UserProfileCity"
+            component={UserProfileCity}
+            options={{
+              title: "Select City",
+              headerTitleAlign: "center",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            }}
+          />
+          <Stack.Screen
+            name="PayingRole"
+            component={PayingRole}
+            options={{
+              title: "Select Paying Role",
+              headerTitleAlign: "center",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
