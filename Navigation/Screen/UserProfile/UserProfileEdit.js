@@ -156,9 +156,9 @@ const UserProfileEdit = props => {
               NAME: Name,
               EMAIL: Email,
               GENDER: Gender,
-              PAYINGROLE: PlayingroleValue,
-              BATTINGSTYLE: BattingStyleValue,
-              BOWLINGSTYLE: BowlingstyleValue,
+              PAYINGROLE: "",
+              BATTINGSTYLE: "",
+              BOWLINGSTYLE: "",
               // LOCATION:location,
               CITYID: CityId,
               CITYNAME: CityName,
@@ -353,84 +353,80 @@ const UserProfileEdit = props => {
             placeholder="Search City"
             onFocus={() => navigation.navigate("UserProfileCity", {
               MobileNo,
-              PageRedirect: "UserProfileEdit"
+              PageRedirect: "UserProfileEdit",
+              CityName: CityName,
+              CityId: CityId
             })}
             style={styles.input}
             value={CityName}
           />
         </View>
-      </View>
-      {/* <ScrollView scrollEnabled={true}>
-          <View style={styles.body}>
-            <View style={styles.body100}>
-              <Text style={styles.title}>MOBILE NO</Text>
-              <Text style={styles.title1}>{MobileNo}</Text>
-            </View>
-            <View style={styles.body100}>
-              <Text style={styles.title}>Player Name</Text>
-              <TextInput
-                autoFocus
-                placeholderTextColor={"black"}
-                value={Name == "-" ? "" : Name}
-                style={styles.input}
-                onChangeText={(text) => setName(text)}
-                placeholder="Enter Name"
-              />
-            </View>
-            <View style={styles.body100}>
-              <Text style={styles.title}>Location</Text>
-             
-               <TextInput
-                    KeyboardAvoidingView={true}
-                    placeholder="Search City"
-                    onFocus={() => navigation.navigate("UserProfileCity",{
-                      MobileNo,
-                      PageRedirect:"UserProfileEdit"
-                    })}
-                    style={styles.input}
-                    value={CityName}
-                  />
-            </View>
-            <View style={styles.body100}>
-              <Text style={styles.title}>Email</Text>
-              <TextInput
-                placeholderTextColor={"black"}
-                style={[styles.input, { borderBottomColor: errroborder }]}
-                placeholder="Enter Email Address"
-                value={Email == "-" ? "" : Email}
-                onChangeText={(text) => validateEmail(text)}
-              />
-              {TextErrorDisplay}
-            </View>
-            <View style={styles.body100}>
-              <View
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                }}
-              >
-                <Text style={styles.title}>PIN</Text>
-                <Ionicons
-                  onPress={() =>
-                    Passwordshow == true
-                      ? setPasswordshow(false)
-                      : setPasswordshow(true)
-                  }
-                  name="eye"
-                  size={30}
-                  style={{ marginRight: 15 }}
+        <View style={styles.body100}>
+          <Text style={styles.title}>Email</Text>
+          <TextInput
+            placeholderTextColor={"black"}
+            style={[styles.input, { borderBottomColor: errroborder }]}
+            placeholder="Enter Email Address"
+            value={Email == "-" ? "" : Email}
+            onChangeText={(text) => validateEmail(text)}
+          />
+          {TextErrorDisplay}
+        </View>
+        <View style={styles.body100}>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Text style={styles.title}>PIN</Text>
+            {/* <Ionicons
+              onPress={() =>
+                Passwordshow == true
+                  ? setPasswordshow(false)
+                  : setPasswordshow(true)
+              }
+              name="eye"
+              size={30}
+              style={{ marginRight: 15 }}
+            /> */}
+            <Pressable onPress={() =>
+              Passwordshow == true
+                ? setPasswordshow(false)
+                : setPasswordshow(true)
+            }>
+              {Passwordshow == true ? (
+
+                <Image
+                  source={{
+                    uri:
+                      "" +
+                      global.domainName +
+                      `/CricbuddyAdmin/Content/assets/eye_hide.png`,
+                  }}
+                  style={{ width: 25, height: 25, marginRight: 15, marginTop: 10 }}
                 />
-              </View>
-              <TextInput
-                placeholderTextColor={"black"}
-                placeholder="Enter Pin Set"
-                style={styles.input}
-                value={pin == "-" ? "" : pin}
-                secureTextEntry={Passwordshow}
-                onChangeText={(text) => setpin(text)}
-              />
-            </View>
-            <View style={styles.body100}>
+              ) : <Image
+              source={{
+                uri:
+                  "" +
+                  global.domainName +
+                  `/CricbuddyAdmin/Content/assets/eye.png`,
+              }}
+              style={{ width: 25, height: 25,marginRight: 15,marginTop:10  }}
+            />}
+            </Pressable>
+          </View>
+          <TextInput
+            placeholderTextColor={"black"}
+            placeholder="Enter Pin Set"
+            style={styles.input}
+            value={pin == "-" ? "" : pin}
+            secureTextEntry={Passwordshow}
+            onChangeText={(text) => setpin(text)}
+          />
+        </View>
+        {/*<View style={styles.body100}>
               <Text style={styles.title}>Paying Role</Text>
               <TextInput
                 placeholderTextColor={"black"}
@@ -471,7 +467,7 @@ const UserProfileEdit = props => {
                   })
                 }
               />
-            </View>
+            </View>*/}
             <View style={styles.body100}>
               <Text style={styles.title}>Gender</Text>
               <View style={[styles.width100, styles.rbtwrapper]}>
@@ -504,17 +500,11 @@ const UserProfileEdit = props => {
                 onPress={() => btnSave()}
               >
                 <Text style={{ color: "white" }}>
-                  {" "}
-                  <Ionicons
-                    name="checkmark-circle-outline"
-                    size={Color.ButtonSize}
-                  />{" "}
                   Save
                 </Text>
               </Pressable>
-            </View>
-          </View>
-        </ScrollView> */}
+            </View> 
+      </View>
       <View style={styles.ModalContainer}>
         <Modal
           animationType="slide"
@@ -670,7 +660,8 @@ const styles = StyleSheet.create({
   Modalbutton: {
     borderRadius: 20,
     padding: 10,
-    elevation: 2
+    elevation: 2,
+    paddingHorizontal:45
   },
   ModalbuttonOpen: {
     backgroundColor: "#F194FF",
@@ -681,11 +672,15 @@ const styles = StyleSheet.create({
   textStyle: {
     color: "white",
     fontWeight: "bold",
-    textAlign: "center"
+    textAlign: "center",
+    
   },
   modalText: {
     marginBottom: 15,
-    textAlign: "center"
+    textAlign: "center",
+    color:Color.FontColor,
+    fontWeight:"700",
+    
   },
   ModalContainer: {
     flex: 1,

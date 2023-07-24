@@ -166,18 +166,6 @@ const UserProfile = (props) => {
             <Text style={styles.title1}>{DisplayProfileGender}</Text>
           </View>
           <View style={styles.body100}>
-            <Text style={styles.title}>PLAYING ROLE</Text>
-            <Text style={styles.title1}>{PAYINGROLENAME}</Text>
-          </View>
-          <View style={styles.body100}>
-            <Text style={styles.title}>BATTING STYLE</Text>
-            <Text style={styles.title1}>{BATTINGSTYLENAME}</Text>
-          </View>
-          <View style={styles.body100}>
-            <Text style={styles.title}>BOWLING STYLE</Text>
-            <Text style={styles.title1}>{BOWLINGSTYLENAME}</Text>
-          </View>
-          <View style={styles.body100}>
             <Text style={styles.title}>EMAIL</Text>
             <Text style={styles.title1}>{Email}</Text>
           </View>
