@@ -101,14 +101,6 @@ const Login = props => {
     }
     const btnclicklogin = async () => {
       CHECK_USER_OR_NOT_API(phoneNumber,CountryCode,CountryCode_state);
-      // props.navigation.navigate
-      // (
-      // 'OTP_Verify',
-      // {
-      //     params: { phoneNumber : phoneNumber },
-      // },
-      // )
-      
     }
 
     return (
@@ -129,7 +121,7 @@ const Login = props => {
         withShadow
         autoFocus
         containerStyle={styleSheet.phoneNumberView}
-        textInputProps={{ maxLength: 10 }}
+        textInputProps={{ maxLength: 10, }}
         textContainerStyle={{ paddingVertical: 0 }}
         onChangeFormattedText={text => {
             // setPhoneNumber(text)

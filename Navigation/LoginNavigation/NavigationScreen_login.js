@@ -3,6 +3,8 @@ import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Ionicons } from "@expo/vector-icons";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   TouchableOpacity,
   Image,
@@ -27,38 +29,83 @@ import MyTeamFollowing from "../Screen/MyTeams/MyTeamFollowing";
 import CustomeDrawer from "./CustomeDrawer";
 
 
+
 const Stack = createNativeStackNavigator();
 const Tab = createMaterialTopTabNavigator(); 
+const Drawer = createDrawerNavigator();
+const BottomTab = createBottomTabNavigator();
 
-function SubTopTabNavigation_Tournament() {
+const BottomTabStack = () => {
   return (
-    <Tab.Navigator>
-      <Tab.Screen
-        name="MyTeam"
-        component={MyTeam}
+    <BottomTab.Navigator>
+      <BottomTab.Screen
+        name="MainPage"
+        component={MainPage}
         options={{
-          title: "Team",
+          title: "POST",
+          headerShown: false,
+          headerTransparent: false,
+          tabBarIcon: ({ color, size }) => (
+            // <Ionicons name="megaphone-outline" color={color} size={size} />
+
+            <Image
+              source={{
+                uri:
+                  "" +
+                  global.domainName +
+                  "/CricbuddyAdmin/Content/assets/annulment.png",
+              }}
+              style={{ width: 25, height: 25 }}
+            />
+          ),
         }}
       />
-      {/* <Tab.Screen
-        name="MyTeamOpponents"
-        component={MyTeamOpponents}
+      <BottomTab.Screen
+        name="TopTabNavigation_Tournament"
+        component={TopTabNavigation_Tournament}
         options={{
-          title: "Opponents",
-        }}
-      />*/}
-      <Tab.Screen
-        name="MyTeamFollowing"
-        component={MyTeamFollowing}
-        options={{
-          title: "Following",
+          title: "MY CRICKET",
+          headerShown: false,
+          headerTransparent: false,
+          tabBarIcon: ({ color, size }) => (
+            // <Ionicons name="list" color={color} size={size} />
+            <Image
+              source={{
+                uri:
+                  "" +
+                  global.domainName +
+                  `/CricbuddyAdmin/Content/assets/tournament/tournament.png`,
+              }}
+              style={{ width: 25, height: 25 }}
+            />
+          ),
         }}
       />
-    </Tab.Navigator>
+      {/* ChatTest */}
+      {/* <BottomTab.Screen
+        name="TournamentGroundNewList"
+        component={TournamentGroundNewList}
+        options={{
+          title: "Test Page",
+          headerShown: false,
+          headerTransparent: false,
+          tabBarIcon: ({ color, size }) => (
+            // <Ionicons name="list" color={color} size={size} />
+            <Image
+              source={{
+                uri:
+                  "" +
+                  global.domainName +
+                  `/CricbuddyAdmin/Content/assets/tournament/tournament.png`,
+              }}
+              style={{ width: 25, height: 25 }}
+            />
+          ),
+        }}
+      /> */}
+    </BottomTab.Navigator>
   );
-}
-
-
+};
 function TopTabNavigation_Tournament({ route }) {
   return (
     <Tab.Navigator
@@ -109,67 +156,35 @@ function TopTabNavigation_Tournament({ route }) {
     </Tab.Navigator>
   );
 }
-const BottomtabStack = () => {
+function SubTopTabNavigation_Tournament() {
   return (
-    <BottomTab.Navigator>
-      <BottomTab.Screen
-        name="MainPage"
-        component={MainPage}
+    <Tab.Navigator>
+      <Tab.Screen
+        name="MyTeam"
+        component={MyTeam}
         options={{
-          title: "POST",
-          headerShown: false,
-          headerTransparent: false,
-          tabBarIcon: ({ color, size }) => (
-            // <Ionicons name="megaphone-outline" color={color} size={size} />
-
-            <Image
-              source={{
-                uri:
-                  "" +
-                  global.domainName +
-                  "/CricbuddyAdmin/Content/assets/annulment.png",
-              }}
-              style={{ width: 25, height: 25 }}
-            />
-          ),
+          title: "Team",
         }}
       />
-      <BottomTab.Screen
-        name="TopTabNavigation_Tournament"
-        component={TopTabNavigation_Tournament}
+      <Tab.Screen
+        name="MyTeamFollowing"
+        component={MyTeamFollowing}
         options={{
-          title: "MY CRICKET",
-          headerShown: false,
-          headerTransparent: false,
-          tabBarIcon: ({ color, size }) => (
-            // <Ionicons name="list" color={color} size={size} />
-            <Image
-              source={{
-                uri:
-                  "" +
-                  global.domainName +
-                  `/CricbuddyAdmin/Content/assets/tournament/tournament.png`,
-              }}
-              style={{ width: 25, height: 25 }}
-            />
-          ),
+          title: "Following",
         }}
       />
-    </BottomTab.Navigator>
+    </Tab.Navigator>
   );
-};
-
+}
 const HomeScreenStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="MainPage"
-      screenOptions={{ headerShown: false }}
-    >
-      <Stack.Screen name="BottomTabStack" component={BottomtabStack} />
+      initialRouteName="HomeScreen"
+      screenOptions={{headerShown: false}}>
+      <Stack.Screen name="BottomTabStack" component={BottomTabStack} />
     </Stack.Navigator>
   );
 };
-
 function DrawerNavigator() {
   // storeData();
   const [MainBannerTitle, setMainBannerTitle] = useState(true);
@@ -190,180 +205,16 @@ function DrawerNavigator() {
         }
       }
     >
+      
       <Drawer.Screen
-        name="HomeScreenStack"
-        component={HomeScreenStack}
-        options={{
-          // drawerItemStyle: { height: 0 }
-          title: "",
-          drawerIcon: ({ color, size }) => (
-            <Ionicons name="list" color={color} size={size} />
-          ),
-          headerTitle: () => (
-            <View style={{ flexDirection: "row" }}>
-              
-              <Tooltip
-                  isVisible={MainBannerImage}
-                  content={
-                    <View>
-                      <Text> This is secound Display..! </Text>
-                    </View>
-                  }
-                  onClose={() => {
-                    setMainBannerImage(false)}
-                  }
-                  placement="bottom"
-                  // below is for the status bar of react navigation bar
-                  // topAdjustment={
-                  //   Platform.OS === "android" ? -StatusBar.currentHeight : 0
-                  // }
-                >
-                 <Image
-                      source={{
-                        uri:
-                          "" +
-                          global.domainName +
-                          "/CricbuddyAdmin/Content/assets/UserProfile/UserProfile.png",
-                      }}
-                      style={{ width: 30, height: 30 }}
-                    />
-                </Tooltip>
-
-
-                <Tooltip
-                  isVisible={MainBannerTitle}
-                  content={
-                    <View>
-                      <Text> This Is Version Display..! </Text>
-                    </View>
-                  }
-                  onClose={() => {
-                    setMainBannerTitle(false);
-                    setMainBannerImage(true);
-                  }
-                  }
-                  placement="bottom"
-                  // below is for the status bar of react navigation bar
-                  // topAdjustment={
-                  //   Platform.OS === "android" ? -StatusBar.currentHeight : 0
-                  // }
-                >
-                  <Text
-                    style={{
-                      marginLeft: 10,
-                      paddingTop: 5,
-                      borderColor: "#DC6933",
-                      borderWidth: 2,
-                      paddingVertical: 2,
-                      paddingHorizontal: 10,
-                      color: "#DC6933",
-                      alignItems: "center",
-                      textAlign: "center",
-                      borderRadius: 10,
-                    }}
-                  >
-                    Beta App
-                  </Text>
-                </Tooltip>
-              
-            </View>
-          ),
-        }}
-      />
-      {/* <Drawer.Screen
-        name="MainPage"
-        component={MainPage}
-        options={{
-          title: "",
-          drawerIcon: ({ color, size }) => (
-            <Ionicons name="list" color={color} size={size} />
-          ),
-        }}
-      /> */}
-      <Drawer.Screen
-        name="TopTabNavigation_Tournament"
-        component={TopTabNavigation_Tournament}
-        initialParams={{ PageName: "Tournament" }}
-        options={{
-          title: "Tournamanet",
-          // headerTitle: () => (
-          //   <Image
-          //     source={{
-          //       uri: ""+global.domainName+"/CricbuddyAdmin/Content/assets/tournament/Cricheroes_logo.png",
-          //     }}
-          //     style={{ width: 170, height: 30}}
-          //   />
-          // ),
-          drawerIcon: () => (
-            <Image
-              source={{
-                uri:
-                  "" +
-                  global.domainName +
-                  "/CricbuddyAdmin/Content/assets/tournament/tournament.png",
-              }}
-              style={{ width: 25, height: 25 }}
-            />
-          ),
-        }}
-      />
-      <Drawer.Screen
-        name="MainMatch"
-        initialParams={{ PageName: "MyMatch" }}
-        component={TopTabNavigation_Tournament}
-        options={{
-          title: "My Match",
-          drawerIcon: () => (
-            <Image
-              source={{
-                uri:
-                  "" +
-                  global.domainName +
-                  "/CricbuddyAdmin/Content/assets/tournament/Match_icon.png",
-              }}
-              style={{ width: 25, height: 25 }}
-            />
-          ),
-        }}
-      />
-      <Drawer.Screen
-        name="MainTeam"
-        component={TopTabNavigation_Tournament}
-        initialParams={{ PageName: "SubTopTabNavigation_Tournament" }}
-        options={{
-          title: "My Team",
-          drawerIcon: () => (
-            <Image
-              source={{
-                uri:
-                  "" +
-                  global.domainName +
-                  "/CricbuddyAdmin/Content/assets/tournament/team_icon.png",
-              }}
-              style={{ width: 25, height: 25 }}
-            />
-          ),
-        }}
-      />
-      <Drawer.Screen
-        name="AddGroundList"
-        component={AddGroundList}
-        initialParams={{ PageName: "AddGroundList" }}
-        options={{
-          title: "Add Ground List",
-          drawerIcon: () => (
-            <Image
-              source={{
-                uri:
-                  "" +
-                  global.domainName +
-                  "/CricbuddyAdmin/Content/assets/tournament/team_icon.png",
-              }}
-              style={{ width: 25, height: 25 }}
-            />
-          ),
-        }}
-      />
+          name="HomeScreenStack"
+          options={{
+            drawerLabel: 'Home Screen Option',
+            title: '',
+          }}
+          component={HomeScreenStack}
+        />
+        <Drawer.Screen name="MainPage" component={MainPage} />
     </Drawer.Navigator>
   );
 }
@@ -408,13 +259,20 @@ const NavigationScreen_login = (props) => {
               headerShown: false,
             }}
           />
-          <Stack.Screen
+          {/* <Stack.Screen
             name="MyProfile"
             component={MyProfile}
             options={{
               
             }}
-          />
+          /> */}
+          {/* <Stack.Screen
+            name="MainPage"
+            component={MainPage}
+            options={{
+              
+            }}
+          /> */}
 
 
         </Stack.Navigator>

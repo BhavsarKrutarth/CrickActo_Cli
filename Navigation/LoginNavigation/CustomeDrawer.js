@@ -33,13 +33,8 @@ const CustomeDrawer = (props) => {
           {...props}
           contentContainerStyle={{ backgroundColor: Color.PrimaryColor }}
         >
-          <ImageBackground
+          <View
             style={{ padding: 20, backgroundColor: Color.PrimaryColor }}
-            source={
-              {
-                //uri: 'http://27.116.48.79/CricbuddyAdmin/Content/assets/1_prev_ui.png',
-              }
-            }
           >
             <TouchableOpacity
               onPress={() =>
@@ -83,7 +78,7 @@ const CustomeDrawer = (props) => {
                 />
               </TouchableOpacity>
             </View>
-          </ImageBackground>
+          </View>
           <View style={{ flex: 1, backgroundColor: "#fff" }}>
             <DrawerItemList {...props} />
           </View>

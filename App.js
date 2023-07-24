@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import NavigationScreen_login from './Navigation/LoginNavigation/NavigationScreen_login';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import NavigationScreen from "./Navigation/LoginNavigation/NavigationScreen";
 
 
 import Login from "./Navigation/Screen/Login/Login";
@@ -30,7 +31,7 @@ export default function App() {
 
       // await AsyncStorage.getItem('@MobileNo' + "    console MobileNo");
       //AsyncStorage.clear();
-      console.log(await AsyncStorage.getItem('@MobileNo') + "    console MobileNo")
+      
       setisLoggedIn(await AsyncStorage.getItem('@login') || 'false');
       // GlobalVariable.Glogin = await AsyncStorage.getItem('@login');
       global.login = await AsyncStorage.getItem('@login');
@@ -100,9 +101,10 @@ export default function App() {
     storeData();
     var CheckisLoggedIn = isLoggedIn
     if (CheckisLoggedIn == "true") {
+      console.log("Enter the In")
       return (
         // <NavigationScreen></NavigationScreen>
-        <NavigationScreen_login></NavigationScreen_login>
+        <NavigationScreen></NavigationScreen>
       );
     } else {
       return (

@@ -29,19 +29,19 @@ const MainPage = () => {
   useEffect(() => {
     fetchData();
 
-  //    // Load the ad when the component mounts
-  //    BannerAd.createTestAd(TestIds.BANNER)
-  //    .then((response) => {
-  //      console.log('Ad created successfully');
-  //    })
-  //    .catch((error) => {
-  //      console.log('Ad creation failed', error);
-  //    });
+    //    // Load the ad when the component mounts
+    //    BannerAd.createTestAd(TestIds.BANNER)
+    //    .then((response) => {
+    //      console.log('Ad created successfully');
+    //    })
+    //    .catch((error) => {
+    //      console.log('Ad creation failed', error);
+    //    });
 
-  //  // Clean up the ad when the component unmounts
-  //  return () => {
-  //    BannerAd.destroy();
-  //  };
+    //  // Clean up the ad when the component unmounts
+    //  return () => {
+    //    BannerAd.destroy();
+    //  };
   }, []);
 
   const OpenURLButton = ({ url, children, colocode }) => {
@@ -140,7 +140,6 @@ const MainPage = () => {
               }
               setPage((prevPage) => prevPage + 1);
               setData((prevData) => [...prevData, ...setarray]);
-
               setIsLoading(false);
             } else {
               setIsLoading(false);
@@ -182,96 +181,33 @@ const MainPage = () => {
   const renderItem = ({ item, index }) => {
     return (
       <View style={[styles.body100]}>
-        {/* <InertNetCheck/> */}
-        <Text style={[styles.Title,{marginLeft:5}]}>{item.MAINTITLE}</Text>
-        <Image
-          style={styles.subimage}
-          resizeMode="stretch"
-          source={{
-            uri: `${global.domainName}/CricbuddyAdmin/Content/assets/Post/${item.IMAGENAME}`,
-          }}
-        />
+        <Text style={[styles.Title, { marginLeft: 5, color: "black" }]}>{item.MAINTITLE}</Text>
+        {item.IMAGENAME !== '' ? (
+          <Image
+            style={styles.subimage}
+            resizeMode="stretch"
+            source={{
+              uri: `${global.domainName}/CricbuddyAdmin/Content/assets/Post/${item.IMAGENAME}`,
+            }}
+          />
+        ) : null}
+
         <OpenURLButton
           url={item.BTNURL}
           colocode={item.COLORCODE}
           style={[styles.btnSubmit]}
         >
-          {/* <Text style={styles.btnSubmitText}></Text> */}
           {item.BUTTONTITLE}
         </OpenURLButton>
         <View style={styles.SubView}>
           <Text style={{ marginLeft: 5 }}>{item.MAINDATE}</Text>
-          {/* <Text style={{ marginRight: 5 }}>{item.COMMENTCOUNT} Comment</Text> */}
         </View>
-        {/* <View style={[styles.SubView, { paddingVertical: 5 }]}>
-          <Text style={{ marginLeft: 5 }}>{item.LIKECOUNT} reactions</Text>
-        </View> */}
-        {/* <View style={[styles.reaction]}>
-          <Pressable
-            style={{
-              width: "33.33%",
-              flexDirection: "row",
-              justifyContent:"center"
-            }}
-            onPress={() => alert("like it ")}
-          >
-            <Image
-              style={{ height: 25, width: 25,textAlign: "center"}}
-              resizeMode="stretch"
-              source={{
-                uri: `${global.domainName}/CricbuddyAdmin/Content/assets/like.png`,
-              }}
-            />
-            <Text style={{marginLeft:10,textAlign: "center"}}>like</Text>
-          </Pressable>
-          <Pressable
-            style={{
-              width: "33.33%",
-              flexDirection: "row",
-              justifyContent:"center"
-            }}
-            onPress={() => alert("Comment it ")}
-          >
-            <Image
-              style={{ height: 25, width: 25,textAlign: "center"}}
-              resizeMode="stretch"
-              source={{
-                uri: `${global.domainName}/CricbuddyAdmin/Content/assets/comment.png`,
-              }}
-            />
-            <Text style={{marginLeft:10,textAlign: "center"}}>comment</Text>
-          </Pressable>
-          <Pressable
-            style={{
-              width: "33.33%",
-              flexDirection: "row",
-              justifyContent:"center"
-            }}
-            onPress={() => alert("share it ")}
-          >
-            <Image
-              style={{ height: 25, width: 25,textAlign: "center"}}
-              resizeMode="stretch"
-              source={{
-                uri: `${global.domainName}/CricbuddyAdmin/Content/assets/share.png`,
-              }}
-            />
-            <Text style={{marginLeft:10,textAlign: "center"}}>share</Text>
-          </Pressable>
-        </View> */}
       </View>
     );
   };
 
   return (
     <View>
-       {/* <BannerAd
-        unitId={adUnitId}
-        size={BannerAdSize.BANNER}
-        requestOptions={{
-          requestNonPersonalizedAdsOnly: false, // Set to true for GDPR compliance
-        }}
-      /> */}
       <InertNetCheck />
       <FlatList
         data={data}
