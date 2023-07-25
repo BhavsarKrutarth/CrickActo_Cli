@@ -25,7 +25,7 @@ const MatchRegister = () => {
   const navigation = useNavigation();
   const route = useRoute();
 
-  const [MatchTypeBorderColor, setMatchTypeBorderColor] = useState(Color.Title);
+  const [MatchTypeBorderColor, setMatchTypeBorderColor] = useState(Color.FontColor);
 
   const [Matchid, setMatchid] = useState(null);
   const [TeamAid, setTeamAid] = useState(null);
@@ -371,7 +371,7 @@ const MatchRegister = () => {
               <Text style={styles.imgtitle}>{TeamASubName}</Text>
             </View>
             <View style={{ paddingTop: 0 }}>
-              <Text style={{ fontSize: 16, fontWeight: "700" }}>
+              <Text style={{ fontSize: 16, fontWeight: "700",color:Color.FontColor }}>
                 {TeamAName}
               </Text>
             </View>
@@ -418,7 +418,7 @@ const MatchRegister = () => {
               <Text style={styles.imgtitle}>{TeamBSubName}</Text>
             </View>
             <View style={{ paddingTop: 0 }}>
-              <Text style={{ fontSize: 16, fontWeight: "700" }}>
+              <Text style={{ fontSize: 16, fontWeight: "700",color:Color.FontColor }}>
                 {TeamBName}
               </Text>
             </View>
@@ -587,12 +587,14 @@ const MatchRegister = () => {
                   borderBottomColor:
                     NoofOverError == false ? Color.Texttitle : Color.ErrorColor,
                   borderBottomWidth: 2,
+                  color:Color.FontColor,
                 }}
+                placeholderTextColor={Color.FontColor} 
                 value={NoofOver}
                 placeholder="No.of Overs *"
               />
               {NoofOverError && (
-                <Text style={{ color: "red", fontSize: 12, fontWeight: "700" }}>
+                <Text style={{ color: "red", fontSize: 12, fontWeight: "700",color:Color.FontColor }}>
                   Please enter Overs
                 </Text>
               )}
@@ -629,7 +631,7 @@ const MatchRegister = () => {
             ]}
           >
             <View style={styles.width30}>
-              <Text>Match Balls</Text>
+              <Text style={{color:Color.FontColor}}>Match Balls</Text>
             </View>
             <View style={styles.width01}></View>
             <View style={styles.width100}>
@@ -647,7 +649,7 @@ const MatchRegister = () => {
           <Text
             style={[
               styles.Title,
-              { color: CityIdError == false ? Color.Title : Color.ErrorColor },
+              { color: CityIdError == false ? Color.Title : Color.ErrorColor,color:Color.FontColor },
             ]}
           >
             City / Town
@@ -657,13 +659,14 @@ const MatchRegister = () => {
             <TextInput
               KeyboardAvoidingView={true}
               placeholder="select City / Town"
+              placeholderTextColor={Color.FontColor} 
               onFocus={() =>
                 navigation.navigate("UserProfileCity", {
                   MobileNo,
                   PageRedirect: "MatchRegister",
                 })
               }
-              style={{borderBottomWidth: 2,borderBottomColor :CityIdError == false ? Color.Texttitle : Color.ErrorColor}}
+              style={{borderBottomWidth: 2,borderBottomColor :CityIdError == false ? Color.Texttitle : Color.ErrorColor,color:Color.FontColor}}
               value={CityName}
             />
           </View>
@@ -676,12 +679,13 @@ const MatchRegister = () => {
           ) : null}
         </View>
         <View style={[styles.width100, { marginTop: 10 }]}>
-          <Text style={[styles.Title,{ color: GroundidError == false ? Color.Title : Color.ErrorColor },]}>Ground</Text>
+          <Text style={[styles.Title,{ color: GroundidError == false ? Color.Title : Color.ErrorColor,color:Color.FontColor },]}>Ground</Text>
           <View styles={styles.width100}>
             {/* <LineTextInput placeholder="select Ground" /> */}
             <TextInput
               KeyboardAvoidingView={true}
               placeholder="Search Ground"
+              placeholderTextColor={Color.FontColor} 
               onFocus={() =>
                 // navigation.navigate("TouranamentGround", {
                 //   PageRedirect: "MatchRegister",
@@ -706,7 +710,7 @@ const MatchRegister = () => {
           ) : null}
         </View>
         <View style={[styles.width100, { marginTop: 10 }]}>
-          <Text style={[styles.Title,{color:DateError == true ? Color.ErrorColor : Color.Title}]}>Date & Time</Text>
+          <Text style={[styles.Title,{color:DateError == true ? Color.ErrorColor : Color.FontColor}]}>Date & Time</Text>
           <View style={{ paddingTop: 10 }}>
             <Pressable onPress={() => setDateshow(true)}>
               <View
@@ -718,7 +722,7 @@ const MatchRegister = () => {
                   },
                 ]}
               >
-                <Text style={{ color: Color.Texttitle, padding: 2 }}>
+                <Text style={{ color: Color.Texttitle, padding: 2,color:Color.FontColor }}>
                   {DateText}
                 </Text>
               </View>
@@ -757,7 +761,7 @@ const MatchRegister = () => {
           />
         )}
         <View style={[styles.width100, { marginTop: 10 }]}>
-          <Text style={[styles.Title,{color:BallTypeError == false ? Color.Title:Color.ErrorColor}]}>Ball Type</Text>
+          <Text style={[styles.Title,{color:BallTypeError == false ? Color.FontColor:Color.ErrorColor}]}>Ball Type</Text>
           <View style={[styles.width100]}>
             <View style={{ flexDirection: "row", marginTop: 10 }}>
               <View style={{ width: "2%" }}></View>
@@ -842,7 +846,7 @@ const MatchRegister = () => {
           </View>
         </View>
         <View style={[styles.width100, { marginTop: 10 }]}>
-          <Text style={[styles.Title,{color : PitchTypeError == true ? Color.ErrorColor : Color.Title}]}>Pitch Type</Text>
+          <Text style={[styles.Title,{color : PitchTypeError == true ? Color.ErrorColor : Color.FontColor}]}>Pitch Type</Text>
           <View
             style={[styles.width100, { marginTop: 10, flexDirection: "row" }]}
           >
@@ -983,7 +987,7 @@ const MatchRegister = () => {
             { marginTop: 10, flexDirection: "row", alignItems: "center" },
           ]}
         >
-          <Text style={styles.Title}>Short Type</Text>
+          <Text style={[styles.Title,{color:Color.FontColor}]}>Short Type</Text>
           <Switch
             value={switchValue}
             onValueChange={(switchValue) => {
@@ -1005,7 +1009,7 @@ const MatchRegister = () => {
             ]}
             onPress={() => BtnNext()}
           >
-            <Text style={{ fontSize: 12, fontWeight: "600" }}>
+            <Text style={{ fontSize: 12,color:Color.FontColor,fontWeight:"700" }}>
               SCHEDULE MATCH
             </Text>
           </Pressable>
@@ -1016,7 +1020,7 @@ const MatchRegister = () => {
             ]}
             onPress={() => BtnNext()}
           >
-            <Text style={{ fontSize: 12, fontWeight: "400", color: "white" }}>
+            <Text style={{ fontSize: 12, fontWeight: "700", color: "white" }}>
               NEXT ( TOST )
             </Text>
           </Pressable>
@@ -1050,12 +1054,12 @@ const MatchRegister = () => {
               </View>
 
               <View style={styles.width100}>
-                <Text style={styles.modalText}>Power Play 1</Text>
+                <Text style={[styles.modalText,{color:Color.FontColor}]}>Power Play 1</Text>
               </View>
 
               <View style={[styles.width100, styles.flexDirectionrow]}>
                 <View style={[styles.width10, styles.modaltxtStyle]}>
-                  <Text style={styles.modaltxt}>To</Text>
+                  <Text style={[styles.modaltxt,{color:Color.FontColor}]}>To</Text>
                 </View>
                 <View style={styles.width20}>
                   <LineTextInput
@@ -1066,7 +1070,7 @@ const MatchRegister = () => {
                   />
                 </View>
                 <View style={[styles.width20, styles.modaltxtStyle]}>
-                  <Text style={styles.modaltxt}>From</Text>
+                  <Text style={[styles.modaltxt,{color:Color.FontColor}]}>From</Text>
                 </View>
                 <View style={styles.width30}>
                   <LineTextInput
@@ -1079,12 +1083,12 @@ const MatchRegister = () => {
               </View>
 
               <View style={[styles.width100, { marginTop: 10 }]}>
-                <Text style={styles.modalText}>Power Play 2</Text>
+                <Text style={[styles.modalText,{color:Color.FontColor}]}>Power Play 2</Text>
               </View>
 
               <View style={[styles.width100, styles.flexDirectionrow]}>
                 <View style={[styles.width10, styles.modaltxtStyle]}>
-                  <Text style={styles.modaltxt}>To</Text>
+                  <Text style={[styles.modaltxt,{color:Color.FontColor}]}>To</Text>
                 </View>
                 <View style={styles.width20}>
                   <LineTextInput
@@ -1095,7 +1099,7 @@ const MatchRegister = () => {
                   />
                 </View>
                 <View style={[styles.width20, styles.modaltxtStyle]}>
-                  <Text style={styles.modaltxt}>From</Text>
+                  <Text style={[styles.modaltxt,{color:Color.FontColor}]}>From</Text>
                 </View>
                 <View style={styles.width30}>
                   <LineTextInput
@@ -1113,12 +1117,12 @@ const MatchRegister = () => {
                   { marginTop: 10, borderColor: "black" },
                 ]}
               >
-                <Text style={styles.modalText}>Power Play 3</Text>
+                <Text style={[styles.modalText,{color:Color.FontColor}]}>Power Play 3</Text>
               </View>
 
               <View style={[styles.width100, styles.flexDirectionrow]}>
                 <View style={[styles.width10, styles.modaltxtStyle]}>
-                  <Text style={styles.modaltxt}>To</Text>
+                  <Text style={[styles.modaltxt,{color:Color.FontColor}]}>To</Text>
                 </View>
                 <View style={styles.width20}>
                   <LineTextInput
@@ -1129,7 +1133,7 @@ const MatchRegister = () => {
                   />
                 </View>
                 <View style={[styles.width20, styles.modaltxtStyle]}>
-                  <Text style={styles.modaltxt}>From</Text>
+                  <Text style={[styles.modaltxt,{color:Color.FontColor}]}>From</Text>
                 </View>
                 <View style={styles.width30}>
                   <LineTextInput
@@ -1137,6 +1141,8 @@ const MatchRegister = () => {
                     onChangeText={(text) => setPowerPlay3From(text)}
                     keyboardType="numeric"
                     placeholder="From Over"
+                    
+
                   />
                 </View>
               </View>

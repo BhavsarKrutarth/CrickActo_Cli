@@ -289,12 +289,12 @@ const renderItem_Keeper = ({ item }) => {
               
                 <View style={{ marginLeft: 5 }}>
                   <View>
-                    <Text style={{ fontSize: 18, fontWeight: "900" }}>
+                    <Text style={{ fontSize: 18, fontWeight: "900",color:Color.FontColor }}>
                       {item.Name}
                     </Text>
                   </View>
                   <View style={{ flexDirection: "column", flexWrap: "wrap" }}>
-                    <Text>
+                    <Text style={{color:Color.FontColor}}>
                       <Image
                         source={{
                           uri: `${global.domainName}/CricbuddyAdmin/Content/assets/tournament/icon_Location.png`,
@@ -345,12 +345,12 @@ const renderItem_Captain = ({ item }) => {
               
                 <View style={{ marginLeft: 5 }}>
                   <View>
-                    <Text style={{ fontSize: 18, fontWeight: "900" }}>
+                    <Text style={{ fontSize: 18, fontWeight: "900",color:Color.FontColor }}>
                       {item.Name}
                     </Text>
                   </View>
-                  <View style={{ flexDirection: "column", flexWrap: "wrap" }}>
-                    <Text>
+                  <View style={{ flexDirection: "column", flexWrap: "wrap", }}>
+                    <Text style={{color:Color.FontColor}}>
                       <Image
                         source={{
                           uri: `${global.domainName}/CricbuddyAdmin/Content/assets/tournament/icon_Location.png`,

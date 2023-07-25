@@ -28,6 +28,7 @@ const StartAMatch = (props) => {
   };
   const BtnNext = () => {
     if (Flag == 1) {
+      
       navigation.navigate("TeamSelect")
     }
     else if (Flag == 2) {

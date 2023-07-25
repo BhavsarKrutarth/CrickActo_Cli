@@ -22,7 +22,7 @@ const PlayerAddViaPhoneNo = (props) => {
   const route = useRoute();
   const [MyTeam, setMyTeam] = useState(null);
   const [MyTeamId, setMyTeamId] = useState(null);
-  const [AddMobileNo, setAddMobileNo] = useState(0);
+  const [AddMobileNo, setAddMobileNo] = useState(null);
   const [playerItemList, setplayerItemList] = useState([]);
 
   const [ErrortxtFullName, setErrortxtFullName] = useState(Color.Texttitle);
@@ -446,7 +446,7 @@ const PlayerAddViaPhoneNo = (props) => {
       <View style={styles.width100}>
         <View style={styles.width75}>
           <TextInput
-            style={[styles.input]}
+            style={[styles.input,{color:Color.FontColor}]}
             placeholder="Add Phone Number"
             keyboardType="phone-pad"
             maxLength={10}
@@ -491,6 +491,7 @@ const PlayerAddViaPhoneNo = (props) => {
                   style={{
                     borderBottomColor: ErrortxtFullName,
                     borderBottomWidth: 2,
+                    color:Color.FontColor
                   }}
                 />
               </View>
@@ -531,7 +532,7 @@ const PlayerAddViaPhoneNo = (props) => {
                   { alignItems: "center", justifyContent: "center" },
                 ]}
               >
-                <Text>+91</Text>
+                <Text style={{color:Color.FontColor}}>+91</Text>
               </View>
               <View style={styles.width05}></View>
               <View style={styles.width70}>
@@ -544,6 +545,7 @@ const PlayerAddViaPhoneNo = (props) => {
                   style={{
                     borderBottomColor: Color.Texttitle,
                     borderBottomWidth: 2,
+                    color:Color.FontColor
                   }}
                 />
               </View>
@@ -573,7 +575,6 @@ const PlayerAddViaPhoneNo = (props) => {
       ) : null}
       <View style={styles.width100}>
         <ScrollView style={styles.Container}>
-        {/* <SafeAreaView style={styles.Container}> */}
           <View
             style={{
               justifyContent: "center",
@@ -584,12 +585,6 @@ const PlayerAddViaPhoneNo = (props) => {
             }}
           >
             {playerItemList.map((item, index) => (
-            // <FlatList
-            //   data={playerItemList}
-            //   renderItem={renderItem}
-            //   keyExtractor={(item) => item.id}
-            //ListFooterComponent={extraData}
-            ///>
             <View key={index} style={[styles.item, { marginVertical: 5 }]}>
               <View
                 style={[
@@ -620,12 +615,12 @@ const PlayerAddViaPhoneNo = (props) => {
                 <View style={[styles.width60]}>
                   <View style={{ marginLeft: 5 }}>
                     <View>
-                      <Text style={{ fontSize: 18, fontWeight: "900" }}>
+                      <Text style={{ fontSize: 18, fontWeight: "900",color:Color.FontColor }}>
                         {item.Name}
                       </Text>
                     </View>
                     <View style={{ flexDirection: "column", flexWrap: "wrap" }}>
-                      <Text>
+                      <Text style={{color:Color.FontColor}}>
                         <Image
                           source={{
                             uri: `${global.domainName}/CricbuddyAdmin/Content/assets/tournament/icon_Location.png`,
@@ -656,21 +651,21 @@ const PlayerAddViaPhoneNo = (props) => {
             ))}
           </View>
           {addBtnVisisble ? (
-          <View style={[{ position: "relative", bottom: 20, left: 0, right: 0 }]}>
+          <View style={[{ position: "relative", bottom: 20, left: 0, right: 0 ,marginTop:10}]}>
             <Pressable onPress={btnSave} style={[styles.button, styles.buttonSave]}>
               <Text style={{ color: "white", fontSize: 14, fontWeight: "700" }}>Add Team</Text>
             </Pressable>
             <Text
               style={{
-                fontSize: 12,
-                color: Color.Texttitle,
+                fontSize: 14,
+                color: "red",
+                fontWeight:"500"
               }}
             >
-              To Keep adding more players,just type phone number and add team.
+              Note : To Keep adding more players,just type phone number and add team.
             </Text>
           </View>
           ) : null}
-        {/* </SafeAreaView> */}
         </ScrollView>
       </View>
     </View>

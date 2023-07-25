@@ -13,8 +13,9 @@ export default function LineTextInput(props) {
       placeholder={placeholder}
       onChangeText={onChangeText}
       value={value}
-      style={{ borderBottomColor: Color.Texttitle, borderBottomWidth: 2 }}
+      style={{ borderBottomColor: Color.Texttitle, borderBottomWidth: 2 ,color:Color.FontColor}}
       keyboardType={keyboardType}
+      placeholderTextColor={Color.FontColor} 
     />
   );
 }

@@ -93,7 +93,7 @@ const TeamSelect = (props) => {
                 }}
                 style={{ height: 60, width: 60 }}
               />
-              <Text style={{ marginTop: 10, fontSize: 12, fontWeight: "500" }}>
+              <Text style={{ marginTop: 10, fontSize: 16, fontWeight: "900",color:Color.FontColor}}>
                 SELECT TEAM A
               </Text>
             </View>
@@ -159,7 +159,7 @@ const TeamSelect = (props) => {
               }}
               style={{ height: 60, width: 60 }}
             />
-            <Text style={{ marginTop: 10, fontSize: 12, fontWeight: "500" }}>
+            <Text style={{ marginTop: 10, fontSize: 16, fontWeight: "900",color:Color.FontColor}}>
               SELECT TEAM B
             </Text>
           </View>
@@ -192,6 +192,7 @@ const styles = StyleSheet.create({
     color: Color.WhiteBGColor,
     fontSize: 18,
     fontWeight: "500",
+    
   },
   btn: {
     borderColor: Color.LightGreenBorder,

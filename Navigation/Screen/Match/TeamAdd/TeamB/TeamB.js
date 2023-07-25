@@ -8,7 +8,8 @@ import {
   FlatList,
   InteractionManager,
   RefreshControl,
-  Alert
+  Alert,
+  ScrollView
 } from "react-native";
 import React, { useState, useEffect } from "react";
 
@@ -18,7 +19,7 @@ import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
 
 import Color from "../../../../../Color/Color";
-import { ScrollView } from "react-native-gesture-handler";
+// import { ScrollView } from "react-native-gesture-handler";
 /* -----------------------refreshing ------------------------------*/
 const wait = (timeout) => {
   return new Promise(resolve => setTimeout(resolve, timeout));
@@ -243,12 +244,12 @@ const TeamB = (props) => {
           <View style={[styles.body60]}>
             <View style={{ marginLeft: 5 }}>
               <View>
-                <Text style={{ fontSize: 18, fontWeight: "900" }}>
+                <Text style={{ fontSize: 18, fontWeight: "900",color:Color.FontColor }}>
                   {item.title}
                 </Text>
               </View>
               <View style={{ flexDirection: "column", flexWrap: "wrap" }}>
-                <Text>
+                <Text style={{color:Color.FontColor}}>
                   <Image
                     source={{
                       uri: `${global.domainName}/CricbuddyAdmin/Content/assets/tournament/icon_Location.png`,
@@ -388,7 +389,7 @@ const TeamB = (props) => {
             >
               <LineButton
                 title={"LOOKING FOR"}
-                onPress={() => alert("click")}
+                onPress={() => alert("coming soon")}
               />
             </View>
             <View style={[styles.body40, { paddingLeft: 20 }]}>
@@ -508,7 +509,7 @@ const styles = StyleSheet.create({
     borderColor: Color.Texttitle,
     borderWidth: 2,
     backgroundColor: "#DC7633",
-    color: Color.WhiteBGColor,
+    
     borderRadius: 100,
     alignItems: "center",
     justifyContent: "center",

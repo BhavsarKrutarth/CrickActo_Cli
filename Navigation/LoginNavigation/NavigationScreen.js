@@ -41,7 +41,15 @@ import AddANewTournamentAndSeries from "../Screen/Tournament/AddANewTournamentAn
 import CreateMyTeam from "../Screen/MyTeams/CreateMyTeam";
 import ImageUpload from "../Screen/Z_Testing_Page/ImageUpload";
 import Tournament_EditNewTeams from "../Screen/Tournament/TournamentRightSide_Navigation/Tournament_EditNewTeams";
-
+import TeamSelect from "../Screen/Match/TeamSelect";
+import TeamA from "../Screen/Match/TeamAdd/TeamA/TeamA";
+import TeamASelectPlayer from "../Screen/Match/TeamAdd/TeamA/TeamASelectPlayer";
+import PlayerAddViaPhoneNo from "../Screen/MyTeams/Player/PlayerAdd/PlayerAddViaPhoneNo";
+import TeamACaptain_WicketKeeper from "../Screen/Match/TeamAdd/TeamA/TeamACaptain_WicketKeeper";
+import TeamB from "../Screen/Match/TeamAdd/TeamB/TeamB";
+import TeamBSelectPlayer from "../Screen/Match/TeamAdd/TeamB/TeamBSelectPlayer";
+import TeamBCaptain_WicketKeeper from "../Screen/Match/TeamAdd/TeamB/TeamBCaptain_WicketKeeper";
+import MatchRegister from "../Screen/Match/MatchRegister/MatchRegister";
 
 const Stack = createNativeStackNavigator();
 const Tab = createMaterialTopTabNavigator();
@@ -472,7 +480,158 @@ const NavigationScreen = (props) => {
               },
             }}
           />
-          
+
+          <Stack.Screen
+            name="TeamSelect"
+            component={TeamSelect}
+            options={({ route }) => ({
+              title: "Start A Match",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="TeamA"
+            component={TeamA}
+            options={({ route }) => ({
+              title: "Select Team A",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="TeamASelectPlayer"
+            component={TeamASelectPlayer}
+            options={({ route }) => ({
+              title:
+                route.params === undefined
+                  ? "Team A"
+                  : route.params.PageName != ""
+                    ? route.params.PageName + " - Squad"
+                    : "Team A",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+
+          <Stack.Screen
+            name="PlayerAddViaPhoneNo"
+            component={PlayerAddViaPhoneNo}
+            options={({ route }) => ({
+              title:
+                route.params === undefined
+                  ? "Add Player"
+                  : route.params.MyTeam != ""
+                    ? "Add Player to " + route.params.MyTeam
+                    : "Add Player",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="TeamACaptain_WicketKeeper"
+            component={TeamACaptain_WicketKeeper}
+            options={({ route }) => ({
+              title:
+                route.params === undefined
+                  ? "Team A"
+                  : route.params.PageName != ""
+                    ? "Team A " + route.params.PageName
+                    : "Team A",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="TeamB"
+            component={TeamB}
+            options={({ route }) => ({
+              title: "Select Team B",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="TeamBSelectPlayer"
+            component={TeamBSelectPlayer}
+            options={({ route }) => ({
+              title:
+                route.params === undefined
+                  ? "Team B"
+                  : route.params.PageName != ""
+                    ? route.params.PageName + " - Squad"
+                    : "Team B",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="TeamBCaptain_WicketKeeper"
+            component={TeamBCaptain_WicketKeeper}
+            options={({ route }) => ({
+              title:
+                route.params === undefined
+                  ? "Team B"
+                  : route.params.PageName != ""
+                    ? "Team B " + route.params.PageName
+                    : "Team B",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="MatchRegister"
+            component={MatchRegister}
+            options={({ route }) => ({
+              title: "Start A Match",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
