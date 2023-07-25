@@ -1,7 +1,7 @@
-import { ToastAndroid,Image,SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar ,Pressable } from 'react-native'
+import { ToastAndroid,Image,SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar ,Pressable,TextInput } from 'react-native'
 import React, { useState, useEffect ,useRef} from 'react'
 import Color from '../../../Color/Color';
-import { ScrollView, TextInput,LayoutAnimation } from 'react-native-gesture-handler';
+// import { ScrollView, TextInput,LayoutAnimation } from 'react-native-gesture-handler';
 
 import LineTextInput from '../../../Component/LineTextInput/LineTextInput';
 import { useNavigation } from "@react-navigation/native";
@@ -429,7 +429,7 @@ const CreateMyTeam = () => {
             <View style={[styles.width80]}>
               <View style={{ marginLeft: 5 }}>
                 <View>
-                  <Text style={{ fontSize: 12 }}>
+                  <Text style={{ fontSize: 12 , color:Color.FontColor }}>
                     Team Name <Text style={{ color: "red" }}>*</Text>
                   </Text>
 
@@ -450,7 +450,7 @@ const CreateMyTeam = () => {
                   />
                 </View>
                 <View style={{ marginTop: 10 }}>
-                  <Text style={{ fontSize: 12 }}>
+                  <Text style={{ fontSize: 12 ,color:Color.FontColor }}>
                     City/Town <Text style={{ color: "red" }}>*</Text>
                   </Text>
                   <TextInput
@@ -492,7 +492,7 @@ const CreateMyTeam = () => {
             onPress={() => btnSave_AddoneMore()}
             style={[styles.button, styles.buttonClose]}
           >
-            <Text style={styles.btntitle}>Add One More</Text>
+            <Text style={[styles.btntitle,{color:Color.FontColor }]}>Add One More</Text>
           </Pressable>
         </View>
         <View style={styles.width50}>

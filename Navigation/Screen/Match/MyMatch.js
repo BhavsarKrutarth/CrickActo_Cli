@@ -581,29 +581,29 @@ const MyMatch = (props) => {
           ]}
         >
           <View style={[styles.body80]}>
-            <Text style={[styles.italic]}>{item.MatchTitle}</Text>
+            <Text style={[styles.italic,{color:Color.FontColor}]}>{item.MatchTitle}</Text>
           </View>
           <View style={[styles.body20, { alignItems: "center" }]}>
-            <Text style={styles.italic}>{item.Status}</Text>
+            <Text style={[styles.italic,{color:Color.FontColor}]}>{item.Status}</Text>
           </View>
         </View>
         <View style={[styles.body100, styles.BorderBottom]}>
           {item.DisplayGroundName != null ? (
-            <Text>{item.DisplayGroundName}</Text>
+            <Text style={{color:Color.FontColor}}>{item.DisplayGroundName}</Text>
           ) : null}
         </View>
         <View style={[styles.body100, styles.BannerSpaceBetween]}>
-          <Text>{item.TeamAName}</Text>
+          <Text style={{color:Color.FontColor}}>{item.TeamAName}</Text>
           <Text>
             {item.Run ? (
               <Text
-                style={{ color: "#1bb191", fontSize: 16, fontWeight: "900" }}
+                style={{ color: "#1bb191", fontSize: 16, fontWeight: "900",color:Color.FontColor }}
               >
                 {item.Run} / {item.Out}
               </Text>
             ) : null}
             {item.Ball ? (
-              <Text style={{ fontWeight: "700" }}> ({item.Ball} Ov)</Text>
+              <Text style={{ fontWeight: "700",color:Color.FontColor }}> ({item.Ball} Ov)</Text>
             ) : null}
           </Text>
         </View>
@@ -614,11 +614,11 @@ const MyMatch = (props) => {
             styles.BorderBottom,
           ]}
         >
-          <Text>{item.TeamBName}</Text>
+          <Text style={{color:Color.FontColor}}>{item.TeamBName}</Text>
           {/* <Text style={{ fontWeight: "700" }}>Yet to bat</Text> */}
         </View>
         <View style={[styles.body100, styles.BannerSpaceBetween]}>
-          {item.TossWin != null ? <Text>{item.Description}</Text> : null}
+          {item.TossWin != null ? <Text style={{color:Color.FontColor}}>{item.Description}</Text> : null}
           <Text></Text>
         </View>
       </Pressable>
@@ -640,7 +640,7 @@ const MyMatch = (props) => {
             <View style={styles.modalView}>
               <View style={[styles.Modal_header]}>
                 <View style={styles.Modal_HeaderTitle}>
-                  <Text style={styles.Modal_Hedertxt}>
+                  <Text style={[styles.Modal_Hedertxt,{color:Color.FontColor}]}>
                     What would you like to do ?
                   </Text>
                 </View>
@@ -658,7 +658,7 @@ const MyMatch = (props) => {
                     onPress={() => setMatchStart("RESUMESCORING")}
                   />
                   <Pressable onPress={() => setMatchStart("RESUMESCORING")}>
-                    <Text style={{ paddingTop: 7 }}>RESUME SCORING</Text>
+                    <Text style={{ paddingTop: 7 ,color:Color.FontColor}}>RESUME SCORING</Text>
                   </Pressable>
                 </View>
                 <View style={[styles.Modal_bodyBox, { paddingBottom: 10 }]}>
@@ -672,7 +672,7 @@ const MyMatch = (props) => {
                     onPress={() => setMatchStart("VIEWFULLSCORECARD")}
                   />
                   <Pressable onPress={() => setMatchStart("VIEWFULLSCORECARD")}>
-                    <Text style={{ paddingTop: 7 }}>VIEW FULL SCORECARD</Text>
+                    <Text style={{ paddingTop: 7,color:Color.FontColor }}>VIEW FULL SCORECARD</Text>
                   </Pressable>
                 </View>
               </View>
@@ -682,7 +682,7 @@ const MyMatch = (props) => {
                     onPress={() => setModalVisible(false)}
                     style={styles.Modla_Cancelbtn}
                   >
-                    <Text style={styles.Modal_Cancelbtn_text}>CANCEL</Text>
+                    <Text style={[styles.Modal_Cancelbtn_text,{color:Color.FontColor}]}>CANCEL</Text>
                   </Pressable>
                 </View>
                 <View style={styles.body50}>
@@ -693,7 +693,7 @@ const MyMatch = (props) => {
                       setModalVisible(false);
                     }}
                   >
-                    <Text style={styles.Modal_okbtn_text}>OK</Text>
+                    <Text style={[styles.Modal_okbtn_text,{color:Color.FontColor}]}>OK</Text>
                   </Pressable>
                 </View>
               </View>
@@ -714,8 +714,8 @@ const MyMatch = (props) => {
         <View style={styles.BannerBox}>
           <Pressable onPress={() => navigation.navigate("StartAMatch")}>
             <View style={styles.BannerSpaceBetween}>
-              <Text style={styles.BannerTitle}>Want to start a match?</Text>
-              <Text style={styles.BannerTitle}>START A MATCH</Text>
+              <Text style={[styles.BannerTitle,]}>Want to start a match?</Text>
+              <Text style={[styles.BannerTitle,]}>START A MATCH</Text>
             </View>
           </Pressable>
         </View>
@@ -742,8 +742,8 @@ const MyMatch = (props) => {
               }}
             >
               <View style={styles.BannerSpaceBetween}>
-                <Text style={styles.BannerTitle}>Want to start a match?</Text>
-                <Text style={styles.BannerTitle}>START A MATCH</Text>
+                <Text style={[styles.BannerTitle,]}>Want to start a match?</Text>
+                <Text style={[styles.BannerTitle,]}>START A MATCH</Text>
               </View>
             </TouchableOpacity>
           </View>

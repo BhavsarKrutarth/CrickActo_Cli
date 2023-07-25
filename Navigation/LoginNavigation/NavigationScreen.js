@@ -31,7 +31,15 @@ import UserProfile from "../Screen/UserProfile/UserProfile";
 import UserProfileEdit from "../Screen/UserProfile/UserProfileEdit";
 import UserProfileCity from "../Screen/UserProfile/UserProfileDropDown/UserProfileCity";
 import PayingRole from "../Screen/UserProfile/UserProfileDropDown/PayingRole";
+import StartAMatch from "../Screen/Match/StartAMatch";
+// import Info from "../Screen/Match/Report/Info";
+// import Summary from "../Screen/Match/Report/Summary";
+// import Commentary from "../Screen/Match/Report/Commentary";
+// import Scorecard from "../Screen/Match/Report/Scorecard";
 
+import AddANewTournamentAndSeries from "../Screen/Tournament/AddANewTournamentAndSeries";
+// import CreateMyTeam from "../Screen/MyTeams/CreateMyTeam";
+import ImageUpload from "../Screen/Z_Testing_Page/ImageUpload";
 
 
 const Stack = createNativeStackNavigator();
@@ -69,6 +77,27 @@ const BottomTabStack = () => {
         component={TopTabNavigation_Tournament}
         options={{
           title: "MY CRICKET",
+          headerShown: false,
+          headerTransparent: false,
+          tabBarIcon: ({ color, size }) => (
+            // <Ionicons name="list" color={color} size={size} />
+            <Image
+              source={{
+                uri:
+                  "" +
+                  global.domainName +
+                  `/CricbuddyAdmin/Content/assets/tournament/tournament.png`,
+              }}
+              style={{ width: 25, height: 25 }}
+            />
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Teging Page"
+        component={ImageUpload}
+        options={{
+          title: "Testing",
           headerShown: false,
           headerTransparent: false,
           tabBarIcon: ({ color, size }) => (
@@ -250,6 +279,64 @@ const MyTheme = {
   },
 };
 
+// function Report_IndividualMatch({ route }) {
+//   var MatchId_ = "";
+//   MatchId_ = route.params.Matchid;
+
+//   return (
+//     <Tab.Navigator
+//       initialRouteName={
+//         route.params === undefined ? "Info" : route.params.PageName
+//       }
+//       screenOptions={{
+//         tabBarActiveTintColor: Color.WhiteBGColor,
+//         tabBarInactiveTintColor: Color.WhiteBGColor,
+//         tabBarShowLabel: true,
+//         tabBarStyle: {
+//           backgroundColor: Color.PrimaryColor,
+//         },
+//         tabBarIndicatorStyle: {
+//           borderBottomColor: Color.WhiteBGColor,
+//           borderBottomWidth: 5,
+//         },
+//         tabBarLabelStyle: {
+//           fontSize: 10,
+//         },
+//       }}
+//     >
+//       <Tab.Screen
+//         name="Info"
+//         component={Info}
+//         initialParams={{ MatchId: MatchId_ }}
+//       />
+//       <Tab.Screen
+//         name="Summary"
+//         component={Summary}
+//         options={{
+//           title: "Summary",
+//         }}
+//         initialParams={{ MatchId: MatchId_ }}
+//       />
+//       <Tab.Screen
+//         name="Commentary"
+//         component={Commentary}
+//         options={{
+//           title: "Commentary",
+//         }}
+//         initialParams={{ MatchId: MatchId_ }}
+//       />
+//       <Tab.Screen
+//         name="Scorecard"
+//         component={Scorecard}
+//         options={{
+//           title: "Scorecard",
+//         }}
+//         initialParams={{ MatchId: MatchId_ }}
+//       />
+//     </Tab.Navigator>
+//   );
+// }
+
 const NavigationScreen = (props) => {
   return (
     <>
@@ -309,6 +396,68 @@ const NavigationScreen = (props) => {
               },
             }}
           />
+          <Stack.Screen
+            name="StartAMatch"
+            component={StartAMatch}
+            options={({ route }) => ({
+              title: "Start A Match",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          {/* <Stack.Screen
+            name="Report_IndividualMatch"
+            component={Report_IndividualMatch}
+            options={{
+              title: "Report",
+              drawerItemStyle: { display: "none" },
+              drawerIcon: () => (
+                <Image
+                  source={{
+                    uri:
+                      "" +
+                      global.domainName +
+                      "/CricbuddyAdmin/Content/assets/tournament/Match_icon.png",
+                  }}
+                  style={{ width: 25, height: 25 }}
+                />
+              ),
+            }}
+          /> */}
+
+          <Stack.Screen
+            name="AddANewTournamentAndSeries"
+            component={AddANewTournamentAndSeries}
+            options={{
+              title: "Add A New Tournament / Series",
+              headerTitleAlign: "center",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            }}
+          />
+
+          {/* <Stack.Screen
+            name="CreateMyTeam"
+            component={CreateMyTeam}
+            options={({ route }) => ({
+              title: "Create My New Team",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          /> */}
+
         </Stack.Navigator>
       </NavigationContainer>
     </>

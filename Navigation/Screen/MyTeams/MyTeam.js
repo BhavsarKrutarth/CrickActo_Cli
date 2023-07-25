@@ -151,19 +151,19 @@ const MyTeam = (props) => {
               />
             ) : (
               <View style={[styles.img]}>
-                <Text style={styles.imgtitle}>{item.imgtitle}</Text>
+                <Text style={[styles.imgtitle]}>{item.imgtitle} - test</Text>
               </View>
             )}
           </View>
           <View style={[styles.body60]}>
             <View style={{ marginLeft: 5 }}>
               <View>
-                <Text style={{ fontSize: 18, fontWeight: "900" }}>
+                <Text style={{ fontSize: 18, fontWeight: "900",color:Color.FontColor }}>
                   {item.title}
                 </Text>
               </View>
               <View style={{ flexDirection: "column", flexWrap: "wrap" }}>
-                <Text>
+                <Text style={{color:Color.FontColor }}>
                   <Image
                     source={{
                       uri: `${global.domainName}/CricbuddyAdmin/Content/assets/tournament/icon_Location.png`,
