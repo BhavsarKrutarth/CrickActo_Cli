@@ -39,7 +39,7 @@ import StartAMatch from "../Screen/Match/StartAMatch";
 
 import AddANewTournamentAndSeries from "../Screen/Tournament/AddANewTournamentAndSeries";
 import CreateMyTeam from "../Screen/MyTeams/CreateMyTeam";
-import ImageUpload from "../Screen/Z_Testing_Page/ImageUpload";
+import SocketioClient from "../Screen/Z_Testing_Page/SocketioClient";
 import Tournament_EditNewTeams from "../Screen/Tournament/TournamentRightSide_Navigation/Tournament_EditNewTeams";
 import TeamSelect from "../Screen/Match/TeamSelect";
 import TeamA from "../Screen/Match/TeamAdd/TeamA/TeamA";
@@ -56,6 +56,7 @@ import MatchInnings from "../Screen/Match/MatchRegister/MatchInnings";
 import MatchSelectStriker from "../Screen/Match/MatchRegister/MatchSelectStriker";
 import MatchSelectNon_Striker from "../Screen/Match/MatchRegister/MatchSelectNon_Striker";
 import MatchSelectBowler from "../Screen/Match/MatchRegister/MatchSelectBowler";
+import MatchScoring from "../Screen/Match/MatchRegister/MatchScoring";
 
 const Stack = createNativeStackNavigator();
 const Tab = createMaterialTopTabNavigator();
@@ -110,7 +111,7 @@ const BottomTabStack = () => {
       />
       <BottomTab.Screen
         name="Teging Page"
-        component={ImageUpload}
+        component={SocketioClient}
         options={{
           title: "Testing",
           headerShown: false,
@@ -735,6 +736,25 @@ const NavigationScreen = (props) => {
                   : route.params.PageName != "Select Bowler"
                     ? route.params.PageName
                     : "Select Bowler",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="MatchScoring"
+            component={MatchScoring}
+            options={({ route }) => ({
+              title:
+                route.params === undefined
+                  ? "Match Scoring"
+                  : route.params.PageName != "Match Scoring"
+                    ? route.params.PageName
+                    : "Match Scoring",
               headerTitleAlign: "left",
               headerTintColor: "white",
               headerStyle: {
