@@ -38,8 +38,9 @@ import StartAMatch from "../Screen/Match/StartAMatch";
 // import Scorecard from "../Screen/Match/Report/Scorecard";
 
 import AddANewTournamentAndSeries from "../Screen/Tournament/AddANewTournamentAndSeries";
-// import CreateMyTeam from "../Screen/MyTeams/CreateMyTeam";
+import CreateMyTeam from "../Screen/MyTeams/CreateMyTeam";
 import ImageUpload from "../Screen/Z_Testing_Page/ImageUpload";
+import Tournament_EditNewTeams from "../Screen/Tournament/TournamentRightSide_Navigation/Tournament_EditNewTeams";
 
 
 const Stack = createNativeStackNavigator();
@@ -177,13 +178,13 @@ function SubTopTabNavigation_Tournament() {
           title: "Team",
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="MyTeamFollowing"
         component={MyTeamFollowing}
         options={{
           title: "Following",
         }}
-      />
+      /> */}
     </Tab.Navigator>
   );
 }
@@ -444,7 +445,7 @@ const NavigationScreen = (props) => {
             }}
           />
 
-          {/* <Stack.Screen
+          <Stack.Screen
             name="CreateMyTeam"
             component={CreateMyTeam}
             options={({ route }) => ({
@@ -456,8 +457,22 @@ const NavigationScreen = (props) => {
                 color: "white",
               },
             })}
-          /> */}
+          />
 
+          <Stack.Screen
+            name="Tournament_EditNewTeams"
+            component={Tournament_EditNewTeams}
+            options={{
+              title: "Edit Team",
+              headerTitleAlign: "center",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            }}
+          />
+          
         </Stack.Navigator>
       </NavigationContainer>
     </>

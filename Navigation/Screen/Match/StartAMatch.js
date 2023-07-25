@@ -131,6 +131,7 @@ const styles = StyleSheet.create({
   HederBoxTitle: {
     fontSize: 14,
     fontWeight: "700",
+    color:Color.FontColor
   },
   button: {
     borderRadius: 20,

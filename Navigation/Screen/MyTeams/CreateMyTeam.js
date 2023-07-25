@@ -3,11 +3,11 @@ import React, { useState, useEffect ,useRef} from 'react'
 import Color from '../../../Color/Color';
 // import { ScrollView, TextInput,LayoutAnimation } from 'react-native-gesture-handler';
 
-import LineTextInput from '../../../Component/LineTextInput/LineTextInput';
+// import LineTextInput from '../../../Component/LineTextInput/LineTextInput';
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
-import * as ImagePicker from 'expo-image-picker';
-import TransferImage from '../../../Component/TransferImage/TransferImage';
+// import * as ImagePicker from 'expo-image-picker';
+// import TransferImage from '../../../Component/TransferImage/TransferImage';
 
 
 const CreateMyTeam = () => {
@@ -168,7 +168,12 @@ const CreateMyTeam = () => {
     if(route.params?.Team_RedirectPage)
       setTeam_RedirectPage(route.params?.Team_RedirectPage);
 
-    SetData(route.params?.Common_CityId, route.params?.Common_CityName);
+    // SetData(route.params?.Common_CityId, route.params?.Common_CityName);
+    if(route.params?.CityId)
+    {
+      SetData(route.params?.CityId, route.params?.CityName);
+    }
+    
 
     if(route.params?.updateid)
     {
@@ -301,6 +306,7 @@ const CreateMyTeam = () => {
       title,
       CityId,
       CityName,
+      PageRedirect:"CreateMyTeam"
     });
     // alert("My id is "+id);
   }
@@ -336,7 +342,7 @@ const CreateMyTeam = () => {
             />
           ) : (
             <View style={[styles.img]}>
-              <Text style={styles.imgtitle}>{item.imgtitle}</Text>
+              <Text style={[styles.imgtitle,{color:"white"}]}>{item.imgtitle}</Text>
             </View>
           )}
           {/* <View style={[styles.img]}>
@@ -346,12 +352,12 @@ const CreateMyTeam = () => {
         <View style={[styles.width60]}>
           <View style={{ marginLeft: 5 }}>
             <View>
-              <Text style={{ fontSize: 18, fontWeight: "900" }}>
+              <Text style={{ fontSize: 18, fontWeight: "900",color:Color.FontColor }}>
                 {item.title}
               </Text>
             </View>
             <View style={{ flexDirection: "column", flexWrap: "wrap" }}>
-              <Text>
+              <Text style={{color:Color.FontColor}}>
                 <Image
                   source={{
                     uri: `${global.domainName}/CricbuddyAdmin/Content/assets/tournament/icon_Location.png`,
@@ -366,6 +372,7 @@ const CreateMyTeam = () => {
         <View style={[styles.width20, { flexDirection: "row" }]}>
           <Pressable
             onPress={() =>
+              
               BtnEdit(
                 item.id,
                 item.ImageName,
@@ -416,7 +423,12 @@ const CreateMyTeam = () => {
                   )}
                 </View>
               ) : (
-                <Pressable onPress={ImagePickerFN}>
+                <Pressable onPress={
+                  () => {
+                    alert("image upload function coming soon")
+                    // ImagePickerFN
+                  }
+                  }>
                   <Image
                     style={styles.mainImg}
                     source={{
@@ -445,6 +457,7 @@ const CreateMyTeam = () => {
                     style={{
                       borderBottomColor: errortxtTeamName,
                       borderBottomWidth: 2,
+                      color:Color.FontColor
                     }}
                     placeholder="Enter Team Name"
                   />
@@ -458,13 +471,16 @@ const CreateMyTeam = () => {
                     placeholder="Search City"
                     onFocus={() => {
                       seterrorddlCity(Color.Texttitle);
-                      navigation.navigate("AddCity_Common", {
-                        PageName: "Tournament_AddNewTeams",
+                      navigation.navigate("UserProfileCity", {
+                        CityId:CityId,
+                        CityName:CityName,
+                        // PageName: "Tournament_AddNewTeams",
+                        PageRedirect:"CreateMyTeam"
                       });
                     }}
                     style={[
                       styles.input,
-                      { borderBottomColor: errorddlCity, borderBottomWidth: 2 },
+                      { borderBottomColor: errorddlCity, borderBottomWidth: 2,color:Color.FontColor },
                     ]}
                     value={Common_CityName}
                   />

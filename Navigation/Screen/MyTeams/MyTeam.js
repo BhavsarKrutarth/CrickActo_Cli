@@ -139,9 +139,6 @@ const MyTeam = (props) => {
           ]}
         >
           <View style={[styles.body20]}>
-            {/* <View style={[styles.img]}>
-              <Text style={styles.imgtitle}>{item.imgtitle}</Text>
-            </View> */}
             {item.ImageName != null ? (
               <Image
                 source={{
@@ -151,7 +148,7 @@ const MyTeam = (props) => {
               />
             ) : (
               <View style={[styles.img]}>
-                <Text style={[styles.imgtitle]}>{item.imgtitle} - test</Text>
+                <Text style={[styles.imgtitle]}>{item.imgtitle}</Text>
               </View>
             )}
           </View>
@@ -175,14 +172,14 @@ const MyTeam = (props) => {
               </View>
             </View>
           </View>
-        </View>
+        </View> 
       </Pressable>
     </View>
   );
 
   return (
     <View style={styles.Container}>
-      <View style={styles.BannerBox}>
+       <View style={styles.BannerBox}>
         <Pressable
           onPress={() =>
             navigation.navigate("CreateMyTeam",{Team_RedirectPage:"MyTeam"})
@@ -212,22 +209,6 @@ const MyTeam = (props) => {
             />
           </View>
           <View style={styles.body}>
-            {/* <View
-              style={[
-                styles.body60,
-                {
-                  borderColor: Color.PrimaryColor,
-                  borderWidth: 2,
-                  borderRadius: 30,
-                  alignItems: "center",
-                },
-              ]}
-            >
-              <LineButton
-                title={"LOOKING FOR"}
-                onPress={() => alert("click")}
-              />
-            </View> */}
             <View style={[styles.body100, { padding: 5 }]}>
               <Custombutton
                 title={"START MATCH"}
@@ -249,7 +230,7 @@ const MyTeam = (props) => {
             }
           />
         </SafeAreaView>
-      )}
+      )} 
     </View>
   );
 };
@@ -331,7 +312,7 @@ const styles = StyleSheet.create({
     borderColor: Color.Texttitle,
     borderWidth: 2,
     backgroundColor: "#DC7633",
-    color: Color.WhiteBGColor,
+    // color: Color.WhiteBGColor,
     borderRadius: 100,
     alignItems: "center",
     justifyContent: "center",

@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View ,Image, Pressable } from 'react-native'
+import { StyleSheet, Text, View ,Image, Pressable,TextInput } from 'react-native'
 import React ,{useEffect,useState} from 'react'
 import { useRoute } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
-import * as ImagePicker from 'expo-image-picker';
+// import * as ImagePicker from 'expo-image-picker';
 
 import Color from '../../../../Color/Color'
-import { TextInput } from 'react-native-gesture-handler';
+// import { TextInput } from 'react-native-gesture-handler';
 
 const Tournament_EditNewTeams = () => {
     const route = useRoute();
@@ -18,12 +18,16 @@ const Tournament_EditNewTeams = () => {
     const [CityId,setCityId] = useState(null);
     const [CityName,setCityName] = useState(null);
     const [image, setImage] = useState(null);
+    const [PageRedirect,setPageRedirect] = useState(null);
     
     
     const [errortxtTeamName, seterrortxtTeamName] = useState(Color.Texttitle);
     const [errorddlCity, seterrorddlCity] = useState(Color.Texttitle);
 
     useEffect(() => {
+    if(route.params?.PageRedirect)
+      setPageRedirect(route.params?.PageRedirect);
+
     if(route.params?.id)
         setid(route.params?.id);
 
@@ -84,7 +88,7 @@ const Tournament_EditNewTeams = () => {
           tempImageFlieName = ImageFlieName
         }
        
-        navigation.navigate("Tournament_AddNewTeams", {
+        navigation.navigate(PageRedirect, {
           updateid: id,
           updateImageName : tempImageName,
           updateImageFlieName : tempImageFlieName,
@@ -179,7 +183,7 @@ const Tournament_EditNewTeams = () => {
 
       <View style={[styles.width100]}>
         <View style={{ marginTop: 40 }}>
-          <Text style={{ fontSize: 12 }}>
+          <Text style={{ fontSize: 14,color:Color.FontColor,fontWeight:"600" }}>
             Team Name <Text style={{ color: "red" }}>*</Text>
           </Text>
           <TextInput
@@ -191,6 +195,7 @@ const Tournament_EditNewTeams = () => {
             style={{
               borderBottomColor: errortxtTeamName,
               borderBottomWidth: 2,
+              color:Color.FontColor
             }}
             placeholder="Enter name"
             onChange={(text) => settitle(text)}
@@ -203,13 +208,15 @@ const Tournament_EditNewTeams = () => {
             placeholder="Search City"
             onFocus={() => {
               seterrorddlCity(Color.Texttitle);
-              navigation.navigate("AddCity_Common", {
-                PageName: "Tournament_EditNewTeams",
+              navigation.navigate("UserProfileCity", {
+                CityId:CityId,
+                CityName:CityName,
+                PageRedirect: "Tournament_EditNewTeams",
               });
             }}
             style={[
               styles.input,
-              { borderBottomColor: errorddlCity, borderBottomWidth: 2 },
+              { borderBottomColor: errorddlCity, borderBottomWidth: 2,color:Color.FontColor },
             ]}
             value={CityName}
           />
