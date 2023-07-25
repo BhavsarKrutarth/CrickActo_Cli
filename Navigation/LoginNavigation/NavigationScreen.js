@@ -50,6 +50,12 @@ import TeamB from "../Screen/Match/TeamAdd/TeamB/TeamB";
 import TeamBSelectPlayer from "../Screen/Match/TeamAdd/TeamB/TeamBSelectPlayer";
 import TeamBCaptain_WicketKeeper from "../Screen/Match/TeamAdd/TeamB/TeamBCaptain_WicketKeeper";
 import MatchRegister from "../Screen/Match/MatchRegister/MatchRegister";
+import TournamentGroundNewList from "../Screen/Tournament/TournamentGroundNewList";
+import MatchToss from "../Screen/Match/MatchRegister/MatchToss";
+import MatchInnings from "../Screen/Match/MatchRegister/MatchInnings";
+import MatchSelectStriker from "../Screen/Match/MatchRegister/MatchSelectStriker";
+import MatchSelectNon_Striker from "../Screen/Match/MatchRegister/MatchSelectNon_Striker";
+import MatchSelectBowler from "../Screen/Match/MatchRegister/MatchSelectBowler";
 
 const Stack = createNativeStackNavigator();
 const Tab = createMaterialTopTabNavigator();
@@ -624,6 +630,111 @@ const NavigationScreen = (props) => {
             component={MatchRegister}
             options={({ route }) => ({
               title: "Start A Match",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="TournamentGroundNewList"
+            component={TournamentGroundNewList}
+            options={({ route }) => ({
+              title: "Ground List",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="MatchToss"
+            component={MatchToss}
+            options={({ route }) => ({
+              title: "Toss",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="MatchInnings"
+            component={MatchInnings}
+            options={({ route }) => ({
+              title:
+                route.params === undefined
+                  ? "Start Inning"
+                  : route.params.PageName != "Start Inning"
+                    ? route.params.PageName
+                    : "Start Inning",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="MatchSelectStriker"
+            component={MatchSelectStriker}
+            options={({ route }) => ({
+              title:
+                route.params === undefined
+                  ? "Select Striker"
+                  : route.params.PageName != "Select Striker"
+                    ? route.params.PageName
+                    : "Select Striker",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+
+          <Stack.Screen
+            name="MatchSelectNon_Striker"
+            component={MatchSelectNon_Striker}
+            options={({ route }) => ({
+              title:
+                route.params === undefined
+                  ? "Select Non-Striker"
+                  : route.params.PageName != "Select Non-Striker"
+                    ? route.params.PageName
+                    : "Select Non-Striker",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="MatchSelectBowler"
+            component={MatchSelectBowler}
+            options={({ route }) => ({
+              title:
+                route.params === undefined
+                  ? "Select Bowler"
+                  : route.params.PageName != "Select Bowler"
+                    ? route.params.PageName
+                    : "Select Bowler",
               headerTitleAlign: "left",
               headerTintColor: "white",
               headerStyle: {

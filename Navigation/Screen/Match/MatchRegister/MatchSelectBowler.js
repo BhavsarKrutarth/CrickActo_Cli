@@ -203,12 +203,12 @@ import {
                 <View style={[styles.body80]}>
                   <View style={{ marginLeft: 5 }}>
                     <View>
-                      <Text style={{ fontSize: 18, fontWeight: "900" }}>
+                      <Text style={{ fontSize: 18, fontWeight: "900",color:Color.FontColor }}>
                         {item.Name}
                       </Text>
                     </View>
                     <View style={{ flexDirection: "column", flexWrap: "wrap" }}>
-                      <Text>
+                      <Text style={{color:Color.FontColor}}>
                         <Image
                           source={{
                             uri: `${global.domainName}/CricbuddyAdmin/Content/assets/tournament/icon_Location.png`,
@@ -727,6 +727,7 @@ import {
       },
       modalsubtitle: {
         fontSize: 16,
+        color:Color.FontColor
       },
       modal_box: {
         flexDirection: "row",

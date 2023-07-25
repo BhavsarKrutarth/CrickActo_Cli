@@ -693,7 +693,7 @@ const MyMatch = (props) => {
                       setModalVisible(false);
                     }}
                   >
-                    <Text style={[styles.Modal_okbtn_text,{color:Color.FontColor}]}>OK</Text>
+                    <Text style={[styles.Modal_okbtn_text,{color:"white"}]}>OK</Text>
                   </Pressable>
                 </View>
               </View>

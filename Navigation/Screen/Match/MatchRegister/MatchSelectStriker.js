@@ -203,12 +203,12 @@ import { color } from "react-native-reanimated";
               <View style={[styles.body80]}>
                 <View style={{ marginLeft: 5 }}>
                   <View>
-                    <Text style={{ fontSize: 18, fontWeight: "900" }}>
+                    <Text style={{ fontSize: 18, fontWeight: "900",color:Color.FontColor }}>
                       {item.Name}
                     </Text>
                   </View>
                   <View style={{ flexDirection: "column", flexWrap: "wrap" }}>
-                    <Text>
+                    <Text style={{color:Color.FontColor}}>
                       <Image
                         source={{
                           uri: `${global.domainName}/CricbuddyAdmin/Content/assets/tournament/icon_Location.png`,
@@ -590,7 +590,7 @@ import { color } from "react-native-reanimated";
       marginVertical: 10,
     },
     modaltitle: { fontSize: 20, color: Color.PrimaryColor, fontWeight: "600" },
-    modalsubtitle: { fontSize: 16 },
+    modalsubtitle: { fontSize: 16,color:Color.FontColor },
 
   });
   

@@ -697,6 +697,7 @@ const MatchRegister = () => {
               style={{
                 borderBottomColor: GroundidError == true ? Color.ErrorColor : Color.Texttitle,
                 borderBottomWidth: 2,
+                color:Color.FontColor
               }}
               value={Groundtitle}
             />

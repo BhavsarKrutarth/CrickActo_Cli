@@ -338,7 +338,7 @@ const TournamentGroundNewList = () => {
               { justifyContent: "space-between", flexDirection: "row" },
             ]}
           >
-            <Text>
+            <Text style={{color:Color.FontColor}}>
               {item.GroundName} - {item.CityName}
             </Text>
             <Checkbox
@@ -350,7 +350,7 @@ const TournamentGroundNewList = () => {
             />
           </View>
           <View style={styles.width100}>
-            <Text>Hourly Charge : {item.HourlyCharge}</Text>
+            <Text style={{color:Color.FontColor}}>Hourly Charge : {item.HourlyCharge}</Text>
           </View>
           <View
             style={[
@@ -358,7 +358,7 @@ const TournamentGroundNewList = () => {
               { justifyContent: "space-between", flexDirection: "row" },
             ]}
           >
-            <Text>
+            <Text style={{color:Color.FontColor}}>
               Time : {item.AvailableToTimeText} - {item.AvailableFromTimeText}
             </Text>
             <Text
@@ -456,10 +456,10 @@ const TournamentGroundNewList = () => {
         <View style={{ backgroundColor: "#000000AA", flex: 1 }}>
           <View style={styles.modalcenteredView}>
             <View style={styles.modalView}>
-              <Text style={[styles.modalText, { fontSize: 25 }]}>
+              <Text style={[styles.modalText, { fontSize: 25,color:Color.FontColor }]}>
                 Add New Ground
               </Text>
-              <Text style={styles.modalText}>City Name : {CityName}</Text>
+              <Text style={[styles.modalText,{color:Color.FontColor}]}>City Name : {CityName}</Text>
               <View
                 style={[
                   styles.fr,
@@ -478,6 +478,7 @@ const TournamentGroundNewList = () => {
                       flexDirection: "row",
                       alignItems: "center",
                       justifyContent: "center",
+                      color:Color.FontColor
                     },
                   ]}
                 >
@@ -487,6 +488,7 @@ const TournamentGroundNewList = () => {
                   label="Add New Ground"
                   value={AddNewGround}
                   placeholder="Enter New Ground Name"
+                  placeholderTextColor={Color.FontColor}
                   onChangeText={(text) => {
                     setAddNewGround(null);
                     setAddNewGround(text);
@@ -550,7 +552,7 @@ const TournamentGroundNewList = () => {
           { justifyContent: "space-between" },
         ]}
       >
-        <Text style={{ fontSize: 18, fontWeight: "bold" }}>Ground list</Text>
+        <Text style={{ fontSize: 18, fontWeight: "bold",color:Color.FontColor }}>Ground list</Text>
         <Pressable
           style={[styles.fr]}
           onPress={() => {
@@ -568,19 +570,20 @@ const TournamentGroundNewList = () => {
           >
             +
           </Text>
-          <Text style={{ fontSize: 18, fontWeight: "bold" }}>
+          <Text style={{ fontSize: 18, fontWeight: "bold",color:Color.FontColor }}>
             Add New Ground
           </Text>
         </Pressable>
       </View>
       <View style={[styles.width100, styles.fr]}>
         <View style={styles.r40}>
-          <Text style={styles.title40}>Select City</Text>
+          <Text style={[styles.title40,{color:Color.FontColor}]}>Select City</Text>
         </View>
         <View style={styles.r60}>
           <TextInput
             KeyboardAvoidingView={true}
             placeholder="select City / Town"
+            placeholderTextColor={Color.FontColor}
             onFocus={() =>
               navigation.navigate("UserProfileCity", {
                 MobileNo,
@@ -591,6 +594,7 @@ const TournamentGroundNewList = () => {
               borderBottomWidth: 2,
               borderBottomColor:
                 CityIdError == false ? Color.Texttitle : Color.ErrorColor,
+                color:Color.FontColor
             }}
             value={CityName}
           />
@@ -598,15 +602,17 @@ const TournamentGroundNewList = () => {
       </View>
       <View style={[styles.width100, styles.fr]}>
         <View style={styles.r40}>
-          <Text style={styles.title40}>Ground Name </Text>
+          <Text style={[styles.title40,{color:Color.FontColor }]}>Ground Name </Text>
         </View>
         <View style={styles.r60}>
           <TextInput
             KeyboardAvoidingView={true}
             placeholder="Enter Ground Name"
+            placeholderTextColor={Color.FontColor}
             style={{
               borderBottomWidth: 2,
               borderBottomColor: Color.Texttitle,
+              color:Color.FontColor
             }}
             onChangeText={(text) => setGroundName(text)}
             // value={CityName}

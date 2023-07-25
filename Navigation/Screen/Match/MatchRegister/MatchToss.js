@@ -183,7 +183,7 @@ const MatchToss = () => {
       <ScrollView>
         <View>
           <View style={styles.width100}>
-            <Text style={styles.title}>Who won the toss?</Text>
+            <Text style={[styles.title,{color:Color.FontColor}]}>Who won the toss?</Text>
           </View>
           <View style={[styles.width100, styles.WonMainDiv]}>
             <View style={[styles.width50, styles.alignItemsCenter]}>
@@ -414,6 +414,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: "600",
+    color:Color.FontColor
   },
   img: {
     height: 90,
@@ -460,6 +461,7 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 14,
     fontWeight: "500",
+    color:Color.FontColor
   },
   button: {
     borderRadius: 20,
