@@ -9,10 +9,10 @@ class WSService {
             this.socket =  io(SOCKET_URL,{
                 transports:['websocket']
             })
-            console.log('initilizing socket',this.socket)
+            // console.log('initilizing socket',this.socket)
            
             this.socket.on('connect',(data)=>{
-               console.log("------ socket connection ----- ")
+            //    console.log("------ socket connection ----- ")
             })
             this.socket.on('disconnection',(data)=>{
                 //console.log("------ socket disconnection ----- ")

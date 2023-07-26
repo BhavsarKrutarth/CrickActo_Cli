@@ -9,7 +9,7 @@ import {
   ImageBackground,
   Modal,
 } from "react-native";
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
 import scoketservices from "../../../../scoket/scoketservices";
 
 //import basic react native components
@@ -30,7 +30,7 @@ import Summary from "../Report/Summary";
 
 const MatchScoring = () => {
   
-  const displatch = useDispatch()
+  // const displatch = useDispatch()
   
   const navigation = useNavigation();
   const route = useRoute();
@@ -1333,7 +1333,7 @@ const MatchScoring = () => {
         /*-------------------- Page Call -----------------------*/
         var BindData = JSON.parse(json);
         if (BindData.SERVICERESPONSE.RESPONSECODE == 0) {
-          displatch({type:"Commentry",Matchid:Matchid})
+          // displatch({type:"Commentry",Matchid:Matchid})
           // debugger
          
           /*------------------------ Clear Wagon params --------------------*/
