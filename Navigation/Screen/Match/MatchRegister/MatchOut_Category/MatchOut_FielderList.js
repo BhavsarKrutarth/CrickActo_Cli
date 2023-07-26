@@ -230,7 +230,7 @@ const MatchOut_FielderList = () => {
                       </Text>
                   </View>
                   <View style={{ flexDirection: "column", flexWrap: "wrap" }}>
-                    <Text>
+                    <Text style={{ fontWeight: "900",color:Color.FontColor }}>
                       <Image
                         source={{
                           uri: `${global.domainName}/CricbuddyAdmin/Content/assets/tournament/icon_Location.png`,

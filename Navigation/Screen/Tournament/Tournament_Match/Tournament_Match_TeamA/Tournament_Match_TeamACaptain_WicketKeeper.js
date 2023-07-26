@@ -157,7 +157,7 @@ const Tournament_Match_TeamACaptain_WicketKeeper = (props) => {
 
   
   const BtnNext = async () => {
-    debugger
+    
     // console.log(selectedItem_Keeper)
     // console.log(selectedItem_Captain)
     // console.log(Tournament_Matchid)

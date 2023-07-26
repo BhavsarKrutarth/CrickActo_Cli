@@ -120,7 +120,7 @@ const WagonWeel = props => {
                                 onPress={() => setWagonWeel("Third Man")}
                             />
                             <Pressable onPress={() => setWagonWeel("Third Man")}>
-                                <Text style={{ paddingTop: 7 }}>Third Man</Text>
+                                <Text style={{ paddingTop: 7,color:Color.FontColor,fontSize:16}}>Third Man</Text>
                             </Pressable>
 
                         </View>
@@ -131,7 +131,7 @@ const WagonWeel = props => {
                                 onPress={() => setWagonWeel("Deep point")}
                             />
                             <Pressable onPress={() => setWagonWeel("Deep point")}>
-                                <Text style={{ paddingTop: 7 }}>Deep point</Text>
+                                <Text style={{ paddingTop: 7,color:Color.FontColor,fontSize:16}}>Deep point</Text>
                             </Pressable>
                         </View>
                     </View>
@@ -143,7 +143,7 @@ const WagonWeel = props => {
                                 onPress={() => setWagonWeel("Deep Cover")}
                             />
                             <Pressable onPress={() => setWagonWeel("Deep Cover")}>
-                                <Text style={{ paddingTop: 7 }}>Deep Cover</Text>
+                                <Text style={{ paddingTop: 7,color:Color.FontColor,fontSize:16 }}>Deep Cover</Text>
                             </Pressable>
 
                         </View>
@@ -154,7 +154,7 @@ const WagonWeel = props => {
                                 onPress={() => setWagonWeel("Long Off")}
                             />
                             <Pressable onPress={() => setWagonWeel("Long Off")}>
-                                <Text style={{ paddingTop: 7 }}>Long Off</Text>
+                                <Text style={{ paddingTop: 7,color:Color.FontColor,fontSize:16 }}>Long Off</Text>
                             </Pressable>
                         </View>
                     </View>
@@ -166,7 +166,7 @@ const WagonWeel = props => {
                                 onPress={() => setWagonWeel("Long On")}
                             />
                             <Pressable onPress={() => setWagonWeel("Long On")}>
-                                <Text style={{ paddingTop: 7 }}>Long On</Text>
+                                <Text style={{ paddingTop: 7,color:Color.FontColor,fontSize:16 }}>Long On</Text>
                             </Pressable>
 
                         </View>
@@ -177,7 +177,7 @@ const WagonWeel = props => {
                                 onPress={() => setWagonWeel("Deep Mid Wicket")}
                             />
                             <Pressable onPress={() => setWagonWeel("Deep Mid Wicket")}>
-                                <Text style={{ paddingTop: 7 }}>Deep Mid Wicket</Text>
+                                <Text style={{ paddingTop: 7,color:Color.FontColor,fontSize:16 }}>Deep Mid Wicket</Text>
                             </Pressable>
                         </View>
                     </View>
@@ -189,7 +189,7 @@ const WagonWeel = props => {
                                 onPress={() => setWagonWeel("Deep Square Leg")}
                             />
                             <Pressable onPress={() => setWagonWeel("Deep Square Leg")}>
-                                <Text style={{ paddingTop: 7 }}>Deep Square Leg</Text>
+                                <Text style={{ paddingTop: 7,color:Color.FontColor,fontSize:16 }}>Deep Square Leg</Text>
                             </Pressable>
 
                         </View>
@@ -200,7 +200,7 @@ const WagonWeel = props => {
                                 onPress={() => setWagonWeel("Deep Final Leg")}
                             />
                             <Pressable onPress={() => setWagonWeel("Deep Final Leg")}>
-                                <Text style={{ paddingTop: 7 }}>Deep Final Leg</Text>
+                                <Text style={{ paddingTop: 7,color:Color.FontColor,fontSize:16 }}>Deep Final Leg</Text>
                             </Pressable>
                         </View>
                     </View>
@@ -225,7 +225,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>OUTSIDE EDGE</Text>
+                                                <Text style={{color:Color.FontColor}}>OUTSIDE EDGE</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -241,7 +241,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>TOP EDGE</Text>
+                                                <Text style={{color:Color.FontColor}}>TOP EDGE</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -260,7 +260,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>LATE CUT</Text>
+                                                <Text style={{color:Color.FontColor}}>LATE CUT</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -276,7 +276,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>REVERSE SWEEP</Text>
+                                                <Text style={{color:Color.FontColor}}>REVERSE SWEEP</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -307,7 +307,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>DEFENCE</Text>
+                                                <Text style={{color:Color.FontColor}}>DEFENCE</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -323,7 +323,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>LATE CUT</Text>
+                                                <Text style={{color:Color.FontColor}}>LATE CUT</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -342,7 +342,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>CUT SHORT</Text>
+                                                <Text style={{color:Color.FontColor}}>CUT SHORT</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -358,7 +358,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>BACKFOOT PUNCH</Text>
+                                                <Text style={{color:Color.FontColor}}>BACKFOOT PUNCH</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -376,7 +376,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>SQUARE DRIVE</Text>
+                                                <Text style={{color:Color.FontColor}}>SQUARE DRIVE</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -392,7 +392,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>SLASH</Text>
+                                                <Text style={{color:Color.FontColor}}>SLASH</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -410,7 +410,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>REVERSE SWEEP</Text>
+                                                <Text style={{color:Color.FontColor}}>REVERSE SWEEP</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -426,7 +426,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>SWITCH HIT</Text>
+                                                <Text style={{color:Color.FontColor}}>SWITCH HIT</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -456,7 +456,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>DEFENCE</Text>
+                                                <Text style={{color:Color.FontColor}}>DEFENCE</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -472,7 +472,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>DRIVE</Text>
+                                                <Text style={{color:Color.FontColor}}>DRIVE</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -491,7 +491,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>BACKFOOT PUNCH</Text>
+                                                <Text style={{color:Color.FontColor}}>BACKFOOT PUNCH</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -507,7 +507,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>INSIDE OUT</Text>
+                                                <Text style={{color:Color.FontColor}}>INSIDE OUT</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -525,7 +525,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>REVERSE SWEEP</Text>
+                                                <Text style={{color:Color.FontColor}}>REVERSE SWEEP</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -541,7 +541,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>SWITCH HIT</Text>
+                                                <Text style={{color:Color.FontColor}}>SWITCH HIT</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -570,7 +570,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>DEFENCE</Text>
+                                                <Text style={{color:Color.FontColor}}>DEFENCE</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -586,7 +586,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>PUNCH</Text>
+                                                <Text style={{color:Color.FontColor}}>PUNCH</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -605,7 +605,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>STRAIGHT DRIVE</Text>
+                                                <Text style={{color:Color.FontColor}}>STRAIGHT DRIVE</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -621,7 +621,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>OFF DRIVE</Text>
+                                                <Text style={{color:Color.FontColor}}>OFF DRIVE</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -639,7 +639,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>LOFTED SHOT</Text>
+                                                <Text style={{color:Color.FontColor}}>LOFTED SHOT</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -655,7 +655,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>INSIDE OUT</Text>
+                                                <Text style={{color:Color.FontColor}}>INSIDE OUT</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -684,7 +684,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>DEFENCE</Text>
+                                                <Text style={{color:Color.FontColor}}>DEFENCE</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -700,7 +700,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>PUNCH</Text>
+                                                <Text style={{color:Color.FontColor}}>PUNCH</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -719,7 +719,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>STRAIGHT DRIVE</Text>
+                                                <Text style={{color:Color.FontColor}}>STRAIGHT DRIVE</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -735,7 +735,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>ON DRIVE</Text>
+                                                <Text style={{color:Color.FontColor}}>ON DRIVE</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -753,7 +753,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>STEP OUT</Text>
+                                                <Text style={{color:Color.FontColor}}>STEP OUT</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -769,7 +769,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>LOFTED SHOT</Text>
+                                                <Text style={{color:Color.FontColor}}>LOFTED SHOT</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -798,7 +798,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>Flick</Text>
+                                                <Text style={{color:Color.FontColor}}>Flick</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -814,7 +814,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>Pull</Text>
+                                                <Text style={{color:Color.FontColor}}>Pull</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -833,7 +833,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>LOFTED SHOT</Text>
+                                                <Text style={{color:Color.FontColor}}>LOFTED SHOT</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -849,7 +849,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>SLOG SWEEP</Text>
+                                                <Text style={{color:Color.FontColor}}>SLOG SWEEP</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -867,7 +867,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>SWEEP</Text>
+                                                <Text style={{color:Color.FontColor}}>SWEEP</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -883,7 +883,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>DRIVE</Text>
+                                                <Text style={{color:Color.FontColor}}>DRIVE</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -901,7 +901,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>PUNCH</Text>
+                                                <Text style={{color:Color.FontColor}}>PUNCH</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -917,7 +917,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>DEFENCE</Text>
+                                                <Text style={{color:Color.FontColor}}>DEFENCE</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -946,7 +946,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>FLICK</Text>
+                                                <Text style={{color:Color.FontColor}}>FLICK</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -962,7 +962,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>PULL</Text>
+                                                <Text style={{color:Color.FontColor}}>PULL</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -981,7 +981,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>PUNCH</Text>
+                                                <Text style={{color:Color.FontColor}}>PUNCH</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -997,7 +997,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>DEFENCE</Text>
+                                                <Text style={{color:Color.FontColor}}>DEFENCE</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -1016,7 +1016,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>INSIDE EDGE</Text>
+                                                <Text style={{color:Color.FontColor}}>INSIDE EDGE</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -1032,7 +1032,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>SWEEP</Text>
+                                                <Text style={{color:Color.FontColor}}>SWEEP</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -1062,7 +1062,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>LEG GLANCE</Text>
+                                                <Text style={{color:Color.FontColor}}>LEG GLANCE</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -1078,7 +1078,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>INSIDE EDGE</Text>
+                                                <Text style={{color:Color.FontColor}}>INSIDE EDGE</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -1097,7 +1097,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>TOP EDGE</Text>
+                                                <Text style={{color:Color.FontColor}}>TOP EDGE</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -1113,7 +1113,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>PULL</Text>
+                                                <Text style={{color:Color.FontColor}}>PULL</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -1132,7 +1132,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>SWEEP</Text>
+                                                <Text style={{color:Color.FontColor}}>SWEEP</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -1148,7 +1148,7 @@ const WagonWeel = props => {
                                                 />
                                             </View>
                                             <View style={[styles.body60]}>
-                                                <Text>PADDLE SWEEP</Text>
+                                                <Text style={{color:Color.FontColor}}>PADDLE SWEEP</Text>
                                             </View>
                                         </Pressable>
                                     </View>
@@ -1164,7 +1164,7 @@ const WagonWeel = props => {
                             onPress={() => Close()}
                             style={styles.Modla_Cancelbtn}
                         >
-                            <Text style={styles.Modal_Cancelbtn_text}>CANCEL</Text>
+                            <Text style={[styles.Modal_Cancelbtn_text,{color:Color.FontColor,fontWeight:"700"}]}>CANCEL</Text>
                         </Pressable>
                     </View>
                     <View style={styles.body50}>

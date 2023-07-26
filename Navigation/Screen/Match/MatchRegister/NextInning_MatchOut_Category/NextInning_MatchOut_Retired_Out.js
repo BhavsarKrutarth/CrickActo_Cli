@@ -197,7 +197,7 @@ const NextInning_MatchOut_Retired_Out = () => {
             MATCHTEAMBID_UNDO:MatchTeamBid_undo,
             FLAGBATTERTYPE:StrickerSelect == "Sticker" ?  "Sticker" : "Runner"
           }
-          debugger
+          
           if(isChecked != false)
           {
             data.RUN = 0;

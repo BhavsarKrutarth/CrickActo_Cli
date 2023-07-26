@@ -814,7 +814,7 @@ import {
     };
   
     const WideBall_Calculate = async () => {
-      debugger
+      
       setRun(+Run + +WideBall);
       setRunDisplay(
         RunDisplay != null

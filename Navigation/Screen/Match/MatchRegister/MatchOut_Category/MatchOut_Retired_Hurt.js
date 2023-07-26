@@ -1,9 +1,9 @@
 import Checkbox from 'expo-checkbox';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet, Image, Alert, Pressable,ScrollView,Modal } from 'react-native';
+import { View, Text, StyleSheet, Image, Alert, Pressable,ScrollView,Modal,TextInput } from 'react-native';
 import Color from '../../../../../Color/Color';
-import { TextInput } from 'react-native-gesture-handler';
+// import { TextInput } from 'react-native-gesture-handler';
 import scoketservices from '../../../../../scoket/scoketservices';
 
 const MatchOut_Retired_Hurt = () => {
@@ -252,7 +252,7 @@ const MatchOut_Retired_Hurt = () => {
             MATCHTEAMAID_UNDO:MatchTeamAid_undo,
             FLAGBATTERTYPE:StrickerSelect == "Sticker" ?  "Sticker" : "Runner"
           }
-          debugger
+          
           if(isChecked != false)
           {
             data.RUN = 0;
@@ -383,8 +383,8 @@ const MatchOut_Retired_Hurt = () => {
                       resizeMode="stretch"
                       style={styles.img}
                     />
-                    <Text style={{fontSize:20,fontWeight:"700"}}>{TeamBBowlerName}</Text>
-                    <Text style={{fontSize:16}}>Confirme Next Inning Start?</Text>
+                    <Text style={{fontSize:20,fontWeight:"700",color:Color.FontColor}}>{TeamBBowlerName}</Text>
+                    <Text style={{fontSize:16,color:Color.FontColor}}>Confirme Next Inning Start?</Text>
                   </View>
 
                   <View style={[styles.modalText, { marginTop: 20 }]}>
@@ -429,7 +429,7 @@ const MatchOut_Retired_Hurt = () => {
                             />
                         </View>
                         <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
-                            <Text>{original_StickerName}</Text>
+                            <Text style={{color:Color.FontColor}}>{original_StickerName}</Text>
                         </View>
                         <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
                             <Text style={{ color: Color.GunmetalGray, fontWeight: "700" }}>Striker</Text>
@@ -452,7 +452,7 @@ const MatchOut_Retired_Hurt = () => {
                             />
                         </View>
                         <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
-                            <Text>{original_Non_StickerName}</Text>
+                            <Text style={{color:Color.FontColor}}>{original_Non_StickerName}</Text>
                         </View>
                         <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
                             <Text style={{ color: Color.GunmetalGray, fontWeight: "700" }} >Non - Striker</Text>
@@ -470,7 +470,7 @@ const MatchOut_Retired_Hurt = () => {
                         onValueChange={setChecked}
                         color={isChecked ? '#4630EB' : undefined}
                     />
-                    <Text style={{ marginLeft: 6, fontSize: 14 }}>Don't Count Ball</Text>
+                    <Text style={{ marginLeft: 6, fontSize: 14,color:Color.FontColor }}>Don't Count Ball</Text>
                 </View>
             </View>
            {
@@ -486,7 +486,7 @@ const MatchOut_Retired_Hurt = () => {
                                 ? { borderColor: "green" }
                                 : { borderColor: Color.sliverColor }
                             ]} onPress={() => setDeliveryTypeSelect("WideBall")}>
-                                <Text>WD</Text>
+                                <Text style={{color:Color.FontColor}}>WD</Text>
                             </Pressable>
                             <View style={[styles.width01]}></View>
                             <Pressable style={[styles.width24,
@@ -494,7 +494,7 @@ const MatchOut_Retired_Hurt = () => {
                                 ? { borderColor: "green" }
                                 : { borderColor: Color.sliverColor }
                             ]} onPress={() => setDeliveryTypeSelect("NoBall")}>
-                                <Text>NB</Text>
+                                <Text style={{color:Color.FontColor}}>NB</Text>
                             </Pressable>
                             <View style={[styles.width01]}></View>
                             <Pressable style={[styles.width24,
@@ -502,7 +502,7 @@ const MatchOut_Retired_Hurt = () => {
                                 ? { borderColor: "green" }
                                 : { borderColor: Color.sliverColor }
                             ]} onPress={() => setDeliveryTypeSelect("ByeBall")}>
-                                <Text>BYE</Text>
+                                <Text style={{color:Color.FontColor}}>BYE</Text>
                             </Pressable>
                             <View style={[styles.width01]}></View>
                             <Pressable style={[styles.width24,
@@ -510,11 +510,11 @@ const MatchOut_Retired_Hurt = () => {
                                 ? { borderColor: "green" }
                                 : { borderColor: Color.sliverColor }
                             ]} onPress={() => setDeliveryTypeSelect("LegByeBall")}>
-                                <Text>LB</Text>
+                                <Text style={{color:Color.FontColor}}>LB</Text>
                             </Pressable>
                         </View><View style={[styles.with100, { paddingTop: 10, paddingHorizontal: 10 }]}>
                             <View>
-                                <Text style={{ fontSize: 14 }}>Runs Scored</Text>
+                                <Text style={{ fontSize: 14,color:Color.FontColor }}>Runs Scored</Text>
                             </View>
                         </View><View style={[styles.with100, { paddingTop: 10, paddingHorizontal: 10 }]}>
                             <View style={styles.width01}></View>
@@ -527,7 +527,7 @@ const MatchOut_Retired_Hurt = () => {
                                 setRunScoredSelect("0");
                                 setRunScored(false);
                             } }>
-                                <Text>0</Text>
+                                <Text style={{color:Color.FontColor}} >0</Text>
                             </Pressable>
 
                             <View style={styles.width02}></View>
@@ -539,7 +539,7 @@ const MatchOut_Retired_Hurt = () => {
                                 setRunScoredSelect("1");
                                 setRunScored(false);
                             } }>
-                                <Text>1</Text>
+                                <Text style={{color:Color.FontColor}}>1</Text>
                             </Pressable>
 
                             <View style={styles.width02}></View>
@@ -551,7 +551,7 @@ const MatchOut_Retired_Hurt = () => {
                                 setRunScoredSelect("2");
                                 setRunScored(false);
                             } }>
-                                <Text>2</Text>
+                                <Text style={{color:Color.FontColor}}>2</Text>
                             </Pressable>
                             <View style={styles.width02}></View>
                             <Pressable style={[styles.width08, styles.RunBorder,
@@ -562,7 +562,7 @@ const MatchOut_Retired_Hurt = () => {
                                 setRunScoredSelect("3");
                                 setRunScored(false);
                             } }>
-                                <Text>3</Text>
+                                <Text style={{color:Color.FontColor}}>3</Text>
                             </Pressable>
                             <View style={styles.width02}></View>
                             <Pressable style={[styles.width08, styles.RunBorder,
@@ -573,20 +573,20 @@ const MatchOut_Retired_Hurt = () => {
                                 setRunScoredSelect("4");
                                 setRunScored(false);
                             } }>
-                                <Text>4</Text>
+                                <Text style={{color:Color.FontColor}}>4</Text>
                             </Pressable>
                             <View style={styles.width02}></View>
                             <Pressable style={[styles.width08, styles.RunBorder]} onPress={() => {
                                 setRunScored(true);
                                 setRunScoredSelect(0);
                             } }>
-                                <Text>+</Text>
+                                <Text style={{color:Color.FontColor}}>+</Text>
                             </Pressable>
                             <View style={styles.width02}></View>
                             {RunScored == true ? (
                                 <>
                                     <View style={[styles.width08, styles.RunBorder, { borderColor: "green" }]}>
-                                        <TextInput maxLength={2} onValueChange={setRunScoredSelect} keyboardType='decimal-pad' />
+                                        <TextInput maxLength={2} style={{color:Color.FontColor}} onValueChange={setRunScoredSelect} keyboardType='decimal-pad' />
                                     </View></>
                             ) : null}
 
@@ -629,7 +629,8 @@ const styles = StyleSheet.create({
     },
     StrickerTitle: {
         marginLeft: 10,
-        margintop: 10
+        margintop: 10,
+        color:Color.FontColor
     },
     footerText: {
         color: "white",
@@ -654,7 +655,7 @@ const styles = StyleSheet.create({
         width: "5%"
     },
     Title: {
-        fontSize: 18, fontWeight: "bold"
+        fontSize: 18, fontWeight: "bold",color:Color.FontColor
     },
     width24: {
         width: "24%",

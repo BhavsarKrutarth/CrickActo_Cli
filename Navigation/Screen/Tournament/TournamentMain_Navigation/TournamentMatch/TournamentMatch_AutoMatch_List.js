@@ -322,7 +322,7 @@ const TournamentMatch_AutoMatch_List = (props) => {
   }
 
   const onChangeTime = (event, SelectTime) => {
-    debugger;
+    
     setDateshow_Time(false);
     const currentDate = SelectTime || date;
     let tempDate = new Date(currentDate);

@@ -57,6 +57,23 @@ import MatchSelectStriker from "../Screen/Match/MatchRegister/MatchSelectStriker
 import MatchSelectNon_Striker from "../Screen/Match/MatchRegister/MatchSelectNon_Striker";
 import MatchSelectBowler from "../Screen/Match/MatchRegister/MatchSelectBowler";
 import MatchScoring from "../Screen/Match/MatchRegister/MatchScoring";
+import WagonWeel from "../Screen/Match/MatchRegister/WagonWeel";
+import MatchOut from "../Screen/Match/MatchRegister/MatchOut";
+import MatchNextBatterTeamA from "../Screen/Match/MatchRegister/MatchNextBatterTeamA";
+import MatchOut_Caught from "../Screen/Match/MatchRegister/MatchOut_Category/MatchOut_Caught";
+import MatchOut_FielderList from "../Screen/Match/MatchRegister/MatchOut_Category/MatchOut_FielderList";
+import MatchOut_SelectNextBatter from "../Screen/Match/MatchRegister/MatchOut_Category/MatchOut_SelectNextBatter";
+import MatchOutBehind_Caught from "../Screen/Match/MatchRegister/MatchOut_Category/MatchOutBehind_Caught";
+import MatchNextOver from "../Screen/Match/MatchRegister/MatchNextOver";
+import MatchOut_RunOut from "../Screen/Match/MatchRegister/MatchOut_Category/MatchOut_RunOut";
+import NextInning from "../Screen/Match/MatchRegister/NextInning";
+import MatchOut_Hit_Wicket from "../Screen/Match/MatchRegister/MatchOut_Category/MatchOut_Hit_Wicket";
+import MatchOut_Retired_Hurt from "../Screen/Match/MatchRegister/MatchOut_Category/MatchOut_Retired_Hurt";
+import MatchOut_Retired_Out from "../Screen/Match/MatchRegister/MatchOut_Category/MatchOut_Retired_Out";
+import MatchOut_Absent_Hurt from "../Screen/Match/MatchRegister/MatchOut_Category/MatchOut_Absent_Hurt";
+import MatchOut_Hit_TheBallTwisce from "../Screen/Match/MatchRegister/MatchOut_Category/MatchOut_Hit_TheBallTwisce";
+import MatchOut_ObstructingTheField from "../Screen/Match/MatchRegister/MatchOut_Category/MatchOut_ObstructingTheField";
+import MatchOut_Retired from "../Screen/Match/MatchRegister/MatchOut_Category/MatchOut_Retired";
 
 const Stack = createNativeStackNavigator();
 const Tab = createMaterialTopTabNavigator();
@@ -755,6 +772,267 @@ const NavigationScreen = (props) => {
                   : route.params.PageName != "Match Scoring"
                     ? route.params.PageName
                     : "Match Scoring",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="WagonWeel"
+            component={WagonWeel}
+            options={({ route }) => ({
+              title:
+                route.params === undefined
+                  ? "Wagon Weel"
+                  : route.params.PageName != "Wagon Weel"
+                    ? route.params.PageName
+                    : "Wagon Weel",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="MatchOut"
+            component={MatchOut}
+            options={({ route }) => ({
+              title:
+                route.params === undefined
+                  ? "Out How?"
+                  : route.params.PageName != "Out How?"
+                    ? route.params.PageName
+                    : "Out How?",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="MatchNextBatterTeamA"
+            component={MatchNextBatterTeamA}
+            options={({ route }) => ({
+              title: "Select Next Batter",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="MatchOut_Caught"
+            component={MatchOut_Caught}
+            options={({ route }) => ({
+              title: "Caught",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="MatchOut_FielderList"
+            component={MatchOut_FielderList}
+            options={({ route }) => ({
+              title: "Fielder List",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="MatchOut_SelectNextBatter"
+            component={MatchOut_SelectNextBatter}
+            options={({ route }) => ({
+              title: "Select Next Batter",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="MatchOutBehind_Caught"
+            component={MatchOutBehind_Caught}
+            options={({ route }) => ({
+              title:
+                route.params === undefined
+                  ? "Catch Behind"
+                  : route.params.PageName != "Catch Behind"
+                    ? route.params.PageName
+                    : "Catch Behind",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="MatchNextOver"
+            component={MatchNextOver}
+            options={({ route }) => ({
+              title:
+                route.params === undefined
+                  ? "Next Over"
+                  : route.params.PageName != "Next Over"
+                    ? route.params.PageName
+                    : "Next Over",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="MatchOut_RunOut"
+            component={MatchOut_RunOut}
+            options={({ route }) => ({
+              title:
+                route.params === undefined
+                  ? "Run Out"
+                  : route.params.PageName != "Run Out"
+                    ? route.params.PageName
+                    : "Run Out",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="NextInning"
+            component={NextInning}
+            options={({ route }) => ({
+              title: "Next Inning",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="MatchOut_Hit_Wicket"
+            component={MatchOut_Hit_Wicket}
+            options={({ route }) => ({
+              title: "Hit Wicket",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="MatchOut_Retired_Hurt"
+            component={MatchOut_Retired_Hurt}
+            options={({ route }) => ({
+              title: "Retired Hurt",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="MatchOut_Retired_Out"
+            component={MatchOut_Retired_Out}
+            options={({ route }) => ({
+              title: "Retired Out",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+          <Stack.Screen
+            name="MatchOut_Absent_Hurt"
+            component={MatchOut_Absent_Hurt}
+            options={({ route }) => ({
+              title: "Absent Hurt",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="MatchOut_Hit_TheBallTwisce"
+            component={MatchOut_Hit_TheBallTwisce}
+            options={({ route }) => ({
+              title: "Hit TheBallTwisce",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="MatchOut_ObstructingTheField"
+            component={MatchOut_ObstructingTheField}
+            options={({ route }) => ({
+              title: "Obstructing the field",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+          <Stack.Screen
+            name="MatchOut_Retired"
+            component={MatchOut_Retired}
+            options={({ route }) => ({
+              title: "Retired",
               headerTitleAlign: "left",
               headerTintColor: "white",
               headerStyle: {

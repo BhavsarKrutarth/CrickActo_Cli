@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View, Image, Pressable, Modal } from 'react-native'
+import { StyleSheet, Text, View, Image, Pressable, Modal,ScrollView } from 'react-native'
 import React, { useState, useEffect } from 'react'
-import { ScrollView } from 'react-native-gesture-handler';
+// import { ScrollView } from 'react-native-gesture-handler';
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
 import Color from '../../../../Color/Color';
@@ -67,6 +67,7 @@ const MatchOut = () => {
   const [FunctionRun, setFunctionRun] = useState(null);
 
   React.useEffect(() => {
+    
     console.log("Navigation/Screen/Match/MatchRegister/MatchOut.js");
     if (route.params?.FlagBatterType) setFlagBatterType(route.params?.FlagBatterType);
     if (route.params?.original_Stickerid) setoriginal_Stickerid(route.params?.original_Stickerid);
@@ -113,6 +114,7 @@ const MatchOut = () => {
     if (route.params?.PosstionFlag) setPosstionFlag(route.params?.PosstionFlag);
 
     if (route.params?.WagonWeel) {
+      
       setWagonWeel(route.params?.WagonWeel)
       setShortType(route.params?.ShortType)
       //tempfunctionName(route.params?.FunctionRun)
@@ -772,8 +774,8 @@ const MatchOut = () => {
                   resizeMode="stretch"
                   style={styles.img}
                 />
-                <Text style={{ fontSize: 20, fontWeight: "700" }}>{TeamBBowlerName}</Text>
-                <Text style={{ fontSize: 16 }}>Confirme Next Inning Start?</Text>
+                <Text style={{ fontSize: 20, fontWeight: "700",color:Color.FontColor }}>{TeamBBowlerName}</Text>
+                <Text style={{ fontSize: 16,color:Color.FontColor }}>Confirme Next Inning Start?</Text>
               </View>
 
               <View style={[styles.modalText, { marginTop: 20 }]}>
@@ -816,8 +818,8 @@ const MatchOut = () => {
                   resizeMode="stretch"
                   style={styles.img}
                 />
-                <Text style={{ fontSize: 20, fontWeight: "700" }}>{StickerName}</Text>
-                <Text style={{ fontSize: 16 }}>Confirmed out - Bowled?</Text>
+                <Text style={{ fontSize: 20, fontWeight: "700",color:Color.FontColor }}>{StickerName}</Text>
+                <Text style={{ fontSize: 16,color:Color.FontColor }}>Confirmed out - Bowled?</Text>
               </View>
 
               <View style={[styles.modalText, { marginTop: 20 }]}>
@@ -859,8 +861,8 @@ const MatchOut = () => {
                   resizeMode="stretch"
                   style={styles.img}
                 />
-                <Text style={{ fontSize: 20, fontWeight: "700" }}>{StickerName}</Text>
-                <Text style={{ fontSize: 16 }}>Confirmed out - Caught & Bowled?</Text>
+                <Text style={{ fontSize: 20, fontWeight: "700",color:Color.FontColor }}>{StickerName}</Text>
+                <Text style={{ fontSize: 16,color:Color.FontColor }}>Confirmed out - Caught & Bowled?</Text>
               </View>
 
               <View style={[styles.modalText, { marginTop: 20 }]}>
@@ -911,8 +913,8 @@ const MatchOut = () => {
                   resizeMode="stretch"
                   style={styles.img}
                 />
-                <Text style={{ fontSize: 20, fontWeight: "700" }}>{StickerName}</Text>
-                <Text style={{ fontSize: 16 }}>Confirmed out - LBW?</Text>
+                <Text style={{ fontSize: 20, fontWeight: "700",color:Color.FontColor }}>{StickerName}</Text>
+                <Text style={{ fontSize: 16,color:Color.FontColor }}>Confirmed out - LBW?</Text>
               </View>
 
               <View style={[styles.modalText, { marginTop: 20 }]}>
@@ -954,8 +956,8 @@ const MatchOut = () => {
                   resizeMode="stretch"
                   style={styles.img}
                 />
-                <Text style={{ fontSize: 20, fontWeight: "700" }}>{StickerName}</Text>
-                <Text style={{ fontSize: 16 }}>Confirmed out - Run Out(Mankaded)?</Text>
+                <Text style={{ fontSize: 20, fontWeight: "700",color:Color.FontColor }}>{StickerName}</Text>
+                <Text style={{ fontSize: 16,color:Color.FontColor }}>Confirmed out - Run Out(Mankaded)?</Text>
               </View>
 
               <View style={[styles.modalText, { marginTop: 20 }]}>
@@ -1257,6 +1259,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "700",
     textAlign: "center",
+    color:Color.FontColor
   },
 
   modalcenteredView: {

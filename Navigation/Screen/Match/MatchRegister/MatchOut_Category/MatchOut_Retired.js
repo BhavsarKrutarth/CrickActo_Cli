@@ -1,9 +1,9 @@
 import Checkbox from 'expo-checkbox';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet, Image, Alert, Pressable,ScrollView,Modal } from 'react-native';
+import { View, Text, StyleSheet, Image, Alert, Pressable,ScrollView,Modal,TextInput } from 'react-native';
 import Color from '../../../../../Color/Color';
-import { TextInput } from 'react-native-gesture-handler';
+// import { TextInput } from 'react-native-gesture-handler';
 import scoketservices from '../../../../../scoket/scoketservices';
 
 const MatchOut_Retired = () => {
@@ -316,8 +316,8 @@ const MatchOut_Retired = () => {
                       resizeMode="stretch"
                       style={styles.img}
                     />
-                    <Text style={{fontSize:20,fontWeight:"700"}}>{TeamBBowlerName}</Text>
-                    <Text style={{fontSize:16}}>Confirme Next Inning Start?</Text>
+                    <Text style={{fontSize:20,fontWeight:"700",color:Color.FontColor}}>{TeamBBowlerName}</Text>
+                    <Text style={{fontSize:16,color:Color.FontColor}}>Confirme Next Inning Start?</Text>
                   </View>
 
                   <View style={[styles.modalText, { marginTop: 20 }]}>
@@ -362,7 +362,7 @@ const MatchOut_Retired = () => {
                             />
                         </View>
                         <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
-                            <Text>{original_StickerName}</Text>
+                            <Text style={{color:Color.FontColor}}>{original_StickerName}</Text>
                         </View>
                         <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
                             <Text style={{ color: Color.GunmetalGray, fontWeight: "700" }}>Striker</Text>
@@ -385,7 +385,7 @@ const MatchOut_Retired = () => {
                             />
                         </View>
                         <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
-                            <Text>{original_Non_StickerName}</Text>
+                            <Text style={{color:Color.FontColor}}>{original_Non_StickerName}</Text>
                         </View>
                         <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
                             <Text style={{ color: Color.GunmetalGray, fontWeight: "700" }} >Non - Striker</Text>
@@ -404,7 +404,7 @@ const MatchOut_Retired = () => {
                             ? { borderColor: "green" }
                             : { borderColor: Color.sliverColor }
                         ]} onPress={() => setDeliveryTypeSelect("Yes")}>
-                            <Text>Yes</Text>
+                            <Text style={{color:Color.FontColor}}>Yes</Text>
                         </Pressable>
                         <View style={[styles.width01]}></View>
                         <Pressable style={[styles.width24,
@@ -412,19 +412,19 @@ const MatchOut_Retired = () => {
                             ? { borderColor: "green" }
                             : { borderColor: Color.sliverColor }
                         ]} onPress={() => setDeliveryTypeSelect("No")}>
-                            <Text>No</Text>
+                            <Text style={{color:Color.FontColor}}>No</Text>
                         </Pressable>
                         
                     </View><View style={[styles.with100, { paddingTop: 10, paddingHorizontal: 10 }]}>
                         <View>
-                            <Text style={{ fontSize: 14 }}>* Ball will not count</Text>
+                            <Text style={{ fontSize: 14,color:Color.FontColor }}>* Ball will not count</Text>
                         </View>
                     </View>
                     </>
                         
             
             <Pressable onPress={() => btnDone()} style={[styles.with100,styles.btnout]}>
-                <Text onChangeText={setRunScoredSelect} value={RunScoredSelect} style={{color:"white"}}>RETIRED HURT</Text>
+                <Text onChangeText={setRunScoredSelect} value={RunScoredSelect} style={{color:"white"}}>RETIRED</Text>
             </Pressable>
             </ScrollView>
         </View>
@@ -442,7 +442,8 @@ const styles = StyleSheet.create({
     myText: {
         fontSize: 18,
         color: Color.PrimaryColor,
-        fontWeights: 900, marginBottom: 10
+         marginBottom: 10,
+         fontWeight:"900"
     },
     StrickerWrapper: {
         marginHorizontal: 10,
@@ -458,7 +459,8 @@ const styles = StyleSheet.create({
     },
     StrickerTitle: {
         marginLeft: 10,
-        margintop: 10
+        marginTop: 10,
+        color:Color.FontColor
     },
     footerText: {
         color: "white",
@@ -483,7 +485,8 @@ const styles = StyleSheet.create({
         width: "5%"
     },
     Title: {
-        fontSize: 18, fontWeight: "bold"
+        fontSize: 18, fontWeight: "bold",
+        color:Color.FontColor
     },
     width24: {
         width: "24%",

@@ -203,7 +203,7 @@ const NextInning_MatchOut_RunOut = () => {
                   return
             }
          }
-            debugger
+            
          var data = {
             OPER: "add",
             MATCHID: Matchid,
