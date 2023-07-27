@@ -12,11 +12,11 @@ import {
     Modal,
   } from "react-native";
     import React, { useState, useEffect } from "react";
-    import Custombutton from "../../../../Component/PressableButton/Custombutton"
+    // import Custombutton from "../../../../Component/PressableButton/Custombutton"
     import { useNavigation } from "@react-navigation/native";
     import { useRoute } from '@react-navigation/native';
     import Color from "../../../../Color/Color";
-  import { color } from "react-native-reanimated";
+  // import { color } from "react-native-reanimated";
      /* -----------------------refreshing ------------------------------*/
      const wait = (timeout) => {
       return new Promise(resolve => setTimeout(resolve, timeout));
@@ -208,12 +208,12 @@ import {
                 <View style={[styles.body80]}>
                   <View style={{ marginLeft: 5 }}>
                     <View>
-                      <Text style={{ fontSize: 18, fontWeight: "900" }}>
+                      <Text style={{ fontSize: 18, fontWeight: "900",color:Color.FontColor }}>
                         {item.Name}
                       </Text>
                     </View>
                     <View style={{ flexDirection: "column", flexWrap: "wrap" }}>
-                      <Text>
+                      <Text style={{color:Color.FontColor}}>
                         <Image
                           source={{
                             uri: `${global.domainName}/CricbuddyAdmin/Content/assets/tournament/icon_Location.png`,
@@ -335,6 +335,7 @@ import {
               animationType="slide"
               transparent={true}
               visible={modalVisible}
+              // visible={true}
               onRequestClose={() => {
                 Alert.alert("Modal has been closed.");
                 this.setModalVisible(!modalVisible);
@@ -597,7 +598,7 @@ import {
         marginVertical: 10,
       },
       modaltitle: { fontSize: 20, color: Color.PrimaryColor, fontWeight: "600" },
-      modalsubtitle: { fontSize: 16 },
+      modalsubtitle: { fontSize: 16 ,color:Color.FontColor},
   
     });
     

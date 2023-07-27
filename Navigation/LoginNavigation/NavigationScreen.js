@@ -74,6 +74,24 @@ import MatchOut_Absent_Hurt from "../Screen/Match/MatchRegister/MatchOut_Categor
 import MatchOut_Hit_TheBallTwisce from "../Screen/Match/MatchRegister/MatchOut_Category/MatchOut_Hit_TheBallTwisce";
 import MatchOut_ObstructingTheField from "../Screen/Match/MatchRegister/MatchOut_Category/MatchOut_ObstructingTheField";
 import MatchOut_Retired from "../Screen/Match/MatchRegister/MatchOut_Category/MatchOut_Retired";
+import NextInning_MatchSelectStriker from "../Screen/Match/MatchRegister/NextInning_MatchSelectStriker";
+import NextInning_MatchSelectNon_Striker from "../Screen/Match/MatchRegister/NextInning_MatchSelectNon_Striker";
+import NextInning_MatchSelectBowler from "../Screen/Match/MatchRegister/NextInning_MatchSelectBowler";
+import NextInning_MatchScoring from "../Screen/Match/MatchRegister/NextInning_MatchScoring";
+import NextInning_MatchNextOver from "../Screen/Match/MatchRegister/NextInning_MatchNextOver";
+import NextInning_MatchOut from "../Screen/Match/MatchRegister/NextInning_MatchOut";
+import NextInning_MatchNextBatterTeamB from "../Screen/Match/MatchRegister/NextInning_MatchOut_Category/NextInning_MatchNextBatterTeamB";
+import NextInning_MatchOut_Caught from "../Screen/Match/MatchRegister/NextInning_MatchOut_Category/NextInning_MatchOut_Caught";
+import NextInning_MatchOut_FielderList from "../Screen/Match/MatchRegister/NextInning_MatchOut_Category/NextInning_MatchOut_FielderList";
+import NextInning_MatchOutBehind_Caught from "../Screen/Match/MatchRegister/NextInning_MatchOut_Category/NextInning_MatchOutBehind_Caught";
+import NextInning_MatchOut_RunOut from "../Screen/Match/MatchRegister/NextInning_MatchOut_Category/NextInning_MatchOut_RunOut";
+import NextInning_MatchOut_Hit_Wicket from "../Screen/Match/MatchRegister/NextInning_MatchOut_Category/NextInning_MatchOut_Hit_Wicket";
+import NextInning_MatchOut_Retired_Hurt from "../Screen/Match/MatchRegister/NextInning_MatchOut_Category/NextInning_MatchOut_Retired_Hurt";
+import NextInning_MatchOut_Retired_Out from "../Screen/Match/MatchRegister/NextInning_MatchOut_Category/NextInning_MatchOut_Retired_Out";
+import NextInning_MatchOut_Absent_Hurt from "../Screen/Match/MatchRegister/NextInning_MatchOut_Category/NextInning_MatchOut_Absent_Hurt";
+import NextInning_MatchOut_Hit_TheBallTwisce from "../Screen/Match/MatchRegister/NextInning_MatchOut_Category/NextInning_MatchOut_Hit_TheBallTwisce";
+import NextInning_MatchOut_ObstructingTheField from "../Screen/Match/MatchRegister/NextInning_MatchOut_Category/NextInning_MatchOut_ObstructingTheField";
+import NextInning_MatchOut_Retired from "../Screen/Match/MatchRegister/NextInning_MatchOut_Category/NextInning_MatchOut_Retired";
 
 const Stack = createNativeStackNavigator();
 const Tab = createMaterialTopTabNavigator();
@@ -1031,6 +1049,271 @@ const NavigationScreen = (props) => {
           <Stack.Screen
             name="MatchOut_Retired"
             component={MatchOut_Retired}
+            options={({ route }) => ({
+              title: "Retired",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="NextInning_MatchSelectStriker"
+            component={NextInning_MatchSelectStriker}
+            options={({ route }) => ({
+              title:
+                route.params === undefined
+                  ? "Select Striker"
+                  : route.params.PageName != "Select Striker"
+                    ? route.params.PageName
+                    : "Select Striker",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+          <Stack.Screen
+            name="NextInning_MatchSelectNon_Striker"
+            component={NextInning_MatchSelectNon_Striker}
+            options={({ route }) => ({
+              title:
+                route.params === undefined
+                  ? "Select Non-Striker"
+                  : route.params.PageName != "Select Non-Striker"
+                    ? route.params.PageName
+                    : "Select Non-Striker",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="NextInning_MatchSelectBowler"
+            component={NextInning_MatchSelectBowler}
+            options={({ route }) => ({
+              title:
+                route.params === undefined
+                  ? "Select Bowler"
+                  : route.params.PageName != "Select Bowler"
+                    ? route.params.PageName
+                    : "Select Bowler",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+          <Stack.Screen
+            name="NextInning_MatchScoring"
+            component={NextInning_MatchScoring}
+            options={({ route }) => ({
+              title: "Scoring Board",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="NextInning_MatchNextOver"
+            component={NextInning_MatchNextOver}
+            options={({ route }) => ({
+              title: "Next Over",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="NextInning_MatchOut"
+            component={NextInning_MatchOut}
+            options={({ route }) => ({
+              title: "Match Out",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="NextInning_MatchNextBatterTeamB"
+            component={NextInning_MatchNextBatterTeamB}
+            options={({ route }) => ({
+              title: "Select Next Batter Team B",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+<Stack.Screen
+            name="NextInning_MatchOut_Caught"
+            component={NextInning_MatchOut_Caught}
+            options={({ route }) => ({
+              title: "Caught",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="NextInning_MatchOut_FielderList"
+            component={NextInning_MatchOut_FielderList}
+            options={({ route }) => ({
+              title: "Fielder List",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="NextInning_MatchOutBehind_Caught"
+            component={NextInning_MatchOutBehind_Caught}
+            options={({ route }) => ({
+              title: "Catch Behind",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="NextInning_MatchOut_RunOut"
+            component={NextInning_MatchOut_RunOut}
+            options={({ route }) => ({
+              title: "Run Out",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="NextInning_MatchOut_Hit_Wicket"
+            component={NextInning_MatchOut_Hit_Wicket}
+            options={({ route }) => ({
+              title: "Hit Wicket",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="NextInning_MatchOut_Retired_Hurt"
+            component={NextInning_MatchOut_Retired_Hurt}
+            options={({ route }) => ({
+              title: "Retired Hurt",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="NextInning_MatchOut_Retired_Out"
+            component={NextInning_MatchOut_Retired_Out}
+            options={({ route }) => ({
+              title: "Retired Out",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="NextInning_MatchOut_Absent_Hurt"
+            component={NextInning_MatchOut_Absent_Hurt}
+            options={({ route }) => ({
+              title: "Absent Hurt",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="NextInning_MatchOut_Hit_TheBallTwisce"
+            component={NextInning_MatchOut_Hit_TheBallTwisce}
+            options={({ route }) => ({
+              title: "Hit TheBallTwisce",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="NextInning_MatchOut_ObstructingTheField"
+            component={NextInning_MatchOut_ObstructingTheField}
+            options={({ route }) => ({
+              title: "ObstructingTheField",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="NextInning_MatchOut_Retired"
+            component={NextInning_MatchOut_Retired}
             options={({ route }) => ({
               title: "Retired",
               headerTitleAlign: "left",

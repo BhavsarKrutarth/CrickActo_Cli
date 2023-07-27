@@ -1418,8 +1418,8 @@ const MatchScoring = () => {
                   resizeMode="stretch"
                   style={styles.img}
                 />
-                <Text style={{ fontSize: 20, fontWeight: "700" }}>{TeamBBowlerName}</Text>
-                <Text style={{ fontSize: 16 }}>Confirme Next Inning Start?</Text>
+                <Text style={{ fontSize: 20, fontWeight: "700",color:Color.FontColor }}>{TeamBBowlerName}</Text>
+                <Text style={{ fontSize: 16,color:Color.FontColor }}>Confirme Next Inning Start?</Text>
               </View>
 
               <View style={[styles.modalText, { marginTop: 20 }]}>

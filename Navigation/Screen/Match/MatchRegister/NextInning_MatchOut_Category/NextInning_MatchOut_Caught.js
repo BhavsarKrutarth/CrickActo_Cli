@@ -265,7 +265,7 @@ const NextInning_MatchOut_Caught = () => {
                       resizeMode="stretch"
                       style={styles.img}
                     />
-                    <Text style={{fontSize:16}}>Inning completed</Text>
+                    <Text style={{fontSize:16,color:Color.FontColor}}>Inning completed</Text>
                   </View>
 
                   <View style={[styles.modalText, { marginTop: 20 }]}>
@@ -362,7 +362,8 @@ const styles = StyleSheet.create({
     myText:{
         fontSize:18,
         color:Color.PrimaryColor,
-        fontWeights :900,marginBottom:10
+        marginBottom:10,
+        fontWeight:"900"
     },
     StrickerWrapper:{
         marginHorizontal:10,
@@ -378,7 +379,8 @@ const styles = StyleSheet.create({
     },
     StrickerTitle:{
         marginLeft:10,
-        margintop:10
+        marginTop:10,
+        color:Color.FontColor
     },
     footerText: {
         color: "white",

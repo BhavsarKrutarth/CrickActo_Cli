@@ -14,7 +14,7 @@ import Color from "../../Color/Color";
 import InertNetCheck from "./InertNetCheck";
 //import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 //import { BannerAdSize,BannerAd,AppOpenAd, TestIds, AdEventType,InterstitialAd } from 'react-native-google-mobile-ads';
-
+import scoketservices from "../../scoket/scoketservices";
 
 const MainPage = () => {
 
@@ -27,6 +27,7 @@ const MainPage = () => {
   const [FirstTimeIn, setFirstTimeIn] = useState(0);
 
   useEffect(() => {
+    scoketservices.initializeSocket()
     fetchData();
 
     //    // Load the ad when the component mounts
@@ -217,6 +218,8 @@ const MainPage = () => {
         onEndReachedThreshold={0.1}
         ListFooterComponent={renderFooter}
       />
+      
+
     </View>
   );
 };

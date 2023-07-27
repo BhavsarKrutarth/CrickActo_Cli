@@ -1,9 +1,9 @@
 import Checkbox from 'expo-checkbox';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet, Image, Alert, Pressable,ScrollView,Modal } from 'react-native';
+import { View, Text, StyleSheet, Image, Alert, Pressable, ScrollView, Modal, TextInput } from 'react-native';
 import Color from '../../../../../Color/Color';
-import { TextInput } from 'react-native-gesture-handler';
+// import { TextInput } from 'react-native-gesture-handler';
 import scoketservices from '../../../../../scoket/scoketservices';
 
 const NextInning_MatchOut_RunOut = () => {
@@ -66,24 +66,25 @@ const NextInning_MatchOut_RunOut = () => {
     const [original_Non_StickerName, setoriginal_Non_StickerName] = useState(false);
     const [original_Non_StickerPlayerid, setoriginal_Non_StickerPlayerid] = useState(false);
 
-    const [Fielderid1,setFielderid1] = useState(null)
-    const [FielderName1,setFielderName1] = useState(null)
-    const [FielderImg1,setFielderImg1] = useState("UserProfile.png")
-    const [FielderPlayerid1,setFielderPlayerid1] = useState(null)
+    const [Fielderid1, setFielderid1] = useState(null)
+    const [FielderName1, setFielderName1] = useState(null)
+    const [FielderImg1, setFielderImg1] = useState("UserProfile.png")
+    const [FielderPlayerid1, setFielderPlayerid1] = useState(null)
 
-    const [Fielderid2,setFielderid2] = useState(null)
-    const [FielderName2,setFielderName2] = useState(null)
-    const [FielderImg2,setFielderImg2] = useState("UserProfile.png")
-    const [FielderPlayerid2,setFielderPlayerid2] = useState(null)
+    const [Fielderid2, setFielderid2] = useState(null)
+    const [FielderName2, setFielderName2] = useState(null)
+    const [FielderImg2, setFielderImg2] = useState("UserProfile.png")
+    const [FielderPlayerid2, setFielderPlayerid2] = useState(null)
 
-    const [StrickerSelect,setStrickerSelect] = useState(null);
-    const [DeliveryTypeSelect,setDeliveryTypeSelect] = useState(null);
-    const [RunScored,setRunScored] = useState(false);
-    const [RunScoredSelect,setRunScoredSelect] = useState(0);
-    const [PosstionFlag,setPosstionFlag] = useState(null);
-    const [NextInningModal,setNextInningModal] = useState(false);
+    const [StrickerSelect, setStrickerSelect] = useState(null);
+    const [DeliveryTypeSelect, setDeliveryTypeSelect] = useState(null);
+    const [RunScored, setRunScored] = useState(false);
+    const [RunScoredSelect, setRunScoredSelect] = useState(0);
+    const [PosstionFlag, setPosstionFlag] = useState(null);
+    const [NextInningModal, setNextInningModal] = useState(false);
 
     React.useEffect(() => {
+        
         console.log("Navigation/Screen/Match/MatchRegister/NextInning_MatchOut_Category/NextInning_MatchOut_RunOut.js");
 
         if (route.params?.Fielderid1) setFielderid1(route.params?.Fielderid1);
@@ -95,14 +96,14 @@ const NextInning_MatchOut_RunOut = () => {
         if (route.params?.FielderName2) setFielderName2(route.params?.FielderName2);
         if (route.params?.FielderImg2) setFielderImg2(route.params?.FielderImg2);
         if (route.params?.FielderPlayerid2) setFielderPlayerid2(route.params?.FielderPlayerid2);
-        
+
         if (route.params?.original_Stickerid) setoriginal_Stickerid(route.params?.original_Stickerid);
         if (route.params?.original_StickerName) setoriginal_StickerName(route.params?.original_StickerName);
         if (route.params?.original_StickerPlayerid) setoriginal_StickerPlayerid(route.params?.original_StickerPlayerid);
         if (route.params?.original_Non_Stickerid) setoriginal_Non_Stickerid(route.params?.original_Non_Stickerid);
         if (route.params?.original_Non_StickerName) setoriginal_Non_StickerName(route.params?.original_Non_StickerName);
         if (route.params?.original_Non_StickerPlayerid) setoriginal_Non_StickerPlayerid(route.params?.original_Non_StickerPlayerid);
-        
+
         if (route.params?.StreakeName) setStreakeName(route.params?.StreakeName);
         if (route.params?.Matchid) setMatchid(route.params?.Matchid);
         if (route.params?.TeamABowlerid) setTeamABowlerid(route.params?.TeamABowlerid);
@@ -153,62 +154,56 @@ const NextInning_MatchOut_RunOut = () => {
         if (route.params?.WagonWeel) {
             var TempRun = route.params?.FunctionRun ? route.params?.FunctionRun : 0
             RedirectToFunction(route.params?.FunctionName, TempRun, route.params?.WagonWeel, route.params?.ShortType)
-          }
-    });
+        }
+    },[route.params]);
     const RedirectToFunction = async (FunctionName, FunctionRun, WagonWeel, ShortType) => {
         if (FunctionName == "btnDone") {
-          btnDone( WagonWeel, ShortType)
+            btnDone(WagonWeel, ShortType)
         }
-      };
+    };
     const NextInning = () => {
-        navigation.navigate("MyMatch",{
-            LoadRef:"True"
-          })
-      } 
-    const btnDone = async (WagonWeel,ShortType) => {
-        
-         if(StrickerSelect == null)
-         {
-             Alert.alert('Warning', 'Please Select dismissed Batter.', [
-                 {text: 'OK'},
-               ]);
-               return  
-         }
-         else if(Fielderid1 == null && Fielderid2 == null)
-         {
-             Alert.alert('Warning', 'Please Select dismissed Fielder', [
-                 {text: 'OK'},
-               ]);  
-               return
-         }
-         
-         if (DeliveryTypeSelect == 'ByeBall' || DeliveryTypeSelect == 'LegByeBall')
-         {
-            if(+RunScoredSelect == 0)
-            {
+        navigation.navigate("MyMatch", {
+            LoadRef: "True"
+        })
+    }
+    const btnDone = async (WagonWeel, ShortType) => {
+
+        if (StrickerSelect == null) {
+            Alert.alert('Warning', 'Please Select dismissed Batter.', [
+                { text: 'OK' },
+            ]);
+            return
+        }
+        else if (Fielderid1 == null && Fielderid2 == null) {
+            Alert.alert('Warning', 'Please Select dismissed Fielder', [
+                { text: 'OK' },
+            ]);
+            return
+        }
+
+        if (DeliveryTypeSelect == 'ByeBall' || DeliveryTypeSelect == 'LegByeBall') {
+            if (+RunScoredSelect == 0) {
                 Alert.alert('Warning', 'Not Selected Zero Scored in ByeBall and LegByeBall.', [
-                    {text: 'OK'},
-                  ]);  
-                  return
+                    { text: 'OK' },
+                ]);
+                return
             }
-         }
-         
-         if(isChecked == true)
-         {
-            if(Fielderid1 == null)
-            {
+        }
+
+        if (isChecked == true) {
+            if (Fielderid1 == null) {
                 Alert.alert('Warning', 'Please Select dismissed Fielder', [
-                    {text: 'OK'},
-                  ]);  
-                  return
+                    { text: 'OK' },
+                ]);
+                return
             }
-         }
-            
-         var data = {
+        }
+
+        var data = {
             OPER: "add",
             MATCHID: Matchid,
-            WAGONWEEL:WagonWeel ? WagonWeel : "",
-            SHORTTYPE:ShortType ? ShortType : "",
+            WAGONWEEL: WagonWeel ? WagonWeel : "",
+            SHORTTYPE: ShortType ? ShortType : "",
             MOBILENO: global.MobileNo,
             TEAMBID: TeamBBatterid,
             TEAMBNAME: TeamBBatterName,
@@ -216,15 +211,15 @@ const NextInning_MatchOut_RunOut = () => {
             BOWLERNAME: BowlerName,
             BOWLERPLAYERID: BowlerPlayerid,
             BOWLINGSIDE: BowlingSide,
-            STREAKERID:StrickerSelect == "Sticker" ? original_Stickerid : original_Non_Stickerid,
-            STREAKENAME:StrickerSelect == "Sticker" ? original_StickerName : original_Non_StickerName,
-            STICKERPLAYERID:StrickerSelect == "Sticker" ? original_StickerPlayerid : original_Non_StickerPlayerid,
-            RUNNERID:StrickerSelect != "Sticker" ? original_Stickerid : original_Non_Stickerid,
-            RUNNERNAME:StrickerSelect != "Sticker" ? original_StickerName : original_Non_StickerName,
-            RUNNERPLAYERID:StrickerSelect != "Sticker" ? original_StickerPlayerid : original_Non_StickerPlayerid,
+            STREAKERID: StrickerSelect == "Sticker" ? original_Stickerid : original_Non_Stickerid,
+            STREAKENAME: StrickerSelect == "Sticker" ? original_StickerName : original_Non_StickerName,
+            STICKERPLAYERID: StrickerSelect == "Sticker" ? original_StickerPlayerid : original_Non_StickerPlayerid,
+            RUNNERID: StrickerSelect != "Sticker" ? original_Stickerid : original_Non_Stickerid,
+            RUNNERNAME: StrickerSelect != "Sticker" ? original_StickerName : original_Non_StickerName,
+            RUNNERPLAYERID: StrickerSelect != "Sticker" ? original_StickerPlayerid : original_Non_StickerPlayerid,
             BOWLE: Bowle || 0,
             BOWLEOVER: BowleOver || 0,
-            BOWLECOUNT:BowleCount || 0,
+            BOWLECOUNT: BowleCount || 0,
             BOWLERWISEBALLCOUNT: BowlerWiseBallCount || 0,
             TOTALOVER: TotalOver,
             FOURS: 0,
@@ -234,474 +229,449 @@ const NextInning_MatchOut_RunOut = () => {
             OUTBATTERID: StrickerSelect == "Sticker" ? original_Stickerid : original_Non_Stickerid,
             OUTBATTERTYPE: "RunOut",
             DESCRIPTION: "",
-            MATCHINNINGID:MatchInningid,
-            MATCHTEAMBID_UNDO:MatchTeamBid_undo,
-            FLAGBATTERTYPE:StrickerSelect == "Sticker" ?  "Sticker" : "Runner",
-          }
-          
-          if(Fielderid1 == null && Fielderid2 == null)
-          {
-            data.OUTBYBOWLERID= Bowlerid;
-            data.OUTBYBOWLERNAME= BowlerName;
-          }
-          if(Fielderid1 != null && Fielderid2 != null)
-          {
-            data.OUTBYBOWLERID= Fielderid1;
-            data.OUTBYBOWLERNAME= FielderName1;
+            MATCHINNINGID: MatchInningid,
+            MATCHTEAMBID_UNDO: MatchTeamBid_undo,
+            FLAGBATTERTYPE: StrickerSelect == "Sticker" ? "Sticker" : "Runner",
+        }
+
+        if (Fielderid1 == null && Fielderid2 == null) {
+            data.OUTBYBOWLERID = Bowlerid;
+            data.OUTBYBOWLERNAME = BowlerName;
+        }
+        if (Fielderid1 != null && Fielderid2 != null) {
+            data.OUTBYBOWLERID = Fielderid1;
+            data.OUTBYBOWLERNAME = FielderName1;
             data.FIELDERID2ID = Fielderid2;
             data.FIELDERNAME2 = FielderName2;
             data.DIRECTHIT = isChecked == true ? 1 : 0;
-          }
-          else if (isChecked == true)
-          {
-                data.OUTBYBOWLERID= Fielderid1;
-                data.OUTBYBOWLERNAME= FielderName1;
-                data.DIRECTHIT = 1;
-          }
-          else if(Fielderid1 != null)
-          {
-            data.OUTBYBOWLERID= Fielderid1;
-            data.OUTBYBOWLERNAME= FielderName1;
-          }
-          else if(Fielderid2 != null)
-          {
-            data.OUTBYBOWLERID= Fielderid2;
-            data.OUTBYBOWLERNAME= FielderName2;
-          }
-         
+        }
+        else if (isChecked == true) {
+            data.OUTBYBOWLERID = Fielderid1;
+            data.OUTBYBOWLERNAME = FielderName1;
+            data.DIRECTHIT = 1;
+        }
+        else if (Fielderid1 != null) {
+            data.OUTBYBOWLERID = Fielderid1;
+            data.OUTBYBOWLERNAME = FielderName1;
+        }
+        else if (Fielderid2 != null) {
+            data.OUTBYBOWLERID = Fielderid2;
+            data.OUTBYBOWLERNAME = FielderName2;
+        }
 
-          if(DeliveryTypeSelect != null)
-          {
+
+        if (DeliveryTypeSelect != null) {
             data.OUTDELIVERYTYPE = DeliveryTypeSelect;
-            if(DeliveryTypeSelect == "WideBall")
-            {
-                data.RUN= +RunScoredSelect + 1;
-                data.WIDEBALLRUN= RunScoredSelect;
-                data.NOBALLRUN= 0;
+            if (DeliveryTypeSelect == "WideBall") {
+                data.RUN = +RunScoredSelect + 1;
+                data.WIDEBALLRUN = RunScoredSelect;
+                data.NOBALLRUN = 0;
             }
-            else if(DeliveryTypeSelect == "NoBall")
-            {
-                data.RUN= +RunScoredSelect + 1;
-                data.WIDEBALLRUN= 0;
-                data.NOBALLRUN= RunScoredSelect;
+            else if (DeliveryTypeSelect == "NoBall") {
+                data.RUN = +RunScoredSelect + 1;
+                data.WIDEBALLRUN = 0;
+                data.NOBALLRUN = RunScoredSelect;
             }
-            else if (DeliveryTypeSelect == 'ByeBall' || DeliveryTypeSelect == 'LegByeBall')
-            {
-                data.RUN= +RunScoredSelect;
-                data.WIDEBALLRUN= 0;
-                data.NOBALLRUN= 0;
+            else if (DeliveryTypeSelect == 'ByeBall' || DeliveryTypeSelect == 'LegByeBall') {
+                data.RUN = +RunScoredSelect;
+                data.WIDEBALLRUN = 0;
+                data.NOBALLRUN = 0;
             }
-            else 
-            {
+            else {
                 data.RUN = 0;
-                data.WIDEBALLRUN= 0;
+                data.WIDEBALLRUN = 0;
             }
-            
-          }
-          else if (+RunScoredSelect > 0)
-          {
+
+        }
+        else if (+RunScoredSelect > 0) {
             data.RUN = +RunScoredSelect;
-          }
-          else if (+RunScoredSelect == 0)
-          {
+        }
+        else if (+RunScoredSelect == 0) {
             data.Run = 0;
-          }
+        }
 
 
-         const resposneJSON = await fetch(
-             `${global.domainName}/cricbuddyAPI/api/Commonsp`,
-             {
-               method: "POST",
-               headers: {
-                 Accept: "application/json",
-                 "Content-Type": "application/json",
-                 Authorization: "FF7B5E5C-A468-4CE0-B812-98008627C8KT",
-                 Spname:"MATCHTEAMB_API_CRUD"
-               },
-               body: JSON.stringify(data),
-             }
-           )
-             .then((response) => response.json())
-             .then((json) => {
-               /*-------------------- Page Call -----------------------*/
-               var BindData = JSON.parse(json);
-               
-               if (BindData.SERVICERESPONSE.RESPONSECODE == 0) {
-                 if(BindData.SERVICERESPONSE.NEXTINNING == "true")
-                 {
-                    setNextInningModal(false)
-                    setNextInningModal(true)
-                 }
-                 else
-                 {
-                   navigation.navigate("NextInning_MatchNextBatterTeamB",{
-                     Non_Stickerid:original_Stickerid+","+original_Non_Stickerid,
-                     Matchid:Matchid,
-                     PosstionFlag:StrickerSelect == "Sticker" ? "Sticker" : "Runner",
-                     Ball:BindData.SERVICERESPONSE.BOWLE,
-                     BowleCount:BindData.SERVICERESPONSE.BOWLECOUNT,
-                     BowleOver:BindData.SERVICERESPONSE.BOWLEOVER,
-                     BowlerWiseBallCount:BindData.SERVICERESPONSE.BOWLERWISEBALLCOUNT,
-                     BowlerOut:BindData.SERVICERESPONSE.BOWLEROUT,
-                     Out:BindData.SERVICERESPONSE.OUT,
-                     MatchInningid:MatchInningid,
-                     MatchTeamBid_undo:BindData.SERVICERESPONSE.MATCHTEAMBID_UNDO,
-                     RunDisplay:BindData.SERVICERESPONSE.NEXTOVER == "true" ? " " : BindData.SERVICERESPONSE.BOWLERRUNDISPLAY,
-                     Run:BindData.SERVICERESPONSE.RUN,
-                     BowlerRun:BindData.SERVICERESPONSE.BOWLERRUN,
-                     ModalStickerSelect:"true",
-                     NextOver: BindData.SERVICERESPONSE.NEXTOVER,
-                     FlagBatterType:StrickerSelect == "Sticker" ? Color.PrimaryColor : "white",
-                     Run:BindData.SERVICERESPONSE.RUN
-                   })
-                 }
-               }
-               return json;
-             })
-             .catch(error => {
-               console.error('Error:', error);
-             });
+        const resposneJSON = await fetch(
+            `${global.domainName}/cricbuddyAPI/api/Commonsp`,
+            {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                    Authorization: "FF7B5E5C-A468-4CE0-B812-98008627C8KT",
+                    Spname: "MATCHTEAMB_API_CRUD"
+                },
+                body: JSON.stringify(data),
+            }
+        )
+            .then((response) => response.json())
+            .then((json) => {
+                /*-------------------- Page Call -----------------------*/
+                var BindData = JSON.parse(json);
+
+                if (BindData.SERVICERESPONSE.RESPONSECODE == 0) {
+                    if (BindData.SERVICERESPONSE.NEXTINNING == "true") {
+                        setNextInningModal(false)
+                        setNextInningModal(true)
+                    }
+                    else {
+                        navigation.navigate("NextInning_MatchNextBatterTeamB", {
+                            Non_Stickerid: original_Stickerid + "," + original_Non_Stickerid,
+                            Matchid: Matchid,
+                            PosstionFlag: StrickerSelect == "Sticker" ? "Sticker" : "Runner",
+                            Ball: BindData.SERVICERESPONSE.BOWLE,
+                            BowleCount: BindData.SERVICERESPONSE.BOWLECOUNT,
+                            BowleOver: BindData.SERVICERESPONSE.BOWLEOVER,
+                            BowlerWiseBallCount: BindData.SERVICERESPONSE.BOWLERWISEBALLCOUNT,
+                            BowlerOut: BindData.SERVICERESPONSE.BOWLEROUT,
+                            Out: BindData.SERVICERESPONSE.OUT,
+                            MatchInningid: MatchInningid,
+                            MatchTeamBid_undo: BindData.SERVICERESPONSE.MATCHTEAMBID_UNDO,
+                            RunDisplay: BindData.SERVICERESPONSE.NEXTOVER == "true" ? " " : BindData.SERVICERESPONSE.BOWLERRUNDISPLAY,
+                            Run: BindData.SERVICERESPONSE.RUN,
+                            BowlerRun: BindData.SERVICERESPONSE.BOWLERRUN,
+                            ModalStickerSelect: "true",
+                            NextOver: BindData.SERVICERESPONSE.NEXTOVER,
+                            FlagBatterType: StrickerSelect == "Sticker" ? Color.PrimaryColor : "white",
+                            Run: BindData.SERVICERESPONSE.RUN
+                        })
+                    }
+                }
+                return json;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
 
     }
     const Fielder1 = async () => {
-    
-      navigation.navigate("NextInning_MatchOut_FielderList", {
-          StreakeName: StreakeName,
-          Matchid: Matchid,
-          TeamABowlerid: TeamABowlerid,
-          TeamABowlerName: TeamABowlerName,
-          ReturnPage: "NextInning_MatchOut_RunOut",
-          FielderType:"Fielder1"
-       });
-    }
-    const Fielder2 = async () => {
-    
+
         navigation.navigate("NextInning_MatchOut_FielderList", {
             StreakeName: StreakeName,
             Matchid: Matchid,
             TeamABowlerid: TeamABowlerid,
             TeamABowlerName: TeamABowlerName,
             ReturnPage: "NextInning_MatchOut_RunOut",
-            FielderType:"Fielder2"
-         });
-      }
-    
-    
+            FielderType: "Fielder1"
+        });
+    }
+    const Fielder2 = async () => {
+
+        navigation.navigate("NextInning_MatchOut_FielderList", {
+            StreakeName: StreakeName,
+            Matchid: Matchid,
+            TeamABowlerid: TeamABowlerid,
+            TeamABowlerName: TeamABowlerName,
+            ReturnPage: "NextInning_MatchOut_RunOut",
+            FielderType: "Fielder2"
+        });
+    }
+
+
     return (
         <View style={[styles.container]}>
             <Modal animationType="slide" transparent={true} visible={NextInningModal}>
-            <View style={{ backgroundColor: "#000000AA", flex: 1 }}>
-              <View style={styles.modalcenteredView}>
-                <View style={styles.modalView}>
-                  <View style={[styles.body100,{justifyContent:"center",alignItems:"center"}]}>
-                    {/* <Text style={[styles.ModalTitle]}>Over Complete</Text> */}
-                    <Image
-                      source={{
-                        uri: `${global.domainName}/CricbuddyAdmin/Content/assets/DWarning.jpg`,
-                      }}
-                      resizeMode="stretch"
-                      style={styles.img}
-                    />
-                    <Text style={{fontSize:16}}>Inning completed</Text>
-                  </View>
+                <View style={{ backgroundColor: "#000000AA", flex: 1 }}>
+                    <View style={styles.modalcenteredView}>
+                        <View style={styles.modalView}>
+                            <View style={[styles.body100, { justifyContent: "center", alignItems: "center" }]}>
+                                {/* <Text style={[styles.ModalTitle]}>Over Complete</Text> */}
+                                <Image
+                                    source={{
+                                        uri: `${global.domainName}/CricbuddyAdmin/Content/assets/DWarning.jpg`,
+                                    }}
+                                    resizeMode="stretch"
+                                    style={styles.img}
+                                />
+                                <Text style={{ fontSize: 16, color: Color.FontColor }}>Inning completed</Text>
+                            </View>
 
-                  <View style={[styles.modalText, { marginTop: 20 }]}>
-                      <Pressable
-                        style={styles.modalbutton}
-                        onPress={() => NextInning()}
-                      >
-                        <Text style={{ color: "white", fontWeight: "600" }}>
-                          Yes,I'M Sure
-                        </Text>
-                      </Pressable>
-                      <View style={{marginTop:10}}>
-                      
-                      </View>
+                            <View style={[styles.modalText, { marginTop: 20 }]}>
+                                <Pressable
+                                    style={styles.modalbutton}
+                                    onPress={() => NextInning()}
+                                >
+                                    <Text style={{ color: "white", fontWeight: "600" }}>
+                                        Yes,I'M Sure
+                                    </Text>
+                                </Pressable>
+                                <View style={{ marginTop: 10 }}>
+
+                                </View>
+                            </View>
+                        </View>
                     </View>
                 </View>
-              </View>
-            </View>
-          </Modal>
+            </Modal>
             <ScrollView>
-            <View style={[styles.with100, { paddingTop: 10 }]}>
-                <View style={[styles.with45,
-                        StrickerSelect === "Sticker"
+                <View style={[styles.with100, { paddingTop: 10 }]}>
+                    <View style={[styles.with45,
+                    StrickerSelect === "Sticker"
                         ? { borderColor: "green" }
                         : { borderColor: Color.sliverColor }
                         ,]}>
-                    <Pressable onPress={() => setStrickerSelect("Sticker")}>
-                        <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
-                            <Image
-                                source={{
-                                    uri: `${global.domainName}/CricbuddyAdmin/Content/assets/UserProfile.png`,
-                                }}
-                                style={{ height: 100, width: 100 }}
-                            />
-                        </View>
-                        <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
-                            <Text>{original_StickerName}</Text>
-                        </View>
-                        <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
-                            <Text style={{ color: Color.GunmetalGray, fontWeight: "700" }}>Striker</Text>
-                        </View>
-                    </Pressable>
+                        <Pressable onPress={() => setStrickerSelect("Sticker")}>
+                            <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
+                                <Image
+                                    source={{
+                                        uri: `${global.domainName}/CricbuddyAdmin/Content/assets/UserProfile.png`,
+                                    }}
+                                    style={{ height: 100, width: 100 }}
+                                />
+                            </View>
+                            <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
+                                <Text style={{ color: Color.FontColor }}>{original_StickerName}</Text>
+                            </View>
+                            <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
+                                <Text style={{ color: Color.GunmetalGray, fontWeight: "700" }}>Striker</Text>
+                            </View>
+                        </Pressable>
+                    </View>
+                    <View style={styles.width05}></View>
+                    <View style={[styles.with45,
+                    StrickerSelect === "Runner"
+                        ? { borderColor: "green" }
+                        : { borderColor: Color.sliverColor }
+                    ]}>
+                        <Pressable onPress={() => setStrickerSelect("Runner")}>
+                            <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
+                                <Image
+                                    source={{
+                                        uri: `${global.domainName}/CricbuddyAdmin/Content/assets/UserProfile.png`,
+                                    }}
+                                    style={{ height: 100, width: 100 }}
+                                />
+                            </View>
+                            <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
+                                <Text style={{ color: Color.FontColor }}>{original_Non_StickerName}</Text>
+                            </View>
+                            <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
+                                <Text style={{ color: Color.GunmetalGray, fontWeight: "700" }} >Non - Striker</Text>
+                            </View>
+                        </Pressable>
+                    </View>
                 </View>
-                <View style={styles.width05}></View>
-                <View style={[styles.with45,
-                 StrickerSelect === "Runner"
-                 ? { borderColor: "green" }
-                 : { borderColor: Color.sliverColor }
-                ]}>
-                    <Pressable onPress={() => setStrickerSelect("Runner")}>
-                        <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
-                            <Image
-                                source={{
-                                    uri: `${global.domainName}/CricbuddyAdmin/Content/assets/UserProfile.png`,
-                                }}
-                                style={{ height: 100, width: 100 }}
-                            />
-                        </View>
-                        <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
-                            <Text>{original_Non_StickerName}</Text>
-                        </View>
-                        <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
-                            <Text style={{ color: Color.GunmetalGray, fontWeight: "700" }} >Non - Striker</Text>
-                        </View>
-                    </Pressable>
-                </View>
-            </View>
-            <View style={[styles.with100, { justifyContent: "space-between", paddingTop: 10, paddingHorizontal: 10 }]}>
-                <View>
-                    <Text style={styles.Title}>Select Fielder</Text>
-                </View>
-                <View style={{ display: "flex", flexDirection: "row" }}>
+                <View style={[styles.with100, { justifyContent: "space-between", paddingTop: 10, paddingHorizontal: 10 }]}>
+                    <View>
+                        <Text style={styles.Title}>Select Fielder</Text>
+                    </View>
+                    <View style={{ display: "flex", flexDirection: "row" }}>
 
-                    <Checkbox
-                        style={styles.checkbox}
-                        value={isChecked}
-                        onValueChange={setChecked}
-                        color={isChecked ? '#4630EB' : undefined}
-                    />
-                    <Text style={{ marginLeft: 6, fontSize: 14 }}>Direct Hit</Text>
+                        <Checkbox
+                            style={styles.checkbox}
+                            value={isChecked}
+                            onValueChange={setChecked}
+                            color={isChecked ? '#4630EB' : undefined}
+                        />
+                        <Text style={{ marginLeft: 6, fontSize: 14, color: Color.FontColor }}>Direct Hit</Text>
+                    </View>
                 </View>
-            </View>
-            <View style={[styles.with100, { paddingTop: 10 }]}>
-                <View style={[styles.with45,{borderColor:Color.sliverColor}]}>
-                    <Pressable onPress={() => Fielder1()}>
-                        <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
-                            <Image
-                                source={{
-                                    uri: `${global.domainName}/CricbuddyAdmin/Content/assets/${FielderImg1}`,
-                                }}
-                                style={{ height: 100, width: 100 }}
-                            />
+                <View style={[styles.with100, { paddingTop: 10 }]}>
+                    <View style={[styles.with45, { borderColor: Color.sliverColor }]}>
+                        <Pressable onPress={() => Fielder1()}>
+                            <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
+                                <Image
+                                    source={{
+                                        uri: `${global.domainName}/CricbuddyAdmin/Content/assets/${FielderImg1}`,
+                                    }}
+                                    style={{ height: 100, width: 100 }}
+                                />
+                            </View>
+                            <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
+                                <Text style={{ color: Color.FontColor }}>{FielderName1}</Text>
+                            </View>
+                            <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
+                                <Text style={{ color: Color.GunmetalGray, fontWeight: "700" }}>Fielder - 1</Text>
+                            </View>
+                        </Pressable>
+                    </View>
+                    <View style={styles.width05}></View>
+
+                    {isChecked == false ? (
+                        <View style={[styles.with45, { borderColor: Color.sliverColor }]}>
+                            <Pressable onPress={() => Fielder2()}>
+                                <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
+                                    <Image
+                                        source={{
+                                            uri: `${global.domainName}/CricbuddyAdmin/Content/assets/${FielderImg2}`,
+                                        }}
+                                        style={{ height: 100, width: 100 }}
+                                    />
+                                </View>
+                                <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
+                                    <Text style={{ color: Color.FontColor }}>{FielderName2}</Text>
+                                </View>
+                                <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
+                                    <Text style={{ color: Color.GunmetalGray, fontWeight: "700" }}>Fielder - 2</Text>
+                                </View>
+                            </Pressable>
                         </View>
-                        <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
-                            <Text>{FielderName1}</Text>
-                        </View>
-                        <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
-                            <Text style={{ color: Color.GunmetalGray, fontWeight: "700" }}>Fielder - 1</Text>
-                        </View>
-                    </Pressable>
+                    ) : null}
+
                 </View>
-                <View style={styles.width05}></View>
-    
-                { isChecked == false ? (
-                    <View style={[styles.with45,{borderColor:Color.sliverColor}]}>
-                    <Pressable onPress={() => Fielder2()}>
-                        <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
-                            <Image
-                                source={{
-                                    uri: `${global.domainName}/CricbuddyAdmin/Content/assets/${FielderImg2}`,
-                                }}
-                                style={{ height: 100, width: 100 }}
-                            />
-                        </View>
-                        <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
-                            <Text>{FielderName2}</Text>
-                        </View>
-                        <View style={[styles.with100, { justifyContent: "center", alignItems: "center" }]}>
-                            <Text style={{ color: Color.GunmetalGray, fontWeight: "700" }}>Fielder - 2</Text>
-                        </View>
-                    </Pressable>
+                <View style={[styles.with100, { paddingTop: 10, paddingHorizontal: 10 }]}>
+                    <View>
+                        <Text style={styles.Title}>Delivery Type</Text>
+                    </View>
                 </View>
-                ) : null }
-                
-            </View>
-            <View style={[styles.with100, { paddingTop: 10, paddingHorizontal: 10 }]}>
-                <View>
-                    <Text style={styles.Title}>Delivery Type</Text>
-                </View>
-            </View>
-            <View style={[styles.with100, { marginTop: 10 }]}>
-                <View style={[styles.width01]}></View>
-                <Pressable style={[styles.width24,
-                        DeliveryTypeSelect === "WideBall"
+                <View style={[styles.with100, { marginTop: 10 }]}>
+                    <View style={[styles.width01]}></View>
+                    <Pressable style={[styles.width24,
+                    DeliveryTypeSelect === "WideBall"
                         ? { borderColor: "green" }
                         : { borderColor: Color.sliverColor }
                     ]} onPress={() => setDeliveryTypeSelect("WideBall")}>
-                     <Text>WD</Text>
-                </Pressable>
-                <View style={[styles.width01]}></View>
-                <Pressable style={[styles.width24,
-                        DeliveryTypeSelect === "NoBall"
+                        <Text style={{ color: Color.FontColor }}>WD</Text>
+                    </Pressable>
+                    <View style={[styles.width01]}></View>
+                    <Pressable style={[styles.width24,
+                    DeliveryTypeSelect === "NoBall"
                         ? { borderColor: "green" }
                         : { borderColor: Color.sliverColor }
                     ]} onPress={() => setDeliveryTypeSelect("NoBall")}>
-                     <Text>NB</Text>
-                </Pressable>
-                <View style={[styles.width01]}></View>
-                <Pressable style={[styles.width24,
-                        DeliveryTypeSelect === "ByeBall"
+                        <Text style={{ color: Color.FontColor }}>NB</Text>
+                    </Pressable>
+                    <View style={[styles.width01]}></View>
+                    <Pressable style={[styles.width24,
+                    DeliveryTypeSelect === "ByeBall"
                         ? { borderColor: "green" }
                         : { borderColor: Color.sliverColor }
                     ]} onPress={() => setDeliveryTypeSelect("ByeBall")}>
-                     <Text>BYE</Text>
-                </Pressable>
-                <View style={[styles.width01]}></View>
-                <Pressable style={[styles.width24,
-                        DeliveryTypeSelect === "LegByeBall"
+                        <Text style={{ color: Color.FontColor }}>BYE</Text>
+                    </Pressable>
+                    <View style={[styles.width01]}></View>
+                    <Pressable style={[styles.width24,
+                    DeliveryTypeSelect === "LegByeBall"
                         ? { borderColor: "green" }
                         : { borderColor: Color.sliverColor }
                     ]} onPress={() => setDeliveryTypeSelect("LegByeBall")}>
-                     <Text>LB</Text>
-                </Pressable>
-            </View>
-            <View style={[styles.with100, { paddingTop: 10, paddingHorizontal: 10 }]}>
-                <View>
-                    <Text style={{ fontSize: 14 }}>Runs Scored</Text>
+                        <Text style={{ color: Color.FontColor }}>LB</Text>
+                    </Pressable>
                 </View>
-            </View>
-            <View style={[styles.with100, { paddingTop: 10, paddingHorizontal: 10 }]}>
-                <View style={styles.width01}></View>
+                <View style={[styles.with100, { paddingTop: 10, paddingHorizontal: 10 }]}>
+                    <View>
+                        <Text style={{ fontSize: 14, color: Color.FontColor }}>Runs Scored</Text>
+                    </View>
+                </View>
+                <View style={[styles.with100, { paddingTop: 10, paddingHorizontal: 10 }]}>
+                    <View style={styles.width01}></View>
 
-                <Pressable style={[styles.width08, styles.RunBorder,
-                        RunScoredSelect === "0"
+                    <Pressable style={[styles.width08, styles.RunBorder,
+                    RunScoredSelect === "0"
                         ? { borderColor: "green" }
                         : { borderColor: Color.sliverColor }
-                    ]} onPress={() => 
-                    {
+                    ]} onPress={() => {
                         setRunScoredSelect("0");
                         setRunScored(false);
                     }}>
-                     <Text>0</Text>
-                </Pressable>
-               
-                <View style={styles.width02}></View>
-                <Pressable style={[styles.width08, styles.RunBorder,
-                        RunScoredSelect === "1"
+                        <Text style={{ color: Color.FontColor }}>0</Text>
+                    </Pressable>
+
+                    <View style={styles.width02}></View>
+                    <Pressable style={[styles.width08, styles.RunBorder,
+                    RunScoredSelect === "1"
                         ? { borderColor: "green" }
                         : { borderColor: Color.sliverColor }
-                    ]} onPress={() => 
-                    {
+                    ]} onPress={() => {
                         setRunScoredSelect("1");
                         setRunScored(false);
                     }}>
-                     <Text>1</Text>
-                </Pressable>
-               
-                <View style={styles.width02}></View>
-                <Pressable style={[styles.width08, styles.RunBorder,
-                        RunScoredSelect === "2"
+                        <Text style={{ color: Color.FontColor }}>1</Text>
+                    </Pressable>
+
+                    <View style={styles.width02}></View>
+                    <Pressable style={[styles.width08, styles.RunBorder,
+                    RunScoredSelect === "2"
                         ? { borderColor: "green" }
                         : { borderColor: Color.sliverColor }
-                    ]} onPress={() => 
-                    {
+                    ]} onPress={() => {
                         setRunScoredSelect("2");
                         setRunScored(false);
                     }}>
-                     <Text>2</Text>
-                </Pressable>
-                <View style={styles.width02}></View>
-                <Pressable style={[styles.width08, styles.RunBorder,
-                        RunScoredSelect === "3"
+                        <Text style={{ color: Color.FontColor }}>2</Text>
+                    </Pressable>
+                    <View style={styles.width02}></View>
+                    <Pressable style={[styles.width08, styles.RunBorder,
+                    RunScoredSelect === "3"
                         ? { borderColor: "green" }
                         : { borderColor: Color.sliverColor }
-                    ]} onPress={() => 
-                    {
+                    ]} onPress={() => {
                         setRunScoredSelect("3");
                         setRunScored(false);
                     }}>
-                     <Text>3</Text>
-                </Pressable>
-                <View style={styles.width02}></View>
-                <Pressable style={[styles.width08, styles.RunBorder,
-                        RunScoredSelect === "4"
+                        <Text style={{ color: Color.FontColor }}>3</Text>
+                    </Pressable>
+                    <View style={styles.width02}></View>
+                    <Pressable style={[styles.width08, styles.RunBorder,
+                    RunScoredSelect === "4"
                         ? { borderColor: "green" }
                         : { borderColor: Color.sliverColor }
-                    ]} onPress={() => 
-                    {
+                    ]} onPress={() => {
                         setRunScoredSelect("4");
                         setRunScored(false);
                     }}>
-                     <Text>4</Text>
-                </Pressable>
-                <View style={styles.width02}></View>
-                <Pressable style={[styles.width08, styles.RunBorder]} onPress={() => {
-                    setRunScored(true)
-                    setRunScoredSelect(0)
-                }}>
-                   <Text>+</Text>
-                </Pressable>
-                <View style={styles.width02}></View>
-                { RunScored == true ? (
+                        <Text style={{ color: Color.FontColor }}>4</Text>
+                    </Pressable>
+                    <View style={styles.width02}></View>
+                    <Pressable style={[styles.width08, styles.RunBorder]} onPress={() => {
+                        setRunScored(true)
+                        setRunScoredSelect(0)
+                    }}>
+                        <Text style={{ color: Color.FontColor }}>+</Text>
+                    </Pressable>
+                    <View style={styles.width02}></View>
+                    {RunScored == true ? (
                         <>
-                        <View style={[styles.width08, styles.RunBorder,{borderColor:"green"}]}>
-                            <TextInput maxLength={2} onValueChange={setRunScoredSelect} keyboardType='decimal-pad' />
-                        </View></>
+                            <View style={[styles.width08, styles.RunBorder, { borderColor: "green" }]}>
+                                <TextInput maxLength={2} style={{ color: Color.FontColor }} onValueChange={setRunScoredSelect} keyboardType='decimal-pad' />
+                            </View></>
                     ) : null
-                }
-                
-            </View>
-            <Pressable onPress={() => {
-                if(StrickerSelect == null)
-                {
-                    Alert.alert('Warning', 'Please Select dismissed Batter.', [
-                        {text: 'OK'},
-                      ]);
-                      return  
-                }
-                else if(Fielderid1 == null && Fielderid2 == null)
-                {
-                    Alert.alert('Warning', 'Please Select dismissed Fielder', [
-                        {text: 'OK'},
-                      ]);  
-                      return
-                }
-    
-                if (DeliveryTypeSelect == 'ByeBall' || DeliveryTypeSelect == 'LegByeBall')
-                {
-                  if(+RunScoredSelect == 0)
-                  {
-                      Alert.alert('Warning', 'Not Selected Zero Scored in ByeBall and LegByeBall.', [
-                          {text: 'OK'},
-                        ]);  
+                    }
+
+                </View>
+                <Pressable onPress={() => {
+                    if (StrickerSelect == null) {
+                        Alert.alert('Warning', 'Please Select dismissed Batter.', [
+                            { text: 'OK' },
+                        ]);
                         return
-                  }
-                }
-    
-                if(isChecked == true)
-                {
-                  if(Fielderid1 == null)
-                  {
-                      Alert.alert('Warning', 'Please Select dismissed Fielder', [
-                          {text: 'OK'},
-                        ]);  
+                    }
+                    else if (Fielderid1 == null && Fielderid2 == null) {
+                        Alert.alert('Warning', 'Please Select dismissed Fielder', [
+                            { text: 'OK' },
+                        ]);
                         return
-                  }
-                }
-    
-                  navigation.navigate("WagonWeel", {
-                    Matchid: Matchid
-                    , FunctionName: "btnDone"
-                    , FunctionRun: 0
-                    , RedirectPage: "NextInning_MatchOut_RunOut"
-                    , PageName: StickerName
-                  }) 
-                //btnDone()
-                }} style={[styles.with100,styles.btnout]}>
-                <Text onChangeText={setRunScoredSelect} value={RunScoredSelect} style={{color:"white"}}>Out</Text>
-            </Pressable>
+                    }
+
+                    if (DeliveryTypeSelect == 'ByeBall' || DeliveryTypeSelect == 'LegByeBall') {
+                        if (+RunScoredSelect == 0) {
+                            Alert.alert('Warning', 'Not Selected Zero Scored in ByeBall and LegByeBall.', [
+                                { text: 'OK' },
+                            ]);
+                            return
+                        }
+                    }
+
+                    if (isChecked == true) {
+                        if (Fielderid1 == null) {
+                            Alert.alert('Warning', 'Please Select dismissed Fielder', [
+                                { text: 'OK' },
+                            ]);
+                            return
+                        }
+                    }
+
+                    navigation.navigate("WagonWeel", {
+                        Matchid: Matchid
+                        , FunctionName: "btnDone"
+                        , FunctionRun: 0
+                        , RedirectPage: "NextInning_MatchOut_RunOut"
+                        , PageName: StickerName
+                    })
+                    //btnDone()
+                }} style={[styles.with100, styles.btnout]}>
+                    <Text onChangeText={setRunScoredSelect} value={RunScoredSelect} style={{ color: "white" }}>Out</Text>
+                </Pressable>
             </ScrollView>
         </View>
     )
@@ -753,13 +723,14 @@ const styles = StyleSheet.create({
         // backgroundColor: Color.sliverColor,
         borderWidth: 2,
         borderRadius: 20,
-        marginLeft:5
+        marginLeft: 5
     },
     width05: {
         width: "5%"
     },
     Title: {
         fontSize: 18, fontWeight: "bold"
+        , color: Color.FontColor
     },
     width24: {
         width: "24%",
@@ -788,24 +759,24 @@ const styles = StyleSheet.create({
     width02: {
         width: "2%"
     },
-    btnout:{
+    btnout: {
         padding: 10
-        ,marginTop:10
-        ,paddingHorizontal: 10
-        ,justifyContent: "center"
-        ,alignItems: "center"
-        ,borderWidth: 2
-        ,borderColor:Color.sliverColor
-        ,backgroundColor:Color.PrimaryColor
-        ,borderRadius:15
+        , marginTop: 10
+        , paddingHorizontal: 10
+        , justifyContent: "center"
+        , alignItems: "center"
+        , borderWidth: 2
+        , borderColor: Color.sliverColor
+        , backgroundColor: Color.PrimaryColor
+        , borderRadius: 15
     },
     modalcenteredView: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
         marginTop: 22,
-      },
-      modalView: {
+    },
+    modalView: {
         margin: 20,
         backgroundColor: "white",
         borderRadius: 20,
@@ -813,25 +784,25 @@ const styles = StyleSheet.create({
         //alignItems: "center",
         shadowColor: "#000",
         shadowOffset: {
-          width: 0,
-          height: 2,
+            width: 0,
+            height: 2,
         },
         shadowOpacity: 0.25,
         shadowRadius: 4,
         elevation: 5,
-      },
-      modalText: {
+    },
+    modalText: {
         marginBottom: 15,
         textAlign: "center",
-      },
-      modalbutton: {
+    },
+    modalbutton: {
         borderRadius: 20,
         elevation: 2,
         padding: 12,
         alignItems: "center",
         color: "green",
         backgroundColor: Color.PrimaryColor,
-      },
+    },
 })
 
 

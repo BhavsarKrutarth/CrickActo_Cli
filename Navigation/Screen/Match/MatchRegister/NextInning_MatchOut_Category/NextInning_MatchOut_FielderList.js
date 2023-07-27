@@ -29,6 +29,7 @@ const NextInning_MatchOut_FielderList = () => {
     /* -----------------------refreshing ------------------------------*/ 
     const [refreshing, setRefreshing] = React.useState(false);
     const onRefresh = React.useCallback(() => {
+      console.log("Navigation/Screen/Match/MatchRegister/NextInning_MatchOut_Category/NextInning_MatchOut_FielderList.js")
         if(TeamABowlerid)
         {
             Stiker_GET(TeamABowlerid,Matchid);
@@ -231,7 +232,7 @@ const NextInning_MatchOut_FielderList = () => {
                       </Text>
                   </View>
                   <View style={{ flexDirection: "column", flexWrap: "wrap" }}>
-                    <Text>
+                    <Text style={{color:Color.FontColor}}>
                       <Image
                         source={{
                           uri: `${global.domainName}/CricbuddyAdmin/Content/assets/tournament/icon_Location.png`,

@@ -242,7 +242,10 @@ const NextInning_MatchOut_Hit_Wicket = () => {
     }
     return(
         <View style={[styles.container]}>
-            <Modal animationType="slide" transparent={true} visible={NextInningModal}>
+            <Modal animationType="slide" transparent={true} 
+             visible={NextInningModal}
+            // visible={true}
+            >
             <View style={{ backgroundColor: "#000000AA", flex: 1 }}>
               <View style={styles.modalcenteredView}>
                 <View style={styles.modalView}>
@@ -255,7 +258,7 @@ const NextInning_MatchOut_Hit_Wicket = () => {
                       resizeMode="stretch"
                       style={styles.img}
                     />
-                    <Text style={{fontSize:16}}>Inning completed</Text>
+                    <Text style={{fontSize:16,color:Color.FontColor}}>Inning completed</Text>
                   </View>
 
                   <View style={[styles.modalText, { marginTop: 20 }]}>
@@ -293,7 +296,7 @@ const NextInning_MatchOut_Hit_Wicket = () => {
                 style={styles.checkbox}
                 color={hitcheck ? '#4630EB' : undefined}
               />
-              <Text style={styles.StrickerTitle}>Wide Ball</Text>
+              <Text style={{color:Color.FontColor,marginLeft:10}}>Wide Ball</Text>
             </View>
             <View>
               <View
@@ -330,7 +333,7 @@ const styles = StyleSheet.create({
     myText:{
         fontSize:18,
         color:Color.PrimaryColor,
-        fontWeights :900,marginBottom:10
+        fontWeight:"900",marginBottom:10
     },
     StrickerWrapper:{
         marginHorizontal:10,
@@ -346,7 +349,8 @@ const styles = StyleSheet.create({
     },
     StrickerTitle:{
         marginLeft:10,
-        margintop:10
+        marginTop:10,
+        color:Color.FontColor
     },
     footerText: {
         color: "white",

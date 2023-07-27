@@ -8,20 +8,21 @@ import {
     Alert,
     ImageBackground,
     Modal,
+    TextInput
   } from "react-native";
   
   //import basic react native components
   import { BottomSheet } from "react-native-btr";
   
   //import to show social icons
-  import { SocialIcon } from "react-native-elements";
+  // import { SocialIcon } from "react-native-elements";
   import React, { useState, useEffect } from "react";
   import { useNavigation } from "@react-navigation/native";
   import { useRoute } from "@react-navigation/native";
   import Color from "../../../../Color/Color";
-  import { TextInput } from "react-native-gesture-handler";
+  // import { TextInput } from "react-native-gesture-handler";
   import { RadioButton } from "react-native-paper";
-  import { DebugInstructions } from "react-native/Libraries/NewAppScreen";
+  // import { DebugInstructions } from "react-native/Libraries/NewAppScreen";
   import scoketservices from "../../../../scoket/scoketservices";
   
   const NextInning_MatchScoring = () => {
@@ -86,7 +87,7 @@ import {
     const [RunDisplay, setRunDisplay] = useState(null);
     const [WideBallModal, setWideBallModal] = useState(false);
     const [wideBall_Default_Run, setwideBall_Default_Run] = useState(1);
-    const [WideBallRun, setWideBallRun] = useState(0);
+    const [WideBallRun, setWideBallRun] = useState(null);
     const [WideBall, setWideBall] = useState(wideBall_Default_Run + WideBallRun);
   
     const [NoBallModal, setNoBallModal] = useState(false);
@@ -912,7 +913,7 @@ import {
               
               setBowlerRun(parseInt(BowlerRun) + WideBall);
               setwideBall_Default_Run(1);
-              setWideBallRun(0);
+              setWideBallRun(null);
               setWideBall(1);
               setWideBallModal(false);
               setRunDisplay(
@@ -1142,7 +1143,7 @@ import {
     };
   
     const CalculateUndo = async () => {
-      console.log(MatchTeamBid_undo + " || MatchTeamBid_undo")
+      // console.log(MatchTeamBid_undo + " || MatchTeamBid_undo")
       const resposneJSON = await fetch(
         `${global.domainName}/cricbuddyAPI/api/Commonsp`,
         {
@@ -1172,9 +1173,9 @@ import {
               {
                 scoketservices.emit("SendMessage",Matchid)
               }
-              console.log(BindData.SERVICERESPONSE.TYPE + " Type")
-              console.log(BindData.SERVICERESPONSE.OLD_STREAKENAME + '')
-              console.log(BindData.SERVICERESPONSE.CALCULATE_RUN + ' CALCULATE_RUN')
+              // console.log(BindData.SERVICERESPONSE.TYPE + " Type")
+              // console.log(BindData.SERVICERESPONSE.OLD_STREAKENAME + '')
+              // console.log(BindData.SERVICERESPONSE.CALCULATE_RUN + ' CALCULATE_RUN')
               var data = BindData.SERVICERESPONSE;
               setRun(data.RUN);
               setOut(data.OUT);
@@ -1476,7 +1477,9 @@ import {
         {/* Wide Ball */}
         {WideBallModal == true ? (
           <View style={styles.bottomNavigationcontainer}>
-            <BottomSheet visible={WideBallModal}>
+            <BottomSheet 
+            visible={WideBallModal}
+            >
               {/*Bottom Sheet inner View*/}
               <View style={styles.bottomNavigationView}>
                 <View style={styles.bottomNavigationTitle}>
@@ -1484,7 +1487,7 @@ import {
                 </View>
                 <View style={[styles.bottomNavigationBody]}>
                   <View>
-                    <Text style={{ padding: 10, fontSize: 18 }}>WD</Text>
+                    <Text style={{ padding: 10, fontSize: 18,color:Color.FontColor }}>WD</Text>
                   </View>
                   <View>
                     <Text style={styles.bottomNavigationInput}>
@@ -1496,7 +1499,7 @@ import {
                       style={{
                         fontSize: 30,
                         marginHorizontal: 10,
-                        color: Color.textAlign,
+                        color: Color.FontColor,
                       }}
                     >
                       +
@@ -1523,14 +1526,14 @@ import {
                       style={{
                         fontSize: 30,
                         marginHorizontal: 10,
-                        color: Color.textAlign,
+                        color: Color.FontColor,
                       }}
                     >
                       =
                     </Text>
                   </View>
                   <View>
-                    <Text style={{ padding: 10, fontSize: 18 }}>{WideBall}</Text>
+                    <Text style={{ padding: 10, fontSize: 18,color:Color.FontColor }}>{WideBall}</Text>
                   </View>
                 </View>
               </View>
@@ -1539,7 +1542,7 @@ import {
                   <Pressable
                     onPress={() => {
                       setwideBall_Default_Run(1);
-                      setWideBallRun(0);
+                      setWideBallRun(null);
                       setWideBall(1);
                       setWideBallModal(false);
                     }}
@@ -1549,6 +1552,7 @@ import {
                       style={{
                         fontWeight: "bold",
                         textAlign: "center",
+                        color:Color.FontColor
                       }}
                     >
                       CANCEL
@@ -1590,7 +1594,7 @@ import {
                 </View>
                 <View style={[styles.bottomNavigationBody]}>
                   <View>
-                    <Text style={{ padding: 10, fontSize: 18 }}>NB</Text>
+                    <Text style={{ padding: 10, fontSize: 18,color:Color.FontColor }}>NB</Text>
                   </View>
                   <View>
                     <Text style={styles.bottomNavigationInput}>
@@ -1602,7 +1606,7 @@ import {
                       style={{
                         fontSize: 30,
                         marginHorizontal: 10,
-                        color: Color.textAlign,
+                        color: Color.FontColor,
                       }}
                     >
                       +
@@ -1629,14 +1633,14 @@ import {
                       style={{
                         fontSize: 30,
                         marginHorizontal: 10,
-                        color: Color.textAlign,
+                        color: Color.FontColor,
                       }}
                     >
                       =
                     </Text>
                   </View>
                   <View>
-                    <Text style={{ padding: 10, fontSize: 18 }}>{NoBall}</Text>
+                    <Text style={{ padding: 10, fontSize: 18,color:Color.FontColor }}>{NoBall}</Text>
                   </View>
                 </View>
                 {NoBallTypeVisible ? (
@@ -1653,13 +1657,13 @@ import {
                       }
                       onPress={() => setNoBallchecked("From_Bat")}
                     />
-                    <Text>From Bat</Text>
+                    <Text style={{color:Color.FontColor,}}>From Bat</Text>
                     <RadioButton
                       value="Bye"
                       status={NoBallchecked === "Bye" ? "checked" : "unchecked"}
                       onPress={() => setNoBallchecked("Bye")}
                     />
-                    <Text>Bye</Text>
+                    <Text style={{color:Color.FontColor,}}>Bye</Text>
                     <RadioButton
                       value="Leg_Bye"
                       status={
@@ -1667,7 +1671,7 @@ import {
                       }
                       onPress={() => setNoBallchecked("Leg_Bye")}
                     />
-                    <Text>Leg Bye</Text>
+                    <Text style={{color:Color.FontColor,}}>Leg Bye</Text>
                   </View>
                 ) : null}
               </View>
@@ -1688,6 +1692,7 @@ import {
                       style={{
                         fontWeight: "bold",
                         textAlign: "center",
+                        color:Color.FontColor
                       }}
                     >
                       CANCEL
@@ -1754,7 +1759,7 @@ import {
                     },
                   ]}
                 >
-                  <Text style={{ fontSize: 20, fontWeight: "600" }}>
+                  <Text style={{ fontSize: 20, fontWeight: "600",color:Color.FontColor }}>
                     Bye Ball
                   </Text>
                 </View>
@@ -1782,7 +1787,7 @@ import {
                       setByeBallSelect(1);
                     }}
                   >
-                    <Text>1</Text>
+                    <Text style={{color:Color.FontColor}}>1</Text>
                   </Pressable>
                   <Pressable
                     style={[
@@ -1797,7 +1802,7 @@ import {
                       setByeBallSelect(2);
                     }}
                   >
-                    <Text>2</Text>
+                    <Text style={{color:Color.FontColor}}>2</Text>
                   </Pressable>
                   <Pressable
                     style={[
@@ -1812,7 +1817,7 @@ import {
                       setByeBallSelect(3);
                     }}
                   >
-                    <Text>3</Text>
+                    <Text style={{color:Color.FontColor}}>3</Text>
                   </Pressable>
                   <Pressable
                     style={[
@@ -1827,7 +1832,7 @@ import {
                       setByeBallSelect(4);
                     }}
                   >
-                    <Text>4</Text>
+                    <Text style={{color:Color.FontColor}}>4</Text>
                   </Pressable>
                   <Pressable
                     style={
@@ -1840,11 +1845,11 @@ import {
                       setByeBallSelect("plus");
                     }}
                   >
-                    <Text>+</Text>
+                    <Text style={{color:Color.FontColor}}>+</Text>
                   </Pressable>
                   {ByeBallSelect == "plus" ? (
                     <TextInput
-                      style={[styles.ByeBox, { padding: 10 }]}
+                      style={[styles.ByeBox, { padding: 10,color:Color.FontColor }]}
                       values={ByeBall}
                       onChangeText={(text) => setByeBall(text)}
                       keyboardType="numeric"
@@ -1867,6 +1872,7 @@ import {
                       style={{
                         fontWeight: "bold",
                         textAlign: "center",
+                        color:Color.FontColor
                       }}
                     >
                       CANCEL
@@ -1913,7 +1919,7 @@ import {
                     },
                   ]}
                 >
-                  <Text style={{ fontSize: 20, fontWeight: "600" }}>
+                  <Text style={{ fontSize: 20, fontWeight: "600",color:Color.FontColor }}>
                     {" "}
                     Leg Bye Ball
                   </Text>
@@ -1942,7 +1948,7 @@ import {
                       setLegByeBallSelect(1);
                     }}
                   >
-                    <Text>1</Text>
+                    <Text style={{color:Color.FontColor}}>1</Text>
                   </Pressable>
                   <Pressable
                     style={[
@@ -1957,7 +1963,7 @@ import {
                       setLegByeBallSelect(2);
                     }}
                   >
-                    <Text>2</Text>
+                    <Text style={{color:Color.FontColor}}>2</Text>
                   </Pressable>
                   <Pressable
                     style={[
@@ -1972,7 +1978,7 @@ import {
                       setLegByeBallSelect(3);
                     }}
                   >
-                    <Text>3</Text>
+                    <Text style={{color:Color.FontColor}}>3</Text>
                   </Pressable>
                   <Pressable
                     style={[
@@ -1987,7 +1993,7 @@ import {
                       setLegByeBallSelect(4);
                     }}
                   >
-                    <Text>4</Text>
+                    <Text style={{color:Color.FontColor}}>4</Text>
                   </Pressable>
                   <Pressable
                     style={
@@ -2000,11 +2006,11 @@ import {
                       setLegByeBallSelect("plus");
                     }}
                   >
-                    <Text>+</Text>
+                    <Text style={{color:Color.FontColor}}>+</Text>
                   </Pressable>
                   {LegByeBallSelect == "plus" ? (
                     <TextInput
-                      style={[styles.ByeBox, { padding: 10 }]}
+                      style={[styles.ByeBox, { padding: 10,color:Color.FontColor }]}
                       values={LegByeBall}
                       onChangeText={(text) => setLegByeBall(text)}
                       keyboardType="numeric"
@@ -2027,6 +2033,7 @@ import {
                       style={{
                         fontWeight: "bold",
                         textAlign: "center",
+                        color:Color.FontColor
                       }}
                     >
                       CANCEL
@@ -2073,7 +2080,7 @@ import {
                   },
                 ]}
               >
-                <Text style={{ fontSize: 20, fontWeight: "600" }}>
+                <Text style={{ fontSize: 20, fontWeight: "600",color:Color.FontColor }}>
                   {" "}
                   Run Scored by running
                 </Text>
@@ -2092,7 +2099,7 @@ import {
                 <TextInput
                   style={[
                     styles.ByeBox,
-                    { paddingHorizontal: 30, paddingVertical: 10 },
+                    { paddingHorizontal: 30, paddingVertical: 10,color:Color.FontColor },
                   ]}
                   values={LegByeBall}
                   onChangeText={(text) => setRunningScored(text)}
@@ -2114,6 +2121,7 @@ import {
                     style={{
                       fontWeight: "bold",
                       textAlign: "center",
+                      color:Color.FontColor
                     }}
                   >
                     CANCEL
@@ -2418,7 +2426,7 @@ import {
                     }}
                     style={styles.Numberbox_0_1}
                   >
-                    <Text>0</Text>
+                    <Text style={{color:Color.FontColor,fontWeight:"400",fontSize:20}}>0</Text>
                   </Pressable>
                   <Pressable
                     onPress={() => {
@@ -2433,7 +2441,7 @@ import {
                     }}
                     style={styles.Numberbox_0_1}
                   >
-                    <Text>1</Text>
+                    <Text style={{color:Color.FontColor,fontWeight:"400",fontSize:20}}>1</Text>
                   </Pressable>
   
                   <Pressable
@@ -2449,7 +2457,7 @@ import {
                     }}
                     style={styles.NumberBox_2}
                   >
-                    <Text>2</Text>
+                    <Text style={{color:Color.FontColor,fontWeight:"400",fontSize:20}}>2</Text>
                   </Pressable>
                 </View>
                 <View style={[styles.body100, styles.Numberbox_3_4_6]}>
@@ -2466,7 +2474,7 @@ import {
                     }}
                     style={styles.NumberBox_3_4}
                   >
-                    <Text>3</Text>
+                    <Text style={{color:Color.FontColor,fontWeight:"400",fontSize:20}}>3</Text>
                   </Pressable>
                   <Pressable
                     onPress={() => {
@@ -2481,7 +2489,7 @@ import {
                     }}
                     style={styles.NumberBox_3_4}
                   >
-                    <Text>4</Text>
+                    <Text style={{color:Color.FontColor,fontWeight:"400",fontSize:20}}>4</Text>
                   </Pressable>
                   <Pressable
                    onPress={() => {
@@ -2496,7 +2504,7 @@ import {
                   }}
                     style={styles.NumberBox_6}
                   >
-                    <Text>6</Text>
+                    <Text style={{color:Color.FontColor,fontWeight:"400",fontSize:20}}>6</Text>
                   </Pressable>
                 </View>
               </View>
@@ -2525,7 +2533,7 @@ import {
                     setRunningScoredModal(true)
                   }}
                 >
-                  <Text>5,7</Text>
+                  <Text style={{color:Color.FontColor,fontWeight:"400",fontSize:20}}>5,7</Text>
                 </Pressable>
                 <Pressable
                   style={styles.Out}
@@ -2607,19 +2615,19 @@ import {
                 setWideBallModal(false);
                 setWideBallModal(true);
                 }}>
-                <Text>WD</Text>
+                <Text style={{color:Color.FontColor,fontWeight:"400",fontSize:18}}>WD</Text>
               </Pressable>
               <Pressable style={styles.WD} onPress={() => {
                 setNoBallModal(false)
                 setNoBallModal(true)
                 }}>
-                <Text>NB</Text>
+                <Text style={{color:Color.FontColor,fontWeight:"400",fontSize:18}}>NB</Text>
               </Pressable>
               <Pressable style={styles.WD} onPress={() => {
                 setByeBallModal(false)
                 setByeBallModal(true)
                 }}>
-                <Text>BYE</Text>
+                <Text style={{color:Color.FontColor,fontWeight:"400",fontSize:18}}>BYE</Text>
               </Pressable>
               <Pressable
                 style={styles.WD}
@@ -2627,7 +2635,7 @@ import {
                   setLegByeBallModal(false)
                   setLegByeBallModal(true)}}
               >
-                <Text>LB</Text>
+                <Text style={{color:Color.FontColor,fontWeight:"400",fontSize:18}}>LB</Text>
               </Pressable>
             </View>
           </View>
@@ -2910,6 +2918,7 @@ import {
       alignItems: "center",
       borderRightColor: "#dedfe1",
       borderRightWidth: 2,
+      
     },
     modalcenteredView: {
       flex: 1,
@@ -2995,6 +3004,7 @@ import {
       textAlign: "center",
       padding: 20,
       fontSize: 20,
+      color:Color.FontColor
     },
     bottomNavigationBody: {
       width: "100%",
@@ -3046,7 +3056,7 @@ import {
       backgroundColor:Color.PrimaryColor
     },
     modaltitle: { fontSize: 20, color: Color.PrimaryColor, fontWeight: "600" },
-    modalsubtitle: { fontSize: 16 },
+    modalsubtitle: { fontSize: 16,color:Color.FontColor },
     modalbuttonClose: {
       backgroundColor: "#f2f2f2",
     },

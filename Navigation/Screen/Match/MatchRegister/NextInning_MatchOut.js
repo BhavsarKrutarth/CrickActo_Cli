@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View, Image, Pressable, Modal } from 'react-native'
+import { StyleSheet, Text, View, Image, Pressable, Modal, ScrollView } from 'react-native'
 import React, { useState, useEffect } from 'react'
-import { ScrollView } from 'react-native-gesture-handler';
+// import { ScrollView } from 'react-native-gesture-handler';
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
 import Color from '../../../../Color/Color';
@@ -119,7 +119,7 @@ const NextInning_MatchOut = () => {
     if (FunctionName == "btnSaveBowled") {
       btnSaveBowled('CaughtBowled', WagonWeel, ShortType)
     }
-   
+
   };
   const UPDATE_LASTPAGENAME_MATCH_CRUD = async () => {
     try {
@@ -151,7 +151,7 @@ const NextInning_MatchOut = () => {
           if (BindData.SERVICERESPONSE.RESPONSECODE == "0") {
             navigation.navigate("MyMatch", {
               LoadRef: "True"
-              
+
             })
           }
           return json;
@@ -622,7 +622,7 @@ const NextInning_MatchOut = () => {
       FlagBatterType: FlagBatterType == Color.PrimaryColor ? Color.PrimaryColor : "white"
     });
   }
-  const btnSaveBowled = async (OutBatterType,WagonWeel,ShortType) => {
+  const btnSaveBowled = async (OutBatterType, WagonWeel, ShortType) => {
     const resposneJSON = await fetch(
       `${global.domainName}/cricbuddyAPI/api/CommonSp`,
       {
@@ -637,8 +637,8 @@ const NextInning_MatchOut = () => {
           OPER: "add",
           SPNAME: "MATCHTEAMB_API_CRUD",
           MATCHID: Matchid,
-          WAGONWEEL:OutBatterType == 'CaughtBowled' ? (WagonWeel  ? WagonWeel : "") : "",
-          SHORTTYPE:OutBatterType == 'CaughtBowled' ? (ShortType  ? ShortType : "") : "",
+          WAGONWEEL: OutBatterType == 'CaughtBowled' ? (WagonWeel ? WagonWeel : "") : "",
+          SHORTTYPE: OutBatterType == 'CaughtBowled' ? (ShortType ? ShortType : "") : "",
           MOBILENO: global.MobileNo,
           TEAMBID: TeamBBatterid,
           TEAMBNAME: TeamBBatterName,
@@ -681,16 +681,15 @@ const NextInning_MatchOut = () => {
         var BindData = JSON.parse(json);
         if (BindData.SERVICERESPONSE.RESPONSECODE == 0) {
 
-          if(Matchid)
-          {
-            scoketservices.emit("SendMessage",Matchid)
+          if (Matchid) {
+            scoketservices.emit("SendMessage", Matchid)
           }
-           /*------------------------ Clear Wagon params --------------------*/
-           route.params.FunctionName = null;
-           route.params.FunctionRun = null;
-           route.params.WagonWeel = null;
-           route.params.ShortType = null;
-           /*------------------------ Clear Wagon params --------------------*/
+          /*------------------------ Clear Wagon params --------------------*/
+          route.params.FunctionName = null;
+          route.params.FunctionRun = null;
+          route.params.WagonWeel = null;
+          route.params.ShortType = null;
+          /*------------------------ Clear Wagon params --------------------*/
           setMatchTeamBid_undo(BindData.SERVICERESPONSE.MATCHTEAMBID_UNDO)
           setBall(BindData.SERVICERESPONSE.BOWLE);
           setBowleCount(BindData.SERVICERESPONSE.BOWLECOUNT);
@@ -752,7 +751,7 @@ const NextInning_MatchOut = () => {
                   resizeMode="stretch"
                   style={styles.img}
                 />
-                <Text style={{ fontSize: 16 }}>Inning completed</Text>
+                <Text style={{ fontSize: 16,color:Color.FontColor }}>Inning completed</Text>
               </View>
 
               <View style={[styles.modalText, { marginTop: 20 }]}>
@@ -786,8 +785,8 @@ const NextInning_MatchOut = () => {
                   resizeMode="stretch"
                   style={styles.img}
                 />
-                <Text style={{ fontSize: 20, fontWeight: "700" }}>{StickerName}</Text>
-                <Text style={{ fontSize: 16 }}>Confirmed out - Bowled?</Text>
+                <Text style={{ fontSize: 20, fontWeight: "700",color:Color.FontColor }}>{StickerName}</Text>
+                <Text style={{ fontSize: 16,color:Color.FontColor }}>Confirmed out - Bowled?</Text>
               </View>
 
               <View style={[styles.modalText, { marginTop: 20 }]}>
@@ -829,8 +828,8 @@ const NextInning_MatchOut = () => {
                   resizeMode="stretch"
                   style={styles.img}
                 />
-                <Text style={{ fontSize: 20, fontWeight: "700" }}>{StickerName}</Text>
-                <Text style={{ fontSize: 16 }}>Confirmed out - Caught & Bowled?</Text>
+                <Text style={{ fontSize: 20, fontWeight: "700",color:Color.FontColor }}>{StickerName}</Text>
+                <Text style={{ fontSize: 16,color:Color.FontColor }}>Confirmed out - Caught & Bowled?</Text>
               </View>
 
               <View style={[styles.modalText, { marginTop: 20 }]}>
@@ -844,7 +843,7 @@ const NextInning_MatchOut = () => {
                       , RedirectPage: "NextInning_MatchOut"
                       , PageName: StickerName
                     })
-                   // btnSaveBowled('CaughtBowled')
+                    // btnSaveBowled('CaughtBowled')
                   }}
                 >
                   <Text style={{ color: "white", fontWeight: "600" }}>
@@ -881,8 +880,8 @@ const NextInning_MatchOut = () => {
                   resizeMode="stretch"
                   style={styles.img}
                 />
-                <Text style={{ fontSize: 20, fontWeight: "700" }}>{StickerName}</Text>
-                <Text style={{ fontSize: 16 }}>Confirmed out - LBW?</Text>
+                <Text style={{ fontSize: 20, fontWeight: "700",color:Color.FontColor }}>{StickerName}</Text>
+                <Text style={{ fontSize: 16,color:Color.FontColor }}>Confirmed out - LBW?</Text>
               </View>
 
               <View style={[styles.modalText, { marginTop: 20 }]}>
@@ -924,8 +923,8 @@ const NextInning_MatchOut = () => {
                   resizeMode="stretch"
                   style={styles.img}
                 />
-                <Text style={{ fontSize: 20, fontWeight: "700" }}>{StickerName}</Text>
-                <Text style={{ fontSize: 16 }}>Confirmed out - Run Out(Mankaded)?</Text>
+                <Text style={{ fontSize: 20, fontWeight: "700",color:Color.FontColor }}>{StickerName}</Text>
+                <Text style={{ fontSize: 16,color:Color.FontColor }}>Confirmed out - Run Out(Mankaded)?</Text>
               </View>
 
               <View style={[styles.modalText, { marginTop: 20 }]}>
@@ -1227,6 +1226,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "700",
     textAlign: "center",
+    color:Color.FontColor
   },
 
   modalcenteredView: {
