@@ -319,16 +319,16 @@ const TournamentMatch_Upcomming = (props) => {
             },
           ]}
         >
-          <Text style={[styles.italic]}>{item.GroundNameDisplay}</Text>
+          <Text style={[styles.italic,{color:Color.FontColor}]}>{item.GroundNameDisplay}</Text>
         </View>
 
         <View style={[styles.body100, styles.BorderBottom]}>
           {item.DisplayGroundName != null ? (
-            <Text>{item.GroundName}</Text>
+            <Text style={{color:Color.FontColor}}>{item.GroundName}</Text>
           ) : null}
         </View>
         <View style={[styles.body100, styles.BannerSpaceBetween]}>
-          <Text>{item.TeamAName}</Text>
+          <Text style={{color:Color.FontColor}}>{item.TeamAName}</Text>
           {/* <Text style={{ fontWeight: "700" }}>Yet to bat</Text> */}
         </View>
         <View
@@ -338,12 +338,12 @@ const TournamentMatch_Upcomming = (props) => {
             styles.BorderBottom,
           ]}
         >
-          <Text>{item.TeamBName}</Text>
+          <Text style={{color:Color.FontColor}}>{item.TeamBName}</Text>
           {/* <Text style={{ fontWeight: "700" }}>Yet to bat</Text> */}
         </View>
         <View style={[styles.body100, styles.BannerSpaceBetween]}>
           {item.MatchDate ? (
-            <Text>
+            <Text style={{color:Color.FontColor}}>
               Match Scheduled to begin {item.MatchDate} {item.MatchTime}
             </Text>
           ) : null}
@@ -418,7 +418,7 @@ const TournamentMatch_Upcomming = (props) => {
                 //   })
               }
             >
-              <Text> START A MATCH</Text>
+              <Text style={{color:Color.FontColor}}> START A MATCH</Text>
             </Pressable>
           </View>
         </View>

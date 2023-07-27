@@ -1,12 +1,12 @@
-import { ToastAndroid,Image,SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar ,Pressable } from 'react-native'
+import { ToastAndroid,Image,SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar ,Pressable,TextInput } from 'react-native'
 import React, { useState, useEffect ,useRef} from 'react'
 import Color from '../../../../Color/Color'
-import { ScrollView, TextInput,LayoutAnimation } from 'react-native-gesture-handler';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
-import LineTextInput from '../../../../Component/LineTextInput/LineTextInput';
+// import { ScrollView, TextInput,LayoutAnimation } from 'react-native-gesture-handler';
+// import { Colors } from 'react-native/Libraries/NewAppScreen';
+// import LineTextInput from '../../../../Component/LineTextInput/LineTextInput';
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
-import * as ImagePicker from 'expo-image-picker';
+// import * as ImagePicker from 'expo-image-picker';
 import TransferImage from '../../../../Component/TransferImage/TransferImage';
 
 
@@ -237,7 +237,8 @@ const Tournament_AddNewTeams = () => {
     if(route.params?.Team_RedirectPage)
       setTeam_RedirectPage(route.params?.Team_RedirectPage);
 
-    SetData(route.params?.Common_CityId, route.params?.Common_CityName);
+    // SetData(route.params?.Common_CityId, route.params?.Common_CityName);
+    SetData(route.params?.CityId, route.params?.CityName);
 
     if(route.params?.updateid)
     {
@@ -277,26 +278,27 @@ const Tournament_AddNewTeams = () => {
   }, [route.params]);
 
   const ImagePickerFN = async () => {
-    // No permissions request is necessary for launching the image library
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
-      fileName: true,
-      base64: true,
-      aspect: [4, 3],
-      quality: 1,
-      canceled: false,
-      cancelled: false,
-      type:"image"
-    });
-    if (!result.canceled) {
-      BannerImageUpload(result.assets[0].base64, result.assets[0].uri);
-      // const fileName = result.assets[0].uri.split('/').pop();
-      // setImageName(fileName);
-      setImageFlieName(result.assets[0].uri);
-      setImage(result.assets[0].uri);
-      setImgUI(true);
-    }
+    alert("coming soon")
+    // // No permissions request is necessary for launching the image library
+    // let result = await ImagePicker.launchImageLibraryAsync({
+    //   mediaTypes: ImagePicker.MediaTypeOptions.Images,
+    //   allowsEditing: true,
+    //   fileName: true,
+    //   base64: true,
+    //   aspect: [4, 3],
+    //   quality: 1,
+    //   canceled: false,
+    //   cancelled: false,
+    //   type:"image"
+    // });
+    // if (!result.canceled) {
+    //   BannerImageUpload(result.assets[0].base64, result.assets[0].uri);
+    //   // const fileName = result.assets[0].uri.split('/').pop();
+    //   // setImageName(fileName);
+    //   setImageFlieName(result.assets[0].uri);
+    //   setImage(result.assets[0].uri);
+    //   setImgUI(true);
+    // }
   };
   const BannerImageUpload = async (Base64, IMAGEUPLOAD) => {
     try {
@@ -368,6 +370,7 @@ const Tournament_AddNewTeams = () => {
       title,
       CityId,
       CityName,
+      PageRedirect:"Tournament_AddNewTeams"
     });
     // alert("My id is "+id);
   }
@@ -413,12 +416,12 @@ const Tournament_AddNewTeams = () => {
         <View style={[styles.width60]}>
           <View style={{ marginLeft: 5 }}>
             <View>
-              <Text style={{ fontSize: 18, fontWeight: "900" }}>
+              <Text style={{ fontSize: 18, fontWeight: "900",color:Color.FontColor }}>
                 {item.title}
               </Text>
             </View>
             <View style={{ flexDirection: "column", flexWrap: "wrap" }}>
-              <Text>
+              <Text style={{color:Color.FontColor}}>
                 <Image
                   source={{
                     uri: `${global.domainName}/CricbuddyAdmin/Content/assets/tournament/icon_Location.png`,
@@ -496,7 +499,7 @@ const Tournament_AddNewTeams = () => {
             <View style={[styles.width80]}>
               <View style={{ marginLeft: 5 }}>
                 <View>
-                  <Text style={{ fontSize: 12 }}>
+                  <Text style={{ fontSize: 12,color:Color.FontColor }}>
                     Team Name <Text style={{ color: "red" }}>*</Text>
                   </Text>
 
@@ -512,26 +515,33 @@ const Tournament_AddNewTeams = () => {
                     style={{
                       borderBottomColor: errortxtTeamName,
                       borderBottomWidth: 2,
+                      color:Color.FontColor
                     }}
                     placeholder="Enter Team Name"
+                    placeholderTextColor={Color.FontColor}
                   />
                 </View>
                 <View style={{ marginTop: 10 }}>
-                  <Text style={{ fontSize: 12 }}>
+                  <Text style={{ fontSize: 12,color:Color.FontColor }}>
                     City/Town <Text style={{ color: "red" }}>*</Text>
                   </Text>
                   <TextInput
                     KeyboardAvoidingView={true}
                     placeholder="Search City"
+                    placeholderTextColor={Color.FontColor}
                     onFocus={() => {
                       seterrorddlCity(Color.Texttitle);
-                      navigation.navigate("AddCity_Common", {
-                        PageName: "Tournament_AddNewTeams",
-                      });
+                      // navigation.navigate("AddCity_Common", {
+                      //   PageName: "Tournament_AddNewTeams",
+                      // });
+                      navigation.navigate("UserProfileCity", {
+                        MobileNo,
+                        PageRedirect: "Tournament_AddNewTeams",
+                      })
                     }}
                     style={[
                       styles.input,
-                      { borderBottomColor: errorddlCity, borderBottomWidth: 2 },
+                      { borderBottomColor: errorddlCity, borderBottomWidth: 2,color:Color.FontColor },
                     ]}
                     value={Common_CityName}
                   />
@@ -559,7 +569,7 @@ const Tournament_AddNewTeams = () => {
             onPress={() => btnSave_AddoneMore()}
             style={[styles.button, styles.buttonClose]}
           >
-            <Text style={styles.btntitle}>Add One More</Text>
+            <Text style={[styles.btntitle,{color:Color.FontColor}]}>Add One More</Text>
           </Pressable>
         </View>
         <View style={styles.width50}>

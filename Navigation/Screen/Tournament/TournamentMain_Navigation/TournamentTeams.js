@@ -209,7 +209,7 @@ const TournamentTeams = (props) => {
           },
         ]}
       >
-        <Text style={[styles.title, { marginLeft: 10 }]}>{item.TITLE}</Text>
+        <Text style={[styles.title, { marginLeft: 10,color:Color.FontColor }]}>{item.TITLE}</Text>
       </View>
       </Pressable>
       <View
@@ -287,7 +287,7 @@ const TournamentTeams = (props) => {
                   ]}
                   onPress={() => setisVisible(!isVisible)}
                 >
-                  <Text style={{ paddingHorizontal: 20 }}>CANCEL</Text>
+                  <Text style={{ paddingHorizontal: 20,color:Color.FontColor }}>CANCEL</Text>
                 </Pressable>
               </View>
             </View>
@@ -475,7 +475,9 @@ const styles = StyleSheet.create({
   },
   modalText: {
     marginBottom: 5,
-    textAlign: "center"
+    textAlign: "center",
+    color:Color.FontColor
+
   },
   BannerBox: {
     marginLeft: 10,

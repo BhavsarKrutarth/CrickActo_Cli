@@ -25,6 +25,8 @@ const Tournament_EditNewTeams = () => {
     const [errorddlCity, seterrorddlCity] = useState(Color.Texttitle);
 
     useEffect(() => {
+      console.log("Navigation/Screen/Tournament/TournamentRightSide_Navigation/Tournament_EditNewTeams.js");
+
     if(route.params?.PageRedirect)
       setPageRedirect(route.params?.PageRedirect);
 

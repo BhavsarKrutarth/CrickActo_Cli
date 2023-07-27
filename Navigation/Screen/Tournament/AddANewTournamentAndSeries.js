@@ -21,12 +21,12 @@ const AddANewTournamentAndSeries = props => {
       <View style={styles.Container}>
         <View style={styles.body}>
           <View style={[styles.body100, { marginTop: 15 }]}>
-            <Text style={[styles.MainTitle, { fontWeight:"300" }]}>
+            <Text style={[styles.MainTitle, { fontWeight:"300",color:Color.FontColor }]}>
               Choose
             </Text>
           </View>
           <View style={[styles.body100, { marginTop: 0 }]}>
-            <Text style={[styles.MainTitle, { fontWeight: "600" }]}>
+            <Text style={[styles.MainTitle, { fontWeight: "600" ,color:Color.PrimaryColor}]}>
               Your Role
             </Text>
           </View>
@@ -109,7 +109,8 @@ const styles = StyleSheet.create({
   },
   title:{
     fontSize:25,
-    margin:5
+    margin:5,
+    color:Color.FontColor
   }
 });
 

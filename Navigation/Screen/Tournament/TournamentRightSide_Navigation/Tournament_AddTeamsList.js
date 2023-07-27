@@ -219,12 +219,12 @@ const Tournament_AddTeamsList = () => {
           <View style={[styles.width60]}>
             <View style={{ marginLeft: 5 }}>
               <View>
-                <Text style={{ fontSize: 18, fontWeight: "900" }}>
+                <Text style={{ fontSize: 18, fontWeight: "900",color:Color.FontColor }}>
                   {item.title}
                 </Text>
               </View>
               <View style={{ flexDirection: "column", flexWrap: "wrap" }}>
-                <Text>
+                <Text style={{color:Color.FontColor}}>
                   <Image
                     source={{
                       uri: `${global.domainName}/CricbuddyAdmin/Content/assets/tournament/icon_Location.png`,
@@ -301,13 +301,12 @@ const styles = StyleSheet.create({
     borderColor: Color.Texttitle,
     borderWidth: 2,
     backgroundColor: "#DC7633",
-    color: Color.WhiteBGColor,
     borderRadius: 100,
     alignItems: "center",
     justifyContent: "center",
   },
   imgtitle: {
-    color: Color.WhiteBGColor,
+    
     fontSize: 18,
     fontWeight: "900",
   },

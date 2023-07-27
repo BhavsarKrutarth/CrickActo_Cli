@@ -150,7 +150,8 @@ const styles = StyleSheet.create({
   },
   Texttitle:{
     fontSize:18,
-    fontWeight:'500'
+    fontWeight:'500',
+    color:Color.FontColor
   },
   TextSubtitle:{
     fontSize:14,

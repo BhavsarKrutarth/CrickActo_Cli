@@ -210,7 +210,8 @@ const styles = StyleSheet.create({
       height: "70%",
     },
     Title:{
-      fontSize:16
+      fontSize:16,
+      color:Color.FontColor
     }
   });
 

@@ -114,7 +114,8 @@ const styles = StyleSheet.create({
         marginLeft: 20,
       },
       MainTitle:{
-        fontSize:25
+        fontSize:25,
+        color:Color.FontColor
       },
       Flatlist:{
         width: "90%",

@@ -11,19 +11,14 @@ import {
   KeyboardAvoidingView,
   Text,
   ToastAndroid,
-  Textarea,
+  TextInput
 } from "react-native";
 import Checkbox from "expo-checkbox";
 import Color from "../../../Color/Color";
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import * as ImagePicker from "expo-image-picker";
-import LineTextInput from "../../../Component/LineTextInput/LineTextInput";
-import { TextInput } from "react-native-gesture-handler";
-import { Ionicons } from "@expo/vector-icons";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { color } from "react-native-reanimated";
 
 const TournamentRegistration = (props) => {
   function showToast(Text) {
@@ -32,8 +27,6 @@ const TournamentRegistration = (props) => {
 
   const navigation = useNavigation();
   const route = useRoute();
-  //let Tournament = route.params.Tournament  || null;
-  // let dropdownid = route.params.dropdownid  || null;
   const [image, setImage] = useState(null);
   const [MainBanner, setMainBanner] = useState(true);
   const [MainBannerUI, setMainBannerUI] = useState(false);
@@ -92,7 +85,6 @@ const TournamentRegistration = (props) => {
 
     let fdate = startday + "/" + startMonth + "/" + tempDate.getFullYear();
     let sdate = tempDate.getFullYear() + "" + startMonth + "" + startday;
-    //let fTime = 'Hours : ' + tempDate.getHours() + ' / Minutes : ' + tempDate.getMinutes();
     var g1 = tempDate.getFullYear() + "-" + startMonth + "-" + startday;
     var g2 = EndcmpDate;
 
@@ -103,8 +95,7 @@ const TournamentRegistration = (props) => {
     } else {
       setstartcmpDate(EndcmpDate);
     }
-    // console.log(g1)
-     setMinEndDate(new Date(tempDate.getFullYear(), startMonth - 1, startday));
+    setMinEndDate(new Date(tempDate.getFullYear(), startMonth - 1, startday));
     setSendDateText(sdate);
     setDateText(fdate);
     setstartDateError(false);
@@ -127,7 +118,6 @@ const TournamentRegistration = (props) => {
     }
     let fdate = endtday + "/" + endMonth + "/" + tempDate.getFullYear();
     let sdate = tempDate.getFullYear() + "" + endMonth + "" + endtday;
-    //let fTime = 'Hours : ' + tempDate.getHours() + ' / Minutes : ' + tempDate.getMinutes();
     setEndcmpDate(tempDate.getFullYear() + "-" + endMonth + "-" + endtday);
     setSendEndDateText(sdate);
     setEndDateText(fdate);
@@ -173,11 +163,13 @@ const TournamentRegistration = (props) => {
   React.useEffect(() => {
     console.log("Navigation/Screen/Tournament/TournamentRegistration.js");
     storeData();
-    if (route.params?.title) setcitytitle(route.params?.title);
+    // if (route.params?.title) setcitytitle(route.params?.title);
+    if (route.params?.CityName) setcitytitle(route.params?.CityName);
 
-    if (route.params?.id) {
+    if (route.params?.CityId) {
       setcityError(false);
-      setcityid(route.params?.id);
+      // setcityid(route.params?.id);
+      setcityid(route.params?.CityId);
     }
 
     if (route.params?.Groundid) {
@@ -206,22 +198,20 @@ const TournamentRegistration = (props) => {
 
     if (route.params?.MatchTypetitle)
       setMatchTypetitle(route.params?.MatchTypetitle);
-    // console.log(MobileNo || "NOT DATA")
-    // Tournament_GET()
   }, [route.params]);
 
   const [MobileNo, setMobileNo] = useState("");
   const storeData = async () => {
     try {
       setMobileNo(await AsyncStorage.getItem("@MobileNo"));
-    } catch (e) {}
+    } catch (e) { }
   };
 
   const Tournament_GET = async () => {
     try {
       const resposneJSON = await fetch(
         `${global.domainName}/cricbuddyAPI/api/TournamentRegistration/` +
-          global.MobileNo,
+        global.MobileNo,
         {
           method: "GET",
           headers: {
@@ -398,14 +388,22 @@ const TournamentRegistration = (props) => {
             Organiserno: txtOrganiserNumber,
             Startdate: SendDateText,
             Enddate: SendEndDateText,
-            Categoryid: Categoryid || 0,
-            Categorytitle: Categorytitle,
-            Balltypeid: BallTypeid || 0,
-            Balltypetitle: BallTypetitle,
-            Pitchtypeid: PitchTypeid || 0,
-            Pitchtypetitle: PitchTypetitle,
-            Matchtypeid: MatchTypeid || 0,
-            Matchtypetitle: MatchTypetitle,
+            // Categoryid: Categoryid || 0,
+            // Categorytitle: Categorytitle,
+            // Balltypeid: BallTypeid || 0,
+            // Balltypetitle: BallTypetitle,
+            // Pitchtypeid: PitchTypeid || 0,
+            // Pitchtypetitle: PitchTypetitle,
+            // Matchtypeid: MatchTypeid || 0,
+            // Matchtypetitle: MatchTypetitle,
+            Categoryid: 0,
+            Categorytitle: "",
+            Balltypeid: 0,
+            Balltypetitle: "",
+            Pitchtypeid: 0,
+            Pitchtypetitle: "",
+            Matchtypeid: 0,
+            Matchtypetitle: "",
             Remark: Remark,
             TeamRegistration: isChecked,
           }),
@@ -418,14 +416,12 @@ const TournamentRegistration = (props) => {
           var TOURNAMENTNAME = "";
           var TOURNAMENTID = "";
 
-          if (BindData.SERVICERESPONSE.RESPONSECODE == "0") 
-          {
+          if (BindData.SERVICERESPONSE.RESPONSECODE == "0") {
             global.TournamentAdmin = 1;
             global.TournamentName =
               BindData.SERVICERESPONSE.TOURNAMENTNAME || "";
             global.Tournamentid = BindData.SERVICERESPONSE.TOURNAMENTID || "";
           }
-          // const Images = [{"Image" : "e7b7cef2-d762-400a-808d-87c0a33c58f9.jpeg"},{"Image" : "fe35f09d-b71c-4413-8e69-69db7ce59bcd.jpeg"}]
           if (SendBannerImage != null)
             TransferImage([{ Image: SendBannerImage }]);
 
@@ -442,14 +438,9 @@ const TournamentRegistration = (props) => {
       return;
     } finally {
     }
-
-    // navigation.navigate('TournamentRegistrationSucces', {
-    //   MobileNo,
-    //   })
   };
 
   const ProfileImagepickImage = async () => {
-    // No permissions request is necessary for launching the image library
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
@@ -469,23 +460,23 @@ const TournamentRegistration = (props) => {
   };
 
   const MainBannerUIpickImage = async () => {
-    // No permissions request is necessary for launching the image library
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
-      fileName: true,
-      base64: true,
-      aspect: [4, 3],
-      quality: 1,
-      canceled: false,
-      cancelled: false,
-    });
-    if (!result.canceled) {
-      BannerImageUpload(result.assets[0].base64, result.assets[0].uri);
-      setImage(result.assets[0].uri);
-      setMainBanner(false);
-      setMainBannerUI(true);
-    }
+    alert('coming soon')
+    // let result = await ImagePicker.launchImageLibraryAsync({
+    //   mediaTypes: ImagePicker.MediaTypeOptions.Images,
+    //   allowsEditing: true,
+    //   fileName: true,
+    //   base64: true,
+    //   aspect: [4, 3],
+    //   quality: 1,
+    //   canceled: false,
+    //   cancelled: false,
+    // });
+    // if (!result.canceled) {
+    //   BannerImageUpload(result.assets[0].base64, result.assets[0].uri);
+    //   setImage(result.assets[0].uri);
+    //   setMainBanner(false);
+    //   setMainBannerUI(true);
+    // }
   };
 
   const BannerImageUpload = async (Base64, IMAGEUPLOAD) => {
@@ -631,6 +622,9 @@ const TournamentRegistration = (props) => {
           contentContainerStyle={{ paddingBottom: 200 }}
           style={styles.scrollContainer}
         >
+          <View>
+            <Text>1</Text>
+          </View>
           <View style={styles.Container}>
             <View style={[styles.header, { position: "relative" }]}>
               {MainBannerUI ? (
@@ -645,7 +639,9 @@ const TournamentRegistration = (props) => {
               ) : null}
 
               {MainBanner ? (
-                <Pressable onPress={MainBannerUIpickImage}>
+                <Pressable onPress={
+                  MainBannerUIpickImage
+                }>
                   <View style={[styles.Banner]}>
                     <Image
                       style={styles.imageBanner}
@@ -659,31 +655,6 @@ const TournamentRegistration = (props) => {
                   </View>
                 </Pressable>
               ) : null}
-              {/* <View
-                  style={[
-                    styles.profileimage,
-                    { position: "absolute", top: "72%", left: 20 },
-                  ]}
-                >
-                  {UserProfile ? (
-                    <Pressable onPress={ProfileImagepickImage}>
-                      <Image
-                        style={[styles.imageBanner]}
-                        source={{
-                          uri: ""+global.domainName+"/CricbuddyAdmin/Content/assets/tournament/icon_profile.png",
-                        }}
-                      />
-                    </Pressable>
-                  ) : null}
-                  {UserProfileUI ? (
-                    <Pressable onPress={ProfileImagepickImage}>
-                      <Image
-                        style={[styles.imagelogo]}
-                        source={{ uri: userprofileimage }}
-                      />
-                    </Pressable>
-                  ) : null}
-                </View> */}
             </View>
 
             <View style={styles.body}>
@@ -692,6 +663,7 @@ const TournamentRegistration = (props) => {
                   ref={txtTournamentName}
                   autoFocus
                   placeholder={"Tournament / Series Name *"}
+                  placeholderTextColor={Color.FontColor}
                   onChangeText={(text) => {
                     settxtTournamentname(text);
                     settxtTournamentname_ErrorStyle(Color.Texttitle);
@@ -702,6 +674,7 @@ const TournamentRegistration = (props) => {
                     {
                       borderBottomColor: txtTournamentname_ErrorStyle,
                       borderBottomWidth: 2,
+                      color:Color.FontColor
                     },
                   ]}
                 />
@@ -716,7 +689,7 @@ const TournamentRegistration = (props) => {
                   style={[
                     styles.paragraph,
                     {
-                      color: cityError == true ? Color.ErrorColor : Color.title,
+                      color: cityError == true ? Color.ErrorColor : Color.FontColor,
                     },
                   ]}
                 >
@@ -725,11 +698,15 @@ const TournamentRegistration = (props) => {
                 <TextInput
                   KeyboardAvoidingView={true}
                   placeholder="Search City"
-                  onFocus={() => navigation.navigate("TournamentAddCity")}
+                  placeholderTextColor={Color.FontColor}
+                  onFocus={() => navigation.navigate("UserProfileCity", {
+                    PageRedirect: "TournamentRegistration",
+                  })}
                   style={{
                     borderBottomColor:
                       cityError == true ? Color.ErrorColor : Color.Texttitle,
                     borderBottomWidth: 2,
+                    color:Color.FontColor
                   }}
                   value={citytitle}
                 />
@@ -745,7 +722,7 @@ const TournamentRegistration = (props) => {
                     styles.paragraph,
                     {
                       color:
-                        GroundError == true ? Color.ErrorColor : Color.title,
+                        GroundError == true ? Color.ErrorColor : Color.FontColor,
                     },
                   ]}
                 >
@@ -754,6 +731,7 @@ const TournamentRegistration = (props) => {
                 <TextInput
                   KeyboardAvoidingView={true}
                   placeholder="Search Ground"
+                  placeholderTextColor={Color.FontColor}
                   onFocus={() =>
                     // navigation.navigate("TouranamentGround", {
                     //   PageRedirect: "TournamentRegistration",
@@ -766,6 +744,7 @@ const TournamentRegistration = (props) => {
                     borderBottomColor:
                       GroundError == true ? Color.ErrorColor : Color.Texttitle,
                     borderBottomWidth: 2,
+                    color:Color.FontColor
                   }}
                   value={Groundtitle}
                 />
@@ -776,13 +755,14 @@ const TournamentRegistration = (props) => {
                 ) : null}
               </View>
               <View style={[styles.width100, { marginTop: 20 }]}>
-                <Text style={styles.paragraph}>
+                <Text style={[styles.paragraph, { color: Color.FontColor }]}>
                   Organiser Name <Text style={{ color: "red" }}>*</Text>
                 </Text>
-                {/* <LineTextInput placeholder="Enter Organiser Name" /> */}
+
                 <TextInput
                   ref={OrganiserName}
                   placeholder={"Enter Organiser Name"}
+                  placeholderTextColor={Color.FontColor}
                   onChangeText={(text) => {
                     settxtOrganiserName(text);
                     settxtOrganiserName_ErrorStyle(Color.Texttitle);
@@ -793,6 +773,7 @@ const TournamentRegistration = (props) => {
                     {
                       borderBottomColor: txtOrganiserName_ErrorStyle,
                       borderBottomWidth: 2,
+                      color:Color.FontColor
                     },
                   ]}
                 />
@@ -806,12 +787,12 @@ const TournamentRegistration = (props) => {
                 <Text style={styles.paragraph}>
                   Organiser Number <Text style={{ color: "red" }}>*</Text>
                 </Text>
-                {/* <LineTextInput placeholder="Enter Organiser Number" /> */}
                 <TextInput
                   keyboardType="numeric"
                   ref={OrganiserNumber}
                   maxLength={10}
                   placeholder={"Enter Organiser Number"}
+                  placeholderTextColor={Color.FontColor}
                   onChangeText={(text) => {
                     settxtOrganiserNumber(text);
                     settxtOrganiserNumber_ErrorStyle(Color.Texttitle);
@@ -822,6 +803,7 @@ const TournamentRegistration = (props) => {
                     {
                       borderBottomColor: txtOrganiserNumber_ErrorStyle,
                       borderBottomWidth: 2,
+                      color:Color.FontColor
                     },
                   ]}
                 />
@@ -834,7 +816,7 @@ const TournamentRegistration = (props) => {
 
               <View style={[styles.width100]}>
                 <View style={[styles.width100, { marginTop: 20 }]}>
-                  <Text style={{ fontSize: 18 }}>Tournament Date</Text>
+                  <Text style={{ fontSize: 18, color: Color.FontColor }}>Tournament Date</Text>
                 </View>
                 <View style={styles.section}>
                   <View style={{ width: "45%", marginTop: 20 }}>
@@ -851,7 +833,7 @@ const TournamentRegistration = (props) => {
                           },
                         ]}
                       >
-                        <Text>{DateText}</Text>
+                        <Text style={{ color: Color.FontColor }}>{DateText}</Text>
                         <Image
                           style={styles.image}
                           source={{
@@ -879,7 +861,7 @@ const TournamentRegistration = (props) => {
                           },
                         ]}
                       >
-                        <Text>{EndDateText}</Text>
+                        <Text style={{ color: Color.FontColor }}>{EndDateText}</Text>
                         <Image
                           style={styles.image}
                           source={{
@@ -894,11 +876,12 @@ const TournamentRegistration = (props) => {
                   </View>
                 </View>
               </View>
-              <View style={[styles.width100, { marginTop: 20 }]}>
+              {/* <View style={[styles.width100, { marginTop: 20 }]}>
                 <Text style={styles.paragraph}>Tournament Category</Text>
                 <TextInput
                   KeyboardAvoidingView={true}
                   placeholder="Search Category"
+                  placeholderTextColor={Color.FontColor}
                   onFocus={() => navigation.navigate("TouranmentCategory")}
                   style={{
                     borderBottomColor: Color.Texttitle,
@@ -912,6 +895,7 @@ const TournamentRegistration = (props) => {
                 <TextInput
                   KeyboardAvoidingView={true}
                   placeholder="Select Ball Type"
+                  placeholderTextColor={Color.FontColor}
                   onFocus={() => navigation.navigate("TouranmentBallType")}
                   style={{
                     borderBottomColor: Color.Texttitle,
@@ -925,6 +909,7 @@ const TournamentRegistration = (props) => {
                 <TextInput
                   KeyboardAvoidingView={true}
                   placeholder="Select Pitch Type"
+                  placeholderTextColor={Color.FontColor}
                   onFocus={() => navigation.navigate("TouranmentPitchType")}
                   style={{
                     borderBottomColor: Color.Texttitle,
@@ -939,6 +924,7 @@ const TournamentRegistration = (props) => {
                 <TextInput
                   KeyboardAvoidingView={true}
                   placeholder="Select Match Type"
+                  placeholderTextColor={Color.FontColor}
                   onFocus={() => navigation.navigate("TouranmentMatchType")}
                   style={{
                     borderBottomColor: Color.Texttitle,
@@ -946,7 +932,7 @@ const TournamentRegistration = (props) => {
                   }}
                   value={MatchTypetitle}
                 />
-              </View>
+              </View> */}
               <View style={[styles.width100, { marginTop: 20 }]}>
                 <View style={styles.section}>
                   <Checkbox
@@ -961,7 +947,7 @@ const TournamentRegistration = (props) => {
                       styles.paragraph,
                       {
                         color:
-                          TermsError == true ? Color.ErrorColor : Color.title,
+                          TermsError == true ? Color.ErrorColor : Color.FontColor,
                       },
                     ]}
                   >
@@ -978,11 +964,6 @@ const TournamentRegistration = (props) => {
                   onPress={() => btnSave()}
                 >
                   <Text style={{ color: "white" }}>
-                    {" "}
-                    <Ionicons
-                      name="checkmark-circle-outline"
-                      size={Color.ButtonSize}
-                    />{" "}
                     Save
                   </Text>
                 </Pressable>
@@ -1080,6 +1061,7 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     fontSize: 12,
+    color: Color.FontColor
   },
   checkbox: {
     margin: 8,

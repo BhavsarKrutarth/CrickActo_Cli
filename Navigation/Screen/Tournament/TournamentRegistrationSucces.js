@@ -68,7 +68,7 @@ const TournamentRegistrationSucces = () => {
         </View>
         <View style={{ width: "70%" }}>
           <Pressable>
-            <Text style={{ fontSize: 16, marginTop: 15 }}>
+            <Text style={{ fontSize: 16, marginTop: 15,color:Color.FontColor }}>
               Add Rounds/Groups fro Points Table
             </Text>
           </Pressable>
@@ -140,7 +140,8 @@ const styles = StyleSheet.create({
   },
   txtteams:{
     fontSize:16,
-    marginTop:20
+    marginTop:20,
+    color:Color.FontColor
   },
   button:{
     borderRadius: 20,
