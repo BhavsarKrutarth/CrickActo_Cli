@@ -112,7 +112,7 @@ const Info = props => {
             <View style={styles.body100}>
                 <View style={[styles.body100, { backgroundColor: Color.backgroundColor, padding: 10 }]}>
                     <View style={styles.title}>
-                        <Text>SQUADS</Text>
+                        <Text style={{color:Color.FontColor}}>SQUADS</Text>
                     </View>
                 </View>
                 <View style={[styles.body100, { marginTop: 10, paddingBottom: 5, flexDirection: "row", borderBottomColor: Color.backgroundColor, borderBottomWidth: 2 }]}>
@@ -122,7 +122,7 @@ const Info = props => {
                         </View>
                     </View>
                     <View style={[styles.body80, { justifyContent: "center", marginLeft: 20 }]}>
-                        <Text>{TeamAName}</Text>
+                        <Text style={{color:Color.FontColor}}>{TeamAName}</Text>
                     </View>
                 </View>
                 <View style={[styles.body100, { marginTop: 10, flexDirection: "row", paddingBottom: 5 }]}>
@@ -132,12 +132,12 @@ const Info = props => {
                         </View>
                     </View>
                     <View style={[styles.body80, { justifyContent: "center", marginLeft: 20 }]}>
-                        <Text>{TeamBName}</Text>
+                        <Text style={{color:Color.FontColor}}>{TeamBName}</Text>
                     </View>
                 </View>
                 <View style={[styles.body100, { backgroundColor: Color.backgroundColor, padding: 10 }]}>
                     <View style={styles.title}>
-                        <Text>INFO</Text>
+                        <Text style={{color:Color.FontColor}}>INFO</Text>
                     </View>
                 </View>
                 <View style={[styles.body100, { flexDirection: "row" }]}>
@@ -266,7 +266,8 @@ const styles = StyleSheet.create({
 
     },
     FontSize16:{
-        fontSize:16
+        fontSize:16,
+        color:Color.FontColor
     },
     img: {
         height: 60,

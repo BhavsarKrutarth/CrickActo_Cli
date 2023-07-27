@@ -304,7 +304,7 @@ const Commentary = ({ state }) => {
                     /> 
                 </View>
                 <View style={[styles.body60,{margin:5},{justifyContent: 'center',marginLeft:10}]}>
-                    <Text>{item.PlayerName}</Text>
+                    <Text style={{color:Color.FontColor}}>{item.PlayerName}</Text>
                 </View>
                 <View style={[styles.body10,{margin:5,justifyContent: 'center'}]}>
                     <Image
@@ -319,13 +319,13 @@ const Commentary = ({ state }) => {
           || item.Type == "Run" && (
             <View style={[styles.body100,styles.BorderBottom, { flexDirection: "row"}]}>
                 <View style={[styles.body15,styles.RightBorder,{justifyContent: 'center',alignItems:"center",flex:1,margin:5}]}>
-                    <Text style={[styles.imgtitle,{marginBottom:5}]}>{item.Ball}</Text>
+                    <Text style={[styles.imgtitle,{marginBottom:5,color:Color.FontColor}]}>{item.Ball}</Text>
                     <View style={[styles.img]}>
-                      <Text style={styles.imgtitle}>{item.Run}</Text>
+                      <Text style={[styles.imgtitle,{color:Color.FontColor}]}>{item.Run}</Text>
                     </View>
                 </View>
                 <View style={[styles.body70,{margin:5,justifyContent: 'center',marginLeft:10,}]}>
-                    <Text>{item.Description}</Text>
+                    <Text style={{color:Color.FontColor}}>{item.Description}</Text>
                 </View>
                 
             </View>
@@ -338,16 +338,16 @@ const Commentary = ({ state }) => {
             <View style={[styles.body100, { flexDirection: "row",backgroundColor:Color.backgroundColor,borderBottomColor:"#e4e4e4",borderBottomWidth:2}]}>
               <View style={[styles.body60,{flexDirection: "row", borderRightColor:"#e4e4e4",borderRightWidth:2,margin:5}]}>
                   <View style={[styles.body20,{margin:7,padding:5,borderColor:"#e4e4e4",borderWidth:2,justifyContent:"center",alignItems:"center",borderRadius:10}]}>
-                    <Text style={{color:"#4f4e53"}}>Over</Text>
-                    <Text> {item.Over_Detailslist.Over_Details.MatchOver}</Text>
+                    <Text style={{color:"#4f4e53",color:Color.FontColor}}>Over</Text>
+                    <Text style={{color:Color.FontColor}}>{item.Over_Detailslist.Over_Details.MatchOver}</Text>
                   </View>
                   <View style={[styles.body80,{padding:5,justifyContent:"center"}]}>
-                    <Text>{item.Over_Detailslist.Over_Details.Display_Run}</Text>
-                    <Text>{item.Over_Detailslist.Over_Details.TotalRun}{item.Over_Detailslist.Over_Details.TotalOut}</Text>
+                    <Text style={{color:Color.FontColor}}>{item.Over_Detailslist.Over_Details.Display_Run}</Text>
+                    <Text style={{color:Color.FontColor}}>{item.Over_Detailslist.Over_Details.TotalRun}{item.Over_Detailslist.Over_Details.TotalOut}</Text>
                   </View>
               </View>
               <View style={[styles.body40,{padding:5,justifyContent:"center"}]}>
-                  <Text> {item.Over_Detailslist.Over_Details.BelowOverRun}{item.Over_Detailslist.Over_Details.BelowOverOut}</Text>
+                  <Text style={{color:Color.FontColor}}> {item.Over_Detailslist.Over_Details.BelowOverRun}{item.Over_Detailslist.Over_Details.BelowOverOut}</Text>
               </View>
             </View>
             <View style={[styles.body100, { flexDirection: "row",backgroundColor:Color.backgroundColor,borderBottomColor:"#e4e4e4",borderBottomWidth:2}]}>
@@ -355,23 +355,23 @@ const Commentary = ({ state }) => {
               {
               item.Over_Detailslist.Over_Details.StreakerBall > 0 ? (
                 <View style={[styles.body50,{marginLeft:10}]}>
-                    <Text>{item.Over_Detailslist.Over_Details.StreakeName}</Text>
-                    <Text>{item.Over_Detailslist.Over_Details.StreakerRun}({item.Over_Detailslist.Over_Details.StreakerBall})</Text>
+                    <Text style={{color:Color.FontColor}}>{item.Over_Detailslist.Over_Details.StreakeName}</Text>
+                    <Text style={{color:Color.FontColor}}>{item.Over_Detailslist.Over_Details.StreakerRun}({item.Over_Detailslist.Over_Details.StreakerBall})</Text>
                 </View>
               ) : null}
 
               {
               item.Over_Detailslist.Over_Details.RunnerBall > 0 ? (
                 <View style={styles.body50}>
-                    <Text>{item.Over_Detailslist.Over_Details.RunnerName}</Text>
-                    <Text>{item.Over_Detailslist.Over_Details.RunnerRun}({item.Over_Detailslist.Over_Details.RunnerBall})</Text>
+                    <Text style={{color:Color.FontColor}}>{item.Over_Detailslist.Over_Details.RunnerName}</Text>
+                    <Text style={{color:Color.FontColor}}>{item.Over_Detailslist.Over_Details.RunnerRun}({item.Over_Detailslist.Over_Details.RunnerBall})</Text>
                 </View>
               ) : null}
                 
               </View>
               <View style={[styles.body40,{padding:5,justifyContent:"center"}]}>
-                  <Text> {item.Over_Detailslist.Over_Details.BowlerName}</Text>
-                  <Text> {item.Over_Detailslist.Over_Details.BowlerOver} - {item.Over_Detailslist.Over_Details.BowlerMaidan} - {item.Over_Detailslist.Over_Details.BowlerRun} - {item.Over_Detailslist.Over_Details.BowlerOut}</Text>
+                  <Text style={{color:Color.FontColor}}> {item.Over_Detailslist.Over_Details.BowlerName}</Text>
+                  <Text style={{color:Color.FontColor}}> {item.Over_Detailslist.Over_Details.BowlerOver} - {item.Over_Detailslist.Over_Details.BowlerMaidan} - {item.Over_Detailslist.Over_Details.BowlerRun} - {item.Over_Detailslist.Over_Details.BowlerOut}</Text>
               </View>
             </View>
             </View>
@@ -402,7 +402,7 @@ const Commentary = ({ state }) => {
                             setTeamSelect("TeamA")
                             BindTeamA(Matchid)
                             }}>
-                            <Text style={{ paddingTop: 7 }}>{TeamAName}</Text>
+                            <Text style={{ paddingTop: 7,color:Color.FontColor }}>{TeamAName}</Text>
                         </Pressable>
                     </View>
                     <View style={[styles.Modal_bodyBox]}>
@@ -418,7 +418,7 @@ const Commentary = ({ state }) => {
                             setTeamSelect("TeamB")
                             BindTeamB(Matchid)
                             }}>
-                            <Text style={{ paddingTop: 7 }}>{TeamBName}</Text>
+                            <Text style={{ paddingTop: 7,color:Color.FontColor }}>{TeamBName}</Text>
                         </Pressable>
                     </View>
                 </View>

@@ -32,10 +32,10 @@ import UserProfileEdit from "../Screen/UserProfile/UserProfileEdit";
 import UserProfileCity from "../Screen/UserProfile/UserProfileDropDown/UserProfileCity";
 import PayingRole from "../Screen/UserProfile/UserProfileDropDown/PayingRole";
 import StartAMatch from "../Screen/Match/StartAMatch";
-// import Info from "../Screen/Match/Report/Info";
-// import Summary from "../Screen/Match/Report/Summary";
-// import Commentary from "../Screen/Match/Report/Commentary";
-// import Scorecard from "../Screen/Match/Report/Scorecard";
+import Info from "../Screen/Match/Report/Info";
+import Summary from "../Screen/Match/Report/Summary";
+import Commentary from "../Screen/Match/Report/Commentary";
+import Scorecard from "../Screen/Match/Report/Scorecard";
 
 import AddANewTournamentAndSeries from "../Screen/Tournament/AddANewTournamentAndSeries";
 import CreateMyTeam from "../Screen/MyTeams/CreateMyTeam";
@@ -97,6 +97,65 @@ const Stack = createNativeStackNavigator();
 const Tab = createMaterialTopTabNavigator();
 const Drawer = createDrawerNavigator();
 const BottomTab = createBottomTabNavigator();
+
+
+function Report_IndividualMatch({ route }) {
+  var MatchId_ = "";
+  MatchId_ = route.params.Matchid;
+
+  return (
+    <Tab.Navigator
+      initialRouteName={
+        route.params === undefined ? "Info" : route.params.PageName
+      }
+      screenOptions={{
+        tabBarActiveTintColor: Color.WhiteBGColor,
+        tabBarInactiveTintColor: Color.WhiteBGColor,
+        tabBarShowLabel: true,
+        tabBarStyle: {
+          backgroundColor: Color.PrimaryColor,
+        },
+        tabBarIndicatorStyle: {
+          borderBottomColor: Color.WhiteBGColor,
+          borderBottomWidth: 5,
+        },
+        tabBarLabelStyle: {
+          fontSize: 10,
+        },
+      }}
+    >
+      <Tab.Screen
+        name="Info"
+        component={Info}
+        initialParams={{ MatchId: MatchId_ }}
+      />
+      <Tab.Screen
+        name="Summary"
+        component={Summary}
+        options={{
+          title: "Summary",
+        }}
+        initialParams={{ MatchId: MatchId_ }}
+      />
+      <Tab.Screen
+        name="Commentary"
+        component={Commentary}
+        options={{
+          title: "Commentary",
+        }}
+        initialParams={{ MatchId: MatchId_ }}
+      />
+      <Tab.Screen
+        name="Scorecard"
+        component={Scorecard}
+        options={{
+          title: "Scorecard",
+        }}
+        initialParams={{ MatchId: MatchId_ }}
+      />
+    </Tab.Navigator>
+  );
+}
 
 const BottomTabStack = () => {
   return (
@@ -1171,7 +1230,7 @@ const NavigationScreen = (props) => {
             })}
           />
 
-<Stack.Screen
+          <Stack.Screen
             name="NextInning_MatchOut_Caught"
             component={NextInning_MatchOut_Caught}
             options={({ route }) => ({
@@ -1323,6 +1382,26 @@ const NavigationScreen = (props) => {
                 color: "white",
               },
             })}
+          />
+
+          <Stack.Screen
+            name="Report_IndividualMatch"
+            component={Report_IndividualMatch}
+            options={{
+              title: "Report",
+              drawerItemStyle: { display: "none" },
+              drawerIcon: () => (
+                <Image
+                  source={{
+                    uri:
+                      "" +
+                      global.domainName +
+                      "/CricbuddyAdmin/Content/assets/tournament/Match_icon.png",
+                  }}
+                  style={{ width: 25, height: 25 }}
+                />
+              ),
+            }}
           />
         </Stack.Navigator>
       </NavigationContainer>

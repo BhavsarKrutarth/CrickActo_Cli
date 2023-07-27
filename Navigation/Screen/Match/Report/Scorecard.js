@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { useRoute } from "@react-navigation/native";
 import Color from '../../../../Color/Color';
-import { Pressable } from 'react-native';
+// import { Pressable } from 'react-native';
 import scoketservices from '../../../../scoket/scoketservices';
 
 
@@ -380,19 +380,19 @@ const Scorecard = props => {
       </View>
       <View style={[styles.body50, { flexDirection: "row" }]}>
         <View style={[styles.body20]}>
-          <Text>{item.run}</Text>
+          <Text style={{color:Color.FontColor}}>{item.run}</Text>
         </View>
         <View style={styles.body20}>
-          <Text>{item.ball}</Text>
+          <Text style={{color:Color.FontColor}}>{item.ball}</Text>
         </View>
         <View style={styles.body20}>
-          <Text>{item.fours}</Text>
+          <Text style={{color:Color.FontColor}}>{item.fours}</Text>
         </View>
         <View style={styles.body20}>
-          <Text>{item.sixs}</Text>
+          <Text style={{color:Color.FontColor}}>{item.sixs}</Text>
         </View>
         <View style={styles.body30}>
-          <Text>{item.sr}</Text>
+          <Text style={{color:Color.FontColor}}>{item.sr}</Text>
         </View>
       </View>
     </View>
@@ -452,23 +452,23 @@ const Scorecard = props => {
           BindTeamA_DetailsList ?
             (<><View style={[styles.body100, { flexDirection: "row", backgroundColor: "#f2f2f2", padding: 5 }]}>
               <View style={styles.body50}>
-                <Text style={{ paddingLeft: 10 }}>Batters</Text>
+                <Text style={{ paddingLeft: 10,color:Color.FontColor }}>Batters</Text>
               </View>
               <View style={[styles.body50, { flexDirection: "row" }]}>
                 <View style={[styles.body20,]}>
-                  <Text>R</Text>
+                  <Text style={{color:Color.FontColor}}>R</Text>
                 </View>
                 <View style={styles.body20}>
-                  <Text>B</Text>
+                  <Text style={{color:Color.FontColor}}>B</Text>
                 </View>
                 <View style={styles.body20}>
-                  <Text>4s</Text>
+                  <Text style={{color:Color.FontColor}}>4s</Text>
                 </View>
                 <View style={styles.body20}>
-                  <Text>6s</Text>
+                  <Text style={{color:Color.FontColor}}>6s</Text>
                 </View>
                 <View style={styles.body30}>
-                  <Text>SR</Text>
+                  <Text style={{color:Color.FontColor}}>SR</Text>
                 </View>
               </View>
             </View>
@@ -484,23 +484,23 @@ const Scorecard = props => {
                   <View key={index}>
                     <View style={[styles.body100, styles.BorderBottom, { flexDirection: "row", padding: 5 }]}>
                       <View style={styles.body50}>
-                        <Text style={{ paddingLeft: 10 }}>{item.streakename}</Text>
+                        <Text style={{ paddingLeft: 10,color:Color.FontColor}}>{item.streakename}</Text>
                       </View>
                       <View style={[styles.body50, { flexDirection: "row" }]}>
                         <View style={[styles.body20]}>
-                          <Text>{item.run}</Text>
+                          <Text style={{color:Color.FontColor}}>{item.run}</Text>
                         </View>
                         <View style={styles.body20}>
-                          <Text>{item.ball}</Text>
+                          <Text style={{color:Color.FontColor}}>{item.ball}</Text>
                         </View>
                         <View style={styles.body20}>
-                          <Text>{item.fours}</Text>
+                          <Text style={{color:Color.FontColor}}>{item.fours}</Text>
                         </View>
                         <View style={styles.body20}>
-                          <Text>{item.sixs}</Text>
+                          <Text style={{color:Color.FontColor}}>{item.sixs}</Text>
                         </View>
                         <View style={styles.body30}>
-                          <Text>{item.sr}</Text>
+                          <Text style={{color:Color.FontColor}}>{item.sr}</Text>
                         </View>
                       </View>
                     </View>
@@ -511,13 +511,13 @@ const Scorecard = props => {
         {TeamABall ? (<>
           <View style={[styles.body100, styles.BorderBottom, { justifyContent: "space-between", flexDirection: "row", padding: 5, }]}>
             <View>
-              <Text style={{ paddingLeft: 10 }}>Total</Text>
+              <Text style={{ paddingLeft: 10,color:Color.FontColor }}>Total</Text>
             </View>
             <View style={{ flexDirection: "row" }}>
 
-              <Text style={{ fontSize: 14 }}>{TeamARun} / {TotalOut_TeamA}</Text>
+              <Text style={{ fontSize: 14,color:Color.FontColor }}>{TeamARun} / {TotalOut_TeamA}</Text>
               <Text style={[{ fontSize: 14, color: "#7e7e7e" }]}> ( {TeamABall} Ov )</Text>
-              {TeamARR ? (<Text>  RR {TeamARR}</Text>) : null}
+              {TeamARR ? (<Text style={{color:Color.FontColor}}>  RR {TeamARR}</Text>) : null}
             </View>
           </View>
         </>) : null
@@ -526,23 +526,23 @@ const Scorecard = props => {
           <><View style={[styles.body100, { paddingTop: 20 }]}>
             <View style={[styles.body100, { flexDirection: "row", backgroundColor: "#f2f2f2", padding: 5 }]}>
               <View style={styles.body50}>
-                <Text style={{ paddingLeft: 10 }}>Bowlers</Text>
+                <Text style={{ paddingLeft: 10,color:Color.FontColor }}>Bowlers</Text>
               </View>
               <View style={[styles.body50, { flexDirection: "row" }]}>
                 <View style={[styles.body20,]}>
-                  <Text>O</Text>
+                  <Text style={{color:Color.FontColor}}>O</Text>
                 </View>
                 <View style={styles.body20}>
-                  <Text>M</Text>
+                  <Text style={{color:Color.FontColor}}>M</Text>
                 </View>
                 <View style={styles.body20}>
-                  <Text>R</Text>
+                  <Text style={{color:Color.FontColor}}>R</Text>
                 </View>
                 <View style={styles.body20}>
-                  <Text>W</Text>
+                  <Text style={{color:Color.FontColor}}>W</Text>
                 </View>
                 <View style={styles.body30}>
-                  <Text>Eco</Text>
+                  <Text style={{color:Color.FontColor}}>Eco</Text>
                 </View>
               </View>
             </View>
@@ -558,23 +558,23 @@ const Scorecard = props => {
                 <View key={index}>
                   <View style={[styles.body100, styles.BorderBottom, { flexDirection: "row", padding: 5 }]}>
                     <View style={styles.body50}>
-                      <Text style={{ paddingLeft: 10 }}>{item.bowlername}</Text>
+                      <Text style={{ paddingLeft: 10,color:Color.FontColor }}>{item.bowlername}</Text>
                     </View>
                     <View style={[styles.body50, { flexDirection: "row" }]}>
                       <View style={[styles.body20]}>
-                        <Text>{item.bowlerover}</Text>
+                        <Text style={{color:Color.FontColor}}>{item.bowlerover}</Text>
                       </View>
                       <View style={styles.body20}>
-                        <Text>{item.bowlermaidan}</Text>
+                        <Text style={{color:Color.FontColor}}>{item.bowlermaidan}</Text>
                       </View>
                       <View style={styles.body20}>
-                        <Text>{item.bowlerrun}</Text>
+                        <Text style={{color:Color.FontColor}}>{item.bowlerrun}</Text>
                       </View>
                       <View style={styles.body20}>
-                        <Text>{item.bowlerwicket}</Text>
+                        <Text style={{color:Color.FontColor}}>{item.bowlerwicket}</Text>
                       </View>
                       <View style={styles.body30}>
-                        <Text>{item.bowlereco}</Text>
+                        <Text style={{color:Color.FontColor}}>{item.bowlereco}</Text>
                       </View>
                     </View>
                   </View>
@@ -589,9 +589,9 @@ const Scorecard = props => {
             <View style={[styles.body100, { paddingTop: 20 }]}>
               <View style={[styles.body100, { flexDirection: "row", backgroundColor: "#f2f2f2", padding: 5, justifyContent: "space-between", }]}>
                 <View>
-                  <Text style={{ paddingLeft: 10 }}>Fall of Wickets</Text>
+                  <Text style={{ paddingLeft: 10,color:Color.FontColor }}>Fall of Wickets</Text>
                 </View>
-                <View style={{ paddingRight: 10 }}>
+                <View style={{ paddingRight: 10,color:Color.FontColor }}>
                   <Text>Score(over)</Text>
                 </View>
               </View>
@@ -607,10 +607,10 @@ const Scorecard = props => {
                   <View key={index}>
                     <View style={[styles.body100, styles.BorderBottom, { flexDirection: "row", padding: 5, justifyContent: "space-between", }]}>
                       <View>
-                        <Text style={{ paddingLeft: 10 }}>{item.Row_Num} {item.streakename}</Text>
+                        <Text style={{ paddingLeft: 10,color:Color.FontColor }}>{item.Row_Num} {item.streakename}</Text>
                       </View>
                       <View style={{ paddingRight: 10 }}>
-                        <Text>{item.bowle}</Text>
+                        <Text style={{color:Color.FontColor}}>{item.bowle}</Text>
                       </View>
                     </View>
                   </View>
@@ -638,23 +638,23 @@ const Scorecard = props => {
           {BindTeamB_DetailsList ? (
             <><View style={[styles.body100, { flexDirection: "row", backgroundColor: "#f2f2f2", padding: 5 }]}>
               <View style={styles.body50}>
-                <Text style={{ paddingLeft: 10 }}>Batters</Text>
+                <Text style={{ paddingLeft: 10,color:Color.FontColor }}>Batters</Text>
               </View>
               <View style={[styles.body50, { flexDirection: "row" }]}>
                 <View style={[styles.body20,]}>
-                  <Text>R</Text>
+                  <Text style={{color:Color.FontColor}}>R</Text>
                 </View>
                 <View style={styles.body20}>
-                  <Text>B</Text>
+                  <Text style={{color:Color.FontColor}}>B</Text>
                 </View>
                 <View style={styles.body20}>
-                  <Text>4s</Text>
+                  <Text style={{color:Color.FontColor}}>4s</Text>
                 </View>
                 <View style={styles.body20}>
-                  <Text>6s</Text>
+                  <Text style={{color:Color.FontColor}}>6s</Text>
                 </View>
                 <View style={styles.body30}>
-                  <Text>SR</Text>
+                  <Text style={{color:Color.FontColor}}>SR</Text>
                 </View>
               </View>
             </View><View style={[styles.body100]}>
@@ -669,23 +669,23 @@ const Scorecard = props => {
                   <View key={index}>
                     <View style={[styles.body100, styles.BorderBottom, { flexDirection: "row", padding: 5 }]}>
                       <View style={styles.body50}>
-                        <Text style={{ paddingLeft: 10 }}>{item.streakename}</Text>
+                        <Text style={{ paddingLeft: 10,color:Color.FontColor }}>{item.streakename}</Text>
                       </View>
                       <View style={[styles.body50, { flexDirection: "row" }]}>
                         <View style={[styles.body20]}>
-                          <Text>{item.run}</Text>
+                          <Text style={{color:Color.FontColor}}>{item.run}</Text>
                         </View>
                         <View style={styles.body20}>
-                          <Text>{item.ball}</Text>
+                          <Text style={{color:Color.FontColor}}>{item.ball}</Text>
                         </View>
                         <View style={styles.body20}>
-                          <Text>{item.fours}</Text>
+                          <Text style={{color:Color.FontColor}}>{item.fours}</Text>
                         </View>
                         <View style={styles.body20}>
-                          <Text>{item.sixs}</Text>
+                          <Text style={{color:Color.FontColor}}>{item.sixs}</Text>
                         </View>
                         <View style={styles.body30}>
-                          <Text>{item.sr}</Text>
+                          <Text style={{color:Color.FontColor}}>{item.sr}</Text>
                         </View>
                       </View>
                     </View>
@@ -696,13 +696,13 @@ const Scorecard = props => {
 
           <View style={[styles.body100, styles.BorderBottom, { justifyContent: "space-between", flexDirection: "row", padding: 5, }]}>
             <View>
-              <Text style={{ paddingLeft: 10 }}>Total</Text>
+              <Text style={{ paddingLeft: 10,color:Color.FontColor }}>Total</Text>
             </View>
             <View style={{ flexDirection: "row" }}>
               {TeamBBall ? (<>
-                <Text style={{ fontSize: 14 }}>{TeamBRun} / {TotalOut_TeamB}</Text>
+                <Text style={{ fontSize: 14,color:Color.FontColor }}>{TeamBRun} / {TotalOut_TeamB}</Text>
                 <Text style={[{ fontSize: 14, color: "#7e7e7e" }]}> ( {TeamBBall} Ov )</Text>
-                {TeamBRR ? (<Text>  RR {TeamBRR}</Text>) : null}
+                {TeamBRR ? (<Text style={{color:Color.FontColor}}>  RR {TeamBRR}</Text>) : null}
               </>) : null
 
               }
@@ -712,23 +712,23 @@ const Scorecard = props => {
             <><View style={[styles.body100, { paddingTop: 20 }]}>
               <View style={[styles.body100, { flexDirection: "row", backgroundColor: "#f2f2f2", padding: 5 }]}>
                 <View style={styles.body50}>
-                  <Text style={{ paddingLeft: 10 }}>Bowlers</Text>
+                  <Text style={{ paddingLeft: 10,color:Color.FontColor }}>Bowlers</Text>
                 </View>
                 <View style={[styles.body50, { flexDirection: "row" }]}>
                   <View style={[styles.body20,]}>
-                    <Text>O</Text>
+                    <Text style={{color:Color.FontColor}}>O</Text>
                   </View>
                   <View style={styles.body20}>
-                    <Text>M</Text>
+                    <Text style={{color:Color.FontColor}}>M</Text>
                   </View>
                   <View style={styles.body20}>
-                    <Text>R</Text>
+                    <Text style={{color:Color.FontColor}}>R</Text>
                   </View>
                   <View style={styles.body20}>
-                    <Text>W</Text>
+                    <Text style={{color:Color.FontColor}}>W</Text>
                   </View>
                   <View style={styles.body30}>
-                    <Text>Eco</Text>
+                    <Text style={{color:Color.FontColor}}>Eco</Text>
                   </View>
                 </View>
               </View>
@@ -744,23 +744,23 @@ const Scorecard = props => {
                   <View key={index}>
                     <View style={[styles.body100, styles.BorderBottom, { flexDirection: "row", padding: 5 }]}>
                       <View style={styles.body50}>
-                        <Text style={{ paddingLeft: 10 }}>{item.bowlername}</Text>
+                        <Text style={{ paddingLeft: 10,color:Color.FontColor }}>{item.bowlername}</Text>
                       </View>
                       <View style={[styles.body50, { flexDirection: "row" }]}>
                         <View style={[styles.body20]}>
-                          <Text>{item.bowlerover}</Text>
+                          <Text style={{color:Color.FontColor}}>{item.bowlerover}</Text>
                         </View>
                         <View style={styles.body20}>
-                          <Text>{item.bowlermaidan}</Text>
+                          <Text style={{color:Color.FontColor}}>{item.bowlermaidan}</Text>
                         </View>
                         <View style={styles.body20}>
-                          <Text>{item.bowlerrun}</Text>
+                          <Text style={{color:Color.FontColor}}>{item.bowlerrun}</Text>
                         </View>
                         <View style={styles.body20}>
-                          <Text>{item.bowlerwicket}</Text>
+                          <Text style={{color:Color.FontColor}}>{item.bowlerwicket}</Text>
                         </View>
                         <View style={styles.body30}>
-                          <Text>{item.bowlereco}</Text>
+                          <Text style={{color:Color.FontColor}}>{item.bowlereco}</Text>
                         </View>
                       </View>
                     </View>
@@ -774,10 +774,10 @@ const Scorecard = props => {
               <View style={[styles.body100, { paddingTop: 20 }]}>
                 <View style={[styles.body100, { flexDirection: "row", backgroundColor: "#f2f2f2", padding: 5, justifyContent: "space-between", }]}>
                   <View>
-                    <Text style={{ paddingLeft: 10 }}>Fall of Wickets</Text>
+                    <Text style={{ paddingLeft: 10,color:Color.FontColor }}>Fall of Wickets</Text>
                   </View>
                   <View style={{ paddingRight: 10 }}>
-                    <Text>Score(over)</Text>
+                    <Text style={{color:Color.FontColor}}>Score(over)</Text>
                   </View>
                 </View>
                 <View style={[styles.body100]}>
@@ -792,10 +792,10 @@ const Scorecard = props => {
                     <View key={index}>
                       <View style={[styles.body100, styles.BorderBottom, { flexDirection: "row", padding: 5, justifyContent: "space-between", }]}>
                         <View>
-                          <Text style={{ paddingLeft: 10 }}>{item.Row_Num} {item.streakename}</Text>
+                          <Text style={{ paddingLeft: 10,color:Color.FontColor }}>{item.Row_Num} {item.streakename}</Text>
                         </View>
                         <View style={{ paddingRight: 10 }}>
-                          <Text>{item.bowle}</Text>
+                          <Text style={{color:Color.FontColor}}>{item.bowle}</Text>
                         </View>
                       </View>
                     </View>

@@ -457,6 +457,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 22,
     marginLeft: 5,
+    color:Color.FontColor
   },
   OverTitle: {
     color: Color.Texttitle,
@@ -492,6 +493,7 @@ const styles = StyleSheet.create({
   },
   subtableTitle: {
     fontSize: 12,
+    color:Color.FontColor
   },
   PartnerShiptitle: {
     color: Color.Texttitle,
