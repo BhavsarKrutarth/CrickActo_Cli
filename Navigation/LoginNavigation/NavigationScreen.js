@@ -20,7 +20,7 @@ import Login from "../Screen/Login/Login";
 import OTP_Verify from "../Screen/Login/OTP_Verify";
 import PinSet from "../Screen/Login/PinSet";
 /*------------------------ Login -----------------------*/
-import MyProfile from "../Screen/MyProfile/Stats/MyProfile_stats_Batting";
+
 import MainPage from "../Screen/MainPage";
 import MyMatch from "../Screen/Match/MyMatch";
 import MyTeam from "../Screen/MyTeams/MyTeam";
@@ -143,6 +143,8 @@ import Tournament_Groups from "../Screen/Tournament/TournamentRightSide_Navigati
 import PlayerPageMain from "../Screen/MyTeams/Player/PlayerPageMain";
 import PlayerAdd from "../Screen/MyTeams/Player/PlayerAdd";
 import Setting from "../Screen/UserProfile/Setting";
+import Matches from "../Screen/MyProfile/Matches";
+import Stats from "../Screen/MyProfile/Stats";
 /*------------------------ Tournamenr Match  -----------------------------*/
 
 
@@ -152,6 +154,61 @@ const Tab = createMaterialTopTabNavigator();
 const Drawer = createDrawerNavigator();
 const BottomTab = createBottomTabNavigator();
 const RightDrawer = createDrawerNavigator();
+
+function MyProfile({ route }) {
+  return (
+    <Tab.Navigator
+      initialRouteName={
+        route.params === undefined ? "MyProfile" : route.params.PageName
+      }
+      screenOptions={{
+        tabBarScrollEnabled: true,
+        tabBarIndicatorStyle: {
+          backgroundColor: Color.NavigationColor,
+          height: 5,
+        },
+        tabBarActiveTintColor: Color.WhiteBGColor,
+        tabBarInactiveTintColor: Color.WhiteBGColor,
+        tabBarShowLabel: true,
+        tabBarStyle: {
+          backgroundColor: Color.NavigationColor,
+          borderTopColor: Color.WhiteBGColor,
+          borderTopWidth: 3,
+        },
+        tabBarIndicatorStyle: {
+          borderBottomColor: Color.NavigationBorderColor,
+          borderBottomWidth: 5,
+        },
+        tabBarLabelStyle: {
+          fontSize: 14,
+        },
+      }}
+    >
+      <Tab.Screen
+        name="Matches"
+        component={Matches}
+        options={{
+          title: "Matches",
+        }}
+      />
+       <Tab.Screen
+        name="Stats"
+        component={Stats}
+        options={{
+          title: "Stats",
+        }}
+      />
+     <Tab.Screen
+        name="MyTeam"
+        component={MyTeam}
+        options={{
+          title: "Teams",
+        }}
+      />
+      
+    </Tab.Navigator>
+  );
+}
 
 // function MyProfile({ route }) {
 //   return (
@@ -2393,6 +2450,13 @@ const NavigationScreen = (props) => {
             component={PinSet}
             options={{
               title: "PassWord Set",
+            }}
+          />
+          <Stack.Screen
+            name="MyProfile"
+            component={MyProfile}
+            options={{
+              
             }}
           />
         </Stack.Navigator>

@@ -15,14 +15,14 @@ import {
   StatusBar,
 } from "react-native";
 
-import Custombutton from "../../../Component/PressableButton/Custombutton";
-import LineButton from "../../../Component/LineButton/LineButton";
+// import Custombutton from "../../../Component/PressableButton/Custombutton";
+// import LineButton from "../../../Component/LineButton/LineButton";
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
 import { RadioButton } from "react-native-paper";
 import Color from "../../../Color/Color";
-import InertNetCheck from "../InertNetCheck";
-import Tooltip from "react-native-walkthrough-tooltip";
+// import InertNetCheck from "../InertNetCheck";
+// import Tooltip from "react-native-walkthrough-tooltip";
 
 /* -----------------------refreshing ------------------------------*/
 const wait = (timeout) => {
@@ -475,12 +475,12 @@ const Matches = (props) => {
         </View>
         <View style={[styles.body100, styles.BorderBottom]}>
           {item.DisplayGroundName != null ? (
-            <Text>{item.DisplayGroundName}</Text>
+            <Text style={{color:Color.FontColor}}>{item.DisplayGroundName}</Text>
           ) : null}
         </View>
         <View style={[styles.body100, styles.BannerSpaceBetween]}>
-          <Text>{item.TeamAName}</Text>
-          <Text>
+          <Text style={{color:Color.FontColor}}>{item.TeamAName}</Text>
+          <Text style={{color:Color.FontColor}}>
             {item.Run ? (
               <Text
                 style={{ color: "#1bb191", fontSize: 16, fontWeight: "900" }}
@@ -500,11 +500,11 @@ const Matches = (props) => {
             styles.BorderBottom,
           ]}
         >
-          <Text>{item.TeamBName}</Text>
-          <Text style={{ fontWeight: "700" }}>Yet to bat</Text>
+          <Text style={{color:Color.FontColor}}>{item.TeamBName}</Text>
+          {/* <Text style={{ fontWeight: "700",color:Color.FontColor }}>Yet to bat</Text> */}
         </View>
         <View style={[styles.body100, styles.BannerSpaceBetween]}>
-          {item.TossWin != null ? <Text>{item.Description}</Text> : null}
+          {item.TossWin != null ? <Text style={{color:Color.FontColor}}>{item.Description}</Text> : null}
           <Text></Text>
         </View>
       </Pressable>
@@ -516,6 +516,7 @@ const Matches = (props) => {
         animationType="slide"
         transparent={true}
         visible={modalVisible}
+        
         onRequestClose={() => {
           Alert.alert("Modal has been closed.");
           setModalVisible(!modalVisible);

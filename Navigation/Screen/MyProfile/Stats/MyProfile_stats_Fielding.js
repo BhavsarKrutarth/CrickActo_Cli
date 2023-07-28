@@ -119,6 +119,7 @@ const style = StyleSheet.create({
   },
   CellSectionText1: {
     fontWeight: "bold",
+    color:Color.FontColor
   },
 });
 export default MyProfile_stats_Fielding;

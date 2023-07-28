@@ -6,17 +6,17 @@ import {
   Pressable,
   SafeAreaView,
   FlatList,
-  InteractionManager,
+  ScrollView,
   RefreshControl,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import Custombutton from "../../../Component/PressableButton/Custombutton";
-import LineButton from "../../../Component/LineButton/LineButton";
+// import LineButton from "../../../Component/LineButton/LineButton";
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
 import Color from "../../../Color/Color";
-import CustomFlatList from "../../../Component/FlatList/CustomFlatList";
-import { ScrollView } from "react-native-gesture-handler";
+// import CustomFlatList from "../../../Component/FlatList/CustomFlatList";
+// import { ScrollView } from "react-native-gesture-handler";
 /* -----------------------refreshing ------------------------------*/
 const wait = (timeout) => {
   return new Promise(resolve => setTimeout(resolve, timeout));
