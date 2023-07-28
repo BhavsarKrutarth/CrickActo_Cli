@@ -15,7 +15,7 @@ import Custombutton from "../../../../../Component/PressableButton/Custombutton"
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
 import Color from "../../../../../Color/Color";
-import { BackHandler } from "react-native";
+// import { BackHandler } from "react-native";
 /* -----------------------refreshing ------------------------------*/
 const wait = (timeout) => {
   return new Promise((resolve) => setTimeout(resolve, timeout));
@@ -330,12 +330,12 @@ const Tournament_Match_TeamAPlayer = (props) => {
             <View style={[styles.body80]}>
               <View style={{ marginLeft: 5 }}>
                 <View>
-                  <Text style={{ fontSize: 18, fontWeight: "900" }}>
+                  <Text style={{ fontSize: 18, fontWeight: "900",color:Color.FontColor }}>
                     {item.Name}
                   </Text>
                 </View>
                 <View style={{ flexDirection: "column", flexWrap: "wrap" }}>
-                  <Text>
+                  <Text style={{color:Color.FontColor}}>
                     <Image
                       source={{
                         uri: `${global.domainName}/CricbuddyAdmin/Content/assets/tournament/icon_Location.png`,

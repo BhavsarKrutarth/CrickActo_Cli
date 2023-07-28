@@ -115,6 +115,15 @@ import TournamentRegistrationSucces from "../Screen/Tournament/TournamentRegistr
 import Tournament_AddTeams from "../Screen/Tournament/TournamentRightSide_Navigation/Tournament_AddTeams";
 import Tournament_AddTeamsList from "../Screen/Tournament/TournamentRightSide_Navigation/Tournament_AddTeamsList";
 import Tournament_AddNewTeams from "../Screen/Tournament/TournamentRightSide_Navigation/Tournament_AddNewTeams";
+import Tournament_SchedualeMatch from "../Screen/Tournament/TournamentMain_Navigation/Tournament_SchedualeMatch";
+//import Tournament_AddRound from "../Screen/Tournament/TournamentMain_Navigation/Tournament_AddRound";
+import Tournament_AddGroups from "../Screen/Tournament/TournamentRightSide_Navigation/AddGroups/Tournament_AddGroups";
+import Tournament_MatchManual_StartMatch from "../Screen/Tournament/Tournament_Match/Tournament_MatchManual/Tournament_MatchManual_StartMatch";
+import Tournament_MatchManual_Tournament_TeamsA from "../Screen/Tournament/Tournament_Match/Tournament_MatchManual_TeamAAdd/Tournament_MatchManual_Tournament_TeamsA";
+import Tournament_Match_TeamAPlayer from "../Screen/Tournament/Tournament_Match/Tournament_Match_TeamA/Tournament_Match_TeamAPlayer";
+import Tournament_Match_TeamACaptain_WicketKeeper from "../Screen/Tournament/Tournament_Match/Tournament_Match_TeamA/Tournament_Match_TeamACaptain_WicketKeeper";
+import Tournament_MatchManual_Tournament_MyTeam_TeamA from "../Screen/Tournament/Tournament_Match/Tournament_MatchManual_TeamAAdd/Tournament_MatchManual_Tournament_MyTeam_TeamA";
+import Tournament_MatchManual_Tournament_AddTeamA from "../Screen/Tournament/Tournament_Match/Tournament_MatchManual_TeamAAdd/Tournament_MatchManual_Tournament_AddTeamA";
 /*------------------------ Tournamenr Match  -----------------------------*/
 
 
@@ -124,6 +133,162 @@ const Tab = createMaterialTopTabNavigator();
 const Drawer = createDrawerNavigator();
 const BottomTab = createBottomTabNavigator();
 const RightDrawer = createDrawerNavigator();
+
+
+// function Tournament_MatchManual_TeamB({ route }) {
+//   var Roundid_ = "";
+//   var TeamAid_ = "";
+//   var TeamAName_ = "";
+//   var RedirectPage_ = "";
+//   var Tournament_Matchid_ = "";
+//   Roundid_ = route.params.Roundid;
+//   TeamAid_ = route.params.TeamAid;
+//   TeamAName_ = route.params.TeamAName;
+//   Tournament_Matchid_ = route.params.Tournament_Matchid;
+//   RedirectPage_ = route.params.RedirectPage;
+
+//   return (
+//     <Tab.Navigator
+//       initialRouteName={
+//         route.params === undefined
+//           ? "Tournament_MatchManual_Tournament_TeamsB"
+//           : route.params.PageName
+//       }
+//       screenOptions={{
+//         tabBarScrollEnabled: true,
+//         tabBarIndicatorStyle: {
+//           backgroundColor: Color.NavigationColor,
+//           height: 5,
+//         },
+//         tabBarActiveTintColor: Color.WhiteBGColor,
+//         tabBarInactiveTintColor: Color.WhiteBGColor,
+//         tabBarShowLabel: true,
+//         tabBarStyle: {
+//           backgroundColor: Color.NavigationColor,
+//           borderTopColor: Color.WhiteBGColor,
+//           borderTopWidth: 3,
+//         },
+//         tabBarIndicatorStyle: {
+//           borderBottomColor: Color.NavigationBorderColor,
+//           borderBottomWidth: 5,
+//         },
+//         tabBarLabelStyle: {
+//           fontSize: 14,
+//         },
+//       }}
+//     >
+//       <Tab.Screen
+//         name="Tournament_MatchManual_Tournament_TeamsB"
+//         component={Tournament_MatchManual_Tournament_TeamsB}
+//         options={{
+//           title: "Tournament Teams",
+//         }}
+//         initialParams={{
+//           Roundid: Roundid_,
+//           RedirectPage: RedirectPage_,
+//           TeamAid: TeamAid_,
+//           TeamAName: TeamAName_,
+//           Tournament_Matchid: Tournament_Matchid_,
+//         }}
+//       />
+//       <Tab.Screen
+//         name="Tournament_MatchManual_Tournament_MyTeam_TeamB"
+//         component={Tournament_MatchManual_Tournament_MyTeam_TeamB}
+//         options={{
+//           title: "My Teams",
+//         }}
+//         initialParams={{
+//           Roundid: Roundid_,
+//           RedirectPage: RedirectPage_,
+//           TeamAid: TeamAid_,
+//           TeamAName: TeamAName_,
+//           Tournament_Matchid: Tournament_Matchid_,
+//         }}
+//         style={{ overflow: "visible", whiteSpace: "nowrap" }}
+//       />
+//       <Tab.Screen
+//         name="Tournament_MatchManual_Tournament_AddTeamB"
+//         component={Tournament_MatchManual_Tournament_AddTeamB}
+//         options={{
+//           title: "Add",
+//         }}
+//         initialParams={{
+//           Roundid: Roundid_,
+//           RedirectPage: RedirectPage_,
+//           TeamAid: TeamAid_,
+//           TeamAName: TeamAName_,
+//           Tournament_Matchid: Tournament_Matchid_,
+//         }}
+//       />
+//     </Tab.Navigator>
+//   );
+// }
+
+
+function Tournament_MatchManual_TeamA({ route }) {
+  var Roundid_ = "";
+  var RedirectPage_ = "";
+  Roundid_ = route.params.Roundid;
+  RedirectPage_ = route.params.RedirectPage;
+
+  return (
+    <Tab.Navigator
+      initialRouteName={
+        route.params === undefined
+          ? "Tournament_MatchManual_Tournament_TeamsA"
+          : route.params.PageName
+      }
+      screenOptions={{
+        tabBarScrollEnabled: true,
+        tabBarIndicatorStyle: {
+          backgroundColor: Color.NavigationColor,
+          height: 5,
+        },
+        tabBarActiveTintColor: Color.WhiteBGColor,
+        tabBarInactiveTintColor: Color.WhiteBGColor,
+        tabBarShowLabel: true,
+        tabBarStyle: {
+          backgroundColor: Color.NavigationColor,
+          borderTopColor: Color.WhiteBGColor,
+          borderTopWidth: 3,
+        },
+        tabBarIndicatorStyle: {
+          borderBottomColor: Color.NavigationBorderColor,
+          borderBottomWidth: 5,
+        },
+        tabBarLabelStyle: {
+          fontSize: 14,
+        },
+      }}
+    >
+      <Tab.Screen
+        name="Tournament_MatchManual_Tournament_TeamsA"
+        component={Tournament_MatchManual_Tournament_TeamsA}
+        options={{
+          title: "Tournament Teams",
+        }}
+        initialParams={{ Roundid: Roundid_, RedirectPage: RedirectPage_ }}
+        style={{ overflow: "visible", whiteSpace: "nowrap" }}
+      />
+      <Tab.Screen
+        name="Tournament_MatchManual_Tournament_MyTeam_TeamA"
+        component={Tournament_MatchManual_Tournament_MyTeam_TeamA}
+        options={{
+          title: "My Teams",
+        }}
+        initialParams={{ Roundid: Roundid_, RedirectPage: RedirectPage_ }}
+      />
+      <Tab.Screen
+        name="Tournament_MatchManual_Tournament_AddTeamA"
+        component={Tournament_MatchManual_Tournament_AddTeamA}
+        options={{
+          title: "Add",
+        }}
+        initialParams={{ Roundid: Roundid_, RedirectPage: RedirectPage_ }}
+      />
+    </Tab.Navigator>
+  );
+}
 
 function TopTournamenentMain_Tournament({ route }) {
   return (
@@ -1651,6 +1816,117 @@ const NavigationScreen = (props) => {
               },
             }}
           />
+
+          <Stack.Screen
+            name="Tournament_SchedualeMatch"
+            component={Tournament_SchedualeMatch}
+            options={({ route }) => ({
+              title:
+                route.params === undefined
+                  ? "Schedule Match"
+                  : route.params.PageName != "Schedule Match"
+                    ? route.params.PageName
+                    : "Schedule Match",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="Tournament_AddGroups"
+            component={Tournament_AddGroups}
+            options={({ route }) => ({
+              title:
+                route.params === undefined
+                  ? "Add Groups"
+                  : route.params.PageName != "Add Groups"
+                    ? route.params.PageName
+                    : "Add Groups",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="Tournament_MatchManual_StartMatch"
+            component={Tournament_MatchManual_StartMatch}
+            options={({ route }) => ({
+              title: "Start A Match",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+          <Stack.Screen
+            name="Tournament_MatchManual_TeamA"
+            component={Tournament_MatchManual_TeamA}
+            options={({ route }) => ({
+              title: "Select Team A",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="Tournament_Match_TeamAPlayer"
+            component={Tournament_Match_TeamAPlayer}
+            options={({ route }) => ({
+              title: "Select Team A Player",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+          <Stack.Screen
+            name="Tournament_Match_TeamACaptain_WicketKeeper"
+            component={Tournament_Match_TeamACaptain_WicketKeeper}
+            options={({ route }) => ({
+              title: "Select Team A Player",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
+         
+
+
+
+          {/* <Stack.Screen
+            name="Tournament_MatchManual_TeamB"
+            component={Tournament_MatchManual_TeamB}
+            options={({ route }) => ({
+              title: "Select Team B",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </>

@@ -224,7 +224,7 @@ const Tournament_MatchManual_Tournament_TeamsA = () => {
       ]}
     >
       <View style={[styles.body100, { padding: 10 }]}>
-        <Text style={{ fontSize: 18, fontWeight: "600" }}>
+        <Text style={{ fontSize: 18, fontWeight: "600",color:Color.FontColor }}>
           {item.GroupName}
         </Text>
       </View>
@@ -266,7 +266,7 @@ const Tournament_MatchManual_Tournament_TeamsA = () => {
                   }}
                   style={{ height: 100, width: "100%" }}
                 />
-                <Text style={{ textAlign: "center", paddingTop: 10 }}>
+                <Text style={{ textAlign: "center", paddingTop: 10,color:Color.FontColor }}>
                   {item1.Title}
                 </Text>
               </Pressable>

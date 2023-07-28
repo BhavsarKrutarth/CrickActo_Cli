@@ -1,12 +1,12 @@
-import { ToastAndroid,Image,SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar ,Pressable } from 'react-native'
+import { ToastAndroid,Image,SafeAreaView, View, TextInput, StyleSheet, Text, StatusBar ,Pressable } from 'react-native'
 import React, { useState, useEffect ,useRef} from 'react'
 import Color from '../../../../../Color/Color';
-import { ScrollView, TextInput,LayoutAnimation } from 'react-native-gesture-handler';
+// import { ScrollView, TextInput,LayoutAnimation } from 'react-native-gesture-handler';
 
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
-import * as ImagePicker from 'expo-image-picker';
-import TransferImage from '../../../../../Component/TransferImage/TransferImage';
+// import * as ImagePicker from 'expo-image-picker';
+// import TransferImage from '../../../../../Component/TransferImage/TransferImage';
 
 
 const Tournament_MatchManual_Tournament_AddTeamA = () => {
@@ -135,7 +135,8 @@ const Tournament_MatchManual_Tournament_AddTeamA = () => {
     if(route.params?.RedirectPage)
       setRedirectPage(route.params?.RedirectPage)
 
-     SetData(route.params?.Common_CityId, route.params?.Common_CityName);
+    //  SetData(route.params?.Common_CityId, route.params?.Common_CityName);
+    SetData(route.params?.CityId, route.params?.CityName);
 
      if(route.params?.Roundid)
         setRoundid(route.params?.Roundid)
@@ -144,27 +145,28 @@ const Tournament_MatchManual_Tournament_AddTeamA = () => {
 
   const ImagePickerFN = async () => {
     // No permissions request is necessary for launching the image library
-    let result = await ImagePicker.launchImageLibraryAsync({
+    alert("coming soon");
+    // let result = await ImagePicker.launchImageLibraryAsync({
       
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
-      fileName: true,
-      base64: true,
-      aspect: [4, 3],
-      quality: 1,
-      canceled: false,
-      cancelled: false,
-      type:"image"
-    });
+    //   mediaTypes: ImagePicker.MediaTypeOptions.Images,
+    //   allowsEditing: true,
+    //   fileName: true,
+    //   base64: true,
+    //   aspect: [4, 3],
+    //   quality: 1,
+    //   canceled: false,
+    //   cancelled: false,
+    //   type:"image"
+    // });
     
-    if (!result.canceled) {
-      BannerImageUpload(result.assets[0].base64, result.assets[0].uri);
-      // const fileName = result.assets[0].uri.split('/').pop();
-      // setImageName(fileName);
-      setImageFlieName(result.assets[0].uri);
-      setImage(result.assets[0].uri);
-      setImgUI(true);
-    }
+    // if (!result.canceled) {
+    //   BannerImageUpload(result.assets[0].base64, result.assets[0].uri);
+    //   // const fileName = result.assets[0].uri.split('/').pop();
+    //   // setImageName(fileName);
+    //   setImageFlieName(result.assets[0].uri);
+    //   setImage(result.assets[0].uri);
+    //   setImgUI(true);
+    // }
   };
   const BannerImageUpload = async (Base64, IMAGEUPLOAD) => {
     try {
@@ -251,7 +253,7 @@ const Tournament_MatchManual_Tournament_AddTeamA = () => {
             <View style={[styles.width80]}>
               <View style={{ marginLeft: 5 }}>
                 <View>
-                  <Text style={{ fontSize: 12 }}>
+                  <Text style={{ fontSize: 12,color:Color.FontColor }}>
                     Team Name <Text style={{ color: "red" }}>*</Text>
                   </Text>
 
@@ -267,26 +269,34 @@ const Tournament_MatchManual_Tournament_AddTeamA = () => {
                     style={{
                       borderBottomColor: errortxtTeamName,
                       borderBottomWidth: 2,
+                      color:Color.FontColor
                     }}
                     placeholder="Enter Team Name"
+                    placeholderTextColor={Color.FontColor}
+
+                    
                   />
                 </View>
                 <View style={{ marginTop: 10 }}>
-                  <Text style={{ fontSize: 12 }}>
+                  <Text style={{ fontSize: 12,color:Color.FontColor }}>
                     City/Town <Text style={{ color: "red" }}>*</Text>
                   </Text>
                   <TextInput
                     KeyboardAvoidingView={true}
                     placeholder="Search City"
+                    placeholderTextColor={Color.FontColor}
                     onFocus={() => {
                       seterrorddlCity(Color.Texttitle);
-                      navigation.navigate("AddCity_Common", {
-                        PageName: "Tournament_MatchManual_Tournament_AddTeamA",
+                      // navigation.navigate("AddCity_Common", {
+                      //   PageName: "Tournament_MatchManual_Tournament_AddTeamA",
+                      // });
+                       navigation.navigate("UserProfileCity", {
+                        PageRedirect: "Tournament_MatchManual_Tournament_AddTeamA",
                       });
                     }}
                     style={[
                       styles.input,
-                      { borderBottomColor: errorddlCity, borderBottomWidth: 2 },
+                      { borderBottomColor: errorddlCity, borderBottomWidth: 2, color:Color.FontColor },
                     ]}
                     value={Common_CityName}
                   />

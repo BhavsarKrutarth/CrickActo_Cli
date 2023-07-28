@@ -6,14 +6,13 @@ import {
   Alert,
   Pressable,
   Image,
+  ScrollView
 } from "react-native";
 import React, { useState } from "react";
 import Color from "../../../../../Color/Color";
 import { Dropdown } from "react-native-element-dropdown";
-import AntDesign from "@expo/vector-icons/AntDesign";
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
-import { ScrollView } from "react-native-gesture-handler";
 import Unorderedlist from "react-native-unordered-list";
 
 const Tournament_AddGroups = (props) => {
@@ -111,7 +110,7 @@ const Tournament_AddGroups = (props) => {
   const renderLabel = () => {
     if (value || isFocus) {
       return (
-        <Text style={[styles.label, isFocus && { color: Color.PrimaryColor }]}>
+        <Text style={[styles.label, isFocus && { color: Color.FontColor }]}>
           Select Round
         </Text>
       );
@@ -291,16 +290,17 @@ const Tournament_AddGroups = (props) => {
     <View style={[styles.container, { position: "relative" }]}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={[styles.body100]}>
-          {renderLabel()}
+          {/* {renderLabel()} */}
           <Dropdown
             style={[
               styles.dropdown,
               isFocus && { borderColor: Color.PrimaryColor, borderWidth: 2 },
               { marginTop: 10 },
             ]}
-            placeholderStyle={styles.placeholderStyle}
-            selectedTextStyle={styles.selectedTextStyle}
-            inputSearchStyle={styles.inputSearchStyle}
+            placeholderStyle={[styles.placeholderStyle,{color:Color.FontColor}]}
+            selectedTextStyle={[styles.selectedTextStyle,{color:Color.FontColor}]}
+            inputSearchStyle={[styles.inputSearchStyle,{color:Color.FontColor}]}
+            itemTextStyle={{color:Color.FontColor}}
             iconStyle={styles.iconStyle}
             data={ListItems}
             search
@@ -329,16 +329,18 @@ const Tournament_AddGroups = (props) => {
         <View style={[styles.body100, { marginTop: 17 }]}>
           <TextInput
             placeholder="Group Name(e.g. Group A or Group Stage)"
+            placeholderTextColor={Color.FontColor} 
             style={{
               borderBottomColor: Color.borderColor,
               borderBottomWidth: 2,
+              color:Color.FontColor
             }}
             onChangeText={setGroupName}
             value={GroupName}
           />
         </View>
         <View style={[styles.body100, { marginTop: 17 }]}>
-          <Text>Select Teams</Text>
+          <Text style={{color:Color.FontColor}}>Select Teams</Text>
         </View>
         <View style={[styles.body100, { marginTop: 17 }]}>
           {Team_ListItems.length == "0" ? (
@@ -356,7 +358,7 @@ const Tournament_AddGroups = (props) => {
                   uri: `${global.domainName}/CricbuddyAdmin/Content/assets/tournament/icon_plus.png`,
                 }}
               />
-              <Text style={{ marginLeft: 17, fontWeight: "600" }}>
+              <Text style={{ marginLeft: 17, fontWeight: "600",color:Color.FontColor }}>
                 Add New Teams
               </Text>
             </Pressable>
@@ -396,7 +398,7 @@ const Tournament_AddGroups = (props) => {
                       )}
                     </View>
                     <View style={styles.Bordertext}>
-                      <Text style={{ fontSize: 15 }}>{item.TITLE}</Text>
+                      <Text style={{ fontSize: 15,color:Color.FontColor }}>{item.TITLE}</Text>
                     </View>
                   </Pressable>
                 </View>
@@ -416,20 +418,20 @@ const Tournament_AddGroups = (props) => {
           ></View>
         </View>
         <View style={[styles.body100, { marginTop: 17 }]}>
-          <Text style={{ fontSize: 18, fontWeight: "700" }}>
+          <Text style={{ fontSize: 18, fontWeight: "700",color:Color.FontColor }}>
             Important Notes
           </Text>
           <Unorderedlist color="orange">
-            <Text>Same group teams play aginst each other.</Text>
+            <Text style={{color:Color.FontColor}}>Same group teams play aginst each other.</Text>
           </Unorderedlist>
           <Unorderedlist color="orange">
-            <Text>
+            <Text style={{color:Color.FontColor}}>
               if this is like an IPL format.put all teams under One Group.
             </Text>
           </Unorderedlist>
         </View>
         {Team_ListItems.length != "0" ? (
-          <View style={[styles.body100, { position: "absolute", bottom: 0 }]}>
+          <View style={[styles.body100, { position: "absolute", bottom: 0 ,paddingTop:10}]}>
             <Pressable style={styles.btnsave} onPress={() => btnSave()}>
               <Text style={{ color: "white" }}>Add Groups</Text>
             </Pressable>

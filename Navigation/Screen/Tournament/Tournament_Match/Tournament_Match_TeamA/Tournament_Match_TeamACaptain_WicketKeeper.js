@@ -162,7 +162,7 @@ const Tournament_Match_TeamACaptain_WicketKeeper = (props) => {
     // console.log(selectedItem_Captain)
     // console.log(Tournament_Matchid)
     // console.log(global.Tournamentid)
-     console.log(RedirectPage)
+    //  console.log(RedirectPage)
     // console.log(selectedItem_Keeper)
     //  return
     if (selectedItem_Captain != null) {
@@ -263,12 +263,12 @@ const Tournament_Match_TeamACaptain_WicketKeeper = (props) => {
             <View style={[styles.body80]}>
               <View style={{ marginLeft: 5 }}>
                 <View>
-                  <Text style={{ fontSize: 18, fontWeight: "900" }}>
+                  <Text style={{ fontSize: 18, fontWeight: "900",color:Color.FontColor }}>
                     {item.Name}
                   </Text>
                 </View>
                 <View style={{ flexDirection: "column", flexWrap: "wrap" }}>
-                  <Text>
+                  <Text style={{color:Color.FontColor}}>
                     <Image
                       source={{
                         uri: `${global.domainName}/CricbuddyAdmin/Content/assets/tournament/icon_Location.png`,
@@ -322,12 +322,12 @@ const Tournament_Match_TeamACaptain_WicketKeeper = (props) => {
             <View style={[styles.body80]}>
               <View style={{ marginLeft: 5 }}>
                 <View>
-                  <Text style={{ fontSize: 18, fontWeight: "900" }}>
+                  <Text style={{ fontSize: 18, fontWeight: "900",color:Color.FontColor }}>
                     {item.Name}
                   </Text>
                 </View>
                 <View style={{ flexDirection: "column", flexWrap: "wrap" }}>
-                  <Text>
+                  <Text style={{color:Color.FontColor}}>
                     <Image
                       source={{
                         uri: `${global.domainName}/CricbuddyAdmin/Content/assets/tournament/icon_Location.png`,

@@ -468,7 +468,7 @@ const TournamentMatch_Upcomming = (props) => {
                   }}
                   style={styles.modalImage}
                 />
-                <Text>Manual</Text>
+                <Text style={{color:Color.FontColor}}>Manual</Text>
               </Pressable>
               <View style={styles.body02}></View>
               <Pressable
@@ -488,7 +488,7 @@ const TournamentMatch_Upcomming = (props) => {
                   }}
                   style={styles.modalImage}
                 />
-                <Text>Automation</Text>
+                <Text style={{color:Color.FontColor}}>Automation</Text>
               </Pressable>
             </View>
             <View style={[styles.body100, { marginTop: 10 }]}>

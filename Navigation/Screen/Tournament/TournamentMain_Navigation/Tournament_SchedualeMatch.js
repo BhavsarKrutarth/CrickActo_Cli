@@ -206,7 +206,7 @@ const Tournament_SchedualeMatch = (props) => {
                   selectedItem === item.id ? styles.selectedItem : null,
                 ]}
               >
-                <Text style={{ fontWeight: "700", fontSize: 16 }}>
+                <Text style={{ fontWeight: "700", fontSize: 16,color:Color.FontColor }}>
                   {item.RoundName}
                 </Text>
               </View>
