@@ -488,6 +488,7 @@ import {
     title: {
       fontSize: 18,
       fontWeight: "600",
+      color:Color.FontColor
     },
     img: {
       height: 90,
@@ -503,6 +504,7 @@ import {
       color: Color.WhiteBGColor,
       fontSize: 18,
       fontWeight: "700",
+      
     },
     WonMainDiv: {
       flexDirection: "row",
@@ -534,6 +536,7 @@ import {
     subtitle: {
       fontSize: 14,
       fontWeight: "500",
+      color:Color.FontColor
     },
     button: {
       borderRadius: 20,

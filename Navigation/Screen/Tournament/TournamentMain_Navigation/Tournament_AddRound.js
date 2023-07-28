@@ -156,7 +156,7 @@ const Tournament_AddRound = () => {
               flexDirection: "row",
             }}
           >
-            <Text style={{ fontSize: 16, fontWeight: "600" }}>
+            <Text style={{ fontSize: 16, fontWeight: "600",color:Color.FontColor }}>
               {item.RoundName}
             </Text>
             <Image

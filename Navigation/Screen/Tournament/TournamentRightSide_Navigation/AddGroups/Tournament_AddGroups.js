@@ -316,14 +316,14 @@ const Tournament_AddGroups = (props) => {
               setValue(item.value);
               setIsFocus(false);
             }}
-            renderLeftIcon={() => (
-              <AntDesign
-                style={styles.icon}
-                color={isFocus ? Color.PrimaryColor : "black"}
-                name="Safety"
-                size={20}
-              />
-            )}
+            // renderLeftIcon={() => (
+            //   <AntDesign
+            //     style={styles.icon}
+            //     color={isFocus ? Color.PrimaryColor : "black"}
+            //     name="Safety"
+            //     size={20}
+            //   />
+            // )}
           />
         </View>
         <View style={[styles.body100, { marginTop: 17 }]}>

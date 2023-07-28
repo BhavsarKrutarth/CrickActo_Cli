@@ -386,19 +386,19 @@ const TournamentMatch_AutoMatch_List = (props) => {
           {item.DISPLAYDATE == "Required" ? (
             <Text style={[{ color: "red" }]}>{item.DISPLAYDATE}</Text>
           ) : (
-            <Text>{item.DISPLAYDATE}  {item.SETTIME}</Text>
+            <Text style={{color:Color.FontColor}}>{item.DISPLAYDATE}  {item.SETTIME}</Text>
           )}
         </View>
         <View style={[styles.body30, styles.Center, { paddingVertical: 5 }]}>
-          <Text>
+          <Text style={{color:Color.FontColor}}>
             {item.TeamAName} VS {item.TeamBName}
           </Text>
         </View>
         <View style={[styles.body15, styles.Center]}>
-          <Text>{item.GroupName}</Text>
+          <Text style={{color:Color.FontColor}}>{item.GroupName}</Text>
         </View>
         <View style={[styles.body15, styles.Center]}>
-          <Text>{item.GROUNDNAME}</Text>
+          <Text style={{color:Color.FontColor}}>{item.GROUNDNAME}</Text>
         </View>
         <View
           style={[

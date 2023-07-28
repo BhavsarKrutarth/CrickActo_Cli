@@ -1,7 +1,8 @@
 export default 
 {
-    // PrimaryColor:'#DC6933',
+    PrimaryColor_Org:'#DC6933',
     PrimaryColor:'#092441',
+
     litePirmaryKey:'#e99f7c',
     sliverColor:'#DDD',
     ErrorColor:"red",

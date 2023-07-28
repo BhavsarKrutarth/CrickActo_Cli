@@ -518,7 +518,7 @@ const TournamentMatch_AutoMatch_Registration = () => {
         flexDirection: "row",
       }}
     >
-      <Text style={{ fontSize: 16 }}>{item.name}</Text>
+      <Text style={{ fontSize: 16,color:Color.FontColor }}>{item.name}</Text>
       <Text
         style={{ marginLeft: 12, color: "red", fontSize: 16 }}
         onPress={() => handleRemoveTag(item.id)}
@@ -555,12 +555,12 @@ const TournamentMatch_AutoMatch_Registration = () => {
     <View style={styles.Container}>
       <ScrollView>
         <View style={[styles.width100,]}>
-          <Text style={{ fontSize: 20, fontWeight: "900" }}>
+          <Text style={{ fontSize: 20, fontWeight: "900",color:Color.FontColor }}>
             TELL US MORE ABOUT MATCHES
           </Text>
         </View>
         <View style={[styles.width100, { marginTop: 20 }]}>
-          <Text style={[styles.Title, { color: MatchTypeBorderColor }]}>
+          <Text style={[styles.Title, { color: Color.FontColor }]}>
             Match Type
           </Text>
         </View>
@@ -681,9 +681,11 @@ const TournamentMatch_AutoMatch_Registration = () => {
                   borderBottomColor:
                     NoofOverError == false ? Color.Texttitle : Color.ErrorColor,
                   borderBottomWidth: 2,
+                  color:Color.FontColor
                 }}
                 value={NoofOver}
                 placeholder="No.of Overs *"
+                placeholderTextColor={Color.FontColor}
               />
               {NoofOverError && (
                 <Text style={{ color: "red", fontSize: 12, fontWeight: "700" }}>
@@ -697,6 +699,7 @@ const TournamentMatch_AutoMatch_Registration = () => {
                 keyboardType="numeric"
                 value={OverPerBowler}
                 placeholder="Overs per Bowler *"
+                placeholderTextColor={Color.FontColor}
               />
             </View>
           </View>
@@ -709,16 +712,17 @@ const TournamentMatch_AutoMatch_Registration = () => {
             ]}
           >
             <View style={styles.width30}>
-              <Text>Match Balls</Text>
+              <Text style={{color:Color.FontColor}}>Match Balls</Text>
             </View>
             <View style={styles.width01}></View>
             <View style={styles.width100}>
               <TextInput
-                style={styles.input}
+                style={[styles.input,{color:Color.FontColor}]}
                 value={MatchBall}
                 keyboardType="numeric"
                 onChangeText={(text) => setMatchBall(text)}
                 placeholder="Enter the Match Ball"
+                placeholderTextColor={Color.FontColor}
               />
             </View>
           </View>
@@ -727,7 +731,7 @@ const TournamentMatch_AutoMatch_Registration = () => {
           <Text
             style={[
               styles.Title,
-              { color: CityIdError == false ? Color.Title : Color.ErrorColor },
+              { color: CityIdError == false ? Color.FontColor : Color.ErrorColor },
             ]}
           >
             City / Town
@@ -737,6 +741,7 @@ const TournamentMatch_AutoMatch_Registration = () => {
             <TextInput
               KeyboardAvoidingView={true}
               placeholder="select City / Town"
+              placeholderTextColor={Color.FontColor}
               onFocus={() =>
                 navigation.navigate("UserProfileCity", {
                   MobileNo,
@@ -747,6 +752,7 @@ const TournamentMatch_AutoMatch_Registration = () => {
                 borderBottomWidth: 2,
                 borderBottomColor:
                   CityIdError == false ? Color.Texttitle : Color.ErrorColor,
+                  color:Color.FontColor
               }}
               value={CityName}
             />
@@ -771,7 +777,7 @@ const TournamentMatch_AutoMatch_Registration = () => {
                   styles.Title,
                   {
                     color:
-                      GroundidError == false ? Color.Title : Color.ErrorColor,
+                      GroundidError == false ? Color.FontColor : Color.ErrorColor,
                   },
                 ]}
               >
@@ -807,6 +813,7 @@ const TournamentMatch_AutoMatch_Registration = () => {
               <TextInput
                 KeyboardAvoidingView={true}
                 placeholder="Search Ground"
+                placeholderTextColor={Color.FontColor}
                 onFocus={() =>
                   // navigation.navigate("MultiSelectTournamentGround", {
                   //   PageRedirect: "TournamentMatch_AutoMatch_Registration",
@@ -819,6 +826,7 @@ const TournamentMatch_AutoMatch_Registration = () => {
                   borderBottomColor:
                     GroundidError == true ? Color.ErrorColor : Color.Texttitle,
                   borderBottomWidth: 2,
+                  color:Color.FontColor
                 }}
                 value={Groundtitle}
               />
@@ -852,7 +860,7 @@ const TournamentMatch_AutoMatch_Registration = () => {
           <Text
             style={[
               styles.Title,
-              { color: DateError == true ? Color.ErrorColor : Color.Title },
+              { color: DateError == true ? Color.ErrorColor : Color.FontColor },
             ]}
           >
             Date & Time
@@ -866,6 +874,7 @@ const TournamentMatch_AutoMatch_Registration = () => {
                     borderBottomColor:
                       DateError == true ? Color.ErrorColor : Color.Texttitle,
                     borderBottomWidth: 2,
+                    
                   },
                 ]}
               >
@@ -914,7 +923,7 @@ const TournamentMatch_AutoMatch_Registration = () => {
             style={[
               styles.Title,
               {
-                color: BallTypeError == false ? Color.Title : Color.ErrorColor,
+                color: BallTypeError == false ? Color.FontColor : Color.ErrorColor,
               },
             ]}
           >
@@ -946,7 +955,7 @@ const TournamentMatch_AutoMatch_Registration = () => {
                       style={{ height: 65, width: 65 }}
                     />
                   </View>
-                  <Text>Tennise</Text>
+                  <Text style={{color:Color.FontColor}}>Tennise</Text>
                 </Pressable>
               </View>
               <View style={{ width: "5%" }}></View>
@@ -973,7 +982,7 @@ const TournamentMatch_AutoMatch_Registration = () => {
                       style={{ height: 65, width: 65 }}
                     />
                   </View>
-                  <Text>Leather</Text>
+                  <Text style={{color:Color.FontColor}}>Leather</Text>
                 </Pressable>
               </View>
               <View style={{ width: "5%" }}></View>
@@ -1000,7 +1009,7 @@ const TournamentMatch_AutoMatch_Registration = () => {
                       style={{ height: 65, width: 65 }}
                     />
                   </View>
-                  <Text>Other</Text>
+                  <Text style={{color:Color.FontColor}}>Other</Text>
                 </Pressable>
               </View>
             </View>
@@ -1011,7 +1020,7 @@ const TournamentMatch_AutoMatch_Registration = () => {
             style={[
               styles.Title,
               {
-                color: PitchTypeError == true ? Color.ErrorColor : Color.Title,
+                color: PitchTypeError == true ? Color.ErrorColor : Color.FontColor,
               },
             ]}
           >
@@ -1157,7 +1166,7 @@ const TournamentMatch_AutoMatch_Registration = () => {
             { marginTop: 10, flexDirection: "row", alignItems: "center" },
           ]}
         >
-          <Text style={styles.Title}>Short Type</Text>
+          <Text style={[styles.Title,{color:Color.FontColor}]}>Short Type</Text>
           <Switch
             value={switchValue}
             onValueChange={(switchValue) => {
@@ -1179,7 +1188,7 @@ const TournamentMatch_AutoMatch_Registration = () => {
             ]}
             onPress={() => BtnNext()}
           >
-            <Text style={{ fontSize: 12, fontWeight: "600" }}>
+            <Text style={{ fontSize: 12, fontWeight: "600",color:Color.FontColor }}>
               SCHEDULE MATCH
             </Text>
           </Pressable>
@@ -1462,6 +1471,7 @@ const styles = StyleSheet.create({
     textAlign: "left",
     fontSize: 14,
     fontWeight: "900",
+    color:Color.FontColor
   },
   modaltitleText: {
     marginBottom: 15,
@@ -1473,6 +1483,7 @@ const styles = StyleSheet.create({
   modaltxt: {
     fontSize: 16,
     fontWeight: "700",
+    color:Color.FontColor
   },
   flexDirectionrow: {
     flexDirection: "row",

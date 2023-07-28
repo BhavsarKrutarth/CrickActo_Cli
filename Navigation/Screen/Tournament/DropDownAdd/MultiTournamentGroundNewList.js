@@ -338,7 +338,7 @@ const MultiTournamentGroundNewList = () => {
               { justifyContent: "space-between", flexDirection: "row" },
             ]}
           >
-            <Text>
+            <Text style={{color:Color.FontColor}}>
               {item.GroundName} - {item.CityName}
             </Text>
             <Checkbox
@@ -351,7 +351,7 @@ const MultiTournamentGroundNewList = () => {
             />
           </View>
           <View style={styles.width100}>
-            <Text>Hourly Charge : {item.HourlyCharge}</Text>
+            <Text style={{color:Color.FontColor}}>Hourly Charge : {item.HourlyCharge}</Text>
           </View>
           <View
             style={[
@@ -359,7 +359,7 @@ const MultiTournamentGroundNewList = () => {
               { justifyContent: "space-between", flexDirection: "row" },
             ]}
           >
-            <Text>
+            <Text style={{color:Color.FontColor}}>
               Time : {item.AvailableToTimeText} - {item.AvailableFromTimeText}
             </Text>
             <Text
@@ -504,7 +504,7 @@ const MultiTournamentGroundNewList = () => {
         <View style={{ backgroundColor: "#000000AA", flex: 1 }}>
           <View style={styles.modalcenteredView}>
             <View style={styles.modalView}>
-              <Text style={[styles.modalText, { fontSize: 25 }]}>
+              <Text style={[styles.modalText, { fontSize: 25,color:Color.FontColor }]}>
                 Add New Ground
               </Text>
               <Text style={styles.modalText}>City Name : {CityName}</Text>
@@ -535,6 +535,7 @@ const MultiTournamentGroundNewList = () => {
                   label="Add New Ground"
                   value={AddNewGround}
                   placeholder="Enter New Ground Name"
+                  placeholderTextColor={Color.FontColor}
                   onChangeText={(text) => {
                     setAddNewGround(null);
                     setAddNewGround(text);
@@ -545,6 +546,7 @@ const MultiTournamentGroundNewList = () => {
                     width: "60%",
                     borderRadius: 5,
                     paddingLeft: 10,
+                    color:Color.FontColor
                   }}
                 />
               </View>
@@ -599,7 +601,7 @@ const MultiTournamentGroundNewList = () => {
           { justifyContent: "space-between" },
         ]}
       >
-        <Text style={{ fontSize: 18, fontWeight: "bold" }}>Ground list</Text>
+        <Text style={{ fontSize: 18, fontWeight: "bold",color:Color.FontColor }}>Ground list</Text>
         <Pressable
           style={[styles.fr]}
           onPress={() => {
@@ -617,7 +619,7 @@ const MultiTournamentGroundNewList = () => {
           >
             +
           </Text>
-          <Text style={{ fontSize: 18, fontWeight: "bold" }}>
+          <Text style={{ fontSize: 18, fontWeight: "bold",color:Color.FontColor }}>
             Add New Ground
           </Text>
         </Pressable>
@@ -630,6 +632,7 @@ const MultiTournamentGroundNewList = () => {
           <TextInput
             KeyboardAvoidingView={true}
             placeholder="select City / Town"
+            placeholderTextColor={Color.FontColor}
             onFocus={() =>
               navigation.navigate("UserProfileCity", {
                 MobileNo,
@@ -640,6 +643,7 @@ const MultiTournamentGroundNewList = () => {
               borderBottomWidth: 2,
               borderBottomColor:
                 CityIdError == false ? Color.Texttitle : Color.ErrorColor,
+                color:Color.FontColor
             }}
             value={CityName}
           />
@@ -653,9 +657,11 @@ const MultiTournamentGroundNewList = () => {
           <TextInput
             KeyboardAvoidingView={true}
             placeholder="Enter Ground Name"
+            placeholderTextColor={Color.FontColor}
             style={{
               borderBottomWidth: 2,
               borderBottomColor: Color.Texttitle,
+              color:Color.FontColor
             }}
             onChangeText={(text) => setGroundName(text)}
             // value={CityName}
@@ -822,6 +828,7 @@ const styles = StyleSheet.create({
     textAlign: "left",
     fontSize: 14,
     fontWeight: "900",
+    color:Color.FontColor
   },
   modaltitleText: {
     marginBottom: 15,
@@ -900,6 +907,7 @@ const styles = StyleSheet.create({
   title40: {
     fontSize: 16,
     fontWeight: "600",
+    color:Color.FontColor
   },
   btnserch: {
     padding: 10,
@@ -953,5 +961,6 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: "center",
+    color:Color.FontColor
   },
 });

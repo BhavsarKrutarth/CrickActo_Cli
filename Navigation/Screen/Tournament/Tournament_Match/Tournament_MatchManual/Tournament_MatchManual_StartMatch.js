@@ -136,7 +136,7 @@ const Tournament_MatchManual_StartMatch = (props) => {
                 }}
                 style={{ height: 60, width: 60 }}
               />
-              <Text style={{ marginTop: 10, fontSize: 12, fontWeight: "500" }}>
+              <Text style={{ marginTop: 10, fontSize: 12, fontWeight: "500",color:Color.FontColor }}>
                 SELECT TEAM A
               </Text>
             </View>
@@ -205,7 +205,7 @@ const Tournament_MatchManual_StartMatch = (props) => {
               }}
               style={{ height: 60, width: 60 }}
             />
-            <Text style={{ marginTop: 10, fontSize: 12, fontWeight: "500" }}>
+            <Text style={{ marginTop: 10, fontSize: 12, fontWeight: "500",color:Color.FontColor }}>
               SELECT TEAM B
             </Text>
           </View>

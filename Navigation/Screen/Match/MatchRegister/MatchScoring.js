@@ -48,7 +48,7 @@ const MatchScoring = () => {
   );
   const [StickerRun, setStickerRun] = useState(0);
   const [StickerBall, setStickerBall] = useState(0);
-  const [StickerColor, setStickerColor] = useState(Color.PrimaryColor);
+  const [StickerColor, setStickerColor] = useState(Color.PrimaryColor_Org);
   const [StickerPlayerid, setStickerPlayerid] = useState(0);
 
 
@@ -179,10 +179,10 @@ const MatchScoring = () => {
 
     if (ModalStickerSelectStyle == 'Non_Striker') {
       setStickerColor("white");
-      setNon_StickerColor(Color.PrimaryColor);
+      setNon_StickerColor(Color.PrimaryColor_Org);
     }
     else {
-      setStickerColor(Color.PrimaryColor);
+      setStickerColor(Color.PrimaryColor_Org);
       setNon_StickerColor("white");
     }
     var data = {
@@ -265,21 +265,21 @@ const MatchScoring = () => {
             BowlerPlayerid: BowlerPlayerid,
             BowlingSide: BowlingSide,
             Streakerid:
-              StickerColor == Color.PrimaryColor ? Stickerid : Non_Stickerid,
+              StickerColor == Color.PrimaryColor_Org ? Stickerid : Non_Stickerid,
             StreakeName:
-              StickerColor == Color.PrimaryColor ? StickerName : Non_StickerName,
+              StickerColor == Color.PrimaryColor_Org ? StickerName : Non_StickerName,
             StickerPlayerid:
-              StickerColor == Color.PrimaryColor
+              StickerColor == Color.PrimaryColor_Org
                 ? StickerPlayerid
                 : Non_StickerPlayerid,
             Runnerid:
-              Non_StickerColor != Color.PrimaryColor ? Non_Stickerid : Stickerid,
+              Non_StickerColor != Color.PrimaryColor_Org ? Non_Stickerid : Stickerid,
             RunnerName:
-              Non_StickerColor != Color.PrimaryColor
+              Non_StickerColor != Color.PrimaryColor_Org
                 ? Non_StickerName
                 : StickerName,
             RunnerPlayerid:
-              Non_StickerColor != Color.PrimaryColor
+              Non_StickerColor != Color.PrimaryColor_Org
                 ? Non_StickerPlayerid
                 : StickerPlayerid,
             Bowle: Ball,
@@ -301,7 +301,7 @@ const MatchScoring = () => {
             Description: TeamABatterName + " won the toss and elected to bat",
             MatchInningid: MatchInningid,
             MatchTeamAid_undo: MatchTeamAid_undo,
-            FlagBatterType: StickerColor == Color.PrimaryColor ? "Sticker" : "Runner"
+            FlagBatterType: StickerColor == Color.PrimaryColor_Org ? "Sticker" : "Runner"
           }),
         }
       )
@@ -341,12 +341,12 @@ const MatchScoring = () => {
             if (RunningScored % 2 != 0) {
               if (StickerColor != "white") {
                 setStickerColor("white");
-                setNon_StickerColor(Color.PrimaryColor);
+                setNon_StickerColor(Color.PrimaryColor_Org);
                 setStickerRun(parseInt(StickerRun) + parseInt(RunningScored));
                 setStickerBall(parseInt(StickerBall) + 1);
 
               } else {
-                setStickerColor(Color.PrimaryColor);
+                setStickerColor(Color.PrimaryColor_Org);
                 setNon_StickerColor("white");
                 setNon_StickerRun(parseInt(Non_StickerRun) + parseInt(RunningScored));
                 setNon_StickerBall(parseInt(Non_StickerBall) + 1);
@@ -412,21 +412,21 @@ const MatchScoring = () => {
             BowlerPlayerid: BowlerPlayerid,
             BowlingSide: BowlingSide,
             Streakerid:
-              StickerColor == Color.PrimaryColor ? Stickerid : Non_Stickerid,
+              StickerColor == Color.PrimaryColor_Org ? Stickerid : Non_Stickerid,
             StreakeName:
-              StickerColor == Color.PrimaryColor ? StickerName : Non_StickerName,
+              StickerColor == Color.PrimaryColor_Org ? StickerName : Non_StickerName,
             StickerPlayerid:
-              StickerColor == Color.PrimaryColor
+              StickerColor == Color.PrimaryColor_Org
                 ? StickerPlayerid
                 : Non_StickerPlayerid,
             Runnerid:
-              Non_StickerColor != Color.PrimaryColor ? Non_Stickerid : Stickerid,
+              Non_StickerColor != Color.PrimaryColor_Org ? Non_Stickerid : Stickerid,
             RunnerName:
-              Non_StickerColor != Color.PrimaryColor
+              Non_StickerColor != Color.PrimaryColor_Org
                 ? Non_StickerName
                 : StickerName,
             RunnerPlayerid:
-              Non_StickerColor != Color.PrimaryColor
+              Non_StickerColor != Color.PrimaryColor_Org
                 ? Non_StickerPlayerid
                 : StickerPlayerid,
             Bowle: Ball,
@@ -448,7 +448,7 @@ const MatchScoring = () => {
             Description: "",
             MatchInningid: MatchInningid,
             MatchTeamAid_undo: MatchTeamAid_undo,
-            FlagBatterType: StickerColor == Color.PrimaryColor ? "Sticker" : "Runner"
+            FlagBatterType: StickerColor == Color.PrimaryColor_Org ? "Sticker" : "Runner"
           }),
         }
       )
@@ -477,9 +477,9 @@ const MatchScoring = () => {
             // if (LegByeBall % 2 != 0) {
             //   if (StickerColor != "white") {
             //     setStickerColor("white");
-            //     setNon_StickerColor(Color.PrimaryColor);
+            //     setNon_StickerColor(Color.PrimaryColor_Org);
             //   } else {
-            //     setStickerColor(Color.PrimaryColor);
+            //     setStickerColor(Color.PrimaryColor_Org);
             //     setNon_StickerColor("white");
             //   }
             // }
@@ -487,18 +487,18 @@ const MatchScoring = () => {
               if (BindData.SERVICERESPONSE.BOWLECOUNT = 6) {
                 if (StickerColor == "white") {
                   setStickerColor("white");
-                  setNon_StickerColor(Color.PrimaryColor);
+                  setNon_StickerColor(Color.PrimaryColor_Org);
                 } else {
-                  setStickerColor(Color.PrimaryColor);
+                  setStickerColor(Color.PrimaryColor_Org);
                   setNon_StickerColor("white");
                 }
               }
               else {
                 if (StickerColor != "white") {
                   setStickerColor("white");
-                  setNon_StickerColor(Color.PrimaryColor);
+                  setNon_StickerColor(Color.PrimaryColor_Org);
                 } else {
-                  setStickerColor(Color.PrimaryColor);
+                  setStickerColor(Color.PrimaryColor_Org);
                   setNon_StickerColor("white");
                 }
 
@@ -508,20 +508,20 @@ const MatchScoring = () => {
               if (BindData.SERVICERESPONSE.BOWLECOUNT = 6) {
                 console.log("if")
                 if (StickerColor == "white") {
-                  setStickerColor(Color.PrimaryColor);
+                  setStickerColor(Color.PrimaryColor_Org);
                   setNon_StickerColor("white");
                 } else {
                   setStickerColor("white");
-                  setNon_StickerColor(Color.PrimaryColor);
+                  setNon_StickerColor(Color.PrimaryColor_Org);
                 }
               }
               else {
                 console.log("else");
                 if (StickerColor != "white") {
                   setStickerColor("white");
-                  setNon_StickerColor(Color.PrimaryColor);
+                  setNon_StickerColor(Color.PrimaryColor_Org);
                 } else {
-                  setStickerColor(Color.PrimaryColor);
+                  setStickerColor(Color.PrimaryColor_Org);
                   setNon_StickerColor("white");
                 }
 
@@ -580,21 +580,21 @@ const MatchScoring = () => {
             BowlerPlayerid: BowlerPlayerid,
             BowlingSide: BowlingSide,
             Streakerid:
-              StickerColor == Color.PrimaryColor ? Stickerid : Non_Stickerid,
+              StickerColor == Color.PrimaryColor_Org ? Stickerid : Non_Stickerid,
             StreakeName:
-              StickerColor == Color.PrimaryColor ? StickerName : Non_StickerName,
+              StickerColor == Color.PrimaryColor_Org ? StickerName : Non_StickerName,
             StickerPlayerid:
-              StickerColor == Color.PrimaryColor
+              StickerColor == Color.PrimaryColor_Org
                 ? StickerPlayerid
                 : Non_StickerPlayerid,
             Runnerid:
-              Non_StickerColor != Color.PrimaryColor ? Non_Stickerid : Stickerid,
+              Non_StickerColor != Color.PrimaryColor_Org ? Non_Stickerid : Stickerid,
             RunnerName:
-              Non_StickerColor != Color.PrimaryColor
+              Non_StickerColor != Color.PrimaryColor_Org
                 ? Non_StickerName
                 : StickerName,
             RunnerPlayerid:
-              Non_StickerColor != Color.PrimaryColor
+              Non_StickerColor != Color.PrimaryColor_Org
                 ? Non_StickerPlayerid
                 : StickerPlayerid,
             Bowle: Ball,
@@ -616,7 +616,7 @@ const MatchScoring = () => {
             Description: "",
             MatchInningid: MatchInningid,
             MatchTeamAid_undo: MatchTeamAid_undo,
-            FlagBatterType: StickerColor == Color.PrimaryColor ? "Sticker" : "Runner"
+            FlagBatterType: StickerColor == Color.PrimaryColor_Org ? "Sticker" : "Runner"
           }),
         }
       )
@@ -645,9 +645,9 @@ const MatchScoring = () => {
             // if (ByeBall % 2 != 0) {
             //   if (StickerColor != "white") {
             //     setStickerColor("white");
-            //     setNon_StickerColor(Color.PrimaryColor);
+            //     setNon_StickerColor(Color.PrimaryColor_Org);
             //   } else {
-            //     setStickerColor(Color.PrimaryColor);
+            //     setStickerColor(Color.PrimaryColor_Org);
             //     setNon_StickerColor("white");
             //   }
             // }
@@ -660,18 +660,18 @@ const MatchScoring = () => {
               if (BindData.SERVICERESPONSE.BOWLECOUNT = 6) {
                 if (StickerColor == "white") {
                   setStickerColor("white");
-                  setNon_StickerColor(Color.PrimaryColor);
+                  setNon_StickerColor(Color.PrimaryColor_Org);
                 } else {
-                  setStickerColor(Color.PrimaryColor);
+                  setStickerColor(Color.PrimaryColor_Org);
                   setNon_StickerColor("white");
                 }
               }
               else {
                 if (StickerColor != "white") {
                   setStickerColor("white");
-                  setNon_StickerColor(Color.PrimaryColor);
+                  setNon_StickerColor(Color.PrimaryColor_Org);
                 } else {
-                  setStickerColor(Color.PrimaryColor);
+                  setStickerColor(Color.PrimaryColor_Org);
                   setNon_StickerColor("white");
                 }
 
@@ -681,19 +681,19 @@ const MatchScoring = () => {
               if (BindData.SERVICERESPONSE.BOWLECOUNT = 6) {
                 console.log("if")
                 if (StickerColor == "white") {
-                  setStickerColor(Color.PrimaryColor);
+                  setStickerColor(Color.PrimaryColor_Org);
                   setNon_StickerColor("white");
                 } else {
                   setStickerColor("white");
-                  setNon_StickerColor(Color.PrimaryColor);
+                  setNon_StickerColor(Color.PrimaryColor_Org);
                 }
               }
               else {
                 if (StickerColor != "white") {
                   setStickerColor("white");
-                  setNon_StickerColor(Color.PrimaryColor);
+                  setNon_StickerColor(Color.PrimaryColor_Org);
                 } else {
-                  setStickerColor(Color.PrimaryColor);
+                  setStickerColor(Color.PrimaryColor_Org);
                   setNon_StickerColor("white");
                 }
 
@@ -756,21 +756,21 @@ const MatchScoring = () => {
           BowlerPlayerid: BowlerPlayerid,
           BowlingSide: BowlingSide,
           Streakerid:
-            StickerColor == Color.PrimaryColor ? Stickerid : Non_Stickerid,
+            StickerColor == Color.PrimaryColor_Org ? Stickerid : Non_Stickerid,
           StreakeName:
-            StickerColor == Color.PrimaryColor ? StickerName : Non_StickerName,
+            StickerColor == Color.PrimaryColor_Org ? StickerName : Non_StickerName,
           StickerPlayerid:
-            StickerColor == Color.PrimaryColor
+            StickerColor == Color.PrimaryColor_Org
               ? StickerPlayerid
               : Non_StickerPlayerid,
           Runnerid:
-            Non_StickerColor != Color.PrimaryColor ? Non_Stickerid : Stickerid,
+            Non_StickerColor != Color.PrimaryColor_Org ? Non_Stickerid : Stickerid,
           RunnerName:
-            Non_StickerColor != Color.PrimaryColor
+            Non_StickerColor != Color.PrimaryColor_Org
               ? Non_StickerName
               : StickerName,
           RunnerPlayerid:
-            Non_StickerColor != Color.PrimaryColor
+            Non_StickerColor != Color.PrimaryColor_Org
               ? Non_StickerPlayerid
               : StickerPlayerid,
           Bowle: Ball,
@@ -792,7 +792,7 @@ const MatchScoring = () => {
           Description: "",
           MatchInningid: MatchInningid,
           MatchTeamAid_undo: MatchTeamAid_undo,
-          FlagBatterType: StickerColor == Color.PrimaryColor ? "Sticker" : "Runner"
+          FlagBatterType: StickerColor == Color.PrimaryColor_Org ? "Sticker" : "Runner"
 
         }),
       }
@@ -815,9 +815,9 @@ const MatchScoring = () => {
           if (NoBallRun % 2 != 0) {
             if (StickerColor != "white") {
               setStickerColor("white");
-              setNon_StickerColor(Color.PrimaryColor);
+              setNon_StickerColor(Color.PrimaryColor_Org);
             } else {
-              setStickerColor(Color.PrimaryColor);
+              setStickerColor(Color.PrimaryColor_Org);
               setNon_StickerColor("white");
             }
           }
@@ -865,21 +865,21 @@ const MatchScoring = () => {
           BowlerPlayerid: BowlerPlayerid,
           BowlingSide: BowlingSide,
           Streakerid:
-            StickerColor == Color.PrimaryColor ? Stickerid : Non_Stickerid,
+            StickerColor == Color.PrimaryColor_Org ? Stickerid : Non_Stickerid,
           StreakeName:
-            StickerColor == Color.PrimaryColor ? StickerName : Non_StickerName,
+            StickerColor == Color.PrimaryColor_Org ? StickerName : Non_StickerName,
           StickerPlayerid:
-            StickerColor == Color.PrimaryColor
+            StickerColor == Color.PrimaryColor_Org
               ? StickerPlayerid
               : Non_StickerPlayerid,
           Runnerid:
-            Non_StickerColor != Color.PrimaryColor ? Non_Stickerid : Stickerid,
+            Non_StickerColor != Color.PrimaryColor_Org ? Non_Stickerid : Stickerid,
           RunnerName:
-            Non_StickerColor != Color.PrimaryColor
+            Non_StickerColor != Color.PrimaryColor_Org
               ? Non_StickerName
               : StickerName,
           RunnerPlayerid:
-            Non_StickerColor != Color.PrimaryColor
+            Non_StickerColor != Color.PrimaryColor_Org
               ? Non_StickerPlayerid
               : StickerPlayerid,
           Bowle: Ball,
@@ -901,7 +901,7 @@ const MatchScoring = () => {
           Description: "",
           MatchInningid: MatchInningid,
           MatchTeamAid_undo: MatchTeamAid_undo,
-          FlagBatterType: StickerColor == Color.PrimaryColor ? "Sticker" : "Runner"
+          FlagBatterType: StickerColor == Color.PrimaryColor_Org ? "Sticker" : "Runner"
         }),
       }
     )
@@ -917,9 +917,9 @@ const MatchScoring = () => {
           if (WideBallRun % 2 != 0) {
             if (StickerColor != "white") {
               setStickerColor("white");
-              setNon_StickerColor(Color.PrimaryColor);
+              setNon_StickerColor(Color.PrimaryColor_Org);
             } else {
-              setStickerColor(Color.PrimaryColor);
+              setStickerColor(Color.PrimaryColor_Org);
               setNon_StickerColor("white");
             }
           }
@@ -1285,21 +1285,21 @@ const MatchScoring = () => {
           BowlerPlayerid: BowlerPlayerid,
           BowlingSide: BowlingSide,
           Streakerid:
-            StickerColor == Color.PrimaryColor ? Stickerid : Non_Stickerid,
+            StickerColor == Color.PrimaryColor_Org ? Stickerid : Non_Stickerid,
           StreakeName:
-            StickerColor == Color.PrimaryColor ? StickerName : Non_StickerName,
+            StickerColor == Color.PrimaryColor_Org ? StickerName : Non_StickerName,
           StickerPlayerid:
-            StickerColor == Color.PrimaryColor
+            StickerColor == Color.PrimaryColor_Org
               ? StickerPlayerid
               : Non_StickerPlayerid,
           Runnerid:
-            Non_StickerColor != Color.PrimaryColor ? Non_Stickerid : Stickerid,
+            Non_StickerColor != Color.PrimaryColor_Org ? Non_Stickerid : Stickerid,
           RunnerName:
-            Non_StickerColor != Color.PrimaryColor
+            Non_StickerColor != Color.PrimaryColor_Org
               ? Non_StickerName
               : StickerName,
           RunnerPlayerid:
-            Non_StickerColor != Color.PrimaryColor
+            Non_StickerColor != Color.PrimaryColor_Org
               ? Non_StickerPlayerid
               : StickerPlayerid,
           Bowle: Ball,
@@ -1321,7 +1321,7 @@ const MatchScoring = () => {
           Description: "",
           MatchInningid: MatchInningid,
           MatchTeamAid_undo: MatchTeamAid_undo,
-          FlagBatterType: StickerColor == Color.PrimaryColor ? "Sticker" : "Runner"
+          FlagBatterType: StickerColor == Color.PrimaryColor_Org ? "Sticker" : "Runner"
         }),
       }
     )
@@ -1361,9 +1361,9 @@ const MatchScoring = () => {
             if (BindData.SERVICERESPONSE.NEXTOVER == "true") {
               if (StickerColor != "white") {
                 setStickerColor("white");
-                setNon_StickerColor(Color.PrimaryColor);
+                setNon_StickerColor(Color.PrimaryColor_Org);
               } else {
-                setStickerColor(Color.PrimaryColor);
+                setStickerColor(Color.PrimaryColor_Org);
                 setNon_StickerColor("white");
               }
             }
@@ -1375,13 +1375,13 @@ const MatchScoring = () => {
           if (BowleCount != 5) {
             if (OneBallRun == 1 || OneBallRun == 3) {
               if (StickerColor == "white") {
-                setStickerColor(Color.PrimaryColor);
+                setStickerColor(Color.PrimaryColor_Org);
                 setNon_StickerColor("white");
                 setNon_StickerRun(+Non_StickerRun + OneBallRun);
                 setNon_StickerBall(+Non_StickerBall + 1);
               } else {
                 setStickerColor("white");
-                setNon_StickerColor(Color.PrimaryColor);
+                setNon_StickerColor(Color.PrimaryColor_Org);
                 setStickerRun(+StickerRun + OneBallRun);
                 setStickerBall(+StickerBall + 1);
               }
@@ -1439,7 +1439,7 @@ const MatchScoring = () => {
                     onPress={() => {
                       setNextInningModal(!NextInningModal)}}
                   >
-                    <Text style={{ color: Color.PrimaryColor, fontWeight: "600" }}>
+                    <Text style={{ color: Color.PrimaryColor_Org, fontWeight: "600" }}>
                       Cancel
                     </Text>
                   </Pressable> */}
@@ -1587,7 +1587,7 @@ const MatchScoring = () => {
                   onPress={() => {
                     WideBall_Calculate();
                   }}
-                  style={{ padding: 10, backgroundColor: Color.PrimaryColor }}
+                  style={{ padding: 10, backgroundColor: Color.PrimaryColor_Org }}
                 >
                   <Text
                     style={{
@@ -1747,7 +1747,7 @@ const MatchScoring = () => {
                       NoBall_Calculate();
                     }
                   }}
-                  style={{ padding: 10, backgroundColor: Color.PrimaryColor }}
+                  style={{ padding: 10, backgroundColor: Color.PrimaryColor_Org }}
                 >
                   <Text
                     style={{
@@ -1802,7 +1802,7 @@ const MatchScoring = () => {
                     styles.ByeBox,
                     {
                       backgroundColor:
-                        ByeBallSelect == 1 ? Color.PrimaryColor : "white",
+                        ByeBallSelect == 1 ? Color.PrimaryColor_Org : "white",
                     },
                   ]}
                   onPress={() => {
@@ -1817,7 +1817,7 @@ const MatchScoring = () => {
                     styles.ByeBox,
                     {
                       backgroundColor:
-                        ByeBallSelect == 2 ? Color.PrimaryColor : "white",
+                        ByeBallSelect == 2 ? Color.PrimaryColor_Org : "white",
                     },
                   ]}
                   onPress={() => {
@@ -1832,7 +1832,7 @@ const MatchScoring = () => {
                     styles.ByeBox,
                     {
                       backgroundColor:
-                        ByeBallSelect == 3 ? Color.PrimaryColor : "white",
+                        ByeBallSelect == 3 ? Color.PrimaryColor_Org : "white",
                     },
                   ]}
                   onPress={() => {
@@ -1847,7 +1847,7 @@ const MatchScoring = () => {
                     styles.ByeBox,
                     {
                       backgroundColor:
-                        ByeBallSelect == 4 ? Color.PrimaryColor : "white",
+                        ByeBallSelect == 4 ? Color.PrimaryColor_Org : "white",
                     },
                   ]}
                   onPress={() => {
@@ -1907,7 +1907,7 @@ const MatchScoring = () => {
                   onPress={() => {
                     ByeBall_Calculate();
                   }}
-                  style={{ padding: 10, backgroundColor: Color.PrimaryColor }}
+                  style={{ padding: 10, backgroundColor: Color.PrimaryColor_Org }}
                 >
                   <Text
                     style={{
@@ -1963,7 +1963,7 @@ const MatchScoring = () => {
                     styles.ByeBox,
                     {
                       backgroundColor:
-                        LegByeBallSelect == 1 ? Color.PrimaryColor : "white",
+                        LegByeBallSelect == 1 ? Color.PrimaryColor_Org : "white",
                     },
                   ]}
                   onPress={() => {
@@ -1978,7 +1978,7 @@ const MatchScoring = () => {
                     styles.ByeBox,
                     {
                       backgroundColor:
-                        LegByeBallSelect == 2 ? Color.PrimaryColor : "white",
+                        LegByeBallSelect == 2 ? Color.PrimaryColor_Org : "white",
                     },
                   ]}
                   onPress={() => {
@@ -1993,7 +1993,7 @@ const MatchScoring = () => {
                     styles.ByeBox,
                     {
                       backgroundColor:
-                        LegByeBallSelect == 3 ? Color.PrimaryColor : "white",
+                        LegByeBallSelect == 3 ? Color.PrimaryColor_Org : "white",
                     },
                   ]}
                   onPress={() => {
@@ -2008,7 +2008,7 @@ const MatchScoring = () => {
                     styles.ByeBox,
                     {
                       backgroundColor:
-                        LegByeBallSelect == 4 ? Color.PrimaryColor : "white",
+                        LegByeBallSelect == 4 ? Color.PrimaryColor_Org : "white",
                     },
                   ]}
                   onPress={() => {
@@ -2068,7 +2068,7 @@ const MatchScoring = () => {
                   onPress={() => {
                     LegByeBall_Calculate();
                   }}
-                  style={{ padding: 10, backgroundColor: Color.PrimaryColor }}
+                  style={{ padding: 10, backgroundColor: Color.PrimaryColor_Org }}
                 >
                   <Text
                     style={{
@@ -2163,7 +2163,7 @@ const MatchScoring = () => {
                     })
                     //RunningScored_Calculate();
                   }}
-                  style={{ padding: 10, backgroundColor: Color.PrimaryColor }}
+                  style={{ padding: 10, backgroundColor: Color.PrimaryColor_Org }}
                 >
                   <Text
                     style={{
@@ -2552,7 +2552,7 @@ const MatchScoring = () => {
                 //  CalculateUndo()
                 }}
               >
-                <Text style={{ color: Color.PrimaryColor, fontWeight: "900" }}>
+                <Text style={{ color: Color.PrimaryColor_Org, fontWeight: "900" }}>
                   UNDO
                 </Text>
               </Pressable>
@@ -2588,28 +2588,28 @@ const MatchScoring = () => {
                     original_Non_StickerPlayerid: Non_StickerPlayerid,
 
                     Stickerid:
-                      StickerColor == Color.PrimaryColor
+                      StickerColor == Color.PrimaryColor_Org
                         ? Stickerid
                         : Non_Stickerid,
                     StickerName:
-                      StickerColor == Color.PrimaryColor
+                      StickerColor == Color.PrimaryColor_Org
                         ? StickerName
                         : Non_StickerName,
                     StickerPlayerid:
-                      StickerColor == Color.PrimaryColor
+                      StickerColor == Color.PrimaryColor_Org
                         ? StickerPlayerid
                         : Non_StickerPlayerid,
 
                     Runnerid:
-                      Non_StickerColor != Color.PrimaryColor
+                      Non_StickerColor != Color.PrimaryColor_Org
                         ? Non_Stickerid
                         : Stickerid,
                     RunnerName:
-                      Non_StickerColor != Color.PrimaryColor
+                      Non_StickerColor != Color.PrimaryColor_Org
                         ? Non_StickerName
                         : StickerName,
                     RunnerPlayerid:
-                      Non_StickerColor != Color.PrimaryColor
+                      Non_StickerColor != Color.PrimaryColor_Org
                         ? Non_StickerPlayerid
                         : StickerPlayerid,
                     Bowle: Ball,
@@ -2619,9 +2619,9 @@ const MatchScoring = () => {
                     TotalOver: TotalOver,
                     MatchInningid: MatchInningid,
                     PosstionFlag:
-                      StickerColor == Color.PrimaryColor ? "Sticker" : "Runner",
+                      StickerColor == Color.PrimaryColor_Org ? "Sticker" : "Runner",
                     MatchTeamAid_undo: MatchTeamAid_undo,
-                    FlagBatterType: StickerColor == Color.PrimaryColor ? Color.PrimaryColor : "white"
+                    FlagBatterType: StickerColor == Color.PrimaryColor_Org ? Color.PrimaryColor_Org : "white"
                   });
                 }}
               >
@@ -2981,7 +2981,7 @@ const styles = StyleSheet.create({
     padding: 12,
     alignItems: "center",
     color: "green",
-    backgroundColor: Color.PrimaryColor,
+    backgroundColor: Color.PrimaryColor_Org,
   },
   ModalBox: {
     width: "33%",
@@ -2989,7 +2989,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   ModalTitle: {
-    color: Color.PrimaryColor,
+    color: Color.PrimaryColor_Org,
     fontSize: 18,
     fontWeight: "500",
   },
@@ -3048,7 +3048,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     fontSize: 14,
-    backgroundColor: Color.PrimaryColor,
+    backgroundColor: Color.PrimaryColor_Org,
   },
   bottomNavigationInput1: {
     borderWidth: 2,
@@ -3057,7 +3057,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     fontSize: 14,
-    backgroundColor: Color.PrimaryColor,
+    backgroundColor: Color.PrimaryColor_Org,
   },
   ByeBox: {
     borderWidth: 2,
@@ -3082,9 +3082,9 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     backgroundColor: "white",
     marginLeft: 5,
-    backgroundColor: Color.PrimaryColor
+    backgroundColor: Color.PrimaryColor_Org
   },
-  modaltitle: { fontSize: 20, color: Color.PrimaryColor, fontWeight: "600" },
+  modaltitle: { fontSize: 20, color: Color.PrimaryColor_Org, fontWeight: "600" },
   modalsubtitle: { fontSize: 16,color:Color.FontColor },
   modalbuttonClose: {
     backgroundColor: "#f2f2f2",

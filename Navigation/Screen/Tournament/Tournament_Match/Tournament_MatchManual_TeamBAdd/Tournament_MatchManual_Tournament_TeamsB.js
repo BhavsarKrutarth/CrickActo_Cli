@@ -237,7 +237,7 @@ const Tournament_MatchManual_Tournament_TeamsB = () => {
       ]}
     >
       <View style={[styles.body100, { padding: 10 }]}>
-        <Text style={{ fontSize: 18, fontWeight: "600" }}>
+        <Text style={{ fontSize: 18, fontWeight: "600",color:Color.FontColor }}>
           {item.GroupName}
         </Text>
       </View>
@@ -279,7 +279,7 @@ const Tournament_MatchManual_Tournament_TeamsB = () => {
                   }}
                   style={{ height: 100, width: "100%" }}
                 />
-                <Text style={{ textAlign: "center", paddingTop: 10 }}>
+                <Text style={{ textAlign: "center", paddingTop: 10,color:Color.FontColor }}>
                   {item1.Title}
                 </Text>
               </Pressable>
@@ -301,7 +301,7 @@ const Tournament_MatchManual_Tournament_TeamsB = () => {
                   global.domainName +
                   "/CricbuddyAdmin/Content/assets/tournament/tournament_Background.png",
               }}
-              style={{ with: 400, height: 400 }}
+              style={{ width: 400, height: 400 }}
             />
           </View>
         </>
