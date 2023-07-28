@@ -572,8 +572,8 @@ const TournamentMatch_Live = props => {
 
         </View>
         <View style={[styles.body100, styles.BannerSpaceBetween]}>
-          <Text>{item.TeamAName}</Text>
-          <Text>
+          <Text style={{color:Color.FontColor}}>{item.TeamAName}</Text>
+          <Text style={{color:Color.FontColor}}>
             {
               item.Run ? (<Text style={{ color: "#1bb191", fontSize: 16, fontWeight: "900" }}>{item.Run} / {item.Out}</Text>) : null
             }
@@ -583,12 +583,12 @@ const TournamentMatch_Live = props => {
           </Text>
         </View>
         <View style={[styles.body100, styles.BannerSpaceBetween, styles.BorderBottom]}>
-          <Text>{item.TeamBName}</Text>
+          <Text style={{color:Color.FontColor}}>{item.TeamBName}</Text>
           {/* <Text style={{ fontWeight: "700" }} >Yet to bat</Text> */}
         </View>
         <View style={[styles.body100, styles.BannerSpaceBetween]}>
           {
-            item.TossWin != null ? (<Text>{item.Description}</Text>) : null
+            item.TossWin != null ? (<Text style={{color:Color.FontColor}}>{item.Description}</Text>) : null
           }
           <Text></Text>
         </View>
@@ -602,6 +602,7 @@ const TournamentMatch_Live = props => {
         animationType="slide"
         transparent={true}
         visible={modalVisible}
+        
         onRequestClose={() => {
           Alert.alert("Modal has been closed.");
           setModalVisible(!modalVisible);
@@ -628,7 +629,7 @@ const TournamentMatch_Live = props => {
                     onPress={() => setMatchStart("RESUMESCORING")}
                   />
                   <Pressable onPress={() => setMatchStart("RESUMESCORING")}>
-                    <Text style={{ paddingTop: 7 }}>RESUME SCORING</Text>
+                    <Text style={{ paddingTop: 7,color:Color.FontColor }}>RESUME SCORING</Text>
                   </Pressable>
                 </View>
                 <View style={[styles.Modal_bodyBox, { paddingBottom: 10 }]}>
@@ -638,7 +639,7 @@ const TournamentMatch_Live = props => {
                     onPress={() => setMatchStart("VIEWFULLSCORECARD")}
                   />
                   <Pressable onPress={() => setMatchStart("VIEWFULLSCORECARD")}>
-                    <Text style={{ paddingTop: 7 }}>VIEW FULL SCORECARD</Text>
+                    <Text style={{ paddingTop: 7,color:Color.FontColor }}>VIEW FULL SCORECARD</Text>
                   </Pressable>
                 </View>
               </View>
@@ -648,7 +649,7 @@ const TournamentMatch_Live = props => {
                     onPress={() => setModalVisible(false)}
                     style={styles.Modla_Cancelbtn}
                   >
-                    <Text style={styles.Modal_Cancelbtn_text}>CANCEL</Text>
+                    <Text style={[styles.Modal_Cancelbtn_text,{color:Color.FontColor}]}>CANCEL</Text>
                   </Pressable>
                 </View>
                 <View style={styles.body50}>
