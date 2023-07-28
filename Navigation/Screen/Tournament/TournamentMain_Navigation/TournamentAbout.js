@@ -50,15 +50,15 @@ export default function TournamentAbout() {
           if (BindData.SERVICERESPONSE.RESPONSECODE != "-1") {
             if (BindData.SERVICERESPONSE.TOTALRECORDS != "0") {
               List = BindData.SERVICERESPONSE.DETAILSLIST.DETAILS;
-              //console.log(List.TOURNAMENTNAME)
-              if (List.TOURNAMENTNAME) setTournamentName(List.TOURNAMENTNAME);
-              if (List.STARTDATE) setStartDate(List.STARTDATE);
-              if (List.ENDDATE) setEndDate(List.ENDDATE);
-              if(List.CITYTITLE) setCityName(List.CITYTITLE)
-              if(List.GROUNDTITLE) setGroundName(List.GROUNDTITLE)
-              if(List.ORGANISERNAME) setOrganiserName(List.ORGANISERNAME)
-              if(List.ORGANISERNO) setOrganiserNo(List.ORGANISERNO)
-              if(List.TOURNAMENTID) setTournamentid(List.TOURNAMENTID)
+               console.log(List[0].TOURNAMENTNAME)
+              if (List[0].TOURNAMENTNAME) setTournamentName(List[0].TOURNAMENTNAME);
+              if (List[0].STARTDATE) setStartDate(List[0].STARTDATE);
+              if (List[0].ENDDATE) setEndDate(List[0].ENDDATE);
+              if(List[0].CITYTITLE) setCityName(List[0].CITYTITLE)
+              if(List[0].GROUNDTITLE) setGroundName(List[0].GROUNDTITLE)
+              if(List[0].ORGANISERNAME) setOrganiserName(List[0].ORGANISERNAME)
+              if(List[0].ORGANISERNO) setOrganiserNo(List[0].ORGANISERNO)
+              if(List[0].TOURNAMENTID) setTournamentid(List[0].TOURNAMENTID)
             } else {
               //setDisplayList("false")
             }

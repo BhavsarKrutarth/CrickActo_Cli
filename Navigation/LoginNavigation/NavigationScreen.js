@@ -138,6 +138,8 @@ import Tournament_AddRound from "../Screen/Tournament/TournamentMain_Navigation/
 import TournamentMatch_AutoMatch_Registration from "../Screen/Tournament/TournamentMain_Navigation/TournamentMatch/TournamentMatch_AutoMatch_Registration";
 import MultiTournamentGroundNewList from "../Screen/Tournament/DropDownAdd/MultiTournamentGroundNewList";
 import TournamentMatch_AutoMatch_List from "../Screen/Tournament/TournamentMain_Navigation/TournamentMatch/TournamentMatch_AutoMatch_List";
+import Tournament_Rounds from "../Screen/Tournament/TournamentRightSide_Navigation/Tournament_Rounds";
+import Tournament_Groups from "../Screen/Tournament/TournamentRightSide_Navigation/Tournament_Groups";
 /*------------------------ Tournamenr Match  -----------------------------*/
 
 
@@ -2154,6 +2156,32 @@ const NavigationScreen = (props) => {
                 color: "white",
               },
             })}
+          />
+          <Stack.Screen
+            name="Tournament_Rounds"
+            component={Tournament_Rounds}
+            options={{
+              title: "Round",
+              headerTitleAlign: "center",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            }}
+          />
+          <Stack.Screen
+            name="Tournament_Groups"
+            component={Tournament_Groups}
+            options={{
+              title: "Groups",
+              headerTitleAlign: "center",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            }}
           />
         </Stack.Navigator>
       </NavigationContainer>

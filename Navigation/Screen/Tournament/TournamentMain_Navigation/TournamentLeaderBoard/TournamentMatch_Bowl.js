@@ -90,14 +90,14 @@ const TournamentMatch_Bowl = () => {
       ]}
     >
       <View style={styles.flexrow}>
-        <Text>
+        <Text style={{color:Color.FontColor}}>
           {index + 1} ) {item.BowlerName} - {item.TeamName}
         </Text>
       </View>
       <View style={[styles.body100, styles.flexrow]}>
-        <Text>Inning : {item.Inning}</Text>
-        <Text style={{ marginHorizontal: 4 }}>|</Text>
-        <Text>Out : {item.OutCount}</Text>
+        <Text style={{color:Color.FontColor}}>Inning : {item.Inning}</Text>
+        <Text style={{ marginHorizontal: 4,color:Color.FontColor }}>|</Text>
+        <Text style={{color:Color.FontColor}}>Out : {item.OutCount}</Text>
       </View>
     </View>
   );

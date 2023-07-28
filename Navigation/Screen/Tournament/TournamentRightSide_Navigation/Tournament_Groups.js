@@ -266,7 +266,7 @@ const Tournament_Groups = () => {
                             >
                               Round Name
                             </Text>
-                            <Text style={{ paddingLeft: 10 }}>
+                            <Text style={{ paddingLeft: 10,color:Color.FontColor }}>
                               {item.RoundName}
                             </Text>
                           </View>
@@ -312,7 +312,7 @@ const Tournament_Groups = () => {
                             </Text>
                           </View>
                           <View style={[styles.body100, { paddingLeft: 10 }]}>
-                            <Text>{item.GroupName}</Text>
+                            <Text style={{color:Color.FontColor}}>{item.GroupName}</Text>
                           </View>
                         </View>
 
@@ -343,7 +343,9 @@ const Tournament_Groups = () => {
                                     key={index1}
                                     style={[[styles.TeamsBorder]]}
                                   >
-                                    <Image
+                                    {item1.ImageName ? 
+                                    (
+                                      <Image
                                       source={{
                                         uri:
                                           "" +
@@ -352,7 +354,20 @@ const Tournament_Groups = () => {
                                       }}
                                       style={{ height: 100, width: "100%" }}
                                     />
-                                    <Text style={{ textAlign: "center" }}>
+                                    ):
+                                    (
+                                      <Image
+                                      source={{
+                                        uri:
+                                          "" +
+                                          global.domainName +
+                                          `/CricbuddyAdmin/Content/assets/UserProfile/UserProfile.png`,
+                                      }}
+                                      style={{ height: 100, width: "100%" }}
+                                    />
+                                    )}
+                                    
+                                    <Text style={{ textAlign: "center",color:Color.FontColor }}>
                                       {item1.Title}
                                     </Text>
                                   </View>

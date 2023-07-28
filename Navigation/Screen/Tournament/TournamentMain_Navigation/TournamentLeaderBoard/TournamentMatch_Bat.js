@@ -96,16 +96,16 @@ const TournamentMatch_Bat = () => {
       ]}
     >
       <View style={styles.flexrow}>
-        <Text>
+        <Text style={{color:Color.FontColor}}>
           {index + 1} ) {item.StreakeName} - {item.TeamName}
         </Text>
       </View>
       <View style={[styles.body100, styles.flexrow]}>
-        <Text>Inning : {item.Inning}</Text>
-        <Text style={{ marginHorizontal: 4 }}>|</Text>
-        <Text>Run : {item.Run}</Text>
-        <Text style={{ marginHorizontal: 4 }}>|</Text>
-        <Text>SR : {item.SRR}</Text>
+        <Text style={{color:Color.FontColor}}>Inning : {item.Inning}</Text>
+        <Text style={{ marginHorizontal: 4 ,color:Color.FontColor}}>|</Text>
+        <Text style={{color:Color.FontColor}}>Run : {item.Run}</Text>
+        <Text style={{ marginHorizontal: 4,color:Color.FontColor }}>|</Text>
+        <Text style={{color:Color.FontColor}}>SR : {item.SRR}</Text>
       </View>
     </View>
   );

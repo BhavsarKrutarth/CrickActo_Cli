@@ -11,7 +11,7 @@ import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
 import Color from "../../../../Color/Color";
-import { color } from "react-native-reanimated";
+// import { color } from "react-native-reanimated";
 import { Alert } from "react-native";
 const Tournament_Rounds = (props) => {
   const navigation = useNavigation();
@@ -179,7 +179,7 @@ const Tournament_Rounds = (props) => {
     return (
       <View style={styles.FlateListBorder}>
         <View>
-          <Text style={styles.FlateListText}>{item.RoundName}</Text>
+          <Text style={[styles.FlateListText,{color:Color.FontColor}]}>{item.RoundName}</Text>
         </View>
         <View>
           <Pressable onPress={() => Remove(item.id)}>
