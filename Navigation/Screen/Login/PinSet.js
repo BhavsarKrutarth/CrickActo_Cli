@@ -254,11 +254,13 @@ const PinSet = (props) => {
         ]}
         autoFocus
         placeholder="Enter Register Name."
+        placeholderTextColor={Color.FontColor}
       />
       <TextInput
         onChangeText={(pinset) => setpinset(pinset)}
         value={pinset}
         placeholder="Set New PassWord"
+        placeholderTextColor={Color.FontColor}
         style={[
           styleSheet.phoneNumberView,
           { marginBottom: 10, paddingLeft: 10, elevation: 16 },
@@ -268,6 +270,7 @@ const PinSet = (props) => {
       <TextInput
         KeyboardAvoidingView={true}
         placeholder="  Search City"
+        placeholderTextColor={Color.FontColor}
         onFocus={() =>
           navigation.navigate("UserProfileCity", {
             GetParam_MobileNo,

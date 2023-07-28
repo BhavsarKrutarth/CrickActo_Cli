@@ -52,7 +52,7 @@ const PlayerAdd = () => {
             MyTeamId :MyTeamId
            })          
         }}>
-          <Text style={{fontSize:18}}>Add Via Phone Number</Text>
+          <Text style={{fontSize:18,color:Color.FontColor}}>Add Via Phone Number</Text>
           <Text style={{fontSize:14,color:Color.Texttitle}}>Best for adding 1 or 2 players quickly.</Text>
           </Pressable>
         </View>

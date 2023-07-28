@@ -140,6 +140,9 @@ import MultiTournamentGroundNewList from "../Screen/Tournament/DropDownAdd/Multi
 import TournamentMatch_AutoMatch_List from "../Screen/Tournament/TournamentMain_Navigation/TournamentMatch/TournamentMatch_AutoMatch_List";
 import Tournament_Rounds from "../Screen/Tournament/TournamentRightSide_Navigation/Tournament_Rounds";
 import Tournament_Groups from "../Screen/Tournament/TournamentRightSide_Navigation/Tournament_Groups";
+import PlayerPageMain from "../Screen/MyTeams/Player/PlayerPageMain";
+import PlayerAdd from "../Screen/MyTeams/Player/PlayerAdd";
+import Setting from "../Screen/UserProfile/Setting";
 /*------------------------ Tournamenr Match  -----------------------------*/
 
 
@@ -755,7 +758,7 @@ function DrawerNavigator() {
                 }}
                 style={{ width: 30, height: 30 }}
               />
-              {/* <Text
+              <Text
                 style={{
                   marginLeft: 10,
                   paddingTop: 5,
@@ -770,7 +773,7 @@ function DrawerNavigator() {
                 }}
               >
                 Beta App
-              </Text> */}
+              </Text>
             </View>
           ),
         }}
@@ -2270,6 +2273,57 @@ const NavigationScreen = (props) => {
               },
             }}
           />
+
+          <Stack.Screen
+            name="PlayerPageMain"
+            component={PlayerPageMain}
+            options={({ route }) => ({
+              title:
+                route.params === undefined
+                  ? "Player Add"
+                  : route.params.MyTeam != ""
+                    ? route.params.MyTeam
+                    : "Player Add",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+          <Stack.Screen
+            name="PlayerAdd"
+            component={PlayerAdd}
+            options={({ route }) => ({
+              title:
+                route.params === undefined
+                  ? "Add Player"
+                  : route.params.MyTeam != ""
+                    ? "Add Player to " + route.params.MyTeam
+                    : "Add Player",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+          <Stack.Screen
+            name="Setting"
+            component={Setting}
+            options={({ route }) => ({
+              title: "Setting",
+              headerTitleAlign: "left",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            })}
+          />
+
         </Stack.Navigator>
       </NavigationContainer>
     </>

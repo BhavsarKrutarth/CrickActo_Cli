@@ -231,12 +231,12 @@ const PlayerPageMain = (props) => {
             >
               <View style={{ marginLeft: 5 }}>
                 <View>
-                  <Text style={{ fontSize: 18, fontWeight: "900" }}>
+                  <Text style={{ fontSize: 18, fontWeight: "900",color:Color.FontColor }}>
                     {item.Name}
                   </Text>
                 </View>
                 <View style={{ flexDirection: "column", flexWrap: "wrap" }}>
-                  <Text>
+                  <Text style={{color:Color.FontColor}}>
                     <Image
                       source={{
                         uri: `${global.domainName}/CricbuddyAdmin/Content/assets/tournament/icon_Location.png`,
@@ -471,6 +471,7 @@ const ModalClose = () => {
         animationType="slide"
         transparent={true}
         visible={modalVisible}
+        
         onRequestClose={() => {
           Alert.alert("Modal has been closed.");
           setModalVisible(!modalVisible);
@@ -490,12 +491,12 @@ const ModalClose = () => {
               </View>
 
               <View style={styles.Modal_HeaderTitle}>
-                <Text style={styles.Modal_Hedertxt}>{IteamName}</Text>
+                <Text style={[styles.Modal_Hedertxt,{color:Color.FontColor}]}>{IteamName}</Text>
               </View>
             </View>
             <View style={[styles.modal_body]}>
               <View style={styles.Modal_HederTitle}>
-                <Text>Tab to assign one or more roles to the player.</Text>
+                <Text style={{color:Color.FontColor}}>Tab to assign one or more roles to the player.</Text>
               </View>
               <View style={styles.Modal_bodyBox}>
                 <View style={[styles.Modal_Box, { borderColor: batsman }]}>
@@ -520,7 +521,7 @@ const ModalClose = () => {
                       />
                     </View>
                     <View style={{ alignItems: "center" }}>
-                      <Text>BatsMan</Text>
+                      <Text style={{color:Color.FontColor}}>BatsMan</Text>
                     </View>
                   </Pressable>
                 </View>
@@ -547,7 +548,7 @@ const ModalClose = () => {
                       />
                     </View>
                     <View style={{ alignItems: "center" }}>
-                      <Text>Bowler</Text>
+                      <Text style={{color:Color.FontColor}}>Bowler</Text>
                     </View>
                   </Pressable>
                 </View>
@@ -573,7 +574,7 @@ const ModalClose = () => {
                       />
                     </View>
                     <View style={{ alignItems: "center" }}>
-                      <Text>All Rounder</Text>
+                      <Text style={{color:Color.FontColor}}>All Rounder</Text>
                     </View>
                   </Pressable>
                 </View>
@@ -600,7 +601,7 @@ const ModalClose = () => {
                       />
                     </View>
                     <View style={{ alignItems: "center" }}>
-                      <Text>Wicket keeper</Text>
+                      <Text style={{color:Color.FontColor}}>Wicket keeper</Text>
                     </View>
                   </Pressable>
                 </View>
@@ -625,7 +626,7 @@ const ModalClose = () => {
                       />
                     </View>
                     <View style={{ alignItems: "center" }}>
-                      <Text>Captain</Text>
+                      <Text style={{color:Color.FontColor}}>Captain</Text>
                     </View>
                   </Pressable>
                 </View>
@@ -650,7 +651,7 @@ const ModalClose = () => {
                       />
                     </View>
                     <View style={{ alignItems: "center" }}>
-                      <Text>Admin</Text>
+                      <Text style={{color:Color.FontColor}}>Admin</Text>
                     </View>
                   </Pressable>
                 </View>
@@ -662,7 +663,7 @@ const ModalClose = () => {
                   onPress={() => ModalClose()}
                   style={styles.Modla_Cancelbtn}
                 >
-                  <Text style={styles.Modal_Cancelbtn_text}>CANCEL</Text>
+                  <Text style={[styles.Modal_Cancelbtn_text,{color:Color.FontColor}]}>CANCEL</Text>
                 </Pressable>
               </View>
               <View style={styles.body50}>

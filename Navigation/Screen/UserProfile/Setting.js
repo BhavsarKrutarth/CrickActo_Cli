@@ -11,11 +11,11 @@ const Setting = () => {
   return (
     <View style={styles.Container}>
       <View style={styles.width100}>
-        <Text style={styles.HeaderTitle}> My Setting</Text>
+        <Text style={[styles.HeaderTitle,{color:Color.FontColor}]}> My Setting</Text>
       </View>
       <View style={[styles.width100]}>
         <View style={[styles.width40, { justifyContent: "center" }]}>
-          <Text style={styles.Title}>Group Add List Model</Text>
+          <Text style={[styles.Title,{color:Color.FontColor}]}>Group Add List Model</Text>
         </View>
         <View
           style={[
