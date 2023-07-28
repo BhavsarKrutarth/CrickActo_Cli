@@ -604,7 +604,7 @@ const BottomTabStack = () => {
           ),
         }}
       />
-      <BottomTab.Screen
+      {/* <BottomTab.Screen
         name="Teging Page"
         component={SocketioClient}
         options={{
@@ -624,7 +624,7 @@ const BottomTabStack = () => {
             />
           ),
         }}
-      />
+      /> */}
     </BottomTab.Navigator>
   );
 };
@@ -744,6 +744,35 @@ function DrawerNavigator() {
               style={{ width: 25, height: 25 }}
             />
           ),
+          headerTitle: () => (
+            <View style={{ flexDirection: "row" }}>
+              <Image
+                source={{
+                  uri:
+                    "" +
+                    global.domainName +
+                    "/CricbuddyAdmin/Content/assets/UserProfile/UserProfile.png",
+                }}
+                style={{ width: 30, height: 30 }}
+              />
+              {/* <Text
+                style={{
+                  marginLeft: 10,
+                  paddingTop: 5,
+                  borderColor: "#DC6933",
+                  borderWidth: 2,
+                  paddingVertical: 2,
+                  paddingHorizontal: 10,
+                  color: "#DC6933",
+                  alignItems: "center",
+                  textAlign: "center",
+                  borderRadius: 10,
+                }}
+              >
+                Beta App
+              </Text> */}
+            </View>
+          ),
         }}
         component={HomeScreenStack}
       />
@@ -774,6 +803,64 @@ function DrawerNavigator() {
           ),
         }}
       />
+      <Drawer.Screen
+        name="MainMatch"
+        initialParams={{ PageName: "MyMatch" }}
+        component={TopTabNavigation_Tournament}
+        options={{
+          title: "My Match",
+          drawerIcon: () => (
+            <Image
+              source={{
+                uri:
+                  "" +
+                  global.domainName +
+                  "/CricbuddyAdmin/Content/assets/tournament/Match_icon.png",
+              }}
+              style={{ width: 25, height: 25 }}
+            />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="MainTeam"
+        component={TopTabNavigation_Tournament}
+        initialParams={{ PageName: "SubTopTabNavigation_Tournament" }}
+        options={{
+          title: "My Team",
+          drawerIcon: () => (
+            <Image
+              source={{
+                uri:
+                  "" +
+                  global.domainName +
+                  "/CricbuddyAdmin/Content/assets/tournament/team_icon.png",
+              }}
+              style={{ width: 25, height: 25 }}
+            />
+          ),
+        }}
+      />
+
+      {/* <Drawer.Screen
+        name="AddGroundList"
+        component={AddGroundList}
+        initialParams={{ PageName: "AddGroundList" }}
+        options={{
+          title: "Add Ground List",
+          drawerIcon: () => (
+            <Image
+              source={{
+                uri:
+                  "" +
+                  global.domainName +
+                  "/CricbuddyAdmin/Content/assets/Ground.png",
+              }}
+              style={{ width: 25, height: 25 }}
+            />
+          ),
+        }}
+      /> */}
     </Drawer.Navigator>
   );
 }

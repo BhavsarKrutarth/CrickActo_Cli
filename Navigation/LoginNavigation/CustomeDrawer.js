@@ -85,7 +85,7 @@ const CustomeDrawer = (props) => {
         </DrawerContentScrollView>
       </View>
       <View style={{ alignItems: "center" }}>
-        <Text style={{ fontSize: 18, fontWeight: "bold" }}>Version 0.0.1</Text>
+        <Text style={{ fontSize: 18, fontWeight: "bold",color:Color.FontColor }}>Version 0.0.1</Text>
       </View>
     </>
   );
