@@ -11,7 +11,7 @@ const WelcomPage = () => {
     return (
         <View style={styles.container}>
             <ImageBackground 
-            source={{ uri: `${global.domainName}/CricbuddyAdmin/Content/assets/UserProfile/Welcome.jpg`, }} resizeMode="cover" 
+            source={{ uri: `${global.domainName}/CricbuddyAdmin/Content/assets/UserProfile/WelcomeNew.jpg`, }} resizeMode="cover" 
             style={styles.image}>
                 <Pressable 
                 style={{ position:"absolute",

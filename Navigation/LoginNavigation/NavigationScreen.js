@@ -153,6 +153,61 @@ const Drawer = createDrawerNavigator();
 const BottomTab = createBottomTabNavigator();
 const RightDrawer = createDrawerNavigator();
 
+// function MyProfile({ route }) {
+//   return (
+//     <Tab.Navigator
+//       initialRouteName={
+//         route.params === undefined ? "MyProfile" : route.params.PageName
+//       }
+//       screenOptions={{
+//         tabBarScrollEnabled: true,
+//         tabBarIndicatorStyle: {
+//           backgroundColor: Color.NavigationColor,
+//           height: 5,
+//         },
+//         tabBarActiveTintColor: Color.WhiteBGColor,
+//         tabBarInactiveTintColor: Color.WhiteBGColor,
+//         tabBarShowLabel: true,
+//         tabBarStyle: {
+//           backgroundColor: Color.NavigationColor,
+//           borderTopColor: Color.WhiteBGColor,
+//           borderTopWidth: 3,
+//         },
+//         tabBarIndicatorStyle: {
+//           borderBottomColor: Color.NavigationBorderColor,
+//           borderBottomWidth: 5,
+//         },
+//         tabBarLabelStyle: {
+//           fontSize: 14,
+//         },
+//       }}
+//     >
+//       <Tab.Screen
+//         name="Matches"
+//         component={Matches}
+//         options={{
+//           title: "Matches",
+//         }}
+//       />
+//       <Tab.Screen
+//         name="Stats"
+//         component={Stats}
+//         options={{
+//           title: "Stats",
+//         }}
+//       />
+//       <Tab.Screen
+//         name="MyTeam"
+//         component={MyTeam}
+//         options={{
+//           title: "Teams",
+//         }}
+//       />
+//     </Tab.Navigator>
+//   );
+// }
+
+
 
 function Tournament_MatchManual_TeamB({ route }) {
   var Roundid_ = "";
@@ -2323,7 +2378,23 @@ const NavigationScreen = (props) => {
               },
             })}
           />
-
+          <Stack.Screen name="Login" component={Login} options={{
+            title: "Login",
+          }} />
+          <Stack.Screen
+            name="OTP_Verify"
+            component={OTP_Verify}
+            options={{
+              title: "OTP Verify",
+            }}
+          />
+          <Stack.Screen
+            name="PinSet"
+            component={PinSet}
+            options={{
+              title: "PassWord Set",
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
