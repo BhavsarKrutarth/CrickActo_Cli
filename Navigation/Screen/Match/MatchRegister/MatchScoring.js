@@ -39,7 +39,7 @@ const MatchScoring = () => {
   const [TeamABatterName, setTeamABatterName] = useState(null);
   const [TeamBBowlerName, setTeamBBowlerName] = useState(null);
 
-  const[TeamDescription,setTeamDescription] = useState(null);
+  const [TeamDescription, setTeamDescription] = useState(null);
 
   const [Stickerid, setStickerid] = useState(null);
   const [StickerName, setStickerName] = useState("Striker");
@@ -311,9 +311,8 @@ const MatchScoring = () => {
           var BindData = JSON.parse(json);
 
           if (BindData.SERVICERESPONSE.RESPONSECODE == 0) {
-            if(Matchid)
-            {
-              scoketservices.emit("SendMessage",Matchid)
+            if (Matchid) {
+              scoketservices.emit("SendMessage", Matchid)
             }
             /*------------------------ Clear Wagon params --------------------*/
             route.params.FunctionName = null;
@@ -528,9 +527,8 @@ const MatchScoring = () => {
               }
             }
 
-            if(Matchid)
-            {
-              scoketservices.emit("SendMessage",Matchid)
+            if (Matchid) {
+              scoketservices.emit("SendMessage", Matchid)
             }
           }
           return json;
@@ -652,9 +650,8 @@ const MatchScoring = () => {
             //   }
             // }
 
-            if(Matchid)
-            {
-              scoketservices.emit("SendMessage",Matchid)
+            if (Matchid) {
+              scoketservices.emit("SendMessage", Matchid)
             }
             if (ByeBall % 2 != 0) {
               if (BindData.SERVICERESPONSE.BOWLECOUNT = 6) {
@@ -746,7 +743,7 @@ const MatchScoring = () => {
         body: JSON.stringify({
           Oper: "add",
           Matchid: Matchid,
-          WagonWeel: NoBallRun > 0 ? (WagonWeel ? WagonWeel : "" ): "",
+          WagonWeel: NoBallRun > 0 ? (WagonWeel ? WagonWeel : "") : "",
           ShortType: NoBallRun > 0 ? (ShortType ? ShortType : "") : "",
           MobileNo: global.MobileNo,
           TeamAid: TeamABatterid,
@@ -825,9 +822,8 @@ const MatchScoring = () => {
           setNoBallTypeVisible(false);
           setNoBallRun(null);
           setNoBall(1);
-          if(Matchid)
-          {
-            scoketservices.emit("SendMessage",Matchid)
+          if (Matchid) {
+            scoketservices.emit("SendMessage", Matchid)
           }
         }
         return json;
@@ -835,7 +831,7 @@ const MatchScoring = () => {
   };
 
   const WideBall_Calculate = async () => {
-    
+
     setRun(+Run + +WideBall);
     setRunDisplay(
       RunDisplay != null
@@ -912,7 +908,7 @@ const MatchScoring = () => {
 
         if (BindData.SERVICERESPONSE.RESPONSECODE == 0) {
 
-          
+
           setMatchTeamAid_undo(BindData.SERVICERESPONSE.MATCHTEAMAID_UNDO);
           if (WideBallRun % 2 != 0) {
             if (StickerColor != "white") {
@@ -935,9 +931,8 @@ const MatchScoring = () => {
               : WideBallRun + " (WD)"
           );
 
-          if(Matchid)
-          {
-            scoketservices.emit("SendMessage",Matchid)
+          if (Matchid) {
+            scoketservices.emit("SendMessage", Matchid)
           }
         }
         return json;
@@ -986,28 +981,25 @@ const MatchScoring = () => {
     }
   };
 
-  
+
 
   React.useEffect(() => {
     console.log("Navigation/Screen/Match/MatchRegister/MatchScoring.js");
-
-    scoketservices.initializeSocket()
-
-
-    if(route.params?.TeamDescription)
+    //scoketservices.initializeSocket()
+    if (route.params?.TeamDescription)
       setTeamDescription(route.params?.TeamDescription)
-    
+
     if (route.params?.WagonWeel) {
       setWagonWeel(route.params?.WagonWeel)
       setShortType(route.params?.ShortType)
       //tempfunctionName(route.params?.FunctionRun)
       //alert(tempfunctionName)
-      
+
       var TempRun = route.params?.FunctionRun ? route.params?.FunctionRun : 0
       RedirectToFunction(route.params?.FunctionName, TempRun, route.params?.WagonWeel, route.params?.ShortType)
     }
     if (route.params?.NextOverModal == 'true') {
-      
+
       setNextOverModal(false);
       setNextOverModal(true);
     }
@@ -1145,6 +1137,20 @@ const MatchScoring = () => {
       setModalStickerSelect(false);
     }
     if (route.params?.Run) setRun(route.params?.Run);
+
+    function onBeforeRemove(event) {
+      event.preventDefault(); //prevented nav from going back
+
+      // alert("test")
+      navigation.navigate("MyMatch", {
+        LoadRef:true
+      });
+
+    }
+    navigation.addListener('beforeRemove', onBeforeRemove); // listener added
+    return function cleanup() {
+      navigation.removeListener('beforeRemove', onBeforeRemove) // clean up 
+    };
   }, [route.params]);
 
   const RedirectToFunction = async (FunctionName, FunctionRun, WagonWeel, ShortType) => {
@@ -1154,8 +1160,7 @@ const MatchScoring = () => {
     else if (FunctionName == "RunningScored_Calculate") {
       RunningScored_Calculate(WagonWeel, ShortType)
     }
-    else if (FunctionName == 'NoBall_Calculate')
-    {
+    else if (FunctionName == 'NoBall_Calculate') {
       NoBall_Calculate(WagonWeel, ShortType)
     }
   };
@@ -1221,9 +1226,8 @@ const MatchScoring = () => {
           setTeamDescription(data.TEAMDESCRIPTION);
 
 
-          if(Matchid)
-          {
-            scoketservices.emit("SendMessage",Matchid)
+          if (Matchid) {
+            scoketservices.emit("SendMessage", Matchid)
           }
         }
         return json;
@@ -1331,15 +1335,15 @@ const MatchScoring = () => {
         var BindData = JSON.parse(json);
         if (BindData.SERVICERESPONSE.RESPONSECODE == 0) {
           // displatch({type:"Commentry",Matchid:Matchid})
-          
-         
+
+
           /*------------------------ Clear Wagon params --------------------*/
           route.params.FunctionName = null;
           route.params.FunctionRun = null;
           route.params.WagonWeel = null;
           route.params.ShortType = null;
           /*------------------------ Clear Wagon params --r------------------*/
-          
+
           if (BindData.SERVICERESPONSE.NEXTINNING == "true") {
             setWicketModal(false);
             setModalStickerSelect(false);
@@ -1387,10 +1391,9 @@ const MatchScoring = () => {
               }
             }
           }
-          
-          if(Matchid)
-          {
-            scoketservices.emit("SendMessage",Matchid)
+
+          if (Matchid) {
+            scoketservices.emit("SendMessage", Matchid)
           }
         }
 
@@ -1403,8 +1406,8 @@ const MatchScoring = () => {
 
   return (
     <View style={styles.Container}>
-      <Modal animationType="slide" transparent={true} 
-      visible={NextInningModal}
+      <Modal animationType="slide" transparent={true}
+        visible={NextInningModal}
       >
         <View style={{ backgroundColor: "#000000AA", flex: 1 }}>
           <View style={styles.modalcenteredView}>
@@ -1418,8 +1421,8 @@ const MatchScoring = () => {
                   resizeMode="stretch"
                   style={styles.img}
                 />
-                <Text style={{ fontSize: 20, fontWeight: "700",color:Color.FontColor }}>{TeamBBowlerName}</Text>
-                <Text style={{ fontSize: 16,color:Color.FontColor }}>Confirme Next Inning Start?</Text>
+                <Text style={{ fontSize: 20, fontWeight: "700", color: Color.FontColor }}>{TeamBBowlerName}</Text>
+                <Text style={{ fontSize: 16, color: Color.FontColor }}>Confirme Next Inning Start?</Text>
               </View>
 
               <View style={[styles.modalText, { marginTop: 20 }]}>
@@ -1505,11 +1508,11 @@ const MatchScoring = () => {
             {/*Bottom Sheet inner View*/}
             <View style={styles.bottomNavigationView}>
               <View style={styles.bottomNavigationTitle}>
-                <Text style={[styles.bottomNavigationTxt,{color:Color.FontColor}]}>Wide Ball</Text>
+                <Text style={[styles.bottomNavigationTxt, { color: Color.FontColor }]}>Wide Ball</Text>
               </View>
               <View style={[styles.bottomNavigationBody]}>
                 <View>
-                  <Text style={{ padding: 10, fontSize: 18,color:Color.FontColor }}>WD</Text>
+                  <Text style={{ padding: 10, fontSize: 18, color: Color.FontColor }}>WD</Text>
                 </View>
                 <View>
                   <Text style={[styles.bottomNavigationInput]}>
@@ -1556,7 +1559,7 @@ const MatchScoring = () => {
                   </Text>
                 </View>
                 <View>
-                  <Text style={{ padding: 10, fontSize: 18,color:Color.FontColor }}>{WideBall}</Text>
+                  <Text style={{ padding: 10, fontSize: 18, color: Color.FontColor }}>{WideBall}</Text>
                 </View>
               </View>
             </View>
@@ -1575,7 +1578,7 @@ const MatchScoring = () => {
                     style={{
                       fontWeight: "bold",
                       textAlign: "center",
-                      color:Color.FontColor
+                      color: Color.FontColor
                     }}
                   >
                     CANCEL
@@ -1613,11 +1616,11 @@ const MatchScoring = () => {
             {/*Bottom Sheet inner View*/}
             <View style={styles.bottomNavigationView}>
               <View style={styles.bottomNavigationTitle}>
-                <Text style={[styles.bottomNavigationTxt,{color:Color.FontColor}]}>No Ball</Text>
+                <Text style={[styles.bottomNavigationTxt, { color: Color.FontColor }]}>No Ball</Text>
               </View>
               <View style={[styles.bottomNavigationBody]}>
                 <View>
-                  <Text style={{ padding: 10, fontSize: 18,color:Color.FontColor }}>NB</Text>
+                  <Text style={{ padding: 10, fontSize: 18, color: Color.FontColor }}>NB</Text>
                 </View>
                 <View>
                   <Text style={[styles.bottomNavigationInput]}>
@@ -1663,7 +1666,7 @@ const MatchScoring = () => {
                   </Text>
                 </View>
                 <View>
-                  <Text style={{ padding: 10, fontSize: 18,color:Color.FontColor }}>{NoBall}</Text>
+                  <Text style={{ padding: 10, fontSize: 18, color: Color.FontColor }}>{NoBall}</Text>
                 </View>
               </View>
               {NoBallTypeVisible ? (
@@ -1680,13 +1683,13 @@ const MatchScoring = () => {
                     }
                     onPress={() => setNoBallchecked("From_Bat")}
                   />
-                  <Text style={{color:Color.FontColor,fontWeight:"700",color:Color.FontColor}}>From Bat</Text>
+                  <Text style={{ color: Color.FontColor, fontWeight: "700", color: Color.FontColor }}>From Bat</Text>
                   <RadioButton
                     value="Bye"
                     status={NoBallchecked === "Bye" ? "checked" : "unchecked"}
                     onPress={() => setNoBallchecked("Bye")}
                   />
-                  <Text style={{color:Color.FontColor,fontWeight:"700"}}>Bye</Text>
+                  <Text style={{ color: Color.FontColor, fontWeight: "700" }}>Bye</Text>
                   <RadioButton
                     value="Leg_Bye"
                     status={
@@ -1694,7 +1697,7 @@ const MatchScoring = () => {
                     }
                     onPress={() => setNoBallchecked("Leg_Bye")}
                   />
-                  <Text style={{color:Color.FontColor,fontWeight:"700"}}>Leg Bye</Text>
+                  <Text style={{ color: Color.FontColor, fontWeight: "700" }}>Leg Bye</Text>
                 </View>
               ) : null}
             </View>
@@ -1715,7 +1718,7 @@ const MatchScoring = () => {
                     style={{
                       fontWeight: "bold",
                       textAlign: "center",
-                      color:Color.FontColor
+                      color: Color.FontColor
                     }}
                   >
                     CANCEL
@@ -1725,9 +1728,9 @@ const MatchScoring = () => {
               <View style={styles.body50}>
                 <Pressable
                   onPress={() => {
-                    
-                    if (NoBall > 1 && NoBallchecked == "From_Bat" ) {
-                      
+
+                    if (NoBall > 1 && NoBallchecked == "From_Bat") {
+
                       if (NoBallchecked == null) {
                         Alert.alert("Warning", "Please select Bye,Leg Bye,From Bat option.", [
                           { text: "OK" },
@@ -1782,7 +1785,7 @@ const MatchScoring = () => {
                   },
                 ]}
               >
-                <Text style={{ fontSize: 20, fontWeight: "600",color:Color.FontColor }}>
+                <Text style={{ fontSize: 20, fontWeight: "600", color: Color.FontColor }}>
                   Bye Ball
                 </Text>
               </View>
@@ -1810,7 +1813,7 @@ const MatchScoring = () => {
                     setByeBallSelect(1);
                   }}
                 >
-                  <Text style={{color:Color.FontColor}}>1</Text>
+                  <Text style={{ color: Color.FontColor }}>1</Text>
                 </Pressable>
                 <Pressable
                   style={[
@@ -1825,7 +1828,7 @@ const MatchScoring = () => {
                     setByeBallSelect(2);
                   }}
                 >
-                  <Text style={{color:Color.FontColor}}>2</Text>
+                  <Text style={{ color: Color.FontColor }}>2</Text>
                 </Pressable>
                 <Pressable
                   style={[
@@ -1840,7 +1843,7 @@ const MatchScoring = () => {
                     setByeBallSelect(3);
                   }}
                 >
-                  <Text style={{color:Color.FontColor}}>3</Text>
+                  <Text style={{ color: Color.FontColor }}>3</Text>
                 </Pressable>
                 <Pressable
                   style={[
@@ -1855,7 +1858,7 @@ const MatchScoring = () => {
                     setByeBallSelect(4);
                   }}
                 >
-                  <Text style={{color:Color.FontColor}}>4</Text>
+                  <Text style={{ color: Color.FontColor }}>4</Text>
                 </Pressable>
                 <Pressable
                   style={
@@ -1868,11 +1871,11 @@ const MatchScoring = () => {
                     setByeBallSelect("plus");
                   }}
                 >
-                  <Text style={{color:Color.FontColor}}>+</Text>
+                  <Text style={{ color: Color.FontColor }}>+</Text>
                 </Pressable>
                 {ByeBallSelect == "plus" ? (
                   <TextInput
-                    style={[styles.ByeBox, { padding: 10,color:Color.FontColor }]}
+                    style={[styles.ByeBox, { padding: 10, color: Color.FontColor }]}
                     values={ByeBall}
                     onChangeText={(text) => setByeBall(text)}
                     keyboardType="numeric"
@@ -1895,7 +1898,7 @@ const MatchScoring = () => {
                     style={{
                       fontWeight: "bold",
                       textAlign: "center",
-                      color:Color.FontColor
+                      color: Color.FontColor
                     }}
                   >
                     CANCEL
@@ -1942,7 +1945,7 @@ const MatchScoring = () => {
                   },
                 ]}
               >
-                <Text style={{ fontSize: 20, fontWeight: "600",color:Color.FontColor }}>
+                <Text style={{ fontSize: 20, fontWeight: "600", color: Color.FontColor }}>
                   {" "}
                   Leg Bye Ball
                 </Text>
@@ -1971,7 +1974,7 @@ const MatchScoring = () => {
                     setLegByeBallSelect(1);
                   }}
                 >
-                  <Text style={{color:Color.FontColor}}>1</Text>
+                  <Text style={{ color: Color.FontColor }}>1</Text>
                 </Pressable>
                 <Pressable
                   style={[
@@ -1986,7 +1989,7 @@ const MatchScoring = () => {
                     setLegByeBallSelect(2);
                   }}
                 >
-                  <Text style={{color:Color.FontColor}}>2</Text>
+                  <Text style={{ color: Color.FontColor }}>2</Text>
                 </Pressable>
                 <Pressable
                   style={[
@@ -2001,7 +2004,7 @@ const MatchScoring = () => {
                     setLegByeBallSelect(3);
                   }}
                 >
-                  <Text style={{color:Color.FontColor}}>3</Text>
+                  <Text style={{ color: Color.FontColor }}>3</Text>
                 </Pressable>
                 <Pressable
                   style={[
@@ -2016,7 +2019,7 @@ const MatchScoring = () => {
                     setLegByeBallSelect(4);
                   }}
                 >
-                  <Text style={{color:Color.FontColor}}>4</Text>
+                  <Text style={{ color: Color.FontColor }}>4</Text>
                 </Pressable>
                 <Pressable
                   style={
@@ -2029,11 +2032,11 @@ const MatchScoring = () => {
                     setLegByeBallSelect("plus");
                   }}
                 >
-                  <Text style={{color:Color.FontColor}}>+</Text>
+                  <Text style={{ color: Color.FontColor }}>+</Text>
                 </Pressable>
                 {LegByeBallSelect == "plus" ? (
                   <TextInput
-                    style={[styles.ByeBox, { padding: 10,color:Color.FontColor }]}
+                    style={[styles.ByeBox, { padding: 10, color: Color.FontColor }]}
                     values={LegByeBall}
                     onChangeText={(text) => setLegByeBall(text)}
                     keyboardType="numeric"
@@ -2056,7 +2059,7 @@ const MatchScoring = () => {
                     style={{
                       fontWeight: "bold",
                       textAlign: "center",
-                      color:Color.FontColor
+                      color: Color.FontColor
                     }}
                   >
                     CANCEL
@@ -2103,7 +2106,7 @@ const MatchScoring = () => {
                   },
                 ]}
               >
-                <Text style={{ fontSize: 20, fontWeight: "600",color:Color.FontColor }}>
+                <Text style={{ fontSize: 20, fontWeight: "600", color: Color.FontColor }}>
                   {" "}
                   Run Scored by running
                 </Text>
@@ -2122,7 +2125,7 @@ const MatchScoring = () => {
                 <TextInput
                   style={[
                     styles.ByeBox,
-                    { paddingHorizontal: 30, paddingVertical: 10,color:Color.FontColor },
+                    { paddingHorizontal: 30, paddingVertical: 10, color: Color.FontColor },
                   ]}
                   values={LegByeBall}
                   onChangeText={(text) => setRunningScored(text)}
@@ -2144,7 +2147,7 @@ const MatchScoring = () => {
                     style={{
                       fontWeight: "bold",
                       textAlign: "center"
-                      ,color:Color.FontColor
+                      , color: Color.FontColor
                     }}
                   >
                     CANCEL
@@ -2401,7 +2404,7 @@ const MatchScoring = () => {
                 <Pressable onPress={() => {
                   setWicketModal(false)
                   setWicketModal(true)
-                  }}>
+                }}>
                   <Image
                     resizeMode="center"
                     source={{
@@ -2454,7 +2457,7 @@ const MatchScoring = () => {
                   }
                   style={styles.Numberbox_0_1}
                 >
-                  <Text style={{color:Color.FontColor,fontWeight:"400",fontSize:20}}>0</Text>
+                  <Text style={{ color: Color.FontColor, fontWeight: "400", fontSize: 20 }}>0</Text>
                 </Pressable>
                 <Pressable
                   onPress={() => {
@@ -2470,7 +2473,7 @@ const MatchScoring = () => {
                   }}
                   style={styles.Numberbox_0_1}
                 >
-                  <Text style={{color:Color.FontColor,fontWeight:"400",fontSize:20}}>1</Text>
+                  <Text style={{ color: Color.FontColor, fontWeight: "400", fontSize: 20 }}>1</Text>
                 </Pressable>
 
                 <Pressable
@@ -2486,7 +2489,7 @@ const MatchScoring = () => {
                   }}
                   style={styles.NumberBox_2}
                 >
-                  <Text style={{color:Color.FontColor,fontWeight:"400",fontSize:20}}>2</Text>
+                  <Text style={{ color: Color.FontColor, fontWeight: "400", fontSize: 20 }}>2</Text>
                 </Pressable>
               </View>
               <View style={[styles.body100, styles.Numberbox_3_4_6]}>
@@ -2503,7 +2506,7 @@ const MatchScoring = () => {
                   }}
                   style={styles.NumberBox_3_4}
                 >
-                  <Text style={{color:Color.FontColor,fontWeight:"400",fontSize:20}}>3</Text>
+                  <Text style={{ color: Color.FontColor, fontWeight: "400", fontSize: 20 }}>3</Text>
                 </Pressable>
                 <Pressable
                   onPress={() => {
@@ -2519,7 +2522,7 @@ const MatchScoring = () => {
                   }
                   style={styles.NumberBox_3_4}
                 >
-                  <Text style={{color:Color.FontColor,fontWeight:"400",fontSize:20}}>4</Text>
+                  <Text style={{ color: Color.FontColor, fontWeight: "400", fontSize: 20 }}>4</Text>
                 </Pressable>
                 <Pressable
                   onPress={() => {
@@ -2534,7 +2537,7 @@ const MatchScoring = () => {
                   }}
                   style={styles.NumberBox_6}
                 >
-                  <Text style={{color:Color.FontColor,fontWeight:"400",fontSize:20}}>6</Text>
+                  <Text style={{ color: Color.FontColor, fontWeight: "400", fontSize: 20 }}>6</Text>
                 </Pressable>
               </View>
             </View>
@@ -2547,9 +2550,9 @@ const MatchScoring = () => {
                       text: 'Cancel',
                       style: 'cancel',
                     },
-                    {text: 'OK', onPress: () => CalculateUndo()},
+                    { text: 'OK', onPress: () => CalculateUndo() },
                   ]);
-                //  CalculateUndo()
+                  //  CalculateUndo()
                 }}
               >
                 <Text style={{ color: Color.PrimaryColor_Org, fontWeight: "900" }}>
@@ -2563,7 +2566,7 @@ const MatchScoring = () => {
                   setRunningScoredModal(true)
                 }}
               >
-                <Text style={{color:Color.FontColor,fontWeight:"400",fontSize:18}}>5,7</Text>
+                <Text style={{ color: Color.FontColor, fontWeight: "400", fontSize: 18 }}>5,7</Text>
               </Pressable>
               <Pressable
                 style={styles.Out}
@@ -2645,19 +2648,19 @@ const MatchScoring = () => {
               setWideBallModal(false)
               setWideBallModal(true)
             }}>
-              <Text style={{color:Color.FontColor,fontWeight:"400",fontSize:18}}>WD</Text>
+              <Text style={{ color: Color.FontColor, fontWeight: "400", fontSize: 18 }}>WD</Text>
             </Pressable>
             <Pressable style={styles.WD} onPress={() => {
               setNoBallModal(false)
               setNoBallModal(true)
             }}>
-              <Text style={{color:Color.FontColor,fontWeight:"400",fontSize:18}}>NB</Text>
+              <Text style={{ color: Color.FontColor, fontWeight: "400", fontSize: 18 }}>NB</Text>
             </Pressable>
             <Pressable style={styles.WD} onPress={() => {
               setByeBallModal(false)
               setByeBallModal(true)
             }}>
-              <Text style={{color:Color.FontColor,fontWeight:"400",fontSize:18}}>BYE</Text>
+              <Text style={{ color: Color.FontColor, fontWeight: "400", fontSize: 18 }}>BYE</Text>
             </Pressable>
             <Pressable
               style={styles.WD}
@@ -2666,7 +2669,7 @@ const MatchScoring = () => {
                 setLegByeBallModal(true)
               }}
             >
-              <Text style={{color:Color.FontColor,fontWeight:"400",fontSize:18}}>LB</Text>
+              <Text style={{ color: Color.FontColor, fontWeight: "400", fontSize: 18 }}>LB</Text>
             </Pressable>
           </View>
         </View>
@@ -3085,7 +3088,7 @@ const styles = StyleSheet.create({
     backgroundColor: Color.PrimaryColor_Org
   },
   modaltitle: { fontSize: 20, color: Color.PrimaryColor_Org, fontWeight: "600" },
-  modalsubtitle: { fontSize: 16,color:Color.FontColor },
+  modalsubtitle: { fontSize: 16, color: Color.FontColor },
   modalbuttonClose: {
     backgroundColor: "#f2f2f2",
   },

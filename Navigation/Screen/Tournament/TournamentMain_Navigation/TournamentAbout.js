@@ -50,7 +50,7 @@ export default function TournamentAbout() {
           if (BindData.SERVICERESPONSE.RESPONSECODE != "-1") {
             if (BindData.SERVICERESPONSE.TOTALRECORDS != "0") {
               List = BindData.SERVICERESPONSE.DETAILSLIST.DETAILS;
-              console.log(List)
+              
               if (List.TOURNAMENTNAME) {
                 if (List.TOURNAMENTNAME) setTournamentName(List.TOURNAMENTNAME);
                 if (List.STARTDATE) setStartDate(List.STARTDATE);
