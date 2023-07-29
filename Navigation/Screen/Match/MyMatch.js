@@ -148,6 +148,7 @@ const MyMatch = (props) => {
     }
 
     IndividualMatchList();
+    
   }, [route.params]);
 
   const IndividualMatchList = async () => {
