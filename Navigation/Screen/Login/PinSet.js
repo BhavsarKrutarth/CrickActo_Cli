@@ -72,22 +72,23 @@ const PinSet = (props) => {
         .then((json) => {
           var BindData = JSON.parse(json);
           var List;
-          console.log(BindData);
+
           if (BindData.SERVICERESPONSE.RESPONSECODE != "-1") {
             if (BindData.SERVICERESPONSE.TOTALRECORDS != "0") {
               List = BindData.SERVICERESPONSE.DETAILSLIST.DETAILS;
-
+              
               var setarray = [];
               if (BindData.SERVICERESPONSE.TOTALRECORDS == 1) {
-                console.log(List);
-                if (List.CITYID) setCityId(List.CITYID);
-                if (List.CITYNAME) setCityName(List.CITYNAME);
-                // if(List.PASSWORD)
-                if (List.PASSWORD) setpinset(List.PASSWORD);
-                if (List.NAME) SetName(List.NAME);
-                if (List.NAME != "" && List.NAME != null)
-                  setNameEditable(false);
-                else setNameEditable(true);
+                if (List.CITYID != 0) {
+                  if (List.CITYID) setCityId(List.CITYID);
+                  if (List.CITYNAME) setCityName(List.CITYNAME);
+                  // if(List.PASSWORD)
+                  if (List.PASSWORD) setpinset(List.PASSWORD);
+                  if (List.NAME) SetName(List.NAME);
+                  if (List.NAME != "" && List.NAME != null)
+                    setNameEditable(false);
+                  else setNameEditable(true);
+                }
               }
             }
           } else {
@@ -110,10 +111,11 @@ const PinSet = (props) => {
 
     UserMasterDeatil(phoneNumber);
 
+
     if (route.params?.CityId) setCityId(route.params?.CityId);
 
     if (route.params?.CityName) setCityName(route.params?.CityName);
-
+    console.log(route.params?.CityId)
     //console.log(phoneNumber || 'Null Mobile no')
     // if(route.params?.MobileNo)
     //   setPhoneNumber(route.params?.MobileNo);
@@ -199,6 +201,8 @@ const PinSet = (props) => {
         .then((response) => response.json())
         .then((json) => {
           /*-------------------- Page Call -----------------------*/
+          global.CityId = CityId
+          global.CityName = CityName
           CityName_GET(phoneNumber);
           storeData(phoneNumber);
           navigation.navigate("Drawer", {
@@ -314,7 +318,7 @@ const styleSheet = StyleSheet.create({
     width: "80%",
     height: 50,
     backgroundColor: "white",
-    color:"black"
+    color: "black"
   },
 
   button: {

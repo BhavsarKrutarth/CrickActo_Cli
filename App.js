@@ -30,7 +30,7 @@ export default function App() {
     try {
 
       // await AsyncStorage.getItem('@MobileNo' + "    console MobileNo");
-      //AsyncStorage.clear();
+      AsyncStorage.clear();
       
       setisLoggedIn(await AsyncStorage.getItem('@login') || 'false');
       // GlobalVariable.Glogin = await AsyncStorage.getItem('@login');

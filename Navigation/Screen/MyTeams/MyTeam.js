@@ -42,6 +42,7 @@ const MyTeam = (props) => {
       TournamentMyTeam();
     
     TournamentMyTeam();
+    console.log(global.CityId)
   }, [route.params]);
 
   const TournamentMyTeam = async () => {
