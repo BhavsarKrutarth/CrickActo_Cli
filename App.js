@@ -30,7 +30,7 @@ export default function App() {
     try {
 
       // await AsyncStorage.getItem('@MobileNo' + "    console MobileNo");
-      AsyncStorage.clear();
+      //AsyncStorage.clear();
       
       setisLoggedIn(await AsyncStorage.getItem('@login') || 'false');
       // GlobalVariable.Glogin = await AsyncStorage.getItem('@login');
@@ -74,6 +74,7 @@ export default function App() {
           var BindData = JSON.parse(json);
           var List;
           if (BindData.SERVICERESPONSE.RESPONSECODE == "0") {
+            
             if (BindData.SERVICERESPONSE.DETAILSLIST) {
               List = BindData.SERVICERESPONSE.DETAILSLIST.DETAILS;
               if (List) {
@@ -86,6 +87,7 @@ export default function App() {
               }
             }
           }
+         
           return json;
         })
         .catch((error) => {
