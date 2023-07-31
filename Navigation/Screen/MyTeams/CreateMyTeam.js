@@ -1,5 +1,5 @@
-import { ToastAndroid,Image,SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar ,Pressable,TextInput } from 'react-native'
-import React, { useState, useEffect ,useRef} from 'react'
+import { ToastAndroid, Image, SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Pressable, TextInput } from 'react-native'
+import React, { useState, useEffect, useRef } from 'react'
 import Color from '../../../Color/Color';
 // import { ScrollView, TextInput,LayoutAnimation } from 'react-native-gesture-handler';
 
@@ -13,8 +13,8 @@ import { useRoute } from "@react-navigation/native";
 const CreateMyTeam = () => {
   const navigation = useNavigation();
   const route = useRoute();
-  const [ImgNameinitialElements, ImgName_changeEl]  = useState([]);
-  const [initialElements, changeEl]  = useState([]);
+  const [ImgNameinitialElements, ImgName_changeEl] = useState([]);
+  const [initialElements, changeEl] = useState([]);
   const [TeamData, setTeamData] = useState(initialElements);
 
   const [Common_CityId, setCommon_CityId] = useState(null);
@@ -24,79 +24,87 @@ const CreateMyTeam = () => {
   const [ImgUI, setImgUI] = useState(false);
   const [image, setImage] = useState(null);
   const [SendBannerImage, setSendBannerImage] = useState(null);
-  const [ImageName,setImageName] = useState("")
-  const [ImageFlieName,setImageFlieName] = useState("")
+  const [ImageName, setImageName] = useState("")
+  const [ImageFlieName, setImageFlieName] = useState("")
 
   //let txtTeamName = "";
-  const [txtTeamName,settxtTeamName] = useState('');
+  const [txtTeamName, settxtTeamName] = useState('');
   const [errortxtTeamName, seterrortxtTeamName] = useState(Color.Texttitle);
   const txtTeamNameRef = useRef(null);
-  const [Team_RedirectPage,setTeam_RedirectPage] = useState(null);
+  const [Team_RedirectPage, setTeam_RedirectPage] = useState(null);
+  const [btndisabled, setbtndisabled] = useState(false);
 
-  
 
   const btnDone = async () => {
-    if(initialElements.length != 0)
-    {
-      // console.log(initialElements)
-      try {
-       var Tournamentid = global.Tournamentid
-       var TournamentName = global.TournamentName
-        const resposneJSON = await fetch(
-          `${global.domainName}/cricbuddyAPI/api/TournamentMyTeam`,
-          {
-            method: "POST",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-              Authorization: "FF7B5E5C-A468-4CE0-B812-98008627C8KT",
-            },
-            body: JSON.stringify({
-              Oper:'add',
-              Subiteam:initialElements,
-              Tournamentid:0,
-              TournamentName:""
-            }),
-          }
-        )
-          .then((response) => response.json())
-          .then((json) => {
-            
-            /*-------------------- Page Call -----------------------*/
-            var BindData = JSON.parse(json);
-            if (BindData.SERVICERESPONSE.RESPONSECODE == "0") {
-                if(ImgNameinitialElements.length != 0)
+    if (btndisabled == false) {
+      setbtndisabled(true);
+      if (initialElements.length != 0) {
+        // console.log(initialElements)
+        try {
+          var Tournamentid = global.Tournamentid
+          var TournamentName = global.TournamentName
+          const resposneJSON = await fetch(
+            `${global.domainName}/cricbuddyAPI/api/TournamentMyTeam`,
+            {
+              method: "POST",
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                Authorization: "FF7B5E5C-A468-4CE0-B812-98008627C8KT",
+              },
+              body: JSON.stringify({
+                Oper: 'add',
+                Subiteam: initialElements,
+                Tournamentid: 0,
+                TournamentName: ""
+              }),
+            }
+          )
+            .then((response) => response.json())
+            .then((json) => {
+
+              /*-------------------- Page Call -----------------------*/
+              var BindData = JSON.parse(json);
+              if (BindData.SERVICERESPONSE.RESPONSECODE == "0") {
+                setbtndisabled(false)
+                if (ImgNameinitialElements.length != 0)
                   TransferImage(ImgNameinitialElements);
                 navigation.navigate(Team_RedirectPage, {
                   LoadRef: 'True',
                 });
-              // }
-            }
-            return json;
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      } catch (error) {
-        alert(error);
-        return;
-      } finally {
+                // }
+              }
+              return json;
+            })
+            .catch((error) => {
+              console.error(error);
+              setbtndisabled(false)
+            });
+        } catch (error) {
+          alert(error);
+          setbtndisabled(false)
+          return;
+        } finally {
+          setbtndisabled(false)
+        }
+      }
+      else {
+        setbtndisabled(false)
+        btnSave_AddoneMore();
+
+        // console.log("else")
+        // console.log("else")
+        ToastAndroid.showWithGravityAndOffset(
+          "Please at list One teams",
+          ToastAndroid.LONG,
+          ToastAndroid.BOTTOM,
+          25,
+          50
+        );
+
       }
     }
-    else {
-        btnSave_AddoneMore();
-        
-      // console.log("else")
-      // console.log("else")
-      ToastAndroid.showWithGravityAndOffset(
-        "Please at list One teams",
-        ToastAndroid.LONG,
-        ToastAndroid.BOTTOM,
-        25,
-        50
-      );
-      
-    }
+
   }
 
   const btnSave_AddoneMore = () => {
@@ -124,28 +132,27 @@ const CreateMyTeam = () => {
       );
       return;
     }
-    
+
     var guid = CreateGuid();
     guid = txtTeamName.substring(0, 2) + '-' + guid
-    var newArray = [...initialElements , {
-      MobileNo:global.MobileNo,
+    var newArray = [...initialElements, {
+      MobileNo: global.MobileNo,
       id: guid,
-      ImageName:ImageName,
-      ImageFlieName:ImageFlieName,
+      ImageName: ImageName,
+      ImageFlieName: ImageFlieName,
       imgtitle: txtTeamName.substring(0, 2),
       title: txtTeamName,
       CityId: Common_CityId,
       CityName: Common_CityName,
     }];
-    if(ImageName != "")
-    {
-      ImgName_changeEl([...ImgNameinitialElements,{
+    if (ImageName != "") {
+      ImgName_changeEl([...ImgNameinitialElements, {
         id: guid,
-        Image:ImageName
+        Image: ImageName
       }])
-      
+
     }
-    
+
     setTeamData(newArray);
     changeEl(newArray);
     setImageName("");
@@ -165,48 +172,45 @@ const CreateMyTeam = () => {
 
   useEffect(() => {
     console.log("Navigation/Screen/MyTeams/CreateMyTeam.js");
-    if(route.params?.Team_RedirectPage)
+    if (route.params?.Team_RedirectPage)
       setTeam_RedirectPage(route.params?.Team_RedirectPage);
 
     // SetData(route.params?.Common_CityId, route.params?.Common_CityName);
-    if(route.params?.CityId)
-    {
+    if (route.params?.CityId) {
       SetData(route.params?.CityId, route.params?.CityName);
     }
-    
 
-    if(route.params?.updateid)
-    {
-      
-      let arr = initialElements.filter(function(item) {
+
+    if (route.params?.updateid) {
+
+      let arr = initialElements.filter(function (item) {
         return item.id !== route.params?.updateid
       })
       // setTeamData(arr);
       // changeEl(arr);
 
-      var newArray = [...arr , {
-        MobileNo:global.MobileNo,
+      var newArray = [...arr, {
+        MobileNo: global.MobileNo,
         id: route.params?.updateid,
-        ImageName:route.params?.updateImageName,
-        ImageFlieName:route.params?.updateImageFlieName,
+        ImageName: route.params?.updateImageName,
+        ImageFlieName: route.params?.updateImageFlieName,
         imgtitle: route.params?.updateimgtitle,
         title: route.params?.updatetitle,
         CityId: route.params?.updateCityId,
         CityName: route.params?.updateCityName,
       }];
-      if(route.params?.updateImageName != "")
-      {
-        ImgName_changeEl([...arr,{
+      if (route.params?.updateImageName != "") {
+        ImgName_changeEl([...arr, {
           id: route.params?.updateid,
-          Image:route.params?.updateImageName
+          Image: route.params?.updateImageName
         }])
       }
-      
+
 
       setTeamData(newArray);
       changeEl(newArray);
 
-      
+
     }
 
 
@@ -215,7 +219,7 @@ const CreateMyTeam = () => {
   const ImagePickerFN = async () => {
     // No permissions request is necessary for launching the image library
     let result = await ImagePicker.launchImageLibraryAsync({
-      
+
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
       fileName: true,
@@ -224,9 +228,9 @@ const CreateMyTeam = () => {
       quality: 1,
       canceled: false,
       cancelled: false,
-      type:"image"
+      type: "image"
     });
-    
+
     if (!result.canceled) {
       BannerImageUpload(result.assets[0].base64, result.assets[0].uri);
       // const fileName = result.assets[0].uri.split('/').pop();
@@ -289,8 +293,8 @@ const CreateMyTeam = () => {
       setCommon_CityName(global.CityName);
     }
   };
- 
-  const BtnEdit =(
+
+  const BtnEdit = (
     id,
     ImageName,
     ImageFlieName,
@@ -306,23 +310,23 @@ const CreateMyTeam = () => {
       title,
       CityId,
       CityName,
-      PageRedirect:"CreateMyTeam"
+      PageRedirect: "CreateMyTeam"
     });
     // alert("My id is "+id);
   }
-  const BtnDelete =(id) => {
-    let arr = initialElements.filter(function(item) {
+  const BtnDelete = (id) => {
+    let arr = initialElements.filter(function (item) {
       return item.id !== id
     })
-    let arr1 = ImgNameinitialElements.filter(function(item) {
+    let arr1 = ImgNameinitialElements.filter(function (item) {
       return item.id !== id
     })
-    
+
     ImgName_changeEl(arr1)
     setTeamData(arr);
     changeEl(arr);
   }
-  
+
   const renderItem = ({ item }) => (
     // console.log("renderItem");
     <View style={styles.item}>
@@ -342,7 +346,7 @@ const CreateMyTeam = () => {
             />
           ) : (
             <View style={[styles.img]}>
-              <Text style={[styles.imgtitle,{color:"white"}]}>{item.imgtitle}</Text>
+              <Text style={[styles.imgtitle, { color: "white" }]}>{item.imgtitle}</Text>
             </View>
           )}
           {/* <View style={[styles.img]}>
@@ -352,12 +356,12 @@ const CreateMyTeam = () => {
         <View style={[styles.width60]}>
           <View style={{ marginLeft: 5 }}>
             <View>
-              <Text style={{ fontSize: 18, fontWeight: "900",color:Color.FontColor }}>
+              <Text style={{ fontSize: 18, fontWeight: "900", color: Color.FontColor }}>
                 {item.title}
               </Text>
             </View>
             <View style={{ flexDirection: "column", flexWrap: "wrap" }}>
-              <Text style={{color:Color.FontColor}}>
+              <Text style={{ color: Color.FontColor }}>
                 <Image
                   source={{
                     uri: `${global.domainName}/CricbuddyAdmin/Content/assets/tournament/icon_Location.png`,
@@ -372,7 +376,7 @@ const CreateMyTeam = () => {
         <View style={[styles.width20, { flexDirection: "row" }]}>
           <Pressable
             onPress={() =>
-              
+
               BtnEdit(
                 item.id,
                 item.ImageName,
@@ -428,7 +432,7 @@ const CreateMyTeam = () => {
                     alert("image upload function coming soon")
                     // ImagePickerFN
                   }
-                  }>
+                }>
                   <Image
                     style={styles.mainImg}
                     source={{
@@ -441,7 +445,7 @@ const CreateMyTeam = () => {
             <View style={[styles.width80]}>
               <View style={{ marginLeft: 5 }}>
                 <View>
-                  <Text style={{ fontSize: 12 , color:Color.FontColor }}>
+                  <Text style={{ fontSize: 12, color: Color.FontColor }}>
                     Team Name <Text style={{ color: "red" }}>*</Text>
                   </Text>
 
@@ -457,13 +461,13 @@ const CreateMyTeam = () => {
                     style={{
                       borderBottomColor: errortxtTeamName,
                       borderBottomWidth: 2,
-                      color:Color.FontColor
+                      color: Color.FontColor
                     }}
                     placeholder="Enter Team Name"
                   />
                 </View>
                 <View style={{ marginTop: 10 }}>
-                  <Text style={{ fontSize: 12 ,color:Color.FontColor }}>
+                  <Text style={{ fontSize: 12, color: Color.FontColor }}>
                     City/Town <Text style={{ color: "red" }}>*</Text>
                   </Text>
                   <TextInput
@@ -472,15 +476,15 @@ const CreateMyTeam = () => {
                     onFocus={() => {
                       seterrorddlCity(Color.Texttitle);
                       navigation.navigate("UserProfileCity", {
-                        CityId:CityId,
-                        CityName:CityName,
+                        CityId: CityId,
+                        CityName: CityName,
                         // PageName: "Tournament_AddNewTeams",
-                        PageRedirect:"CreateMyTeam"
+                        PageRedirect: "CreateMyTeam"
                       });
                     }}
                     style={[
                       styles.input,
-                      { borderBottomColor: errorddlCity, borderBottomWidth: 2,color:Color.FontColor },
+                      { borderBottomColor: errorddlCity, borderBottomWidth: 2, color: Color.FontColor },
                     ]}
                     value={Common_CityName}
                   />
@@ -508,13 +512,14 @@ const CreateMyTeam = () => {
             onPress={() => btnSave_AddoneMore()}
             style={[styles.button, styles.buttonClose]}
           >
-            <Text style={[styles.btntitle,{color:Color.FontColor }]}>Add One More</Text>
+            <Text style={[styles.btntitle, { color: Color.FontColor }]}>Add One More</Text>
           </Pressable>
         </View>
         <View style={styles.width50}>
           <Pressable
             onPress={() => btnDone()}
             style={[styles.button, styles.buttonSave]}
+
           >
             <Text style={[styles.btntitle, { color: "white" }]}>Done</Text>
           </Pressable>
@@ -598,8 +603,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  width80:{
-    width:"80%"
+  width80: {
+    width: "80%"
   },
   input: {
     // height: 40,
