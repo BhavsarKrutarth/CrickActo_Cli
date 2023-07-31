@@ -145,7 +145,7 @@ const MyTeam = (props) => {
                 source={{
                   uri: `${global.domainName}/cricbuddyAPI/UploadFiles/UserProfile/${item.ImageName}`,
                 }}
-                style={styles.img}
+                style={[styles.img,{backgroundColor:"white"}]}
               />
             ) : (
               <View style={[styles.img]}>

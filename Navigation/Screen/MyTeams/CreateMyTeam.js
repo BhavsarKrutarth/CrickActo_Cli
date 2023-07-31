@@ -1,4 +1,4 @@
-import { ToastAndroid, Image, SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Pressable, TextInput } from 'react-native'
+import { ToastAndroid, Image, SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Pressable, TextInput, PermissionsAndroid } from 'react-native'
 import React, { useState, useEffect, useRef } from 'react'
 import Color from '../../../Color/Color';
 // import { ScrollView, TextInput,LayoutAnimation } from 'react-native-gesture-handler';
@@ -6,8 +6,12 @@ import Color from '../../../Color/Color';
 // import LineTextInput from '../../../Component/LineTextInput/LineTextInput';
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
-// import * as ImagePicker from 'expo-image-picker';
-// import TransferImage from '../../../Component/TransferImage/TransferImage';
+//import * as ImagePicker from 'expo-image-picker';
+import TransferImage from '../../../Component/TransferImage/TransferImage';
+import {
+  launchCamera,
+  launchImageLibrary
+} from 'react-native-image-picker';
 
 
 const CreateMyTeam = () => {
@@ -33,7 +37,28 @@ const CreateMyTeam = () => {
   const txtTeamNameRef = useRef(null);
   const [Team_RedirectPage, setTeam_RedirectPage] = useState(null);
   const [btndisabled, setbtndisabled] = useState(false);
-
+  
+  const selectFile = async () => {
+    var options = {
+      mediaType:'photo',
+      includeBase64:true
+    }
+    const OpenCamera = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.CAMERA,
+    )
+    console.log(OpenCamera)
+    if (OpenCamera === PermissionsAndroid.RESULTS.GRANTED) {
+      const result = await launchImageLibrary(options)
+      if (!result.canceled) {
+        BannerImageUpload(result.assets[0].base64, result.assets[0].uri);
+        // const fileName = result.assets[0].uri.split('/').pop();
+        // setImageName(fileName);
+        setImageFlieName(result.assets[0].uri);
+        setImage(result.assets[0].uri);
+        setImgUI(true);
+      }
+    }
+  };
 
   const btnDone = async () => {
     if (btndisabled == false) {
@@ -172,8 +197,15 @@ const CreateMyTeam = () => {
 
   useEffect(() => {
     console.log("Navigation/Screen/MyTeams/CreateMyTeam.js");
+
     if (route.params?.Team_RedirectPage)
       setTeam_RedirectPage(route.params?.Team_RedirectPage);
+
+      if(global.CityId)
+      setCommon_CityId(global.CityId);
+      
+      if(global.CityName)
+      setCommon_CityName(global.CityName);
 
     // SetData(route.params?.Common_CityId, route.params?.Common_CityName);
     if (route.params?.CityId) {
@@ -345,7 +377,7 @@ const CreateMyTeam = () => {
               style={styles.img}
             />
           ) : (
-            <View style={[styles.img]}>
+            <View style={[styles.imgtxt]}>
               <Text style={[styles.imgtitle, { color: "white" }]}>{item.imgtitle}</Text>
             </View>
           )}
@@ -429,8 +461,9 @@ const CreateMyTeam = () => {
               ) : (
                 <Pressable onPress={
                   () => {
-                    // alert("image upload function coming soon")
-                    ImagePickerFN
+                    //  alert("image upload function coming soon")
+                    // ImagePickerFN()
+                    selectFile()
                   }
                 }>
                   <Image
@@ -560,8 +593,15 @@ const styles = StyleSheet.create({
     width: 60,
     borderColor: Color.Texttitle,
     borderWidth: 2,
+    borderRadius: 100,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  imgtxt:{
+    height: 60,
+    width: 60,
+    borderWidth: 2,
     backgroundColor: "#DC7633",
-    color: Color.WhiteBGColor,
     borderRadius: 100,
     alignItems: "center",
     justifyContent: "center",
