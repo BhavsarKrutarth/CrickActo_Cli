@@ -13,6 +13,7 @@ import {
   StyleSheet,
   SafeAreaView,
   StatusBar,
+  Pressable
 } from "react-native";
 import Color from "../../Color/Color";
 /*------------------------ Login -----------------------*/
@@ -2402,6 +2403,23 @@ const NavigationScreen = (props) => {
                 backgroundColor: Color.PrimaryColor,
                 color: "white",
               },
+              headerRight: () => (
+                
+                <Pressable onPress={() => {
+                  console.log(route);
+                  alert('test')
+                  }}>
+                <Image
+                  source={{
+                    uri:
+                      "" +
+                      global.domainName +
+                      "/CricbuddyAdmin/Content/assets/edit.png",
+                  }}
+                  style={{ width: 25, height: 25 }}
+                />
+                </Pressable>
+              ),
             })}
           />
           <Stack.Screen

@@ -429,8 +429,8 @@ const CreateMyTeam = () => {
               ) : (
                 <Pressable onPress={
                   () => {
-                    alert("image upload function coming soon")
-                    // ImagePickerFN
+                    // alert("image upload function coming soon")
+                    ImagePickerFN
                   }
                 }>
                   <Image
