@@ -10,11 +10,6 @@ const TouranmentCategory = () => {
   console.log("Navigation/Screen/Tournament/DropDownAdd/TouranmentCategory.js")
   const navigation = useNavigation();
   const [selectedItem, setSelectedItem] = useState([]);
-
-
-  const [dropdown, setDropdown] = useState(null);
-  const [selected, setSelected] = useState([]);
-
   const _renderItem = item => {
     return (
       <View style={{

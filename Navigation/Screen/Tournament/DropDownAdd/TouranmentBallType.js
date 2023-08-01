@@ -1,7 +1,9 @@
 import { StyleSheet, Text, View, Dimensions } from "react-native";
 import React, { useState, useEffect } from "react";
-import { AutocompleteDropdown } from "react-native-autocomplete-dropdown";
+// import { AutocompleteDropdown } from "react-native-autocomplete-dropdown";
+import { Dropdown } from 'react-native-element-dropdown';
 import { useNavigation } from "@react-navigation/native";
+import Color from "../../../../Color/Color";
 
 const TouranmentBallType = () => {
   console.log("Navigation/Screen/Tournament/DropDownAdd/TouranmentBallType.js")
@@ -12,6 +14,27 @@ const TouranmentBallType = () => {
     TouranmentBallType_GET();
     // console.log(Dimensions.get("window").height)
   }, []);
+
+  const _renderItem = item => {
+    return (
+      <View style={{
+        paddingVertical: 17,
+        paddingHorizontal: 4,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+      }}>
+        <Text style={{
+          flex: 1,
+          fontSize: 16,
+          color: Color.FontColor,
+          paddingLeft: 10
+        }}>{item.title}</Text>
+        {/* <Image style={styles.icon} source={require('./assets/tick.png')} /> */}
+      </View>
+    );
+  };
+
   const TouranmentBallType_GET = async () => {
     try {
       const resposneJSON = await fetch(
@@ -37,6 +60,7 @@ const TouranmentBallType = () => {
               setarray.push({
                 id: DataTransfer.ID,
                 title: DataTransfer.NAME,
+                label: DataTransfer.NAME,
               });
             });
             setSelectedItem(setarray);
@@ -61,7 +85,46 @@ const TouranmentBallType = () => {
 
   return (
     <View style={{ backgroundColor: "white" }}>
-      <AutocompleteDropdown
+      <Dropdown
+        placeholderStyle={[{ color: Color.PrimaryColor, fontSize: 16, }]}
+        selectedTextStyle={[{ color: Color.FontColor, fontSize: 16, }]}
+        inputSearchStyle={[{
+          color: Color.FontColor, height: 40,
+          fontSize: 16,
+        }]}
+        style={{
+          backgroundColor: 'white',
+          borderBottomColor: 'gray',
+          borderBottomWidth: 0.5,
+          marginTop: 20,
+        }}
+        containerStyle={{
+          shadowColor: '#000',
+          shadowOffset: {
+            width: 0,
+            height: 1,
+          },
+          shadowOpacity: 0.2,
+          shadowRadius: 1.41,
+          elevation: 2,
+        }}
+        data={selectedItem}
+        search
+        searchPlaceholder="Search"
+        labelField="label"
+        valueField="value"
+        label="Select Category"
+        placeholder="Select Category"
+        // value={dropdown}
+        onChange={item => {
+          // setDropdown(item.value);
+          // console.log('selected', item);
+          item && ChangeSelectItem(item.id, item.title);
+        }}
+        renderItem={item => _renderItem(item)}
+        textError="Error"
+      />
+      {/* <AutocompleteDropdown
         textInputProps={{
           placeholder: "Search Ball Type",
           autoFocus: true,
@@ -79,7 +142,7 @@ const TouranmentBallType = () => {
           item && ChangeSelectItem(item.id, item.title);
         }}
         dataSet={selectedItem}
-      />
+      /> */}
     </View>
   );
 };

@@ -149,6 +149,7 @@ import Stats from "../Screen/MyProfile/Stats";
 import Tournament_Edit_DeleteNewTeams from "../Screen/Tournament/TournamentRightSide_Navigation/Tournament_Edit_DeleteNewTeams";
 import Custrome_Tournament_Edit_DeleteNewTeams from "../Screen/Tournament/TournamentRightSide_Navigation/Custrome_Tournament_Edit_DeleteNewTeams";
 import TouranmentCategory from "../Screen/Tournament/DropDownAdd/TouranmentCategory";
+import TouranmentBallType from "../Screen/Tournament/DropDownAdd/TouranmentBallType";
 /*------------------------ Tournamenr Match  -----------------------------*/
 
 
@@ -2506,7 +2507,19 @@ const NavigationScreen = (props) => {
               },
             }}
           />
-
+          <Stack.Screen
+            name="TouranmentBallType"
+            component={TouranmentBallType}
+            options={{
+              title: "Select Ball Type",
+              headerTitleAlign: "center",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            }}
+          />
 
         </Stack.Navigator>
       </NavigationContainer>

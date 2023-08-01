@@ -148,6 +148,8 @@ import Matches from "../Screen/MyProfile/Matches";
 import Stats from "../Screen/MyProfile/Stats";
 import Tournament_Edit_DeleteNewTeams from "../Screen/Tournament/TournamentRightSide_Navigation/Tournament_Edit_DeleteNewTeams";
 import Custrome_Tournament_Edit_DeleteNewTeams from "../Screen/Tournament/TournamentRightSide_Navigation/Custrome_Tournament_Edit_DeleteNewTeams";
+import TouranmentCategory from "../Screen/Tournament/DropDownAdd/TouranmentCategory";
+import TouranmentBallType from "../Screen/Tournament/DropDownAdd/TouranmentBallType";
 /*------------------------ Tournamenr Match  -----------------------------*/
 
 
@@ -194,21 +196,21 @@ function MyProfile({ route }) {
           title: "Matches",
         }}
       />
-       <Tab.Screen
+      <Tab.Screen
         name="Stats"
         component={Stats}
         options={{
           title: "Stats",
         }}
       />
-     <Tab.Screen
+      <Tab.Screen
         name="MyTeam"
         component={MyTeam}
         options={{
           title: "Teams",
         }}
       />
-      
+
     </Tab.Navigator>
   );
 }
@@ -2406,14 +2408,42 @@ const NavigationScreen_login = (props) => {
             name="MyProfile"
             component={MyProfile}
             options={{
-              
+
             }}
           />
-           <Stack.Screen
+          <Stack.Screen
             name="Tournament_Edit_DeleteNewTeams"
             component={Tournament_Edit_DeleteNewTeams}
             options={{
               title: "Edit / Delete Team",
+            }}
+          />
+
+          <Stack.Screen
+            name="TouranmentCategory"
+            component={TouranmentCategory}
+            options={{
+              title: "Select Category",
+              headerTitleAlign: "center",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            }}
+          />
+
+          <Stack.Screen
+            name="TouranmentBallType"
+            component={TouranmentBallType}
+            options={{
+              title: "Select Ball Type",
+              headerTitleAlign: "center",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
             }}
           />
 

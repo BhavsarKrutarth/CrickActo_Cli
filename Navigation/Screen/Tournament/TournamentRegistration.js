@@ -936,7 +936,7 @@ const TournamentRegistration = (props) => {
                   value={Categorytitle}
                 />
               </View>
-              {/*  <View style={[styles.width100, { marginTop: 20 }]}>
+               <View style={[styles.width100, { marginTop: 20 }]}>
                 <Text style={styles.paragraph}>Select Ball Type</Text>
                 <TextInput
                   KeyboardAvoidingView={true}
@@ -946,11 +946,12 @@ const TournamentRegistration = (props) => {
                   style={{
                     borderBottomColor: Color.Texttitle,
                     borderBottomWidth: 2,
+                    color:Color.FontColor
                   }}
                   value={BallTypetitle}
                 />
               </View>
-              <View style={[styles.width100, { marginTop: 20 }]}>
+               {/*<View style={[styles.width100, { marginTop: 20 }]}>
                 <Text style={styles.paragraph}>Pitch Type</Text>
                 <TextInput
                   KeyboardAvoidingView={true}
