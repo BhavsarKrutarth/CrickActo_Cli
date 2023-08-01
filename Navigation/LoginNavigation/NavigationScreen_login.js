@@ -146,6 +146,8 @@ import PlayerAdd from "../Screen/MyTeams/Player/PlayerAdd";
 import Setting from "../Screen/UserProfile/Setting";
 import Matches from "../Screen/MyProfile/Matches";
 import Stats from "../Screen/MyProfile/Stats";
+import Tournament_Edit_DeleteNewTeams from "../Screen/Tournament/TournamentRightSide_Navigation/Tournament_Edit_DeleteNewTeams";
+import Custrome_Tournament_Edit_DeleteNewTeams from "../Screen/Tournament/TournamentRightSide_Navigation/Custrome_Tournament_Edit_DeleteNewTeams";
 /*------------------------ Tournamenr Match  -----------------------------*/
 
 
@@ -2366,6 +2368,7 @@ const NavigationScreen_login = (props) => {
                 backgroundColor: Color.PrimaryColor,
                 color: "white",
               },
+              headerRight: (props) => <Custrome_Tournament_Edit_DeleteNewTeams {...props} />, // Set the custom header
             })}
           />
           <Stack.Screen
@@ -2406,6 +2409,14 @@ const NavigationScreen_login = (props) => {
               
             }}
           />
+           <Stack.Screen
+            name="Tournament_Edit_DeleteNewTeams"
+            component={Tournament_Edit_DeleteNewTeams}
+            options={{
+              title: "Edit / Delete Team",
+            }}
+          />
+
         </Stack.Navigator>
       </NavigationContainer>
     </>

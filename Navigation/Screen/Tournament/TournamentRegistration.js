@@ -11,7 +11,8 @@ import {
   KeyboardAvoidingView,
   Text,
   ToastAndroid,
-  TextInput
+  TextInput,
+  PermissionsAndroid
 } from "react-native";
 import Checkbox from "expo-checkbox";
 import Color from "../../../Color/Color";
@@ -19,8 +20,36 @@ import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import {
+  launchCamera,
+  launchImageLibrary
+} from 'react-native-image-picker';
 
 const TournamentRegistration = (props) => {
+/*-------------------- Image Upload  -------------------------------*/
+  const selectFile = async () => {
+    var options = {
+      mediaType: 'photo',
+      includeBase64: true
+    }
+    const OpenCamera = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.CAMERA,
+    )
+    // console.log(OpenCamera)
+    if (OpenCamera === PermissionsAndroid.RESULTS.GRANTED) {
+      const result = await launchImageLibrary(options)
+      if (!result.canceled) {
+        BannerImageUpload(result.assets[0].base64, result.assets[0].uri);
+        // const fileName = result.assets[0].uri.split('/').pop();
+        // setImageName(fileName);
+        setImageFlieName(result.assets[0].uri);
+        setImage(result.assets[0].uri);
+        setImgUI(true);
+      }
+    }
+  };
+
+
   function showToast(Text) {
     ToastAndroid.show(Text, ToastAndroid.SHORT);
   }
@@ -460,7 +489,23 @@ const TournamentRegistration = (props) => {
   };
 
   const MainBannerUIpickImage = async () => {
-    alert('coming soon')
+    var options = {
+      mediaType: 'photo',
+      includeBase64: true
+    }
+    const OpenCamera = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.CAMERA,
+    )
+    // console.log(OpenCamera)
+    if (OpenCamera === PermissionsAndroid.RESULTS.GRANTED) {
+      const result = await launchImageLibrary(options)
+      if (!result.canceled) {
+          BannerImageUpload(result.assets[0].base64, result.assets[0].uri);
+          setImage(result.assets[0].uri);
+          setMainBanner(false);
+          setMainBannerUI(true);
+      }
+    }
     // let result = await ImagePicker.launchImageLibraryAsync({
     //   mediaTypes: ImagePicker.MediaTypeOptions.Images,
     //   allowsEditing: true,
@@ -876,7 +921,7 @@ const TournamentRegistration = (props) => {
                   </View>
                 </View>
               </View>
-              {/* <View style={[styles.width100, { marginTop: 20 }]}>
+             <View style={[styles.width100, { marginTop: 20 }]}>
                 <Text style={styles.paragraph}>Tournament Category</Text>
                 <TextInput
                   KeyboardAvoidingView={true}
@@ -886,11 +931,12 @@ const TournamentRegistration = (props) => {
                   style={{
                     borderBottomColor: Color.Texttitle,
                     borderBottomWidth: 2,
+                    color:Color.FontColor
                   }}
                   value={Categorytitle}
                 />
               </View>
-              <View style={[styles.width100, { marginTop: 20 }]}>
+              {/*  <View style={[styles.width100, { marginTop: 20 }]}>
                 <Text style={styles.paragraph}>Select Ball Type</Text>
                 <TextInput
                   KeyboardAvoidingView={true}

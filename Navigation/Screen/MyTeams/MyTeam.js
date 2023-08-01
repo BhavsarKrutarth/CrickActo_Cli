@@ -127,6 +127,15 @@ const MyTeam = (props) => {
           navigation.navigate("PlayerPageMain", {
             MyTeam: item.title,
             MyTeamId: item.id,
+            id: item.id,
+            MobileNo: item.MobileNo,
+            MyTeam_Guid: item.MyTeam_Guid,
+            ImageName: item.ImageName,
+            imgtitle: item.imgtitle,
+            title: item.title,
+            CityId: item.CityId,
+            CityName: item.CityName,
+            PageRedirect:"MyTeam"
           })
         }
       >

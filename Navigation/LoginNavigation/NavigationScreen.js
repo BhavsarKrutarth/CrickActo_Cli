@@ -146,6 +146,9 @@ import PlayerAdd from "../Screen/MyTeams/Player/PlayerAdd";
 import Setting from "../Screen/UserProfile/Setting";
 import Matches from "../Screen/MyProfile/Matches";
 import Stats from "../Screen/MyProfile/Stats";
+import Tournament_Edit_DeleteNewTeams from "../Screen/Tournament/TournamentRightSide_Navigation/Tournament_Edit_DeleteNewTeams";
+import Custrome_Tournament_Edit_DeleteNewTeams from "../Screen/Tournament/TournamentRightSide_Navigation/Custrome_Tournament_Edit_DeleteNewTeams";
+import TouranmentCategory from "../Screen/Tournament/DropDownAdd/TouranmentCategory";
 /*------------------------ Tournamenr Match  -----------------------------*/
 
 
@@ -155,6 +158,7 @@ const Tab = createMaterialTopTabNavigator();
 const Drawer = createDrawerNavigator();
 const BottomTab = createBottomTabNavigator();
 const RightDrawer = createDrawerNavigator();
+
 
 function MyProfile({ route }) {
   return (
@@ -192,21 +196,21 @@ function MyProfile({ route }) {
           title: "Matches",
         }}
       />
-       <Tab.Screen
+      <Tab.Screen
         name="Stats"
         component={Stats}
         options={{
           title: "Stats",
         }}
       />
-     <Tab.Screen
+      <Tab.Screen
         name="MyTeam"
         component={MyTeam}
         options={{
           title: "Teams",
         }}
       />
-      
+
     </Tab.Navigator>
   );
 }
@@ -994,6 +998,8 @@ const MyTheme = {
 };
 
 const NavigationScreen = (props) => {
+
+
   return (
     <>
       <StatusBar style="dark" />
@@ -2403,23 +2409,25 @@ const NavigationScreen = (props) => {
                 backgroundColor: Color.PrimaryColor,
                 color: "white",
               },
-              headerRight: () => (
-                
-                <Pressable onPress={() => {
-                  console.log(route);
-                  alert('test')
-                  }}>
-                <Image
-                  source={{
-                    uri:
-                      "" +
-                      global.domainName +
-                      "/CricbuddyAdmin/Content/assets/edit.png",
-                  }}
-                  style={{ width: 25, height: 25 }}
-                />
-                </Pressable>
-              ),
+              // headerRight: () => (
+
+              //   <Pressable onPress={() => {
+              //     // console.log(route);
+              //     // alert('test');
+              //     navigation.navigate('Tournament_Edit_DeleteNewTeams')
+              //   }}>
+              //     <Image
+              //       source={{
+              //         uri:
+              //           "" +
+              //           global.domainName +
+              //           "/CricbuddyAdmin/Content/assets/edit.png",
+              //       }}
+              //       style={{ width: 25, height: 25 }}
+              //     />
+              //   </Pressable>
+              // ),
+              headerRight: (props) => <Custrome_Tournament_Edit_DeleteNewTeams {...props} />, // Set the custom header
             })}
           />
           <Stack.Screen
@@ -2474,9 +2482,32 @@ const NavigationScreen = (props) => {
             name="MyProfile"
             component={MyProfile}
             options={{
-              
+
             }}
           />
+          <Stack.Screen
+            name="Tournament_Edit_DeleteNewTeams"
+            component={Tournament_Edit_DeleteNewTeams}
+            options={{
+              title: "Edit / Delete Team",
+            }}
+          />
+
+          <Stack.Screen
+            name="TouranmentCategory"
+            component={TouranmentCategory}
+            options={{
+              title: "Select Category",
+              headerTitleAlign: "center",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            }}
+          />
+
+
         </Stack.Navigator>
       </NavigationContainer>
     </>

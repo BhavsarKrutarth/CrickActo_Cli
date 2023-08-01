@@ -2,11 +2,38 @@ import { StyleSheet, Text, View, Dimensions } from "react-native";
 import React, { useState, useEffect } from "react";
 import { AutocompleteDropdown } from "react-native-autocomplete-dropdown";
 import { useNavigation } from "@react-navigation/native";
+import { Dropdown } from 'react-native-element-dropdown';
+import styles from "../../../../Component/PressableButton/styles";
+import Color from "../../../../Color/Color";
 
 const TouranmentCategory = () => {
   console.log("Navigation/Screen/Tournament/DropDownAdd/TouranmentCategory.js")
   const navigation = useNavigation();
   const [selectedItem, setSelectedItem] = useState([]);
+
+
+  const [dropdown, setDropdown] = useState(null);
+  const [selected, setSelected] = useState([]);
+
+  const _renderItem = item => {
+    return (
+      <View style={{
+        paddingVertical: 17,
+        paddingHorizontal: 4,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+      }}>
+        <Text style={{
+          flex: 1,
+          fontSize: 16,
+          color: Color.FontColor,
+          paddingLeft: 10
+        }}>{item.title}</Text>
+        {/* <Image style={styles.icon} source={require('./assets/tick.png')} /> */}
+      </View>
+    );
+  };
   useEffect(() => {
     TouranmentCategory_GET();
     // console.log(Dimensions.get("window").height)
@@ -35,7 +62,9 @@ const TouranmentCategory = () => {
             DataTransfer.forEach((DataTransfer) => {
               setarray.push({
                 id: DataTransfer.ID,
+                label: DataTransfer.NAME,
                 title: DataTransfer.NAME,
+                
               });
             });
             setSelectedItem(setarray);
@@ -53,14 +82,53 @@ const TouranmentCategory = () => {
   };
   const ChangeSelectItem = (Categoryid, Categorytitle) => {
     navigation.navigate("TournamentRegistration", {
-        Categoryid,
-        Categorytitle,
+      Categoryid,
+      Categorytitle,
     });
   };
 
   return (
     <View style={{ backgroundColor: "white" }}>
-      <AutocompleteDropdown
+      <Dropdown
+        placeholderStyle={[{ color: Color.PrimaryColor, fontSize: 16, }]}
+        selectedTextStyle={[{ color: Color.FontColor, fontSize: 16, }]}
+        inputSearchStyle={[{
+          color: Color.FontColor, height: 40,
+          fontSize: 16,
+        }]}
+        style={{
+          backgroundColor: 'white',
+          borderBottomColor: 'gray',
+          borderBottomWidth: 0.5,
+          marginTop: 20,
+        }}
+        containerStyle={{
+          shadowColor: '#000',
+          shadowOffset: {
+            width: 0,
+            height: 1,
+          },
+          shadowOpacity: 0.2,
+          shadowRadius: 1.41,
+          elevation: 2,
+        }}
+        data={selectedItem}
+        search
+        searchPlaceholder="Search"
+        labelField="label"
+        valueField="value"
+        label="Select Category"
+        placeholder="Select Category"
+        // value={dropdown}
+        onChange={item => {
+          // setDropdown(item.value);
+          // console.log('selected', item);
+          item && ChangeSelectItem(item.id, item.title);
+        }}
+        renderItem={item => _renderItem(item)}
+        textError="Error"
+      />
+      {/* <AutocompleteDropdown
         // suggestionsListMaxHeight={Dimensions.get("window").height * 0.9}
         // suggestionsListTextStyle={{
         //   backgroundColor:"black",
@@ -84,7 +152,7 @@ const TouranmentCategory = () => {
           item && ChangeSelectItem(item.id, item.title);
         }}
         dataSet={selectedItem}
-      />
+      /> */}
     </View>
   );
 };
