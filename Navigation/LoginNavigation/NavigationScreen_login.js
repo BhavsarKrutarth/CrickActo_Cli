@@ -150,6 +150,8 @@ import Tournament_Edit_DeleteNewTeams from "../Screen/Tournament/TournamentRight
 import Custrome_Tournament_Edit_DeleteNewTeams from "../Screen/Tournament/TournamentRightSide_Navigation/Custrome_Tournament_Edit_DeleteNewTeams";
 import TouranmentCategory from "../Screen/Tournament/DropDownAdd/TouranmentCategory";
 import TouranmentBallType from "../Screen/Tournament/DropDownAdd/TouranmentBallType";
+import TouranmentPitchType from "../Screen/Tournament/DropDownAdd/TouranmentPitchType";
+import TouranmentMatchType from "../Screen/Tournament/DropDownAdd/TouranmentMatchType";
 /*------------------------ Tournamenr Match  -----------------------------*/
 
 
@@ -2438,6 +2440,33 @@ const NavigationScreen_login = (props) => {
             component={TouranmentBallType}
             options={{
               title: "Select Ball Type",
+              headerTitleAlign: "center",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            }}
+          />
+          <Stack.Screen
+            name="TouranmentPitchType"
+            component={TouranmentPitchType}
+            options={{
+              title: "Select Pitch Type",
+              headerTitleAlign: "center",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            }}
+          />
+
+          <Stack.Screen
+            name="TouranmentMatchType"
+            component={TouranmentMatchType}
+            options={{
+              title: "Select Match Type",
               headerTitleAlign: "center",
               headerTintColor: "white",
               headerStyle: {
