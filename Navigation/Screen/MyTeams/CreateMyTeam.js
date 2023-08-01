@@ -37,16 +37,16 @@ const CreateMyTeam = () => {
   const txtTeamNameRef = useRef(null);
   const [Team_RedirectPage, setTeam_RedirectPage] = useState(null);
   const [btndisabled, setbtndisabled] = useState(false);
-  
+
   const selectFile = async () => {
     var options = {
-      mediaType:'photo',
-      includeBase64:true
+      mediaType: 'photo',
+      includeBase64: true
     }
     const OpenCamera = await PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.CAMERA,
     )
-    console.log(OpenCamera)
+    // console.log(OpenCamera)
     if (OpenCamera === PermissionsAndroid.RESULTS.GRANTED) {
       const result = await launchImageLibrary(options)
       if (!result.canceled) {
@@ -201,10 +201,10 @@ const CreateMyTeam = () => {
     if (route.params?.Team_RedirectPage)
       setTeam_RedirectPage(route.params?.Team_RedirectPage);
 
-      if(global.CityId)
+    if (global.CityId)
       setCommon_CityId(global.CityId);
-      
-      if(global.CityName)
+
+    if (global.CityName)
       setCommon_CityName(global.CityName);
 
     // SetData(route.params?.Common_CityId, route.params?.Common_CityName);
@@ -597,7 +597,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  imgtxt:{
+  imgtxt: {
     height: 60,
     width: 60,
     borderWidth: 2,
