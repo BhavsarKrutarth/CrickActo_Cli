@@ -126,7 +126,7 @@ const CustomSidebarMenu = (props) => {
           }}
         /> */}
 
-        {/* {global.TournamentAdmin == 1 ? (
+        {global.TournamentAdmin == 1 ? (
           <DrawerItem
             label="Edit/Delete"
             onPress={() => navigation.navigate("Tournament_Edit_Delete")}
@@ -135,7 +135,7 @@ const CustomSidebarMenu = (props) => {
               borderBottomWidth: 2,
             }}
           />
-        ) : null} */}
+        ) : null}
 
         {/* <View style={styles.customItem}>
           <Text

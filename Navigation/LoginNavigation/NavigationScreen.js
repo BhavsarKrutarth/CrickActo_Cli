@@ -152,6 +152,7 @@ import TouranmentCategory from "../Screen/Tournament/DropDownAdd/TouranmentCateg
 import TouranmentBallType from "../Screen/Tournament/DropDownAdd/TouranmentBallType";
 import TouranmentPitchType from "../Screen/Tournament/DropDownAdd/TouranmentPitchType";
 import TouranmentMatchType from "../Screen/Tournament/DropDownAdd/TouranmentMatchType";
+import Tournament_Edit_Delete from "../Screen/Tournament/TournamentRightSide_Navigation/Tournament_Edit_Delete";
 /*------------------------ Tournamenr Match  -----------------------------*/
 
 
@@ -2549,6 +2550,21 @@ const NavigationScreen = (props) => {
               },
             }}
           />
+
+          <Stack.Screen
+            name="Tournament_Edit_Delete"
+            component={Tournament_Edit_Delete}
+            options={{
+              title: "Edit/Delete",
+              headerTitleAlign: "center",
+              headerTintColor: "white",
+              headerStyle: {
+                backgroundColor: Color.PrimaryColor,
+                color: "white",
+              },
+            }}
+          />
+
         </Stack.Navigator>
       </NavigationContainer>
     </>
