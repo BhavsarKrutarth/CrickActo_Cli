@@ -656,8 +656,8 @@ const TournamentRegistration = (props) => {
       <StatusBar barStyle={"light-content"} />
       <KeyboardAvoidingView
         style={{ flex: 1 }}
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        enabled
+        // behavior={Platform.OS === "ios" ? "padding" : "height"}
+        // enabled
       >
         <ScrollView
           nestedScrollEnabled
@@ -927,7 +927,10 @@ const TournamentRegistration = (props) => {
                   KeyboardAvoidingView={true}
                   placeholder="Search Category"
                   placeholderTextColor={Color.FontColor}
-                  onFocus={() => navigation.navigate("TouranmentCategory")}
+                  onFocus={() => navigation.navigate("TouranmentCategory",
+                  {
+                    PageRedirect : "TournamentRegistration"
+                  })}
                   style={{
                     borderBottomColor: Color.Texttitle,
                     borderBottomWidth: 2,
@@ -942,7 +945,9 @@ const TournamentRegistration = (props) => {
                   KeyboardAvoidingView={true}
                   placeholder="Select Ball Type"
                   placeholderTextColor={Color.FontColor}
-                  onFocus={() => navigation.navigate("TouranmentBallType")}
+                  onFocus={() => navigation.navigate("TouranmentBallType",{
+                    PageRedirect : "TournamentRegistration"
+                  })}
                   style={{
                     borderBottomColor: Color.Texttitle,
                     borderBottomWidth: 2,
@@ -957,7 +962,9 @@ const TournamentRegistration = (props) => {
                   KeyboardAvoidingView={true}
                   placeholder="Select Pitch Type"
                   placeholderTextColor={Color.FontColor}
-                  onFocus={() => navigation.navigate("TouranmentPitchType")}
+                  onFocus={() => navigation.navigate("TouranmentPitchType",{
+                    PageRedirect : "TournamentRegistration"
+                  })}
                   style={{
                     borderBottomColor: Color.Texttitle,
                     borderBottomWidth: 2,
@@ -973,7 +980,9 @@ const TournamentRegistration = (props) => {
                   KeyboardAvoidingView={true}
                   placeholder="Select Match Type"
                   placeholderTextColor={Color.FontColor}
-                  onFocus={() => navigation.navigate("TouranmentMatchType")}
+                  onFocus={() => navigation.navigate("TouranmentMatchType",{
+                    PageRedirect : "TournamentRegistration"
+                  })}
                   style={{
                     borderBottomColor: Color.Texttitle,
                     borderBottomWidth: 2,

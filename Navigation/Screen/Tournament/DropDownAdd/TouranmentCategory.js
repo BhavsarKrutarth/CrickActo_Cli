@@ -3,13 +3,17 @@ import React, { useState, useEffect } from "react";
 import { AutocompleteDropdown } from "react-native-autocomplete-dropdown";
 import { useNavigation } from "@react-navigation/native";
 import { Dropdown } from 'react-native-element-dropdown';
+import { useRoute } from "@react-navigation/native";
 import styles from "../../../../Component/PressableButton/styles";
 import Color from "../../../../Color/Color";
 
 const TouranmentCategory = () => {
   console.log("Navigation/Screen/Tournament/DropDownAdd/TouranmentCategory.js")
   const navigation = useNavigation();
+  const route = useRoute();
   const [selectedItem, setSelectedItem] = useState([]);
+  const [PageRedirect,setPageRedirect] = useState(null);
+
   const _renderItem = item => {
     return (
       <View style={{
@@ -32,6 +36,10 @@ const TouranmentCategory = () => {
   useEffect(() => {
     TouranmentCategory_GET();
     // console.log(Dimensions.get("window").height)
+
+    if (route.params?.PageRedirect)
+    setPageRedirect(route.params?.PageRedirect);
+
   }, []);
   const TouranmentCategory_GET = async () => {
     try {
@@ -76,7 +84,7 @@ const TouranmentCategory = () => {
     }
   };
   const ChangeSelectItem = (Categoryid, Categorytitle) => {
-    navigation.navigate("TournamentRegistration", {
+    navigation.navigate(PageRedirect, {
       Categoryid,
       Categorytitle,
     });

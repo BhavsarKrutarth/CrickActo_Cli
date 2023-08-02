@@ -193,7 +193,7 @@ const TournamentTeams = (props) => {
             source={{
               uri: `${global.domainName}/cricbuddyAPI/UploadFiles/UserProfile/${item.IMAGENAME}`,
             }}
-            style={styles.img}
+            style={[styles.img,{backgroundColor:"white"}]}
           />
         ) : (
           <Text style={{ color: "white" }}>{item.IMGTITLE}</Text>

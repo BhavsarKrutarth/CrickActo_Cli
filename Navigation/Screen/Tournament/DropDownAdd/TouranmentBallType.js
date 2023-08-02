@@ -4,16 +4,22 @@ import React, { useState, useEffect } from "react";
 import { Dropdown } from 'react-native-element-dropdown';
 import { useNavigation } from "@react-navigation/native";
 import Color from "../../../../Color/Color";
+import { useRoute } from "@react-navigation/native";
 
 const TouranmentBallType = () => {
   console.log("Navigation/Screen/Tournament/DropDownAdd/TouranmentBallType.js")
   const navigation = useNavigation();
+  const route = useRoute();
+  const [PageRedirect,setPageRedirect] = useState(null);
 
   const [selectedItem, setSelectedItem] = useState([]);
   useEffect(() => {
     TouranmentBallType_GET();
     // console.log(Dimensions.get("window").height)
-  }, []);
+
+    if (route.params?.PageRedirect)
+    setPageRedirect(route.params?.PageRedirect);
+  },[route.params]);
 
   const _renderItem = item => {
     return (
@@ -77,7 +83,7 @@ const TouranmentBallType = () => {
     }
   };
   const ChangeSelectItem = (BallTypeid, BallTypetitle) => {
-    navigation.navigate("TournamentRegistration", {
+    navigation.navigate(PageRedirect, {
         BallTypeid,
         BallTypetitle,
     });

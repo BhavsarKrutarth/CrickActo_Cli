@@ -2,17 +2,26 @@ import { StyleSheet, Text, View, Dimensions } from "react-native";
 import React, { useState, useEffect } from "react";
 import { AutocompleteDropdown } from "react-native-autocomplete-dropdown";
 import { useNavigation } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
 import { Dropdown } from 'react-native-element-dropdown';
 import Color from "../../../../Color/Color";
 
 const TouranmentMatchType = () => {
   console.log("Navigation/Screen/Tournament/DropDownAdd/TouranmentMatchType.js")
   const navigation = useNavigation();
+  const route = useRoute();
   const [selectedItem, setSelectedItem] = useState([]);
+  const [PageRedirect,setPageRedirect] = useState(null);
   useEffect(() => {
     TouranmentMatchType_GET();
     // console.log(Dimensions.get("window").height)
-  }, []);
+
+    if (route.params?.PageRedirect)
+    setPageRedirect(route.params?.PageRedirect);
+
+
+  }, [route.params]);
+
   const TouranmentMatchType_GET = async () => {
     try {
       const resposneJSON = await fetch(
@@ -54,7 +63,7 @@ const TouranmentMatchType = () => {
     }
   };
   const ChangeSelectItem = (MatchTypeid, MatchTypetitle) => {
-    navigation.navigate("TournamentRegistration", {
+    navigation.navigate(PageRedirect, {
         MatchTypeid,
         MatchTypetitle,
     });

@@ -2,18 +2,25 @@ import { StyleSheet, Text, View, Dimensions } from "react-native";
 import React, { useState, useEffect } from "react";
 // import { AutocompleteDropdown } from "react-native-autocomplete-dropdown";
 import { useNavigation } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
 import { Dropdown } from 'react-native-element-dropdown';
 import Color from "../../../../Color/Color";
 
 const TouranmentPitchType = () => {
   console.log("Navigation/Screen/Tournament/DropDownAdd/TouranmentPitchType.js");
   const navigation = useNavigation();
+  const route = useRoute();
 
   const [selectedItem, setSelectedItem] = useState([]);
+  const [PageRedirect,setPageRedirect] = useState(null);
   useEffect(() => {
     TouranmentPitchType_GET();
     // console.log(Dimensions.get("window").height)
-  }, []);
+
+    if (route.params?.PageRedirect)
+    setPageRedirect(route.params?.PageRedirect);
+
+  },  [route.params]);
   const TouranmentPitchType_GET = async () => {
     try {
       const resposneJSON = await fetch(
@@ -56,7 +63,7 @@ const TouranmentPitchType = () => {
     }
   };
   const ChangeSelectItem = (PitchTypeid, PitchTypetitle) => {
-    navigation.navigate("TournamentRegistration", {
+    navigation.navigate(PageRedirect, {
         PitchTypeid,
         PitchTypetitle,
     });

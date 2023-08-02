@@ -84,24 +84,33 @@ const MainPage = () => {
     // }
 
     try {
+      var data = {
+        PAGEINDEX: page,
+        PAGECOUNT: 30,
+        SPNAME: "MAINPAGE_POST_GET",
+      }
       const resposneJSON = await fetch(
-        `${global.domainName}/cricbuddyAPI/api/PostDataBind`,
+        `${global.domainName}/cricbuddyAPI/api/CommonSp`,
         {
-          method: "GET",
+          method: "POST",
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
             Authorization: "FF7B5E5C-A468-4CE0-B812-98008627C8KT",
-            PageIndex: page,
-            PageCount: 30,
-            SpName: "MAINPAGE_POST_GET",
+            // PageIndex: page,
+            // PageCount: 30,
+            // SpName: "MAINPAGE_POST_GET",
+            SpName:"MAINPAGE_POST_GET",
           },
+          body: JSON.stringify(data)
         }
       )
         .then((response) => response.json())
         .then((json) => {
+          console.log(json + "JSONE BIND")
           var BindData = JSON.parse(json);
           var List;
+
 
           if (BindData.SERVICERESPONSE.RESPONSECODE != "-1") {
             if (BindData.SERVICERESPONSE.TOTALRECORDS != "0") {
@@ -218,7 +227,7 @@ const MainPage = () => {
         onEndReachedThreshold={0.1}
         ListFooterComponent={renderFooter}
       />
-      
+
 
     </View>
   );

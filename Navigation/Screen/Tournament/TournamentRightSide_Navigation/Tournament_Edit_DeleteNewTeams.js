@@ -162,10 +162,17 @@ const Tournament_Edit_DeleteNewTeams = () => {
                 .then((json) => {
                     var BindData = JSON.parse(json);
                     var List;
-
-                    navigation.navigate(PageRedirect, {
+                    
+                    if(BindData.SERVICERESPONSE.RESPONSECODE == "0")
+                    {
+                        navigation.navigate(PageRedirect, {
                         LoadRef: "True"
                     });
+                    }
+                    else if(BindData.SERVICERESPONSE.RESPONSECODE == "-1")
+                    {
+                        alert(BindData.SERVICERESPONSE.RESPONSEMESSAGE)
+                    }
 
                     return json;
                 })
