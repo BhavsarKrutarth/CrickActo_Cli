@@ -726,8 +726,8 @@ const MatchScoring = () => {
     setRun(+Run + +NoBall);
     setRunDisplay(
       RunDisplay != null
-        ? RunDisplay + " - " + NoBallRun + "(NB)"
-        : NoBallRun + "(NB)"
+        ? RunDisplay + " - " + (NoBallRun == null ? '' : NoBallRun) + "(NB)"
+        : (NoBallRun == null ? '' : NoBallRun) + "(NB)"
     );
     setNoBallModal(false);
 
@@ -835,7 +835,7 @@ const MatchScoring = () => {
     setRun(+Run + +WideBall);
     setRunDisplay(
       RunDisplay != null
-        ? RunDisplay + " - " + WideBall + "(WD)"
+        ? RunDisplay + " - " + WideBall  + "(WD)"
         : RunDisplay + "(WD)"
     );
 
@@ -927,8 +927,8 @@ const MatchScoring = () => {
           setWideBallModal(false);
           setRunDisplay(
             RunDisplay != null
-              ? RunDisplay + " - " + WideBallRun + " (WD)"
-              : WideBallRun + " (WD)"
+              ? RunDisplay + " - " + (WideBallRun == null ? '' : WideBallRun) + " (WD)"
+              : + (WideBallRun == null ? '' : WideBallRun) + " (WD)"
           );
 
           if (Matchid) {

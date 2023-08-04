@@ -36,7 +36,7 @@ const Tournament = props => {
         .then((json) => {
           var BindData = JSON.parse(json);
           var List;
-          console.log(BindData)
+          
           if (BindData.SERVICERESPONSE.RESPONSECODE == "0") {
             if(BindData.SERVICERESPONSE.DETAILSLIST)
             {

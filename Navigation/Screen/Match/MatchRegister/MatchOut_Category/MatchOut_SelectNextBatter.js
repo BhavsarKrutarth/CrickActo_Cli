@@ -286,8 +286,11 @@ import {
         ,data.STREAKENAME=Name
         ,data.STICKERPLAYERID=Playerid
         ,data.POSSTIONFLAG="Sticker"
-        ,data.FLAGBATTERTYPE=FlagBatterType == Color.PrimaryColor ? "Sticker" : "Runner"
-     
+        ,data.FLAGBATTERTYPE=FlagBatterType == Color.PrimaryColor_Org ? "Sticker" : "Runner"
+        
+      //   console.log(FlagBatterType)
+      //   console.log(data)
+      // return
       const resposneJSON = await fetch(
         `${url}`,
         {
@@ -720,7 +723,7 @@ import {
       marginVertical: 10,
     },
     modaltitle: { fontSize: 20, color: Color.PrimaryColor, fontWeight: "600" },
-    modalsubtitle: { fontSize: 16 },
+    modalsubtitle: { fontSize: 16,color:Color.FontColor },
 
   });
   

@@ -265,7 +265,7 @@ const NextInning_MatchSelectNon_Striker = (props) => {
               SpName: "MATCH_BOWLER_BATTINGSTYLE_API_CRUD"
             },
             body: JSON.stringify({
-              Oper: 'Edit',
+              OPER: 'Edit',
               MATCHTEAMBPLAYERID: id,
               PLAYERID: Playerid,
               BATTINGSTYLE: BattingStyle,
@@ -598,7 +598,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   modaltitle: { fontSize: 20, color: Color.PrimaryColor, fontWeight: "600" },
-  modalsubtitle: { fontSize: 16 },
+  modalsubtitle: { fontSize: 16,color:Color.FontColor },
 
 });
 

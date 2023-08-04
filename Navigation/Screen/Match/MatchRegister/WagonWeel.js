@@ -60,8 +60,6 @@ const WagonWeel = props => {
     }
 
     const Close = () => {
-
-
         navigation.navigate(RedirectPage)
     }
     const Done = (ShortType) => {

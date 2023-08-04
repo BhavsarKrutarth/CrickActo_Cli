@@ -329,7 +329,7 @@ const styles = StyleSheet.create({
   myText: {
     fontSize: 18,
     color: Color.PrimaryColor,
-    fontWeights: 900, marginBottom: 10
+    fontWeight: "900", marginBottom: 10
   },
   StrickerWrapper: {
     marginHorizontal: 10,

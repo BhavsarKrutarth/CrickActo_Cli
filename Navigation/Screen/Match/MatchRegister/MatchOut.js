@@ -703,6 +703,7 @@ const MatchOut = () => {
         var BindData = JSON.parse(json);
         
         if (BindData.SERVICERESPONSE.RESPONSECODE == 0) {
+          
            /*------------------------ Clear Wagon params --------------------*/
            route.params.FunctionName = null;
            route.params.FunctionRun = null;

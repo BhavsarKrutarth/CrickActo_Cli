@@ -128,6 +128,7 @@ const Commentary = ({ state }) => {
                 if (BindData.SERVICERESPONSE.RESPONSECODE == "0") {
                   if (BindData.SERVICERESPONSE.TOTALRECORDS > 0) {
                     List = BindData.SERVICERESPONSE;
+                    
                     if (List.DETAILSLIST) {
                         var BindTeamA_setarray = [],BindTeamAlist 
 
@@ -160,7 +161,6 @@ const Commentary = ({ state }) => {
                             Description:BindTeamAlist.Description,
                           });
                         }
-      
       
                         if (BindTeamA_setarray)
                             setBindTeamA_DetailsList(BindTeamA_setarray)
@@ -356,7 +356,7 @@ const Commentary = ({ state }) => {
               item.Over_Detailslist.Over_Details.StreakerBall > 0 ? (
                 <View style={[styles.body50,{marginLeft:10}]}>
                     <Text style={{color:Color.FontColor}}>{item.Over_Detailslist.Over_Details.StreakeName}</Text>
-                    <Text style={{color:Color.FontColor}}>{item.Over_Detailslist.Over_Details.StreakerRun}({item.Over_Detailslist.Over_Details.StreakerBall})</Text>
+                    <Text style={{color:Color.FontColor}}>{+item.Over_Detailslist.Over_Details.StreakerRun1 + +item.Over_Detailslist.Over_Details.StreakerRun2}({item.Over_Detailslist.Over_Details.StreakerBall})</Text>
                 </View>
               ) : null}
 
@@ -364,7 +364,7 @@ const Commentary = ({ state }) => {
               item.Over_Detailslist.Over_Details.RunnerBall > 0 ? (
                 <View style={styles.body50}>
                     <Text style={{color:Color.FontColor}}>{item.Over_Detailslist.Over_Details.RunnerName}</Text>
-                    <Text style={{color:Color.FontColor}}>{item.Over_Detailslist.Over_Details.RunnerRun}({item.Over_Detailslist.Over_Details.RunnerBall})</Text>
+                    <Text style={{color:Color.FontColor}}>{+item.Over_Detailslist.Over_Details.RunnerRun1 + +item.Over_Detailslist.Over_Details.RunnerRun2}({item.Over_Detailslist.Over_Details.RunnerBall})</Text>
                 </View>
               ) : null}
                 

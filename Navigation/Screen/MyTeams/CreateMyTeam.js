@@ -1,4 +1,6 @@
-import { ToastAndroid, Image, SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Pressable, TextInput, PermissionsAndroid } from 'react-native'
+import { ToastAndroid, Image, SafeAreaView, View, FlatList, StyleSheet, Text,
+  StatusBar, Pressable, TextInput, PermissionsAndroid
+} from 'react-native'
 import React, { useState, useEffect, useRef } from 'react'
 import Color from '../../../Color/Color';
 // import { ScrollView, TextInput,LayoutAnimation } from 'react-native-gesture-handler';

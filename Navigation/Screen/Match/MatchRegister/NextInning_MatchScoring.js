@@ -92,7 +92,7 @@ import {
   
     const [NoBallModal, setNoBallModal] = useState(false);
     const [NoBall_Default_Run, setNoBall_Default_Run] = useState(1);
-    const [NoBallRun, setNoBallRun] = useState(0);
+    const [NoBallRun, setNoBallRun] = useState(null);
     const [NoBall, setNoBall] = useState(NoBall_Default_Run + NoBallRun);
     const [NoBallchecked, setNoBallchecked] = useState(null);
     const [NoBallTypeVisible, setNoBallTypeVisible] = useState(false);
@@ -702,8 +702,8 @@ import {
       setRun(+Run + +NoBall);
       setRunDisplay(
         RunDisplay != null
-          ? RunDisplay + " - " + NoBallRun + "(NB)"
-          : NoBallRun + "(NB)"
+          ? RunDisplay + " - " + (NoBallRun == null ? '' : NoBallRun) + "(NB)"
+          : (NoBallRun == null ? '' : NoBallRun) + "(NB)"
       );
       setNoBallModal(false);
   
@@ -918,8 +918,8 @@ import {
               setWideBallModal(false);
               setRunDisplay(
                 RunDisplay != null
-                  ? RunDisplay + " - " + WideBallRun + " (WD)"
-                  : WideBallRun + " (WD)"
+                  ? RunDisplay + " - " + (WideBallRun == null ? '' : WideBallRun) + " (WD)"
+                  : + (WideBallRun == null ? '' : WideBallRun) + " (WD)"
               );
               if(Matchid)
               {
@@ -1052,9 +1052,13 @@ import {
       if (route.params?.BowlerPlayerid)
         setBowlerPlayerid(route.params?.BowlerPlayerid);
   
-      if (route.params.StickerPlayerid)
-        setStickerPlayerid(route.params?.StickerPlayerid);
-  
+      // if (route.params.StickerPlayerid)
+      // {
+      //   setStickerPlayerid(route.params?.StickerPlayerid);
+      // }
+      if (route.params?.StickerPlayerid)
+      setStickerPlayerid(route.params?.StickerPlayerid);
+      
       if (route.params?.Non_StickerPlayerid) {
         setNon_StickerPlayerid(route.params?.Non_StickerPlayerid);
       }
@@ -1127,6 +1131,20 @@ import {
         setModalStickerSelect(false);
       }
       if (route.params?.Run) setRun(route.params?.Run);
+
+      function onBeforeRemove(event) {
+        event.preventDefault(); //prevented nav from going back
+  
+        // alert("test")
+        navigation.navigate("MyMatch", {
+          LoadRef:true
+        });
+  
+      }
+      navigation.addListener('beforeRemove', onBeforeRemove); // listener added
+      return function cleanup() {
+        navigation.removeListener('beforeRemove', onBeforeRemove) // clean up 
+      };
     }, [route.params]);
   
     const RedirectToFunction = async (FunctionName, FunctionRun, WagonWeel, ShortType) => {

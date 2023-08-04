@@ -68,7 +68,7 @@ const MyTeam = (props) => {
           if (BindData.SERVICERESPONSE.RESPONSECODE != "-1") {
             if (BindData.SERVICERESPONSE.TOTALRECORDS != "0") {
               List = BindData.SERVICERESPONSE.DETAILSLIST.DETAILS;
-              console.log(List)
+              
               var setarray = [];
               if (BindData.SERVICERESPONSE.TOTALRECORDS > 1) {
                 if (List) {

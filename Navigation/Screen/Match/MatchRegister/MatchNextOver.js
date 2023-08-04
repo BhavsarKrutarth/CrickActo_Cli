@@ -815,6 +815,7 @@ import {
     },
     modalsubtitle: {
       fontSize: 16,
+      color:Color.FontColor
     },
     modal_box: {
       flexDirection: "row",

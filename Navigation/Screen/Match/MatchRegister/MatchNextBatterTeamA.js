@@ -781,7 +781,7 @@ import {
       marginVertical: 10,
     },
     modaltitle: { fontSize: 20, color: Color.PrimaryColor, fontWeight: "600" },
-    modalsubtitle: { fontSize: 16 },
+    modalsubtitle: { fontSize: 16,color:Color.FontColor },
 
   });
   
