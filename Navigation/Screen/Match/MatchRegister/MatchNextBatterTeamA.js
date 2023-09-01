@@ -326,7 +326,8 @@ import {
     }
     const BtnNext = async () =>
     {
-      
+      // console.log(FlagBatterType)
+      // return
       var url = `${global.domainName}/cricbuddyAPI/api/Commonsp`
       
       var data = {
@@ -340,7 +341,7 @@ import {
        ,data.STREAKENAME=Name
        ,data.STICKERPLAYERID=Playerid
        ,data.POSSTIONFLAG="Sticker"
-       ,data.FLAGBATTERTYPE=FlagBatterType == Color.PrimaryColor ? "Sticker" : "Runner"
+       ,data.FLAGBATTERTYPE=FlagBatterType == Color.PrimaryColor_Org ? "Sticker" : "Runner"
       // if(PosstionFlag == "Sticker")
       // {
       //   data.STREAKERID=id

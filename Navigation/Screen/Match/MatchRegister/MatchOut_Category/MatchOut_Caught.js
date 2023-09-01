@@ -185,6 +185,12 @@ const MatchOut_Caught = () => {
     UPDATE_LASTPAGENAME_MATCH_CRUD();
   }
   const BtnNext = async (WagonWeel,ShortType) => {
+    // console.log(FlagBatterType)
+    // console.log(Color.PrimaryColor_Org)
+    // console.log(FlagBatterType == Color.PrimaryColor_Org ? "Sticker" : "Runner" + " MatchOut_caught")
+    
+    // return
+
     if (FielderName) {
       const resposneJSON = await fetch(
         `${global.domainName}/cricbuddyAPI/api/MatchTeamA`,
@@ -234,7 +240,7 @@ const MatchOut_Caught = () => {
             Description: "",
             MatchInningid: MatchInningid,
             MatchTeamAid_undo: MatchTeamAid_undo
-            , FlagBatterType: FlagBatterType == Color.PrimaryColor ? "Sticker" : "Runner"
+            , FlagBatterType: FlagBatterType == Color.PrimaryColor_Org ? "Sticker" : "Runner"
           }),
         }
       )
@@ -274,7 +280,7 @@ const MatchOut_Caught = () => {
                 , MatchInningid: MatchInningid,
                 MatchTeamAid_undo: List.MATCHTEAMAID
                 , PosstionFlag: PosstionFlag
-                , FlagBatterType: FlagBatterType == Color.PrimaryColor ? Color.PrimaryColor : "white"
+                , FlagBatterType: FlagBatterType == Color.PrimaryColor_Org ? Color.PrimaryColor_Org : "white"
                 , ModalStickerSelect: "true"
               });
             }

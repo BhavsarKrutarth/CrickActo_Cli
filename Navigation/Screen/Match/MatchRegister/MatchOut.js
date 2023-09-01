@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, Pressable, Modal,ScrollView } from 'react-native'
+import { StyleSheet, Text, View, Image, Pressable, Modal, ScrollView } from 'react-native'
 import React, { useState, useEffect } from 'react'
 // import { ScrollView } from 'react-native-gesture-handler';
 import { useNavigation } from "@react-navigation/native";
@@ -67,7 +67,7 @@ const MatchOut = () => {
   const [FunctionRun, setFunctionRun] = useState(null);
 
   React.useEffect(() => {
-    
+
     console.log("Navigation/Screen/Match/MatchRegister/MatchOut.js");
     if (route.params?.FlagBatterType) setFlagBatterType(route.params?.FlagBatterType);
     if (route.params?.original_Stickerid) setoriginal_Stickerid(route.params?.original_Stickerid);
@@ -114,12 +114,12 @@ const MatchOut = () => {
     if (route.params?.PosstionFlag) setPosstionFlag(route.params?.PosstionFlag);
 
     if (route.params?.WagonWeel) {
-      
+
       setWagonWeel(route.params?.WagonWeel)
       setShortType(route.params?.ShortType)
       //tempfunctionName(route.params?.FunctionRun)
       //alert(tempfunctionName)
-      
+
       var TempRun = route.params?.FunctionRun ? route.params?.FunctionRun : 0
       RedirectToFunction(route.params?.FunctionName, TempRun, route.params?.WagonWeel, route.params?.ShortType)
     }
@@ -130,7 +130,7 @@ const MatchOut = () => {
     if (FunctionName == "btnSaveBowled") {
       btnSaveBowled('CaughtBowled', WagonWeel, ShortType)
     }
-   
+
   };
   const UPDATE_LASTPAGENAME_MATCH_CRUD = async () => {
     try {
@@ -220,7 +220,7 @@ const MatchOut = () => {
         MatchTeamAid_undo: MatchTeamAid_undo,
         MatchInningid: MatchInningid,
         PosstionFlag: PosstionFlag,
-        FlagBatterType: FlagBatterType == Color.PrimaryColor ? Color.PrimaryColor : "white"
+        FlagBatterType: FlagBatterType == Color.PrimaryColor_Org ? Color.PrimaryColor_Org : "white"
       }
     )
   }
@@ -251,7 +251,7 @@ const MatchOut = () => {
         MatchTeamAid_undo: MatchTeamAid_undo,
         MatchInningid: MatchInningid,
         PosstionFlag: PosstionFlag,
-        FlagBatterType: FlagBatterType == Color.PrimaryColor ? Color.PrimaryColor : "white"
+        FlagBatterType: FlagBatterType == Color.PrimaryColor_Org ? Color.PrimaryColor_Org : "white"
       }
     )
   }
@@ -330,7 +330,7 @@ const MatchOut = () => {
       Description: "",
       MatchInningid: MatchInningid,
       MatchTeamAid_undo: MatchTeamAid_undo,
-      FlagBatterType: FlagBatterType == Color.PrimaryColor ? Color.PrimaryColor : "white"
+      FlagBatterType: FlagBatterType == Color.PrimaryColor_Org ? Color.PrimaryColor_Org : "white"
     });
   }
   const Hit_TheBallTwisce = () => {
@@ -375,7 +375,7 @@ const MatchOut = () => {
       Description: "",
       MatchInningid: MatchInningid,
       MatchTeamAid_undo: MatchTeamAid_undo,
-      FlagBatterType: FlagBatterType == Color.PrimaryColor ? Color.PrimaryColor : "white"
+      FlagBatterType: FlagBatterType == Color.PrimaryColor_Org ? Color.PrimaryColor_Org : "white"
     });
   }
   const Absent_Hurt = () => {
@@ -421,7 +421,7 @@ const MatchOut = () => {
       Description: "",
       MatchInningid: MatchInningid,
       MatchTeamAid_undo: MatchTeamAid_undo,
-      FlagBatterType: FlagBatterType == Color.PrimaryColor ? Color.PrimaryColor : "white"
+      FlagBatterType: FlagBatterType == Color.PrimaryColor_Org ? Color.PrimaryColor_Org : "white"
     });
 
   }
@@ -457,7 +457,7 @@ const MatchOut = () => {
         MatchTeamAid_undo: MatchTeamAid_undo,
         MatchInningid: MatchInningid,
         PosstionFlag: PosstionFlag,
-        FlagBatterType: FlagBatterType == Color.PrimaryColor ? Color.PrimaryColor : "white"
+        FlagBatterType: FlagBatterType == Color.PrimaryColor_Org ? Color.PrimaryColor_Org : "white"
       }
     )
   }
@@ -489,7 +489,7 @@ const MatchOut = () => {
         MatchTeamAid_undo: MatchTeamAid_undo,
         MatchInningid: MatchInningid,
         PosstionFlag: PosstionFlag,
-        FlagBatterType: FlagBatterType == Color.PrimaryColor ? Color.PrimaryColor : "white"
+        FlagBatterType: FlagBatterType == Color.PrimaryColor_Org ? Color.PrimaryColor_Org : "white"
       }
     )
   }
@@ -537,7 +537,7 @@ const MatchOut = () => {
       Description: "",
       MatchInningid: MatchInningid,
       MatchTeamAid_undo: MatchTeamAid_undo,
-      FlagBatterType: FlagBatterType == Color.PrimaryColor ? Color.PrimaryColor : "white"
+      FlagBatterType: FlagBatterType == Color.PrimaryColor_Org ? Color.PrimaryColor_Org : "white"
     });
   }
 
@@ -597,7 +597,7 @@ const MatchOut = () => {
       Description: "",
       MatchInningid: MatchInningid,
       MatchTeamAid_undo: MatchTeamAid_undo,
-      FlagBatterType: FlagBatterType == Color.PrimaryColor ? Color.PrimaryColor : "white"
+      FlagBatterType: FlagBatterType == Color.PrimaryColor_Org ? Color.PrimaryColor_Org : "white"
     });
   }
   const Caught_Modal = async () => {
@@ -643,10 +643,57 @@ const MatchOut = () => {
       Description: "",
       MatchInningid: MatchInningid,
       MatchTeamAid_undo: MatchTeamAid_undo,
-      FlagBatterType: FlagBatterType == Color.PrimaryColor ? Color.PrimaryColor : "white"
+      FlagBatterType: FlagBatterType == Color.PrimaryColor_Org ? Color.PrimaryColor_Org : "white"
     });
   }
-  const btnSaveBowled = async (OutBatterType,WagonWeel,ShortType) => {
+  const btnSaveBowled = async (OutBatterType, WagonWeel, ShortType) => {
+    // console.log(FlagBatterType)
+    // console.log(Color.PrimaryColor )
+    // console.log(FlagBatterType == Color.PrimaryColor ? Color.PrimaryColor : "white")
+    // return
+    // console.log(FlagBatterType == Color.PrimaryColor_Org ? "Sticker" : "Runner")
+    // return
+    var data = {
+      Oper: "add",
+      Matchid: Matchid,
+      WagonWeel: OutBatterType == 'CaughtBowled' ? (WagonWeel ? WagonWeel : "") : "",
+      ShortType: OutBatterType == 'CaughtBowled' ? (ShortType ? ShortType : "") : "",
+      MobileNo: global.MobileNo,
+      TeamAid: TeamABatterid,
+      TeamAName: TeamABatterName,
+      Bowlerid: Bowlerid,
+      BowlerName: BowlerName,
+      BowlerPlayerid: BowlerPlayerid,
+      BowlingSide: BowlingSide,
+      Streakerid: Stickerid,
+      StreakeName: StickerName,
+      StickerPlayerid: StickerPlayerid,
+      Runnerid: Runnerid,
+      RunnerName: RunnerName,
+      RunnerPlayerid: RunnerPlayerid,
+      Bowle: Bowle || 0,
+      BowleOver: BowleOver || 0,
+      BowleCount: BowleCount || 0,
+      BowlerWiseBallCount: BowlerWiseBallCount || 0,
+      TotalOver: TotalOver,
+      Run: 0,
+      FourS: 0,
+      SixS: 0,
+      Type: "Out",
+      WideBallRun: 0,
+      NoBallRun: 0,
+      NoBallchecked: "",
+      OutBatterid: Stickerid,
+      OutBatterType: OutBatterType,
+      OutByBowlerid: Bowlerid,
+      OutByBowlerName: BowlerName,
+      Description: "",
+      MatchInningid: MatchInningid,
+      MatchTeamAid_undo: MatchTeamAid_undo,
+      FlagBatterType: FlagBatterType == Color.PrimaryColor_Org ? "Sticker" : "Runner"
+    }
+    // console.log(data)
+    // return
     const resposneJSON = await fetch(
       `${global.domainName}/cricbuddyAPI/api/MatchTeamA`,
       {
@@ -656,60 +703,22 @@ const MatchOut = () => {
           "Content-Type": "application/json",
           Authorization: "FF7B5E5C-A468-4CE0-B812-98008627C8KT",
         },
-        body: JSON.stringify({
-          Oper: "add",
-          Matchid: Matchid,
-          WagonWeel:OutBatterType == 'CaughtBowled' ? (WagonWeel  ? WagonWeel : "") : "",
-          ShortType:OutBatterType == 'CaughtBowled' ? (ShortType  ? ShortType : "") : "",
-          MobileNo: global.MobileNo,
-          TeamAid: TeamABatterid,
-          TeamAName: TeamABatterName,
-          Bowlerid: Bowlerid,
-          BowlerName: BowlerName,
-          BowlerPlayerid: BowlerPlayerid,
-          BowlingSide: BowlingSide,
-          Streakerid: Stickerid,
-          StreakeName: StickerName,
-          StickerPlayerid: StickerPlayerid,
-          Runnerid: Runnerid,
-          RunnerName: RunnerName,
-          RunnerPlayerid: RunnerPlayerid,
-          Bowle: Bowle || 0,
-          BowleOver: BowleOver || 0,
-          BowleCount: BowleCount || 0,
-          BowlerWiseBallCount: BowlerWiseBallCount || 0,
-          TotalOver: TotalOver,
-          Run: 0,
-          FourS: 0,
-          SixS: 0,
-          Type: "Out",
-          WideBallRun: 0,
-          NoBallRun: 0,
-          NoBallchecked: "",
-          OutBatterid: Stickerid,
-          OutBatterType: OutBatterType,
-          OutByBowlerid: Bowlerid,
-          OutByBowlerName: BowlerName,
-          Description: "",
-          MatchInningid: MatchInningid,
-          MatchTeamAid_undo: MatchTeamAid_undo,
-          FlagBatterType: FlagBatterType == Color.PrimaryColor ? "Sticker" : "Runner"
-        }),
+        body: JSON.stringify(data),
       }
     )
       .then((response) => response.json())
       .then((json) => {
         /*-------------------- Page Call -----------------------*/
         var BindData = JSON.parse(json);
-        
+
         if (BindData.SERVICERESPONSE.RESPONSECODE == 0) {
-          
-           /*------------------------ Clear Wagon params --------------------*/
-           route.params.FunctionName = null;
-           route.params.FunctionRun = null;
-           route.params.WagonWeel = null;
-           route.params.ShortType = null;
-           /*------------------------ Clear Wagon params --------------------*/
+
+          /*------------------------ Clear Wagon params --------------------*/
+          route.params.FunctionName = null;
+          route.params.FunctionRun = null;
+          route.params.WagonWeel = null;
+          route.params.ShortType = null;
+          /*------------------------ Clear Wagon params --------------------*/
 
           setMatchTeamAid_undo(BindData.SERVICERESPONSE.MATCHTEAMAID_UNDO)
           setBall(BindData.SERVICERESPONSE.BOWLE);
@@ -720,9 +729,8 @@ const MatchOut = () => {
           // setNextOverModal(
           //   BindData.SERVICERESPONSE.NEXTOVER == "true" ? true : false
           // );
-          if(Matchid)
-          {
-            scoketservices.emit("SendMessage",Matchid)
+          if (Matchid) {
+            scoketservices.emit("SendMessage", Matchid)
           }
           if (BindData.SERVICERESPONSE.NEXTINNING == "true") {
             setRunOutMankadedModal(false)
@@ -748,7 +756,7 @@ const MatchOut = () => {
               RunDisplay: BindData.SERVICERESPONSE.NEXTOVER == 'true' ? " " : BindData.SERVICERESPONSE.BOWLERRUNDISPLAY,
               ModalStickerSelect: "false",
               NextOver: BindData.SERVICERESPONSE.NEXTOVER,
-              FlagBatterType: FlagBatterType == Color.PrimaryColor ? Color.PrimaryColor : "white",
+              FlagBatterType: FlagBatterType == Color.PrimaryColor_Org ? Color.PrimaryColor_Org : "white",
               Run: BindData.SERVICERESPONSE.RUN,
               BowlerRun: BindData.SERVICERESPONSE.BOWLERRUN,
             })
@@ -775,8 +783,8 @@ const MatchOut = () => {
                   resizeMode="stretch"
                   style={styles.img}
                 />
-                <Text style={{ fontSize: 20, fontWeight: "700",color:Color.FontColor }}>{TeamBBowlerName}</Text>
-                <Text style={{ fontSize: 16,color:Color.FontColor }}>Confirme Next Inning Start?</Text>
+                <Text style={{ fontSize: 20, fontWeight: "700", color: Color.FontColor }}>{TeamBBowlerName}</Text>
+                <Text style={{ fontSize: 16, color: Color.FontColor }}>Confirme Next Inning Start?</Text>
               </View>
 
               <View style={[styles.modalText, { marginTop: 20 }]}>
@@ -819,8 +827,8 @@ const MatchOut = () => {
                   resizeMode="stretch"
                   style={styles.img}
                 />
-                <Text style={{ fontSize: 20, fontWeight: "700",color:Color.FontColor }}>{StickerName}</Text>
-                <Text style={{ fontSize: 16,color:Color.FontColor }}>Confirmed out - Bowled?</Text>
+                <Text style={{ fontSize: 20, fontWeight: "700", color: Color.FontColor }}>{StickerName}</Text>
+                <Text style={{ fontSize: 16, color: Color.FontColor }}>Confirmed out - Bowled?</Text>
               </View>
 
               <View style={[styles.modalText, { marginTop: 20 }]}>
@@ -862,8 +870,8 @@ const MatchOut = () => {
                   resizeMode="stretch"
                   style={styles.img}
                 />
-                <Text style={{ fontSize: 20, fontWeight: "700",color:Color.FontColor }}>{StickerName}</Text>
-                <Text style={{ fontSize: 16,color:Color.FontColor }}>Confirmed out - Caught & Bowled?</Text>
+                <Text style={{ fontSize: 20, fontWeight: "700", color: Color.FontColor }}>{StickerName}</Text>
+                <Text style={{ fontSize: 16, color: Color.FontColor }}>Confirmed out - Caught & Bowled?</Text>
               </View>
 
               <View style={[styles.modalText, { marginTop: 20 }]}>
@@ -877,7 +885,7 @@ const MatchOut = () => {
                       , RedirectPage: "MatchOut"
                       , PageName: StickerName
                     })
-                   // btnSaveBowled('CaughtBowled')
+                    // btnSaveBowled('CaughtBowled')
                   }}
                 >
                   <Text style={{ color: "white", fontWeight: "600" }}>
@@ -914,8 +922,8 @@ const MatchOut = () => {
                   resizeMode="stretch"
                   style={styles.img}
                 />
-                <Text style={{ fontSize: 20, fontWeight: "700",color:Color.FontColor }}>{StickerName}</Text>
-                <Text style={{ fontSize: 16,color:Color.FontColor }}>Confirmed out - LBW?</Text>
+                <Text style={{ fontSize: 20, fontWeight: "700", color: Color.FontColor }}>{StickerName}</Text>
+                <Text style={{ fontSize: 16, color: Color.FontColor }}>Confirmed out - LBW?</Text>
               </View>
 
               <View style={[styles.modalText, { marginTop: 20 }]}>
@@ -957,8 +965,8 @@ const MatchOut = () => {
                   resizeMode="stretch"
                   style={styles.img}
                 />
-                <Text style={{ fontSize: 20, fontWeight: "700",color:Color.FontColor }}>{StickerName}</Text>
-                <Text style={{ fontSize: 16,color:Color.FontColor }}>Confirmed out - Run Out(Mankaded)?</Text>
+                <Text style={{ fontSize: 20, fontWeight: "700", color: Color.FontColor }}>{StickerName}</Text>
+                <Text style={{ fontSize: 16, color: Color.FontColor }}>Confirmed out - Run Out(Mankaded)?</Text>
               </View>
 
               <View style={[styles.modalText, { marginTop: 20 }]}>
@@ -1260,7 +1268,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "700",
     textAlign: "center",
-    color:Color.FontColor
+    color: Color.FontColor
   },
 
   modalcenteredView: {

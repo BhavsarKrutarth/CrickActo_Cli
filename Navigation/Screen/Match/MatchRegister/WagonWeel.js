@@ -16,6 +16,7 @@ const WagonWeel = props => {
     const [FunctionRun, setFunctionRun] = useState(null);
     const [RedirectPage, setRedirectPage] = useState(null);
     const [ShortType, setShortType] = useState(0);
+    const [FlagBatter,setFlagBatter] = useState(null);
 
     const GetShortType_Value = async (Matchid) => {
         try {
@@ -63,17 +64,29 @@ const WagonWeel = props => {
         navigation.navigate(RedirectPage)
     }
     const Done = (ShortType) => {
+         console.log(FunctionName + " " + RedirectPage)
+        // return
         if (WagonWeel) {
             if(Matchid)
             {
                 scoketservices.emit("SendMessage",Matchid)
             }
             //alert("Select Weedl " + ShortType )
+            // var data = {
+            //     WagonWeel : WagonWeel,
+            //     ShortType : ShortType ? ShortType : "",
+            //     FunctionName: FunctionName,
+            //     FunctionRun: FunctionRun ? FunctionRun : 0,
+            //     FlagBatter:FlagBatter
+            // }
+            // console.log(data)
+            // return
             navigation.navigate(RedirectPage,{
                 WagonWeel : WagonWeel,
                 ShortType : ShortType ? ShortType : "",
                 FunctionName: FunctionName,
-                FunctionRun: FunctionRun ? FunctionRun : 0
+                FunctionRun: FunctionRun ? FunctionRun : 0,
+                FlagBatter:FlagBatter
             })
         }
         else {
@@ -101,6 +114,9 @@ const WagonWeel = props => {
 
         if (route.params?.RedirectPage)
             setRedirectPage(route.params?.RedirectPage)
+
+        if (route.params?.FlagBatter)
+            setFlagBatter(route.params?.FlagBatter)
 
     }, [route.params])
     return (

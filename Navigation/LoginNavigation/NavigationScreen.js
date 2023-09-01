@@ -16,6 +16,7 @@ import {
   Pressable
 } from "react-native";
 import Color from "../../Color/Color";
+
 /*------------------------ Login -----------------------*/
 import Login from "../Screen/Login/Login";
 import OTP_Verify from "../Screen/Login/OTP_Verify";

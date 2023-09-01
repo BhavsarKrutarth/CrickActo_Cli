@@ -272,6 +272,8 @@ import {
     }
     const BtnNext = async() =>
     {
+      // console.log(FlagBatterType + ' ' + Color.PrimaryColor_Org)
+      // return
       var url = `${global.domainName}/cricbuddyAPI/api/Commonsp`
       
       var data = {

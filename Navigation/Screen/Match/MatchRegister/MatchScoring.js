@@ -1166,6 +1166,16 @@ const MatchScoring = () => {
   };
 
   const CalculateUndo = async () => {
+    // var data = {
+    //   Oper: "UNDO",
+    //   Matchid: Matchid,
+    //   MatchInningid: MatchInningid,
+    //   MatchTeamAid_undo: MatchTeamAid_undo || 0,
+    //   Spname : "UNDOCALCULATE_API_CRUD"
+    // }
+
+    //  console.log(data)
+    //   return
     const resposneJSON = await fetch(
       `${global.domainName}/cricbuddyAPI/api/Commonsp`,
       {
@@ -1188,12 +1198,14 @@ const MatchScoring = () => {
       .then((json) => {
         /*-------------------- Page Call -----------------------*/
         var BindData = JSON.parse(json);
-
+        console.log(BindData)
+        // console.log(BindData)
         if (BindData.SERVICERESPONSE.RESPONSECODE == 0) {
           // console.log(BindData.SERVICERESPONSE.TYPE + " Type")
           // console.log(BindData.SERVICERESPONSE.OLD_STREAKENAME + '')
           // console.log(BindData.SERVICERESPONSE.CALCULATE_RUN + ' CALCULATE_RUN')
           var data = BindData.SERVICERESPONSE;
+          // console.log(data)
           setRun(data.RUN);
           setOut(data.OUT);
           setBall(data.BALL);
@@ -1240,6 +1252,7 @@ const MatchScoring = () => {
   const CalculateSocring = async (OneBallRun, WagonWeel, ShortType) => {
     // console.log(WagonWeel + " || WagonWeel")
     // console.log(ShortType + " || ShortType")
+    console.log(StickerColor == Color.PrimaryColor_Org ? "Sticker" : "Runner")
     // return
     setRunDisplay(
       RunDisplay != null ? RunDisplay + " - " + OneBallRun : OneBallRun
@@ -1481,13 +1494,26 @@ const MatchScoring = () => {
                     <Pressable
                       style={styles.modalbutton}
                       onPress={() =>
+                       {
+                        var Temp_FlagBatter = ""
+                        if(StickerColor != "white") 
+                        {
+                          Temp_FlagBatter = "Sticker";
+                        }
+                        else 
+                        {
+                          Temp_FlagBatter = "Runner";
+                        }
+                        // console.log(Temp_FlagBatter + " "+  StickerColor)
+                        // return
                         navigation.navigate("MatchNextOver", {
                           PageName: "Select Bowler",
                           Matchid: Matchid,
                           Where_nq_Bowlerid: Bowlerid,
                           BowleOver: BowleOver,
                           MatchInningid: MatchInningid,
-                        })
+                          FlagBatter:Temp_FlagBatter
+                        })}
                       }
                     >
                       <Text style={{ color: "white", fontWeight: "600" }}>
@@ -2571,6 +2597,13 @@ const MatchScoring = () => {
               <Pressable
                 style={styles.Out}
                 onPress={() => {
+
+                  
+                  // console.log(StickerColor == Color.PrimaryColor_Org ? "Sticker" : "Runner",+"PosstionFlag:") ;
+                  // console.log(Color.PrimaryColor_Org ? Color.PrimaryColor_Org : "white",+"FlagBatterType:") ;
+                  //  return
+
+
                   navigation.navigate("MatchOut", {
                     PageName: "How Out ?",
                     Matchid: Matchid,

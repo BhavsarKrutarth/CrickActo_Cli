@@ -9,7 +9,7 @@ const TouranamentGround = () => {
   const navigation = useNavigation();
   const route = useRoute();
 
-  const [selectedItem, setSelectedItem] = useState([]);
+  const [selectedItem, setSelectedItem] = useState([{id:1,value:'test'},{id:2,value:'test2'},{id:3,value:'test3'}]);
 const [PageRedirect,setPageRedirect] = useState(null);
 
   useEffect(() => {
