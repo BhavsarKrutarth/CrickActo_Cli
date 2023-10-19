@@ -64,6 +64,7 @@ const Tournament_AddRound = () => {
     { id: 23, RoundName: "3rd Test" ,RoundType :"knock_Out" },
     { id: 24, RoundName: "4th Test" ,RoundType :"knock_Out" },
     { id: 25, RoundName: "5th Test" ,RoundType :"knock_Out" },
+    { id: 26, RoundName: "LEAGUE MATCHES" ,RoundType :"knock_Out" },
 
   ];
   const [KnowselectedItems, setKnowselectedItems] = useState([]);
